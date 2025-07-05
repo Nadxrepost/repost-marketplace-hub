@@ -32,6 +32,16 @@ const HowItWorks = () => {
   return (
     <section id="how-it-works" className="py-20 bg-gray-100">
       <div className="container mx-auto px-6">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            Comment ça marche ?
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            En 4 étapes simples, transformez votre façon de vendre en ligne
+          </p>
+        </div>
+
         {/* Steps Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => (

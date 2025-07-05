@@ -1,3 +1,4 @@
+
 const Platforms = () => {
   const platforms = [
     { name: "Vinted", logo: "🛍️", color: "bg-vinted-teal" },
@@ -7,7 +8,7 @@ const Platforms = () => {
     { name: "eBay", logo: "🌟", color: "bg-blue-500" },
     { name: "Etsy", logo: "🎭", color: "bg-orange-600" },
     { name: "Imparfaite", logo: "🌿", color: "bg-green-600" },
-    { name: "Shopify", logo: "🛒", color: "bg-green-500" },
+    { name: "Shopify", logo: "/lovable-uploads/6066c04d-163c-4a02-9ab2-ba8103f6dd71.png", color: "bg-green-500", isImage: true },
     { name: "New Life by Spartoo", logo: "👟", color: "bg-purple-500" }
   ];
 
@@ -31,7 +32,15 @@ const Platforms = () => {
             >
               <div className="text-center">
                 <div className={`w-16 h-16 ${platform.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-                  <span className="text-2xl">{platform.logo}</span>
+                  {platform.isImage ? (
+                    <img 
+                      src={platform.logo} 
+                      alt={`${platform.name} logo`}
+                      className="w-8 h-8 object-contain"
+                    />
+                  ) : (
+                    <span className="text-2xl">{platform.logo}</span>
+                  )}
                 </div>
                 <h3 className="font-semibold text-brand-dark text-sm">
                   {platform.name}

@@ -1,11 +1,7 @@
-
-
 import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
 const Hero = () => {
-  return (
-    <section id="hero" className="pt-24 pb-20 bg-gradient-to-br from-white via-brand-gray/30 to-brand-purple/10">
+  return <section id="hero" className="pt-24 pb-20 bg-gradient-to-br from-white via-brand-gray/30 to-brand-purple/10">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Content */}
@@ -23,25 +19,15 @@ const Hero = () => {
               <div className="text-brand-dark">Mesurez</div>
             </h1>
             
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl">
-              La solution SaaS complète pour les professionnels de la seconde main. 
-              Automatisez vos publications sur toutes les plateformes et boostez vos ventes.
-            </p>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl">La solution SaaS complète pour les professionnels de la seconde main. Automatisez la publications de vos annonces sur toutes les plateformes et boostez vos ventes.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button 
-                size="lg" 
-                className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg group"
-              >
+              <Button size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg group">
                 Commencer gratuitement
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-brand-purple text-brand-purple hover:bg-brand-purple/10 px-8 py-6 text-lg group"
-              >
+              <Button size="lg" variant="outline" className="border-brand-purple text-brand-purple hover:bg-brand-purple/10 px-8 py-6 text-lg group">
                 <Play className="mr-2 w-5 h-5" />
                 Voir la démo
               </Button>
@@ -67,11 +53,7 @@ const Hero = () => {
           <div className="flex-1 animate-slide-in-left">
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-4 transform hover:scale-105 transition-transform duration-300">
-                <img 
-                  src="/lovable-uploads/6d399c0c-6294-468f-884a-dd693212e594.png" 
-                  alt="Dashboard Repost - Vue d'ensemble de votre activité" 
-                  className="w-full h-auto rounded-lg"
-                />
+                <img src="/lovable-uploads/6d399c0c-6294-468f-884a-dd693212e594.png" alt="Dashboard Repost - Vue d'ensemble de votre activité" className="w-full h-auto rounded-lg" />
               </div>
               
               {/* Floating Elements */}
@@ -79,13 +61,18 @@ const Hero = () => {
                 <span className="text-brand-dark font-bold">+50%</span>
               </div>
               
-              <div className="absolute -bottom-4 -left-4 bg-brand-purple rounded-full p-3 animate-float" style={{animationDelay: '1s'}}>
+              <div className="absolute -bottom-4 -left-4 bg-brand-purple rounded-full p-3 animate-float" style={{
+              animationDelay: '1s'
+            }}>
                 <span className="text-white font-bold">📈</span>
               </div>
 
               {/* Floating Marketplace Logos */}
               {/* Vinted - Top Left */}
-              <div className="absolute -top-8 -left-8 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{animationDelay: '0.5s', borderColor: '#007882'}}>
+              <div className="absolute -top-8 -left-8 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{
+              animationDelay: '0.5s',
+              borderColor: '#007882'
+            }}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-vinted-teal rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-sm">V</span>
@@ -95,7 +82,10 @@ const Hero = () => {
               </div>
 
               {/* eBay - Top Right */}
-              <div className="absolute -top-6 right-12 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{animationDelay: '1.5s', borderColor: '#0064D2'}}>
+              <div className="absolute -top-6 right-12 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{
+              animationDelay: '1.5s',
+              borderColor: '#0064D2'
+            }}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-sm">e</span>
@@ -105,17 +95,27 @@ const Hero = () => {
               </div>
 
               {/* Shopify - Bottom Left */}
-              <div className="absolute -bottom-8 left-12 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{animationDelay: '2s', borderColor: '#4e8f30'}}>
+              <div className="absolute -bottom-8 left-12 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{
+              animationDelay: '2s',
+              borderColor: '#4e8f30'
+            }}>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{backgroundColor: '#4e8f30'}}>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{
+                  backgroundColor: '#4e8f30'
+                }}>
                     <span className="text-white font-bold text-sm">S</span>
                   </div>
-                  <span className="font-semibold text-sm" style={{color: '#4e8f30'}}>Shopify</span>
+                  <span className="font-semibold text-sm" style={{
+                  color: '#4e8f30'
+                }}>Shopify</span>
                 </div>
               </div>
 
               {/* Depop - Left Side */}
-              <div className="absolute top-1/4 -left-12 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{animationDelay: '2.5s', borderColor: '#ef4444'}}>
+              <div className="absolute top-1/4 -left-12 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{
+              animationDelay: '2.5s',
+              borderColor: '#ef4444'
+            }}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-sm">D</span>
@@ -125,7 +125,10 @@ const Hero = () => {
               </div>
 
               {/* Etsy - Right Side */}
-              <div className="absolute top-3/4 -right-12 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{animationDelay: '3s', borderColor: '#f97316'}}>
+              <div className="absolute top-3/4 -right-12 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{
+              animationDelay: '3s',
+              borderColor: '#f97316'
+            }}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-sm">E</span>
@@ -137,9 +140,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
-

@@ -1,5 +1,4 @@
 
-
 const Platforms = () => {
   const platforms = [{
     name: "Vinted",
@@ -48,9 +47,11 @@ const Platforms = () => {
     isImage: true,
     isShopify: true
   }, {
-    name: "New Life by Spartoo",
-    logo: "👟",
-    color: "bg-purple-500"
+    name: "Spartoo",
+    logo: "/lovable-uploads/cc8762f3-c7ca-4ecb-8fe5-fe96f7e0e6bc.png",
+    color: "bg-white",
+    isImage: true,
+    isSpartoo: true
   }];
   
   return <section id="platforms" className="py-20 bg-gradient-to-br from-brand-gray/20 to-brand-purple/5">
@@ -80,6 +81,8 @@ const Platforms = () => {
                   </div> : platform.isDepop ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : platform.isEbay ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
+                  </div> : platform.isSpartoo ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : <div className={`w-16 h-16 ${platform.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
                     {platform.isImage ? <img src={platform.logo} alt={`${platform.name} logo`} className="w-8 h-8 object-contain" /> : <span className="text-2xl">{platform.logo}</span>}
@@ -127,4 +130,3 @@ const Platforms = () => {
     </section>;
 };
 export default Platforms;
-

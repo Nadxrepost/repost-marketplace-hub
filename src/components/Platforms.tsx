@@ -1,8 +1,11 @@
+
 const Platforms = () => {
   const platforms = [{
     name: "Vinted",
-    logo: "🛍️",
-    color: "bg-vinted-teal"
+    logo: "/lovable-uploads/2feaaeb5-becd-4a20-854a-3a3043cc839c.png",
+    color: "bg-white",
+    isImage: true,
+    isVinted: true
   }, {
     name: "Leboncoin",
     logo: "🏷️",
@@ -53,7 +56,9 @@ const Platforms = () => {
           {platforms.map((platform, index) => <div key={index} className="group p-6 bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer">
               <div className="text-center">
                 {platform.isShopify ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <img src={platform.logo} alt={`${platform.name} logo`} className="w-40 h-40 object-contain" />
+                    <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
+                  </div> : platform.isVinted ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : <div className={`w-16 h-16 ${platform.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
                     {platform.isImage ? <img src={platform.logo} alt={`${platform.name} logo`} className="w-8 h-8 object-contain" /> : <span className="text-2xl">{platform.logo}</span>}
                   </div>}

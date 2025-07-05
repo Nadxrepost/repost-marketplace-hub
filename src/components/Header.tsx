@@ -3,16 +3,15 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-interface HeaderProps {
-  onContactClick: () => void;
-}
-
-const Header = ({ onContactClick }: HeaderProps) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleContactClick = () => {
-    onContactClick();
     setIsMenuOpen(false);
+    // Scroll to contact section
+    setTimeout(() => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   return (

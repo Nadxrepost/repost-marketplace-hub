@@ -1,4 +1,5 @@
 
+
 const Platforms = () => {
   const platforms = [{
     name: "eBay",
@@ -37,7 +38,7 @@ const Platforms = () => {
     isImage: true,
     isVestiaire: true
   }, {
-    name: "Spartoo",
+    name: "ReSpartoo - 2nde main",
     logo: "/lovable-uploads/cc8762f3-c7ca-4ecb-8fe5-fe96f7e0e6bc.png",
     color: "bg-white",
     isImage: true,
@@ -118,3 +119,4 @@ const Platforms = () => {
     </section>;
 };
 export default Platforms;
+

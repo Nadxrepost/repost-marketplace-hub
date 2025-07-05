@@ -62,7 +62,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - Dashboard Screenshot */}
+          {/* Right Content - Dashboard Screenshot with Floating Logos */}
           <div className="flex-1 animate-slide-in-left">
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-4 transform hover:scale-105 transition-transform duration-300">
@@ -80,6 +80,57 @@ const Hero = () => {
               
               <div className="absolute -bottom-4 -left-4 bg-brand-purple rounded-full p-3 animate-float" style={{animationDelay: '1s'}}>
                 <span className="text-white font-bold">📈</span>
+              </div>
+
+              {/* Floating Marketplace Logos */}
+              {/* Vinted - Top Left */}
+              <div className="absolute -top-8 -left-8 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '0.5s'}}>
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">V</span>
+                  </div>
+                  <span className="text-purple-500 font-semibold text-sm">Vinted</span>
+                </div>
+              </div>
+
+              {/* eBay - Top Right */}
+              <div className="absolute -top-6 right-12 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '1.5s'}}>
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">e</span>
+                  </div>
+                  <span className="text-blue-500 font-semibold text-sm">eBay</span>
+                </div>
+              </div>
+
+              {/* Shopify - Bottom Left */}
+              <div className="absolute -bottom-8 left-12 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '2s'}}>
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">S</span>
+                  </div>
+                  <span className="text-green-500 font-semibold text-sm">Shopify</span>
+                </div>
+              </div>
+
+              {/* Depop - Left Side */}
+              <div className="absolute top-1/4 -left-12 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '2.5s'}}>
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">D</span>
+                  </div>
+                  <span className="text-red-500 font-semibold text-sm">Depop</span>
+                </div>
+              </div>
+
+              {/* Etsy - Right Side */}
+              <div className="absolute top-3/4 -right-12 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '3s'}}>
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">E</span>
+                  </div>
+                  <span className="text-orange-500 font-semibold text-sm">Etsy</span>
+                </div>
               </div>
             </div>
           </div>

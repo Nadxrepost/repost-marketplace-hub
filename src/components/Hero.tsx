@@ -1,5 +1,3 @@
-
-
 import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -107,10 +105,10 @@ const Hero = () => {
               {/* Shopify - Bottom Left */}
               <div className="absolute -bottom-8 left-12 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '2s'}}>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{backgroundColor: '#90b944'}}>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{backgroundColor: '#4e8f30'}}>
                     <span className="text-white font-bold text-sm">S</span>
                   </div>
-                  <span className="font-semibold text-sm" style={{color: '#90b944'}}>Shopify</span>
+                  <span className="font-semibold text-sm" style={{color: '#4e8f30'}}>Shopify</span>
                 </div>
               </div>
 
@@ -142,4 +140,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

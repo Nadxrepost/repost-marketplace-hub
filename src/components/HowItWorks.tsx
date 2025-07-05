@@ -39,9 +39,6 @@ const HowItWorks = () => {
               key={index}
               className="bg-white rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer group hover:border-2 hover:border-brand-purple/30"
             >
-              {/* Overlay encadré plus foncé au survol */}
-              <div className="absolute inset-0 bg-brand-purple/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-
               {/* Step Number */}
               <div className="absolute -top-3 -left-3 z-10">
                 <div className="w-8 h-8 bg-brand-purple rounded-full flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300">

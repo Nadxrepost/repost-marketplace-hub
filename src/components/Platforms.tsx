@@ -1,4 +1,5 @@
 
+
 const Platforms = () => {
   const platforms = [
     { name: "Vinted", logo: "🛍️", color: "bg-vinted-teal" },
@@ -8,7 +9,7 @@ const Platforms = () => {
     { name: "eBay", logo: "🌟", color: "bg-blue-500" },
     { name: "Etsy", logo: "🎭", color: "bg-orange-600" },
     { name: "Imparfaite", logo: "🌿", color: "bg-green-600" },
-    { name: "Shopify", logo: "/lovable-uploads/6066c04d-163c-4a02-9ab2-ba8103f6dd71.png", color: "bg-green-500", isImage: true },
+    { name: "Shopify", logo: "/lovable-uploads/96b2349f-5375-42fd-9803-817d984f7e7e.png", color: "bg-white", isImage: true, isShopify: true },
     { name: "New Life by Spartoo", logo: "👟", color: "bg-purple-500" }
   ];
 
@@ -31,17 +32,27 @@ const Platforms = () => {
               className="group p-6 bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
             >
               <div className="text-center">
-                <div className={`w-16 h-16 ${platform.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-                  {platform.isImage ? (
+                {platform.isShopify ? (
+                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img 
                       src={platform.logo} 
                       alt={`${platform.name} logo`}
-                      className="w-8 h-8 object-contain"
+                      className="w-12 h-12 object-contain"
                     />
-                  ) : (
-                    <span className="text-2xl">{platform.logo}</span>
-                  )}
-                </div>
+                  </div>
+                ) : (
+                  <div className={`w-16 h-16 ${platform.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
+                    {platform.isImage ? (
+                      <img 
+                        src={platform.logo} 
+                        alt={`${platform.name} logo`}
+                        className="w-8 h-8 object-contain"
+                      />
+                    ) : (
+                      <span className="text-2xl">{platform.logo}</span>
+                    )}
+                  </div>
+                )}
                 <h3 className="font-semibold text-brand-dark text-sm">
                   {platform.name}
                 </h3>
@@ -88,3 +99,4 @@ const Platforms = () => {
 };
 
 export default Platforms;
+

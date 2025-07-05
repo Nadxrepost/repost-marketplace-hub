@@ -15,11 +15,11 @@ const Hero = () => {
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark mb-6 leading-tight">
-              <span className="gradient-text">Centralisez</span> – 
-              <span className="gradient-text"> Gérez</span> – 
-              <span className="gradient-text"> Diffusez</span> – 
-              <span className="gradient-text"> Mesurez</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <div className="text-brand-dark">Centralisez</div>
+              <div className="text-brand-purple">Gérez</div>
+              <div className="text-brand-yellow">Diffusez</div>
+              <div className="text-brand-dark">Mesurez</div>
             </h1>
             
             <p className="text-xl text-gray-600 mb-8 max-w-2xl">

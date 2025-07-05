@@ -53,7 +53,7 @@ const Hero = () => {
           <div className="flex-1 animate-slide-in-left">
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-4 transform hover:scale-105 transition-transform duration-300">
-                <img src="/lovable-uploads/6d399c0c-6294-468f-884a-dd693212e594.png" alt="Dashboard Repost - Vue d'ensemble de votre activité" className="w-4/5 h-auto rounded-lg mx-auto" />
+                <img src="/lovable-uploads/6d399c0c-6294-468f-884a-dd693212e594.png" alt="Dashboard Repost - Vue d'ensemble de votre activité" className="w-full h-auto rounded-lg" />
               </div>
               
               {/* Floating Elements */}

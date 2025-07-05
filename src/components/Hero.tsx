@@ -1,5 +1,4 @@
 
-
 import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -97,10 +96,10 @@ const Hero = () => {
               {/* eBay - Top Right */}
               <div className="absolute -top-6 right-12 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '1.5s'}}>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">e</span>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center relative overflow-hidden" style={{background: 'linear-gradient(135deg, #E53238 0%, #0064D2 25%, #F5AF02 50%, #86B817 75%, #0064D2 100%)'}}>
+                    <span className="text-white font-bold text-sm relative z-10">e</span>
                   </div>
-                  <span className="text-blue-500 font-semibold text-sm">eBay</span>
+                  <span className="font-semibold text-sm" style={{color: '#0064D2'}}>eBay</span>
                 </div>
               </div>
 
@@ -142,4 +141,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

@@ -1,4 +1,5 @@
 
+
 const Platforms = () => {
   const platforms = [{
     name: "Vinted",
@@ -24,8 +25,10 @@ const Platforms = () => {
     color: "bg-blue-500"
   }, {
     name: "Etsy",
-    logo: "🎭",
-    color: "bg-orange-600"
+    logo: "/lovable-uploads/cf57b897-1f31-46c9-a27a-908d476009c2.png",
+    color: "bg-white",
+    isImage: true,
+    isEtsy: true
   }, {
     name: "Imparfaite",
     logo: "🌿",
@@ -58,6 +61,8 @@ const Platforms = () => {
                 {platform.isShopify ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : platform.isVinted ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
+                  </div> : platform.isEtsy ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : <div className={`w-16 h-16 ${platform.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
                     {platform.isImage ? <img src={platform.logo} alt={`${platform.name} logo`} className="w-8 h-8 object-contain" /> : <span className="text-2xl">{platform.logo}</span>}
@@ -105,3 +110,4 @@ const Platforms = () => {
     </section>;
 };
 export default Platforms;
+

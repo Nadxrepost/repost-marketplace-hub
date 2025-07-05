@@ -62,37 +62,15 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - Mockup */}
+          {/* Right Content - Dashboard Screenshot */}
           <div className="flex-1 animate-slide-in-left">
             <div className="relative">
-              <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="bg-gradient-purple-yellow h-64 rounded-lg mb-4 flex items-center justify-center">
-                  <div className="text-white text-center">
-                    <div className="w-16 h-16 bg-white/20 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                      <img 
-                        src="/lovable-uploads/c6dda6d0-84cf-4dbb-a594-41853d563846.png" 
-                        alt="Repost Dashboard" 
-                        className="w-10 h-10"
-                      />
-                    </div>
-                    <h3 className="text-lg font-semibold">Dashboard Repost</h3>
-                    <p className="text-sm opacity-90">Gérez tout depuis un seul endroit</p>
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-brand-purple rounded-full"></div>
-                    <div className="h-2 bg-gray-200 rounded flex-1"></div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-brand-yellow rounded-full"></div>
-                    <div className="h-2 bg-gray-200 rounded flex-1"></div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-brand-purple rounded-full"></div>
-                    <div className="h-2 bg-gray-200 rounded flex-1"></div>
-                  </div>
-                </div>
+              <div className="bg-white rounded-2xl shadow-2xl p-4 transform hover:scale-105 transition-transform duration-300">
+                <img 
+                  src="/lovable-uploads/6d399c0c-6294-468f-884a-dd693212e594.png" 
+                  alt="Dashboard Repost - Vue d'ensemble de votre activité" 
+                  className="w-full h-auto rounded-lg"
+                />
               </div>
               
               {/* Floating Elements */}

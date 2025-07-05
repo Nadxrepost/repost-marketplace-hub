@@ -1,30 +1,5 @@
-
 const Platforms = () => {
   const platforms = [{
-    name: "Vinted",
-    logo: "/lovable-uploads/2feaaeb5-becd-4a20-854a-3a3043cc839c.png",
-    color: "bg-white",
-    isImage: true,
-    isVinted: true
-  }, {
-    name: "Leboncoin",
-    logo: "/lovable-uploads/e39c0364-1d0b-4c09-bd30-5fc57822461b.png",
-    color: "bg-white",
-    isImage: true,
-    isLeboncoin: true
-  }, {
-    name: "Vestiaire Collective",
-    logo: "/lovable-uploads/c1944d27-e9de-42dc-a6fa-fde442839b5b.png",
-    color: "bg-white",
-    isImage: true,
-    isVestiaire: true
-  }, {
-    name: "Depop",
-    logo: "/lovable-uploads/53b7ac1d-b12a-4cb0-8f3e-b54756eb2964.png",
-    color: "bg-white",
-    isImage: true,
-    isDepop: true
-  }, {
     name: "eBay",
     logo: "/lovable-uploads/080db45b-9073-491a-bb15-1e38c365de16.png",
     color: "bg-white",
@@ -37,15 +12,29 @@ const Platforms = () => {
     isImage: true,
     isEtsy: true
   }, {
-    name: "Imparfaite",
-    logo: "🌿",
-    color: "bg-green-600"
-  }, {
     name: "Shopify",
     logo: "/lovable-uploads/96b2349f-5375-42fd-9803-817d984f7e7e.png",
     color: "bg-white",
     isImage: true,
     isShopify: true
+  }, {
+    name: "Vinted",
+    logo: "/lovable-uploads/2feaaeb5-becd-4a20-854a-3a3043cc839c.png",
+    color: "bg-white",
+    isImage: true,
+    isVinted: true
+  }, {
+    name: "Depop",
+    logo: "/lovable-uploads/53b7ac1d-b12a-4cb0-8f3e-b54756eb2964.png",
+    color: "bg-white",
+    isImage: true,
+    isDepop: true
+  }, {
+    name: "Vestiaire Collective",
+    logo: "/lovable-uploads/c1944d27-e9de-42dc-a6fa-fde442839b5b.png",
+    color: "bg-white",
+    isImage: true,
+    isVestiaire: true
   }, {
     name: "Spartoo",
     logo: "/lovable-uploads/cc8762f3-c7ca-4ecb-8fe5-fe96f7e0e6bc.png",

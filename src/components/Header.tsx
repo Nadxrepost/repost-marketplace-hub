@@ -3,17 +3,8 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-interface HeaderProps {
-  onContactClick: () => void;
-}
-
-const Header = ({ onContactClick }: HeaderProps) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleContactClick = () => {
-    onContactClick();
-    setIsMenuOpen(false);
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
@@ -40,12 +31,9 @@ const Header = ({ onContactClick }: HeaderProps) => {
             <a href="#pricing" className="text-gray-600 hover:text-brand-purple transition-colors">
               Tarifs
             </a>
-            <button 
-              onClick={handleContactClick}
-              className="text-gray-600 hover:text-brand-purple transition-colors"
-            >
+            <a href="#contact" className="text-gray-600 hover:text-brand-purple transition-colors">
               Contact
-            </button>
+            </a>
           </nav>
 
           {/* CTA Buttons */}
@@ -80,12 +68,9 @@ const Header = ({ onContactClick }: HeaderProps) => {
               <a href="#pricing" className="text-gray-600 hover:text-brand-purple transition-colors">
                 Tarifs
               </a>
-              <button 
-                onClick={handleContactClick}
-                className="text-gray-600 hover:text-brand-purple transition-colors text-left"
-              >
+              <a href="#contact" className="text-gray-600 hover:text-brand-purple transition-colors">
                 Contact
-              </button>
+              </a>
               <div className="flex flex-col space-y-2 pt-4">
                 <Button variant="ghost" className="text-gray-600 hover:text-brand-purple">
                   Connexion

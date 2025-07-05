@@ -1,5 +1,3 @@
-
-
 const Platforms = () => {
   const platforms = [
     { name: "Vinted", logo: "🛍️", color: "bg-vinted-teal" },
@@ -37,7 +35,7 @@ const Platforms = () => {
                     <img 
                       src={platform.logo} 
                       alt={`${platform.name} logo`}
-                      className="w-14 h-14 object-contain"
+                      className="w-16 h-16 object-contain"
                     />
                   </div>
                 ) : (
@@ -99,4 +97,3 @@ const Platforms = () => {
 };
 
 export default Platforms;
-

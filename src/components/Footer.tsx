@@ -1,10 +1,27 @@
 
 import { Mail, MapPin, Phone } from 'lucide-react';
+import ContactForm from './ContactForm';
 
 const Footer = () => {
   return (
     <footer id="contact" className="bg-brand-dark text-white py-20">
       <div className="container mx-auto px-6">
+        {/* Section formulaire de contact */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">
+              Contactez-nous
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Vous avez des questions ? Nous sommes là pour vous aider à développer votre activité de seconde main.
+            </p>
+          </div>
+          
+          <div className="flex justify-center">
+            <ContactForm />
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Logo & Description */}
           <div className="md:col-span-2">

@@ -70,7 +70,7 @@ const Hero = () => {
                   <div className="text-white text-center">
                     <div className="w-16 h-16 bg-white/20 rounded-lg mx-auto mb-4 flex items-center justify-center">
                       <img 
-                        src="/lovable-uploads/254b0023-f77e-4b19-88d7-097a1d29a292.png" 
+                        src="/lovable-uploads/c6dda6d0-84cf-4dbb-a594-41853d563846.png" 
                         alt="Repost Dashboard" 
                         className="w-10 h-10"
                       />

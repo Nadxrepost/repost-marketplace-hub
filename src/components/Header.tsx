@@ -13,7 +13,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/254b0023-f77e-4b19-88d7-097a1d29a292.png" 
+              src="/lovable-uploads/c6dda6d0-84cf-4dbb-a594-41853d563846.png" 
               alt="Repost Logo" 
               className="w-10 h-10"
             />

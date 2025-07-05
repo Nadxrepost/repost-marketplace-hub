@@ -52,21 +52,21 @@ const HowItWorks = () => {
             >
               {/* Step Number */}
               <div className="absolute -top-3 -left-3 z-10">
-                <div className="w-8 h-8 bg-brand-purple rounded-full flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300">
+                <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300">
                   {step.number}
                 </div>
               </div>
 
               {/* Icon */}
               <div className="mb-4 relative z-10">
-                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto group-hover:bg-brand-yellow/20 group-hover:scale-110 transition-all duration-300">
-                  <step.icon className="w-6 h-6 text-brand-purple group-hover:text-brand-purple group-hover:scale-110 transition-all duration-300" />
+                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto group-hover:bg-yellow-200 group-hover:scale-110 transition-all duration-300">
+                  <step.icon className="w-6 h-6 text-gray-800 group-hover:scale-110 transition-all duration-300" />
                 </div>
               </div>
 
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-brand-purple transition-colors duration-300">
+                <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-gray-900 transition-colors duration-300">
                   {step.title}
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -77,8 +77,8 @@ const HowItWorks = () => {
               {/* Arrow connector (except for last item) */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                  <div className="w-6 h-0.5 bg-gradient-to-r from-brand-purple to-brand-yellow"></div>
-                  <div className="w-0 h-0 border-l-4 border-l-brand-yellow border-t-2 border-t-transparent border-b-2 border-b-transparent absolute right-0 top-1/2 transform -translate-y-1/2"></div>
+                  <div className="w-6 h-0.5 bg-gradient-to-r from-gray-400 to-gray-600"></div>
+                  <div className="w-0 h-0 border-l-4 border-l-gray-600 border-t-2 border-t-transparent border-b-2 border-b-transparent absolute right-0 top-1/2 transform -translate-y-1/2"></div>
                 </div>
               )}
             </div>

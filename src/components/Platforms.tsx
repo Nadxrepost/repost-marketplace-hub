@@ -1,6 +1,4 @@
 
-
-
 const Platforms = () => {
   const platforms = [{
     name: "Vinted",
@@ -14,8 +12,10 @@ const Platforms = () => {
     color: "bg-orange-500"
   }, {
     name: "Vestiaire Collective",
-    logo: "👗",
-    color: "bg-black"
+    logo: "/lovable-uploads/c1944d27-e9de-42dc-a6fa-fde442839b5b.png",
+    color: "bg-white",
+    isImage: true,
+    isVestiaire: true
   }, {
     name: "Depop",
     logo: "/lovable-uploads/53b7ac1d-b12a-4cb0-8f3e-b54756eb2964.png",
@@ -49,6 +49,7 @@ const Platforms = () => {
     logo: "👟",
     color: "bg-purple-500"
   }];
+  
   return <section id="platforms" className="py-20 bg-gradient-to-br from-brand-gray/20 to-brand-purple/5">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
@@ -68,6 +69,8 @@ const Platforms = () => {
                   </div> : platform.isVinted ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : platform.isEtsy ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
+                  </div> : platform.isVestiaire ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : platform.isDepop ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
@@ -119,5 +122,3 @@ const Platforms = () => {
     </section>;
 };
 export default Platforms;
-
-

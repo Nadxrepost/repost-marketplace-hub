@@ -1,4 +1,5 @@
 
+
 const Platforms = () => {
   const platforms = [{
     name: "Vinted",
@@ -8,8 +9,10 @@ const Platforms = () => {
     isVinted: true
   }, {
     name: "Leboncoin",
-    logo: "🏷️",
-    color: "bg-orange-500"
+    logo: "/lovable-uploads/e39c0364-1d0b-4c09-bd30-5fc57822461b.png",
+    color: "bg-white",
+    isImage: true,
+    isLeboncoin: true
   }, {
     name: "Vestiaire Collective",
     logo: "/lovable-uploads/c1944d27-e9de-42dc-a6fa-fde442839b5b.png",
@@ -68,6 +71,8 @@ const Platforms = () => {
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : platform.isVinted ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
+                  </div> : platform.isLeboncoin ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : platform.isEtsy ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : platform.isVestiaire ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
@@ -122,3 +127,4 @@ const Platforms = () => {
     </section>;
 };
 export default Platforms;
+

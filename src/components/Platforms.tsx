@@ -1,7 +1,7 @@
 
 const Platforms = () => {
   const platforms = [
-    { name: "Vinted", logo: "🛍️", color: "bg-green-500" },
+    { name: "Vinted", logo: "🛍️", color: "bg-[#007882]" },
     { name: "Leboncoin", logo: "🏷️", color: "bg-orange-500" },
     { name: "Vestiaire Collective", logo: "👗", color: "bg-black" },
     { name: "Depop", logo: "🎨", color: "bg-pink-500" },

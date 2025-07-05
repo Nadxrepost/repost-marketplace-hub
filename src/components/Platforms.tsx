@@ -37,7 +37,7 @@ const Platforms = () => {
                     <img 
                       src={platform.logo} 
                       alt={`${platform.name} logo`}
-                      className="w-12 h-12 object-contain"
+                      className="w-14 h-14 object-contain"
                     />
                   </div>
                 ) : (

@@ -1,4 +1,5 @@
 
+
 import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -86,10 +87,10 @@ const Hero = () => {
               {/* Vinted - Top Left */}
               <div className="absolute -top-8 -left-8 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '0.5s'}}>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-vinted-teal rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-sm">V</span>
                   </div>
-                  <span className="text-purple-500 font-semibold text-sm">Vinted</span>
+                  <span className="text-[#007882] font-semibold text-sm">Vinted</span>
                 </div>
               </div>
 
@@ -141,3 +142,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

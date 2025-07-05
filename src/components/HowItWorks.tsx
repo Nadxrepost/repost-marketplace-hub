@@ -1,6 +1,5 @@
 
 import { Upload, Target, Zap, TrendingUp } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const steps = [
   {
@@ -31,67 +30,46 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-20 bg-gray-50">
+    <section id="how-it-works" className="py-20 bg-gray-100">
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-dark mb-4">
-            Comment ça marche ?
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            En 4 étapes simples, transformez votre façon de vendre en ligne
-          </p>
-        </div>
-
         {/* Steps Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg text-center relative animate-fade-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className="bg-white rounded-xl p-6 text-center relative"
             >
               {/* Step Number */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="w-8 h-8 bg-brand-purple rounded-full flex items-center justify-center text-white font-bold">
+              <div className="absolute -top-3 -left-3">
+                <div className="w-8 h-8 bg-brand-purple rounded-full flex items-center justify-center text-white font-bold text-sm">
                   {step.number}
                 </div>
               </div>
 
               {/* Icon */}
-              <div className="mb-6 mt-4">
-                <div className="w-16 h-16 bg-brand-yellow/20 rounded-full flex items-center justify-center mx-auto">
-                  <step.icon className="w-8 h-8 text-brand-purple" />
+              <div className="mb-4">
+                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto">
+                  <step.icon className="w-6 h-6 text-brand-purple" />
                 </div>
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-semibold text-brand-dark mb-4">
+              <h3 className="text-lg font-bold text-gray-800 mb-3">
                 {step.title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 {step.description}
               </p>
+
+              {/* Arrow connector (except for last item) */}
+              {index < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                  <div className="w-6 h-0.5 bg-yellow-300"></div>
+                  <div className="w-0 h-0 border-l-4 border-l-yellow-300 border-t-2 border-t-transparent border-b-2 border-b-transparent absolute right-0 top-1/2 transform -translate-y-1/2"></div>
+                </div>
+              )}
             </div>
           ))}
-        </div>
-
-        {/* CTA Section */}
-        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-brand-dark mb-4">
-            Prêt à multiplier vos ventes ?
-          </h3>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Rejoignez des milliers de vendeurs qui utilisent déjà Repost pour maximiser leur présence en ligne.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-3 text-lg">
-              Essai gratuit 14 jours
-            </Button>
-            <Button variant="outline" className="border-brand-purple text-brand-purple hover:bg-brand-purple/10 px-8 py-3 text-lg">
-              Planifier une démo
-            </Button>
-          </div>
         </div>
       </div>
     </section>

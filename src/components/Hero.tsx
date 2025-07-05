@@ -1,3 +1,4 @@
+
 import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -83,7 +84,7 @@ const Hero = () => {
 
               {/* Floating Marketplace Logos */}
               {/* Vinted - Top Left */}
-              <div className="absolute -top-8 -left-8 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '0.5s'}}>
+              <div className="absolute -top-8 -left-8 bg-white rounded-xl shadow-lg p-3 animate-float border-2" style={{animationDelay: '0.5s', borderColor: '#007882'}}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-vinted-teal rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-sm">V</span>
@@ -93,7 +94,7 @@ const Hero = () => {
               </div>
 
               {/* eBay - Top Right */}
-              <div className="absolute -top-6 right-12 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '1.5s'}}>
+              <div className="absolute -top-6 right-12 bg-white rounded-xl shadow-lg p-3 animate-float border-2" style={{animationDelay: '1.5s', borderColor: '#0064D2'}}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-sm">e</span>
@@ -103,7 +104,7 @@ const Hero = () => {
               </div>
 
               {/* Shopify - Bottom Left */}
-              <div className="absolute -bottom-8 left-12 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '2s'}}>
+              <div className="absolute -bottom-8 left-12 bg-white rounded-xl shadow-lg p-3 animate-float border-2" style={{animationDelay: '2s', borderColor: '#4e8f30'}}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{backgroundColor: '#4e8f30'}}>
                     <span className="text-white font-bold text-sm">S</span>
@@ -113,7 +114,7 @@ const Hero = () => {
               </div>
 
               {/* Depop - Left Side */}
-              <div className="absolute top-1/4 -left-12 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '2.5s'}}>
+              <div className="absolute top-1/4 -left-12 bg-white rounded-xl shadow-lg p-3 animate-float border-2" style={{animationDelay: '2.5s', borderColor: '#ef4444'}}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-sm">D</span>
@@ -123,7 +124,7 @@ const Hero = () => {
               </div>
 
               {/* Etsy - Right Side */}
-              <div className="absolute top-3/4 -right-12 bg-white rounded-xl shadow-lg p-3 animate-float" style={{animationDelay: '3s'}}>
+              <div className="absolute top-3/4 -right-12 bg-white rounded-xl shadow-lg p-3 animate-float border-2" style={{animationDelay: '3s', borderColor: '#f97316'}}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-sm">E</span>

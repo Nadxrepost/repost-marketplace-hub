@@ -48,7 +48,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer group hover:border-2 hover:border-brand-purple/30"
+              className="bg-white rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer group hover:bg-gray-50 hover:border hover:border-gray-200"
             >
               {/* Step Number */}
               <div className="absolute -top-3 -left-3 z-10">

@@ -1,4 +1,5 @@
 
+
 import { Upload, Target, Zap, TrendingUp } from 'lucide-react';
 
 const steps = [
@@ -64,8 +65,8 @@ const HowItWorks = () => {
               {/* Arrow connector (except for last item) */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                  <div className="w-6 h-0.5 bg-yellow-300"></div>
-                  <div className="w-0 h-0 border-l-4 border-l-yellow-300 border-t-2 border-t-transparent border-b-2 border-b-transparent absolute right-0 top-1/2 transform -translate-y-1/2"></div>
+                  <div className="w-6 h-0.5 bg-gradient-to-r from-brand-purple to-brand-yellow"></div>
+                  <div className="w-0 h-0 border-l-4 border-l-brand-yellow border-t-2 border-t-transparent border-b-2 border-b-transparent absolute right-0 top-1/2 transform -translate-y-1/2"></div>
                 </div>
               )}
             </div>
@@ -77,3 +78,4 @@ const HowItWorks = () => {
 };
 
 export default HowItWorks;
+

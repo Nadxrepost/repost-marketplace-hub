@@ -1,3 +1,4 @@
+
 const Platforms = () => {
   const platforms = [{
     name: "eBay",
@@ -61,8 +62,6 @@ const Platforms = () => {
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : platform.isVinted ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
-                  </div> : platform.isLeboncoin ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform border-2 border-orange-400 rounded-lg p-1">
-                    <img src={platform.logo} alt={`${platform.name} logo`} className="w-full h-full object-contain" />
                   </div> : platform.isEtsy ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div> : platform.isVestiaire ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">

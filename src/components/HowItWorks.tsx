@@ -48,7 +48,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer group hover:bg-gray-50 hover:border hover:border-gray-200"
+              className="bg-white rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer group hover:bg-gray-50 hover:border-2 hover:border-brand-purple"
             >
               {/* Step Number */}
               <div className="absolute -top-3 -left-3 z-10">
@@ -86,7 +86,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Call to Action Section - Encadrée */}
-        <div className="bg-white rounded-2xl shadow-lg p-12 max-w-4xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-lg p-12 max-w-4xl mx-auto transition-all duration-300 hover:border-2 hover:border-brand-purple">
           <div className="text-center">
             <h3 className="text-3xl font-bold text-gray-800 mb-4">
               Prêt à multiplier vos ventes ?

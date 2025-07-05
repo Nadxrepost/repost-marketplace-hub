@@ -1,4 +1,3 @@
-
 const Platforms = () => {
   const platforms = [
     { name: "Vinted", logo: "🛍️", color: "bg-[#007882]" },

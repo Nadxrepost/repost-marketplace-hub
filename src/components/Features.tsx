@@ -7,25 +7,25 @@ const Features = () => {
       icon: Package,
       title: "Centraliser",
       description: "Gérez tous vos stocks depuis une interface unique. Importez, organisez et synchronisez vos articles en quelques clics.",
-      color: "bg-brand-purple"
+      color: "bg-gray-600"
     },
     {
       icon: Zap,
       title: "Gérer",
       description: "Automatisez vos tâches répétitives. Mise à jour des prix, gestion des stocks et suivi des commandes en temps réel.",
-      color: "bg-brand-yellow"
+      color: "bg-gray-500"
     },
     {
       icon: Globe,
       title: "Diffuser",
       description: "Publiez simultanément sur Vinted, Leboncoin, Vestiaire Collective, Depop, eBay, Etsy et bien d'autres plateformes.",
-      color: "bg-brand-purple"
+      color: "bg-gray-600"
     },
     {
       icon: BarChart3,
       title: "Mesurer",
       description: "Analysez vos performances avec des rapports détaillés. Optimisez vos ventes grâce à des insights précis.",
-      color: "bg-brand-yellow"
+      color: "bg-gray-500"
     }
   ];
 

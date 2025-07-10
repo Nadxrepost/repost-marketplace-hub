@@ -18,7 +18,7 @@ const BusinessSection = () => {
           <div className="relative">
             <div className="bg-white rounded-2xl shadow-2xl p-4">
               <img 
-                src="/lovable-uploads/81cd32b4-3d6a-4dab-b8cb-4d172b04413b.png" 
+                src="/lovable-uploads/d17c062a-67ca-498c-a5ef-9039d1f1c7c0.png" 
                 alt="Dashboard de gestion multicanal" 
                 className="w-full h-auto rounded-lg"
               />

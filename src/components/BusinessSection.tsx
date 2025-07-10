@@ -16,7 +16,7 @@ const BusinessSection = () => {
 
           {/* Dashboard Image */}
           <div className="relative animate-fade-in">
-            <div className="bg-white rounded-2xl shadow-2xl p-4 transform hover:scale-105 transition-all duration-500 hover:shadow-3xl animate-float">
+            <div className="bg-white rounded-2xl shadow-2xl p-4 transform hover:scale-105 transition-all duration-500 hover:shadow-3xl">
               <img 
                 src="/lovable-uploads/d17c062a-67ca-498c-a5ef-9039d1f1c7c0.png" 
                 alt="Dashboard de gestion multicanal" 

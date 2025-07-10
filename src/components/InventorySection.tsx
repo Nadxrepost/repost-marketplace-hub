@@ -8,7 +8,8 @@ const InventorySection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Visual Elements */}
           <div className="relative">
-            <div className="flex flex-wrap gap-6">
+            <div className="grid grid-cols-2 gap-8 max-w-lg">
+              {/* First row */}
               {/* First card - Plant/Package */}
               <div className="bg-white border-2 border-gray-800 rounded-lg p-6 w-48 h-48 flex flex-col justify-between transform rotate-3 hover:rotate-0 transition-transform duration-300">
                 <div className="flex-1 flex items-center justify-center">
@@ -22,7 +23,7 @@ const InventorySection = () => {
               </div>
 
               {/* Second card - T-shirt */}
-              <div className="bg-white border-2 border-gray-800 rounded-lg p-6 w-48 h-48 flex flex-col justify-between transform -rotate-2 hover:rotate-0 transition-transform duration-300 mt-8">
+              <div className="bg-white border-2 border-gray-800 rounded-lg p-6 w-48 h-48 flex flex-col justify-between transform -rotate-2 hover:rotate-0 transition-transform duration-300">
                 <div className="flex-1 flex items-center justify-center">
                   <Shirt className="w-16 h-16 text-gray-800" />
                 </div>
@@ -33,8 +34,9 @@ const InventorySection = () => {
                 </div>
               </div>
 
+              {/* Second row */}
               {/* Third card - Camera */}
-              <div className="bg-white border-2 border-gray-800 rounded-lg p-6 w-48 h-48 flex flex-col justify-between transform rotate-1 hover:rotate-0 transition-transform duration-300 -mt-4">
+              <div className="bg-white border-2 border-gray-800 rounded-lg p-6 w-48 h-48 flex flex-col justify-between transform rotate-1 hover:rotate-0 transition-transform duration-300">
                 <div className="flex-1 flex items-center justify-center">
                   <Camera className="w-16 h-16 text-gray-800" />
                 </div>
@@ -47,7 +49,7 @@ const InventorySection = () => {
               </div>
 
               {/* Fourth card - Watch */}
-              <div className="bg-white border-2 border-gray-800 rounded-lg p-6 w-48 h-48 flex flex-col justify-between transform -rotate-1 hover:rotate-0 transition-transform duration-300 mt-6">
+              <div className="bg-white border-2 border-gray-800 rounded-lg p-6 w-48 h-48 flex flex-col justify-between transform -rotate-1 hover:rotate-0 transition-transform duration-300">
                 <div className="flex-1 flex items-center justify-center">
                   <Watch className="w-16 h-16 text-gray-800" />
                 </div>

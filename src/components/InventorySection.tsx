@@ -59,7 +59,7 @@ const InventorySection = () => {
               Répertoriez facilement votre inventaire sur plusieurs canaux pour atteindre plus de clients
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              Touchez de nouveaux clients, où qu'ils achètent, en répertoriant vos stocks, en gros, sur les marketplaces populaires et sur votre boutique en ligne, grâce à des modèles simples qui vous font gagner du temps et optimisent vos annonces. En savoir plus sur la fonctionnalité de référencement multicanal de Sellbrite.
+              Touchez de nouveaux clients, où qu'ils achètent, en répertoriant vos stocks, en gros, sur les marketplaces populaires et sur votre boutique en ligne, grâce à des modèles simples qui vous font gagner du temps et optimisent vos annonces. En savoir plus sur la fonctionnalité de référencement multicanal de Repost.
             </p>
             <Button 
               variant="outline" 

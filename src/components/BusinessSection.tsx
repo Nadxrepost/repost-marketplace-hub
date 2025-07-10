@@ -10,7 +10,7 @@ const BusinessSection = () => {
               Tout ce dont vous avez besoin pour gérer et développer votre entreprise de commerce électronique multicanal
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Nous savons qu'il est difficile de développer votre activité, et encore plus de gérer vos stocks et vos commandes, face à la multiplication des canaux de vente. Sellbrite vous aide à atteindre de nouveaux clients, où qu'ils achètent : créez et gérez vos annonces, contrôlez vos stocks et traitez vos commandes depuis une interface unique et intuitive que vous adorerez utiliser. Soyez opérationnel sur Sellbrite dès aujourd'hui !
+              Nous savons qu'il est difficile de développer votre activité, et encore plus de gérer vos stocks et vos commandes, face à la multiplication des canaux de vente. Repost vous aide à atteindre de nouveaux clients, où qu'ils achètent : créez et gérez vos annonces, contrôlez vos stocks et traitez vos commandes depuis une interface unique et intuitive que vous adorerez utiliser. Soyez opérationnel sur Repost dès aujourd'hui !
             </p>
           </div>
 

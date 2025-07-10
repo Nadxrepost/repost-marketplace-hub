@@ -65,7 +65,7 @@ const Platforms = () => {
                     <span className="text-brand-dark font-bold text-sm bg-white px-3 py-1 rounded-full shadow-md border">Coming Soon</span>
                   </div>
                 )}
-                <div className={`text-center ${isComingSoon ? 'blur-[1px]' : ''}`}>
+                <div className={`text-center ${isComingSoon ? 'blur-[0.5px]' : ''}`}>
                   {platform.isShopify ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                       <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                     </div> : platform.isVinted ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">

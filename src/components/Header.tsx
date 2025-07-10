@@ -2,16 +2,13 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleContactClick = () => {
+  const handleMenuClose = () => {
     setIsMenuOpen(false);
-    // Scroll to contact section
-    setTimeout(() => {
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
   };
 
   return (
@@ -39,12 +36,12 @@ const Header = () => {
             <a href="#pricing" className="text-gray-600 hover:text-brand-purple transition-colors">
               Tarifs
             </a>
-            <button 
-              onClick={handleContactClick}
+            <Link 
+              to="/contact"
               className="text-gray-600 hover:text-brand-purple transition-colors"
             >
               Contact
-            </button>
+            </Link>
           </nav>
 
           {/* CTA Buttons */}
@@ -79,12 +76,13 @@ const Header = () => {
               <a href="#pricing" className="text-gray-600 hover:text-brand-purple transition-colors">
                 Tarifs
               </a>
-              <button 
-                onClick={handleContactClick}
+              <Link 
+                to="/contact"
+                onClick={handleMenuClose}
                 className="text-gray-600 hover:text-brand-purple transition-colors text-left"
               >
                 Contact
-              </button>
+              </Link>
               <div className="flex flex-col space-y-2 pt-4">
                 <Button variant="ghost" className="text-gray-600 hover:text-brand-purple">
                   Connexion

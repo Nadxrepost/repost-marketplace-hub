@@ -42,6 +42,12 @@ const Platforms = () => {
     color: "bg-white",
     isImage: true,
     isSpartoo: true
+  }, {
+    name: "Leboncoin",
+    logo: "/lovable-uploads/6154fb07-f4db-465a-a39e-fc182b65b44b.png",
+    color: "bg-white",
+    isImage: true,
+    isLeboncoin: true
   }];
   
   return <section id="platforms" className="py-20 bg-gradient-to-br from-brand-gray/20 to-brand-purple/5">
@@ -55,9 +61,9 @@ const Platforms = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-7 gap-4">
+        <div className="grid grid-cols-8 gap-4">
           {platforms.map((platform, index) => {
-            const isComingSoon = index >= 4; // Les 3 dernières plateformes (index 4, 5, 6)
+            const isComingSoon = index >= 4; // Les 4 dernières plateformes (index 4, 5, 6, 7)
             return (
               <div key={index} className={`group p-6 bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer relative`}>
                 {isComingSoon && (

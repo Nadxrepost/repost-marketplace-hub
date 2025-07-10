@@ -2,31 +2,31 @@
 const Platforms = () => {
   const platforms = [{
     name: "eBay",
-    logo: "/lovable-uploads/080db45b-9073-491a-bb15-1e38c365de16.png",
+    logo: "/lovable-uploads/d0c80e13-68bf-4639-aa50-15199f9a3175.png",
     color: "bg-white",
     isImage: true,
     isEbay: true
   }, {
     name: "Etsy",
-    logo: "/lovable-uploads/cf57b897-1f31-46c9-a27a-908d476009c2.png",
+    logo: "/lovable-uploads/ca0e1309-7535-4454-bbda-e72072179c8c.png",
     color: "bg-white",
     isImage: true,
     isEtsy: true
   }, {
     name: "Vinted",
-    logo: "/lovable-uploads/ade8a843-867d-4407-9f41-dde3d300cf5a.png",
+    logo: "/lovable-uploads/7256daf7-fe58-4797-982b-1cac616712a6.png",
     color: "bg-white",
     isImage: true,
     isVinted: true
   }, {
     name: "Shopify",
-    logo: "/lovable-uploads/96b2349f-5375-42fd-9803-817d984f7e7e.png",
+    logo: "/lovable-uploads/03ef5e84-53fe-496a-bc10-f2866f267ab2.png",
     color: "bg-white",
     isImage: true,
     isShopify: true
   }, {
     name: "Depop",
-    logo: "/lovable-uploads/53b7ac1d-b12a-4cb0-8f3e-b54756eb2964.png",
+    logo: "/lovable-uploads/4eb57a7b-74a8-4807-8ccf-ef6ef44ed921.png",
     color: "bg-white",
     isImage: true,
     isDepop: true

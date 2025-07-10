@@ -13,17 +13,17 @@ const Platforms = () => {
     isImage: true,
     isEtsy: true
   }, {
-    name: "Shopify",
-    logo: "/lovable-uploads/96b2349f-5375-42fd-9803-817d984f7e7e.png",
-    color: "bg-white",
-    isImage: true,
-    isShopify: true
-  }, {
     name: "Vinted",
     logo: "/lovable-uploads/2feaaeb5-becd-4a20-854a-3a3043cc839c.png",
     color: "bg-white",
     isImage: true,
     isVinted: true
+  }, {
+    name: "Shopify",
+    logo: "/lovable-uploads/96b2349f-5375-42fd-9803-817d984f7e7e.png",
+    color: "bg-white",
+    isImage: true,
+    isShopify: true
   }, {
     name: "Depop",
     logo: "/lovable-uploads/53b7ac1d-b12a-4cb0-8f3e-b54756eb2964.png",

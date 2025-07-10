@@ -74,8 +74,8 @@ const Hero = () => {
               borderColor: '#007882'
             }}>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-vinted-teal rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">V</span>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                    <img src="/lovable-uploads/7256daf7-fe58-4797-982b-1cac616712a6.png" alt="Vinted" className="w-6 h-6 object-contain" />
                   </div>
                   <span className="text-[#007882] font-semibold text-sm">Vinted</span>
                 </div>
@@ -87,8 +87,8 @@ const Hero = () => {
               borderColor: '#0064D2'
             }}>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">e</span>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                    <img src="/lovable-uploads/d0c80e13-68bf-4639-aa50-15199f9a3175.png" alt="eBay" className="w-6 h-6 object-contain" />
                   </div>
                   <span className="text-blue-500 font-semibold text-sm">eBay</span>
                 </div>
@@ -100,10 +100,8 @@ const Hero = () => {
               borderColor: '#4e8f30'
             }}>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{
-                  backgroundColor: '#4e8f30'
-                }}>
-                    <span className="text-white font-bold text-sm">S</span>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                    <img src="/lovable-uploads/03ef5e84-53fe-496a-bc10-f2866f267ab2.png" alt="Shopify" className="w-6 h-6 object-contain" />
                   </div>
                   <span className="font-semibold text-sm" style={{
                   color: '#4e8f30'
@@ -117,8 +115,8 @@ const Hero = () => {
               borderColor: '#ef4444'
             }}>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">D</span>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                    <img src="/lovable-uploads/4eb57a7b-74a8-4807-8ccf-ef6ef44ed921.png" alt="Depop" className="w-6 h-6 object-contain" />
                   </div>
                   <span className="text-red-500 font-semibold text-sm">Depop</span>
                 </div>
@@ -130,8 +128,8 @@ const Hero = () => {
               borderColor: '#f97316'
             }}>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">E</span>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                    <img src="/lovable-uploads/ca0e1309-7535-4454-bbda-e72072179c8c.png" alt="Etsy" className="w-6 h-6 object-contain" />
                   </div>
                   <span className="text-orange-500 font-semibold text-sm">Etsy</span>
                 </div>

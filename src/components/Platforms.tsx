@@ -47,8 +47,8 @@ const Platforms = () => {
   return <section id="platforms" className="py-20 bg-gradient-to-br from-brand-gray/20 to-brand-purple/5">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-brand-dark mb-4">
-            Connecté aux <span className="gradient-text">meilleures plateformes</span>
+          <h2 className="text-4xl font-bold text-foreground mb-4">
+            Connecté aux meilleures plateformes
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Diffusez vos annonces simultanément sur toutes les plateformes de seconde main les plus populaires

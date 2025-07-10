@@ -88,7 +88,7 @@ const Hero = () => {
             }}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-                    <img src="/lovable-uploads/d0c80e13-68bf-4639-aa50-15199f9a3175.png" alt="eBay" className="w-6 h-6 object-contain" />
+                    <img src="/lovable-uploads/c66d5006-318a-48b0-a506-dd4653ce033f.png" alt="eBay" className="w-6 h-6 object-contain" />
                   </div>
                   <span className="text-blue-500 font-semibold text-sm">eBay</span>
                 </div>

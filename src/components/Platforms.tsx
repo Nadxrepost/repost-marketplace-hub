@@ -14,7 +14,7 @@ const Platforms = () => {
     isEtsy: true
   }, {
     name: "Vinted",
-    logo: "/lovable-uploads/2feaaeb5-becd-4a20-854a-3a3043cc839c.png",
+    logo: "/lovable-uploads/ade8a843-867d-4407-9f41-dde3d300cf5a.png",
     color: "bg-white",
     isImage: true,
     isVinted: true

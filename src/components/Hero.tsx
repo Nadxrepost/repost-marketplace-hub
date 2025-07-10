@@ -94,16 +94,18 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Etsy - Bottom Left */}
+              {/* Shopify - Bottom Left */}
               <div className="absolute -bottom-8 left-12 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{
               animationDelay: '2s',
-              borderColor: '#f97316'
+              borderColor: '#4e8f30'
             }}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-                    <img src="/lovable-uploads/ca0e1309-7535-4454-bbda-e72072179c8c.png" alt="Etsy" className="w-6 h-6 object-contain" />
+                    <img src="/lovable-uploads/297fefc0-8ec5-4e08-905f-52cc1f22acee.png" alt="Shopify" className="w-6 h-6 object-contain" />
                   </div>
-                  <span className="text-orange-500 font-semibold text-sm">Etsy</span>
+                  <span className="font-semibold text-sm" style={{
+                  color: '#4e8f30'
+                }}>Shopify</span>
                 </div>
               </div>
 
@@ -120,18 +122,16 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Shopify - Right Side */}
+              {/* Etsy - Right Side */}
               <div className="absolute top-3/4 -right-12 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{
               animationDelay: '3s',
-              borderColor: '#4e8f30'
+              borderColor: '#f97316'
             }}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-                    <img src="/lovable-uploads/297fefc0-8ec5-4e08-905f-52cc1f22acee.png" alt="Shopify" className="w-6 h-6 object-contain" />
+                    <img src="/lovable-uploads/ca0e1309-7535-4454-bbda-e72072179c8c.png" alt="Etsy" className="w-6 h-6 object-contain" />
                   </div>
-                  <span className="font-semibold text-sm" style={{
-                  color: '#4e8f30'
-                }}>Shopify</span>
+                  <span className="text-orange-500 font-semibold text-sm">Etsy</span>
                 </div>
               </div>
 

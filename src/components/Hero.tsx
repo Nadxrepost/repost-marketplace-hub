@@ -101,7 +101,7 @@ const Hero = () => {
             }}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-                    <img src="/lovable-uploads/03ef5e84-53fe-496a-bc10-f2866f267ab2.png" alt="Shopify" className="w-6 h-6 object-contain" />
+                    <img src="/lovable-uploads/9a98d202-2118-4095-a100-d5e8bc76f4d9.png" alt="Shopify" className="w-6 h-6 object-contain" />
                   </div>
                   <span className="font-semibold text-sm" style={{
                   color: '#4e8f30'

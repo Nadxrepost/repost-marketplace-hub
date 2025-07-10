@@ -59,13 +59,13 @@ const Platforms = () => {
           {platforms.map((platform, index) => {
             const isComingSoon = index >= 4; // Les 3 dernières plateformes (index 4, 5, 6)
             return (
-              <div key={index} className={`group p-6 bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer relative ${isComingSoon ? 'blur-sm' : ''}`}>
+              <div key={index} className={`group p-6 bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer relative`}>
                 {isComingSoon && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-2xl z-10">
-                    <span className="text-white font-bold text-xs bg-black/60 px-2 py-1 rounded">Coming Soon</span>
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/80 rounded-2xl z-10 backdrop-blur-sm">
+                    <span className="text-brand-dark font-bold text-sm bg-white px-3 py-1 rounded-full shadow-md border">Coming Soon</span>
                   </div>
                 )}
-                <div className="text-center">
+                <div className={`text-center ${isComingSoon ? 'blur-sm' : ''}`}>
                   {platform.isShopify ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                       <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                     </div> : platform.isVinted ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">

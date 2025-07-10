@@ -75,10 +75,10 @@ const Platforms = () => {
                   <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div>
-                  <h3 className="font-semibold text-brand-dark text-sm">
-                    {platform.name}
-                  </h3>
                 </div>
+                <h3 className="font-semibold text-brand-dark text-sm text-center relative z-20">
+                  {platform.name}
+                </h3>
               </div>
             );
           })}

@@ -66,23 +66,9 @@ const Platforms = () => {
                   </div>
                 )}
                 <div className={`text-center ${isComingSoon ? 'blur-[0.5px]' : ''}`}>
-                  {platform.isShopify ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                      <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
-                    </div> : platform.isVinted ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                      <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
-                    </div> : platform.isEtsy ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                      <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
-                    </div> : platform.isVestiaire ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                      <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
-                    </div> : platform.isDepop ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                      <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
-                    </div> : platform.isEbay ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                      <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
-                    </div> : platform.isSpartoo ? <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                      <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
-                    </div> : <div className={`w-16 h-16 ${platform.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-                      {platform.isImage ? <img src={platform.logo} alt={`${platform.name} logo`} className="w-8 h-8 object-contain" /> : <span className="text-2xl">{platform.logo}</span>}
-                    </div>}
+                  <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
+                  </div>
                   <h3 className="font-semibold text-brand-dark text-sm">
                     {platform.name}
                   </h3>

@@ -1,4 +1,4 @@
-import { Package, Camera, Shirt } from 'lucide-react';
+import { Package, Camera, Shirt, Watch } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const InventorySection = () => {
@@ -43,6 +43,18 @@ const InventorySection = () => {
                   <div className="h-3 bg-brand-purple rounded"></div>
                   <div className="h-3 bg-brand-purple rounded w-4/5"></div>
                   <div className="h-3 bg-brand-purple rounded w-3/4"></div>
+                </div>
+              </div>
+
+              {/* Fourth card - Watch */}
+              <div className="bg-white border-2 border-gray-800 rounded-lg p-6 w-48 h-48 flex flex-col justify-between transform -rotate-1 hover:rotate-0 transition-transform duration-300 mt-6">
+                <div className="flex-1 flex items-center justify-center">
+                  <Watch className="w-16 h-16 text-gray-800" />
+                </div>
+                <div className="space-y-2">
+                  <div className="h-3 bg-brand-purple rounded w-3/5"></div>
+                  <div className="h-3 bg-brand-purple rounded w-4/5"></div>
+                  <div className="h-3 bg-brand-purple rounded"></div>
                 </div>
               </div>
             </div>

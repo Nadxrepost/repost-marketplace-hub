@@ -134,6 +134,19 @@ const Hero = () => {
                   <span className="text-orange-500 font-semibold text-sm">Etsy</span>
                 </div>
               </div>
+
+              {/* Leboncoin - Middle Right */}
+              <div className="absolute top-1/2 -right-10 bg-white rounded-xl shadow-lg p-3 animate-float border border-opacity-30" style={{
+              animationDelay: '3.5s',
+              borderColor: '#ff6b35'
+            }}>
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                    <img src="/lovable-uploads/6154fb07-f4db-465a-a39e-fc182b65b44b.png" alt="Leboncoin" className="w-6 h-6 object-contain" />
+                  </div>
+                  <span className="text-orange-600 font-semibold text-sm">Leboncoin</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

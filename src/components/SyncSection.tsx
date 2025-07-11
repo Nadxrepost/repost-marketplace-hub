@@ -37,18 +37,15 @@ const SyncSection = () => {
                     w-24 h-24 border-2 border-dashed border-gray-400 rounded-lg overflow-hidden
                     ${index === 4 ? 'relative' : ''}
                   `}>
-                    {/* Center box (index 4) contains the camera */}
+                    {/* Center box (index 4) contains the sync icon */}
                     {index === 4 ? (
-                      <>
-                        {/* Camera icon */}
-                        <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
-                          <Camera className="w-10 h-10 text-white" />
-                        </div>
-                        {/* Sync badge */}
-                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-brand-purple rounded-full flex items-center justify-center">
-                          <RefreshCw className="w-4 h-4 text-white" />
-                        </div>
-                      </>
+                      <div className="w-full h-full bg-white rounded-lg flex items-center justify-center p-2">
+                        <img 
+                          src="/lovable-uploads/09dd7cac-0c84-497e-9609-b024854ea24c.png" 
+                          alt="Sync" 
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
                     ) : (
                       /* Other boxes contain product images */
                       <div className="w-full h-full bg-white rounded-lg flex items-center justify-center p-2">

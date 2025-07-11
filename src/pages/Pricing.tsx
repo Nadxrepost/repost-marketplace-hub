@@ -8,6 +8,16 @@ import Footer from '@/components/Footer';
 const Pricing = () => {
   const particularPlans = [
     {
+      name: "Dashboard",
+      price: "9,99€",
+      description: "Dashboard et analytics sans diffusion",
+      features: [
+        "Nombre de pièces illimité",
+        "Analytics avancées",
+        "Support par email"
+      ]
+    },
+    {
       name: "Starter",
       price: "19,99€",
       description: "Pour les particuliers débutants",

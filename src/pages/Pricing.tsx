@@ -147,7 +147,7 @@ const Pricing = () => {
                 <h2 className="text-3xl font-bold mb-2">Particuliers - Small Business</h2>
                 <p className="text-muted-foreground">Solutions adaptées aux particuliers</p>
               </div>
-              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 {particularPlans.map((plan, index) => (
                   <PricingCard key={index} plan={plan} isPopular={plan.popular} />
                 ))}

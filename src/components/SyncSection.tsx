@@ -18,25 +18,50 @@ const SyncSection = () => {
           {/* Visual Grid */}
           <div className="relative">
             <div className="grid grid-cols-3 gap-4">
-              {/* Create 9 dashed boxes */}
-              {Array.from({
-              length: 9
-            }, (_, index) => <div key={index} className={`
-                    w-24 h-24 border-2 border-dashed border-gray-400 rounded-lg
+              {/* Create 9 boxes with images */}
+              {Array.from({ length: 9 }, (_, index) => {
+                const images = [
+                  '/lovable-uploads/c5af3827-0fbf-4874-8d6f-2230e2b0479b.png', // sac noir
+                  '/lovable-uploads/1fbf7e02-d88b-477e-872d-1958c7ceee3e.png', // chaise
+                  '/lovable-uploads/55add11b-8104-4969-8858-93eacdf08f19.png', // sac dior
+                  '/lovable-uploads/38fa797b-78c0-4418-9558-c99cd11f04f6.png', // jeans
+                  null, // center box with camera
+                  '/lovable-uploads/def4d828-a012-4263-bf89-33398a4fd28c.png', // bottes
+                  '/lovable-uploads/c5af3827-0fbf-4874-8d6f-2230e2b0479b.png', // sac noir
+                  '/lovable-uploads/1fbf7e02-d88b-477e-872d-1958c7ceee3e.png', // chaise
+                  '/lovable-uploads/55add11b-8104-4969-8858-93eacdf08f19.png', // sac dior
+                ];
+                
+                return (
+                  <div key={index} className={`
+                    w-24 h-24 border-2 border-dashed border-gray-400 rounded-lg overflow-hidden
                     ${index === 4 ? 'relative' : ''}
                   `}>
-                  {/* Center box (index 4) contains the camera */}
-                  {index === 4 && <>
-                      {/* Camera icon */}
-                      <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
-                        <Camera className="w-10 h-10 text-white" />
+                    {/* Center box (index 4) contains the camera */}
+                    {index === 4 ? (
+                      <>
+                        {/* Camera icon */}
+                        <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
+                          <Camera className="w-10 h-10 text-white" />
+                        </div>
+                        {/* Sync badge */}
+                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-brand-purple rounded-full flex items-center justify-center">
+                          <RefreshCw className="w-4 h-4 text-white" />
+                        </div>
+                      </>
+                    ) : (
+                      /* Other boxes contain product images */
+                      <div className="w-full h-full bg-white rounded-lg flex items-center justify-center p-2">
+                        <img 
+                          src={images[index]} 
+                          alt="Product" 
+                          className="w-full h-full object-contain"
+                        />
                       </div>
-                      {/* Sync badge */}
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-brand-purple rounded-full flex items-center justify-center">
-                        <RefreshCw className="w-4 h-4 text-white" />
-                      </div>
-                    </>}
-                </div>)}
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

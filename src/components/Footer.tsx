@@ -21,17 +21,17 @@ const Footer = () => {
               Centralisez, gérez, diffusez et mesurez vos performances sur toutes les plateformes.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-14 h-14 flex items-center justify-center hover:opacity-80 transition-opacity">
-                <img src="/lovable-uploads/7eb31316-f7c7-44d1-b31f-3c5f2e4f0390.png" alt="Facebook" className="w-12 h-12" />
+              <a href="#" className="w-16 h-16 flex items-center justify-center hover:opacity-80 transition-opacity">
+                <img src="/lovable-uploads/7eb31316-f7c7-44d1-b31f-3c5f2e4f0390.png" alt="Facebook" className="w-14 h-14" />
               </a>
-              <a href="#" className="w-14 h-14 flex items-center justify-center hover:opacity-80 transition-opacity">
-                <img src="/lovable-uploads/21f8988a-e9ad-44ee-ace3-522d50c2ad50.png" alt="Twitter" className="w-12 h-12" />
+              <a href="#" className="w-16 h-16 flex items-center justify-center hover:opacity-80 transition-opacity">
+                <img src="/lovable-uploads/21f8988a-e9ad-44ee-ace3-522d50c2ad50.png" alt="Twitter" className="w-14 h-14" />
               </a>
-              <a href="#" className="w-14 h-14 flex items-center justify-center hover:opacity-80 transition-opacity">
-                <img src="/lovable-uploads/47bd37b5-d3a6-458a-b0b1-c2a4a6370eee.png" alt="Instagram" className="w-12 h-12" />
+              <a href="#" className="w-16 h-16 flex items-center justify-center hover:opacity-80 transition-opacity">
+                <img src="/lovable-uploads/47bd37b5-d3a6-458a-b0b1-c2a4a6370eee.png" alt="Instagram" className="w-14 h-14" />
               </a>
-              <a href="#" className="w-14 h-14 flex items-center justify-center hover:opacity-80 transition-opacity">
-                <img src="/lovable-uploads/198414f6-0945-4f54-93ea-3418f3290548.png" alt="LinkedIn" className="w-12 h-12" />
+              <a href="#" className="w-16 h-16 flex items-center justify-center hover:opacity-80 transition-opacity">
+                <img src="/lovable-uploads/198414f6-0945-4f54-93ea-3418f3290548.png" alt="LinkedIn" className="w-14 h-14" />
               </a>
             </div>
           </div>

@@ -43,8 +43,8 @@ const SyncSection = () => {
                         <img 
                           src="/lovable-uploads/11822667-3476-49e8-b464-794e30285ea7.png" 
                           alt="Sync" 
-                          className="w-full h-full object-contain"
-                          style={{ animation: 'spin 15s linear infinite' }}
+                          className="w-full h-full object-contain animate-spin"
+                          style={{ animationDuration: '15s' }}
                         />
                       </div>
                     ) : (

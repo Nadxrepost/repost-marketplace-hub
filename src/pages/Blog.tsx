@@ -70,7 +70,7 @@ const Blog = () => {
       <Header />
       
       {/* Retour à l'accueil */}
-      <div className="py-4 px-4 border-b">
+      <div className="py-4 px-4 border-b mt-20">
         <div className="max-w-6xl mx-auto">
           <Link 
             to="/" 

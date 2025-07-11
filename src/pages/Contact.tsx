@@ -152,10 +152,10 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Comment avez-vous connu CrushON */}
+                {/* Comment avez-vous connu Repost */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Comment avez-vous connu CrushON ?
+                    Comment avez-vous connu Repost ?
                   </label>
                   <Select onValueChange={(value) => handleSelectChange('connaissance', value)}>
                     <SelectTrigger className="w-full border-gray-200 rounded-xl px-4 py-3 bg-gray-50">
@@ -174,7 +174,7 @@ const Contact = () => {
                 {/* Que souhaitez-vous faire */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Que souhaitez-vous faire grâce à CrushON ?
+                    Que souhaitez-vous faire grâce à Repost ?
                   </label>
                   <Select onValueChange={(value) => handleSelectChange('objectif', value)}>
                     <SelectTrigger className="w-full border-gray-200 rounded-xl px-4 py-3 bg-gray-50">
@@ -234,7 +234,7 @@ const Contact = () => {
                 {/* Mention légale */}
                 <p className="text-xs text-gray-500 italic leading-relaxed">
                   En soumettant ce formulaire, j'accepte que mes informations soient 
-                  utilisées par CrushON à des fins strictement internes : envoi de 
+                  utilisées par Repost à des fins strictement internes : envoi de 
                   contenus utiles, actualités et communications commerciales 
                   occasionnelles. Promis, zéro spam.
                 </p>

@@ -41,9 +41,9 @@ const SyncSection = () => {
                     {index === 4 ? (
                       <div className="w-full h-full rounded-lg flex items-center justify-center p-2" style={{backgroundColor: '#B6B0DD'}}>
                         <img 
-                          src="/lovable-uploads/11822667-3476-49e8-b464-794e30285ea7.png" 
+                          src="/lovable-uploads/17506321-6c16-4eb8-9c53-b50c66a27e79.png" 
                           alt="Sync" 
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-contain animate-spin"
                         />
                       </div>
                     ) : (

@@ -76,7 +76,7 @@ const Platforms = () => {
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div>
                 </div>
-                <h3 className="font-semibold text-brand-dark text-sm text-center relative z-20">
+                <h3 className={`font-semibold text-brand-dark text-sm text-center relative z-20 ${isComingSoon ? 'blur-[1px]' : ''}`}>
                   {platform.name}
                 </h3>
               </div>

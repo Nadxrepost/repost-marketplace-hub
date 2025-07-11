@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 const steps = [
   {
     number: 1,
-    title: "Téléchargez votre produit",
+    title: "Lister vos produits",
     description: "Ajoutez vos photos, description et prix en quelques clics"
   },
   {

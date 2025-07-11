@@ -24,7 +24,7 @@ const SyncSection = () => {
                   '/lovable-uploads/c5af3827-0fbf-4874-8d6f-2230e2b0479b.png', // sac noir
                   '/lovable-uploads/1fbf7e02-d88b-477e-872d-1958c7ceee3e.png', // chaise
                   '/lovable-uploads/55add11b-8104-4969-8858-93eacdf08f19.png', // sac dior
-                  '/lovable-uploads/38fa797b-78c0-4418-9558-c99cd11f04f6.png', // jeans
+                  '/lovable-uploads/839bddaf-4c20-4f04-bca8-67584161ba75.png', // collier doré
                   null, // center box with camera
                   '/lovable-uploads/def4d828-a012-4263-bf89-33398a4fd28c.png', // bottes
                   '/lovable-uploads/c5af3827-0fbf-4874-8d6f-2230e2b0479b.png', // sac noir

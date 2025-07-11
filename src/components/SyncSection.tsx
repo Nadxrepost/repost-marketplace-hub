@@ -39,9 +39,9 @@ const SyncSection = () => {
                   `}>
                     {/* Center box (index 4) contains the sync icon */}
                     {index === 4 ? (
-                      <div className="w-full h-full bg-white rounded-lg flex items-center justify-center p-2">
+                      <div className="w-full h-full rounded-lg flex items-center justify-center p-2" style={{backgroundColor: '#B6B0DD'}}>
                         <img 
-                          src="/lovable-uploads/09dd7cac-0c84-497e-9609-b024854ea24c.png" 
+                          src="/lovable-uploads/11822667-3476-49e8-b464-794e30285ea7.png" 
                           alt="Sync" 
                           className="w-full h-full object-contain"
                         />

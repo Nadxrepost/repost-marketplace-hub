@@ -62,13 +62,13 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-purple via-purple-600 to-brand-purple">
+    <div className="min-h-screen bg-background">
       {/* Header avec retour */}
-      <div className="bg-white/10 backdrop-blur border-b border-white/20">
+      <div className="border-b border-border">
         <div className="container mx-auto px-6 py-4">
           <Link 
             to="/" 
-            className="inline-flex items-center text-white hover:text-white/80 transition-colors"
+            className="inline-flex items-center text-foreground hover:text-muted-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Retour à l'accueil
@@ -78,9 +78,19 @@ const Contact = () => {
 
       <div className="container mx-auto px-6 py-20">
         <div className="max-w-7xl mx-auto">
+          {/* Titre et sous-titre */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Contactez-nous
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Que vous souhaitiez en savoir plus sur nos solutions, discuter d'un partenariat ou poser une question, notre équipe est à votre disposition.
+            </p>
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Formulaire de contact */}
-            <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
+            <div className="bg-card rounded-3xl shadow-2xl p-8 lg:p-12 border border-border">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Prénom et Nom */}
                 <div className="grid grid-cols-2 gap-4">
@@ -231,34 +241,14 @@ const Contact = () => {
               </form>
             </div>
 
-            {/* Image et réseaux sociaux */}
-            <div className="space-y-8">
-              {/* Image */}
+            {/* Image */}
+            <div className="lg:order-1">
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/lovable-uploads/9c5b4350-03ff-49b0-93a9-4f04abfa5d02.png" 
+                  src="/lovable-uploads/69891ded-f648-4402-a9a4-7eb789801157.png" 
                   alt="Femme souriante avec un laptop" 
                   className="w-full h-auto object-cover"
                 />
-              </div>
-
-              {/* Réseaux sociaux */}
-              <div className="bg-white/10 backdrop-blur rounded-3xl p-8">
-                <h3 className="text-xl font-bold text-white mb-6">Réseaux sociaux</h3>
-                <div className="flex space-x-4">
-                  <a 
-                    href="#" 
-                    className="w-12 h-12 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-                  >
-                    <Linkedin className="w-6 h-6" />
-                  </a>
-                  <a 
-                    href="#" 
-                    className="w-12 h-12 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-                  >
-                    <Instagram className="w-6 h-6" />
-                  </a>
-                </div>
               </div>
             </div>
           </div>

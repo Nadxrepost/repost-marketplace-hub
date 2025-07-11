@@ -6,11 +6,6 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left animate-fade-in">
-            <div className="mb-6">
-              <span className="inline-block px-4 py-2 bg-brand-yellow/20 text-brand-dark rounded-full text-sm font-medium mb-4">
-                🚀 Nouvelle solution pour la seconde main
-              </span>
-            </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               <div className="text-brand-dark">Centralisez</div>

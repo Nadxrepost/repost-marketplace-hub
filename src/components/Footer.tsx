@@ -1,19 +1,12 @@
-
 import { Mail, MapPin, Phone } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer id="contact" className="bg-brand-dark text-white py-20">
+  return <footer id="contact" className="bg-brand-dark text-white py-20">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <img 
-                src="/lovable-uploads/254b0023-f77e-4b19-88d7-097a1d29a292.png" 
-                alt="Repost Logo" 
-                className="w-10 h-10"
-              />
+              <img src="/lovable-uploads/254b0023-f77e-4b19-88d7-097a1d29a292.png" alt="Repost Logo" className="w-10 h-10" />
               <span className="text-2xl font-bold">Repost</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
@@ -53,7 +46,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center">
                 <Mail className="w-5 h-5 mr-3 text-brand-purple" />
-                <span className="text-gray-300">contact@repost.fr</span>
+                <span className="text-gray-300">Hello@repost.fashion</span>
               </li>
               <li className="flex items-center">
                 <Phone className="w-5 h-5 mr-3 text-brand-purple" />
@@ -62,7 +55,7 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 text-brand-purple mt-1" />
                 <span className="text-gray-300">
-                  123 Rue de l'Innovation<br/>
+                  123 Rue de l'Innovation<br />
                   75001 Paris, France
                 </span>
               </li>
@@ -88,8 +81,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

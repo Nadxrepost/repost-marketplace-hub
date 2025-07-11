@@ -1,3 +1,5 @@
+import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -66,6 +68,19 @@ const Blog = () => {
   return (
     <div className="min-h-screen">
       <Header />
+      
+      {/* Retour à l'accueil */}
+      <div className="py-4 px-4 border-b">
+        <div className="max-w-6xl mx-auto">
+          <Link 
+            to="/" 
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Retour à l'accueil
+          </Link>
+        </div>
+      </div>
       
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">

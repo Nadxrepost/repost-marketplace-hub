@@ -62,7 +62,7 @@ const Header = () => {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white px-6">
-              Essai gratuit
+              Réserver une démo
             </Button>
           </div>
 
@@ -115,7 +115,7 @@ const Header = () => {
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
                 <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
-                  Essai gratuit
+                  Réserver une démo
                 </Button>
               </div>
             </nav>

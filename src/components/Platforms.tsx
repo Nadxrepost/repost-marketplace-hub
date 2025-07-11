@@ -71,7 +71,7 @@ const Platforms = () => {
                     <span className="text-white font-bold text-sm bg-brand-dark px-3 py-1 rounded-full shadow-md border">Coming Soon</span>
                   </div>
                 )}
-                <div className={`text-center ${isComingSoon ? 'blur-[0.5px]' : ''}`}>
+                <div className={`text-center ${isComingSoon ? 'blur-[2px]' : ''}`}>
                   <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                     <img src={platform.logo} alt={`${platform.name} logo`} className="w-16 h-16 object-contain" />
                   </div>

@@ -89,6 +89,14 @@ const About = () => {
                 occasionnels aux professionnels gérant des milliers de références, dans 
                 leur développement sur les plateformes de seconde main.
               </p>
+              
+              <div className="mt-8 mb-8">
+                <img 
+                  src="/lovable-uploads/e411c12f-b01a-4c9e-9451-d723007a4d45.png" 
+                  alt="Équipe Repost - Deux femmes souriantes représentant l'esprit collaboratif de notre entreprise" 
+                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+                />
+              </div>
             </div>
 
             <div className="text-center bg-muted rounded-lg p-8">

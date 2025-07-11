@@ -9,7 +9,7 @@ const steps = [
   },
   {
     number: 2,
-    title: "Sélectionnez vos marchés",
+    title: "Sélectionnez vos canaux de vente",
     description: "Choisissez sur quelles plateformes publier automatiquement"
   },
   {

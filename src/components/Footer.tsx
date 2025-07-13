@@ -54,8 +54,8 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 text-brand-purple mt-1" />
                 <span className="text-gray-300">
-                  123 Rue de l'Innovation<br />
-                  75001 Paris, France
+                  STATION F - 5 parvis Alan Turing,<br />
+                  75013 PARIS
                 </span>
               </li>
             </ul>

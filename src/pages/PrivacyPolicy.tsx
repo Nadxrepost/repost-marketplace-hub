@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
             <h1 className="text-4xl font-bold text-gray-900 mb-8">Politique de Confidentialité</h1>
             
             <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-gray-700 mb-8">
+              <p className="text-gray-700 mb-6">
                 Votre vie privée est importante pour nous.<br />
                 Chez Repost, nous nous engageons à protéger les données personnelles que vous partagez avec nous et à les traiter avec transparence, respect et sécurité.
               </p>

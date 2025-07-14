@@ -232,7 +232,7 @@ const Contact = () => {
             </div>
 
             {/* Image */}
-            <div className="lg:order-1">
+            <div className="lg:order-1 max-w-md mx-auto">
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img 
                   src="/lovable-uploads/eda65dab-96a0-458b-805a-743b25dfa30a.png" 

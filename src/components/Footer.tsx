@@ -69,9 +69,9 @@ const Footer = () => {
             © 2024 Repost. Tous droits réservés.
           </div>
           <div className="flex space-x-6 text-sm">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
+            <Link to="/legal-notice" className="text-gray-400 hover:text-white transition-colors">
               Mentions légales
-            </a>
+            </Link>
             <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
               Politique de confidentialité
             </Link>

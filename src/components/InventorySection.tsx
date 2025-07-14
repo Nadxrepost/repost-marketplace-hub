@@ -93,6 +93,12 @@ const InventorySection = () => {
             <Button 
               variant="outline" 
               className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 text-lg font-medium"
+              onClick={() => {
+                const platformsSection = document.querySelector('section[data-section="platforms"]');
+                if (platformsSection) {
+                  platformsSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               En savoir plus sur les listes multicanaux
             </Button>

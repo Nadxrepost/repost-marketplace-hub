@@ -10,7 +10,16 @@ const SyncSection = () => {
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
               Repost ajuste automatiquement votre stock lorsque des articles sont commandés et met à jour les canaux pour une synchronisation optimale. Cela permet d'éviter la survente d'articles que vous n'avez pas en stock.
             </p>
-            <Button variant="outline" className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 text-lg font-medium">
+            <Button 
+              variant="outline" 
+              className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 text-lg font-medium"
+              onClick={() => {
+                const howItWorksSection = document.getElementById('how-it-works');
+                if (howItWorksSection) {
+                  howItWorksSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               En savoir plus sur la synchronisation des stocks
             </Button>
           </div>

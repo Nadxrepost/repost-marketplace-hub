@@ -113,10 +113,18 @@ const CGU = () => {
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">12. Modifications des CGU</h2>
               <p className="text-gray-700 mb-4">
-                Repost se réserve le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés des modifications par email ou via la plateforme.
+                Repost peut modifier les présentes CGU à tout moment.
               </p>
               <p className="text-gray-700 mb-6">
-                L'utilisation continue de Repost après modification vaut acceptation des nouvelles conditions.
+                Les utilisateurs seront informés par email ou notification sur la plateforme. La poursuite de l'utilisation de Repost après modification vaut acceptation des nouvelles CGU.
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">13. Loi applicable et juridiction</h2>
+              <p className="text-gray-700 mb-4">
+                Les présentes CGU sont régies par le droit français.
+              </p>
+              <p className="text-gray-700 mb-6">
+                En cas de litige, les tribunaux compétents seront ceux de Paris, sauf disposition légale contraire.
               </p>
             </div>
           </div>

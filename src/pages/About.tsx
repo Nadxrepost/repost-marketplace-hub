@@ -1,4 +1,3 @@
-import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -8,20 +7,7 @@ const About = () => {
     <div className="min-h-screen">
       <Header />
       
-      {/* Retour à l'accueil */}
-      <div className="py-4 px-4 border-b mt-20">
-        <div className="max-w-4xl mx-auto">
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Retour à l'accueil
-          </Link>
-        </div>
-      </div>
-      
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 pt-24">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">

@@ -14,7 +14,7 @@ const CGU = () => {
             
             <div className="prose prose-lg max-w-none">
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Objet</h2>
-              <p className="text-gray-700 mb-6">
+              <p className="text-gray-700 mb-4">
                 Les présentes Conditions Générales d'Utilisation ont pour objet de définir les modalités d'accès et d'utilisation de la plateforme Repost, accessible à l'adresse <a href="https://www.repost.fashion/" className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">https://www.repost.fashion/</a>
               </p>
               <p className="text-gray-700 mb-6">
@@ -34,7 +34,7 @@ const CGU = () => {
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Accès au service</h2>
               <p className="text-gray-700 mb-2">L'accès à Repost nécessite :</p>
-              <ul className="list-disc pl-6 text-gray-700 mb-6">
+              <ul className="list-disc pl-6 text-gray-700 mb-4">
                 <li>La création d'un compte utilisateur</li>
                 <li>La souscription à une offre gratuite ou payante</li>
                 <li>Une connexion Internet et un navigateur à jour</li>
@@ -112,12 +112,6 @@ const CGU = () => {
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">12. Modifications des CGU</h2>
-              <p className="text-gray-700 mb-4">
-                Repost se réserve le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés des modifications par email ou via la plateforme.
-              </p>
-              <p className="text-gray-700 mb-6">
-                L'utilisation continue de Repost après modification vaut acceptation des nouvelles conditions.
-              </p>
             </div>
           </div>
         </div>

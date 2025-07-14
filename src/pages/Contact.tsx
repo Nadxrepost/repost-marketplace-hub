@@ -235,8 +235,8 @@ const Contact = () => {
             <div className="lg:order-1">
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/lovable-uploads/69891ded-f648-4402-a9a4-7eb789801157.png" 
-                  alt="Femme souriante avec un laptop" 
+                  src="/lovable-uploads/eda65dab-96a0-458b-805a-743b25dfa30a.png" 
+                  alt="Chat stylé avec des lunettes de soleil" 
                   className="w-full h-auto object-cover"
                 />
               </div>

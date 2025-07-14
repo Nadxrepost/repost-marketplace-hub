@@ -4,8 +4,9 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { ArrowLeft, Linkedin, Instagram } from 'lucide-react';
+import { Linkedin, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Header from '@/components/Header';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -63,20 +64,9 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header avec retour */}
-      <div className="border-b border-border">
-        <div className="container mx-auto px-6 py-4">
-          <Link 
-            to="/" 
-            className="inline-flex items-center text-foreground hover:text-muted-foreground transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Retour à l'accueil
-          </Link>
-        </div>
-      </div>
+      <Header />
 
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-6 py-20 pt-24">
         <div className="max-w-7xl mx-auto">
           {/* Titre et sous-titre */}
           <div className="text-center mb-16">

@@ -29,7 +29,7 @@ const PrivacyPolicy = () => {
               <p className="text-gray-700 mb-6">
                 Le responsable du traitement est :<br />
                 Repost<br />
-                SAS au capital de [à compléter] €<br />
+                SAS au capital de 1000 €<br />
                 Siège social : STATION F - 5 parvis Alan Turing,<br />
                 75013 PARIS<br />
                 Email : hello@repost.fashion

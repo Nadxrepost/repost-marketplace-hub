@@ -27,10 +27,10 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-brand-purple transition-colors">
+            <a href="/#features" className="text-gray-600 hover:text-brand-purple transition-colors">
               Fonctionnalités
             </a>
-            <a href="#platforms" className="text-gray-600 hover:text-brand-purple transition-colors">
+            <a href="/#platforms" className="text-gray-600 hover:text-brand-purple transition-colors">
               Plateformes
             </a>
             <Link 
@@ -67,10 +67,10 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4 mt-4">
-              <a href="#features" className="text-gray-600 hover:text-brand-purple transition-colors">
+              <a href="/#features" className="text-gray-600 hover:text-brand-purple transition-colors">
                 Fonctionnalités
               </a>
-              <a href="#platforms" className="text-gray-600 hover:text-brand-purple transition-colors">
+              <a href="/#platforms" className="text-gray-600 hover:text-brand-purple transition-colors">
                 Plateformes
               </a>
               <Link 

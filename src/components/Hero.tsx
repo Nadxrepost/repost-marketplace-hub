@@ -26,10 +26,12 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="border-brand-purple text-brand-purple hover:bg-brand-purple/10 px-8 py-6 text-lg group"
-                onClick={() => window.open('https://calendly.com/repost/appel-decouverte-repost-1', '_blank')}
+                asChild
               >
-                <Play className="mr-2 w-5 h-5" />
-                Réserver une démo
+                <a href="https://calendly.com/repost/appel-decouverte-repost-1" target="_blank" rel="noopener noreferrer">
+                  <Play className="mr-2 w-5 h-5" />
+                  Réserver une démo
+                </a>
               </Button>
             </div>
 

@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
               </p>
               <p className="text-gray-700 mb-6">
                 Pour toute question :<br />
-                📧 hello@repost.fashion
+                📧 <a href="mailto:hello@repost.fashion" className="text-blue-600 hover:text-blue-800">hello@repost.fashion</a>
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Responsable du traitement</h2>
@@ -126,7 +126,7 @@ const PrivacyPolicy = () => {
                 <li>Droit à la limitation du traitement</li>
               </ul>
               <p className="text-gray-700 mb-6">
-                Pour exercer ces droits, contactez-nous à : hello@repost.fashion
+                Pour exercer ces droits, contactez-nous à : <a href="mailto:hello@repost.fashion" className="text-blue-600 hover:text-blue-800">hello@repost.fashion</a>
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">10. Sécurité</h2>

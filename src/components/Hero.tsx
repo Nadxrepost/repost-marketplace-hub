@@ -22,9 +22,14 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <Button size="lg" variant="outline" className="border-brand-purple text-brand-purple hover:bg-brand-purple/10 px-8 py-6 text-lg group">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-brand-purple text-brand-purple hover:bg-brand-purple/10 px-8 py-6 text-lg group"
+                onClick={() => window.open('https://calendly.com/repost/appel-decouverte-repost-1', '_blank')}
+              >
                 <Play className="mr-2 w-5 h-5" />
-                Voir la démo
+                Réserver une démo
               </Button>
             </div>
 

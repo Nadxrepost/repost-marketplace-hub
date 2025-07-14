@@ -14,7 +14,7 @@ const Hero = () => {
               <div className="text-brand-dark">Mesurez</div>
             </h1>
             
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl">La solution complète pour les professionnels de la seconde main. Automatisez la publications de vos annonces sur les plateformes de revente et boostez vos ventes.</p>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl">La solution tout en un  pour les professionnels de la seconde main. Automatisez la publications de vos annonces sur les plateformes de revente et boostez vos ventes.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg group">

@@ -18,7 +18,7 @@ const PrivacyPolicy = () => {
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Qui sommes-nous ?</h2>
               <p className="text-gray-700 mb-6">
-                Seendra est une solution SaaS de multidiffusion d'annonces spécialisée dans la mode seconde main et l'économie circulaire. Le présent document explique comment nous collectons, utilisons et protégeons vos données personnelles dans le cadre de l'utilisation de notre site internet [www.repost.fashion] et des services associés (la "Plateforme").
+                Repost est une solution SaaS de multidiffusion d'annonces spécialisée dans la mode seconde main et l'économie circulaire. Le présent document explique comment nous collectons, utilisons et protégeons vos données personnelles dans le cadre de l'utilisation de notre site internet [www.repost.fashion] et des services associés (la "Plateforme").
               </p>
               <p className="text-gray-700 mb-6">
                 Pour toute question :<br />

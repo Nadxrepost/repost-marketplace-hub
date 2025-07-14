@@ -1,5 +1,5 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
-import PrivacyPolicyModal from './PrivacyPolicyModal';
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return <footer id="contact" className="bg-brand-dark text-white py-20">
       <div className="container mx-auto px-6">
@@ -72,11 +72,9 @@ const Footer = () => {
             <a href="#" className="text-gray-400 hover:text-white transition-colors">
               Mentions légales
             </a>
-            <PrivacyPolicyModal>
-              <button className="text-gray-400 hover:text-white transition-colors">
-                Politique de confidentialité
-              </button>
-            </PrivacyPolicyModal>
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
+              Politique de confidentialité
+            </Link>
             <a href="#" className="text-gray-400 hover:text-white transition-colors">
               CGU
             </a>

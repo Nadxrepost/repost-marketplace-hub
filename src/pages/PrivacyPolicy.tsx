@@ -27,12 +27,7 @@ const PrivacyPolicy = () => {
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Responsable du traitement</h2>
               <p className="text-gray-700 mb-6">
-                Le responsable du traitement est :<br />
-                Repost<br />
-                SAS au capital de 1000 €<br />
-                Siège social : STATION F - 5 parvis Alan Turing,<br />
-                75013 PARIS<br />
-                Email : hello@repost.fashion
+                Le responsable du traitement est : Nadine Bikounkou
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Données personnelles collectées</h2>

@@ -16,14 +16,14 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <img 
               src="/lovable-uploads/86ed85c6-6fbd-48f9-93c1-3a73c1a93947.png" 
               alt="Repost Logo" 
               className="w-10 h-10"
             />
             <span className="text-2xl font-bold text-brand-dark">Repost</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

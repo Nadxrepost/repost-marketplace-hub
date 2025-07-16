@@ -43,7 +43,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center">
                 <Mail className="w-5 h-5 mr-3 text-brand-purple" />
-                <span className="text-gray-300">Hello@repost.fashion</span>
+                <a href="mailto:Hello@repost.fashion" className="text-gray-300 hover:text-white transition-colors">Hello@repost.fashion</a>
               </li>
               <li className="flex items-center">
                 <Phone className="w-5 h-5 mr-3 text-brand-purple" />

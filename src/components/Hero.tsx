@@ -53,9 +53,6 @@ const Hero = () => {
               </div>
               
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 bg-brand-yellow rounded-full p-3 animate-float">
-                <span className="text-brand-dark font-bold">+50%</span>
-              </div>
               
 
               {/* Floating Marketplace Logos */}

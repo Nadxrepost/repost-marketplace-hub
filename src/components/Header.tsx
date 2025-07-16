@@ -49,7 +49,15 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white px-6">
+            <Button 
+              onClick={() => {
+                console.log('Header demo button clicked!');
+                const url = 'https://calendly.com/repost/appel-decouverte-repost-1?month=2025-07';
+                console.log('Opening URL:', url);
+                window.open(url, '_blank', 'noopener,noreferrer');
+              }}
+              className="bg-brand-purple hover:bg-brand-purple/90 text-white px-6"
+            >
               Réserver une démo
             </Button>
           </div>
@@ -88,7 +96,15 @@ const Header = () => {
                 Contact
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
-                <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white">
+                <Button 
+                  onClick={() => {
+                    console.log('Mobile demo button clicked!');
+                    const url = 'https://calendly.com/repost/appel-decouverte-repost-1?month=2025-07';
+                    console.log('Opening URL:', url);
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                  }}
+                  className="bg-brand-purple hover:bg-brand-purple/90 text-white"
+                >
                   Réserver une démo
                 </Button>
               </div>

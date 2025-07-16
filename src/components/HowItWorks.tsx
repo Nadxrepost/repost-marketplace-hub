@@ -67,8 +67,13 @@ const HowItWorks = () => {
               Rejoignez des milliers de vendeurs qui utilisent déjà Repost pour maximiser leur présence en ligne.
             </p>
             <div className="flex justify-center items-center">
-              <Button className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-3 rounded-lg font-semibold">
-                Essai gratuit 14 jours
+              <Button 
+                onClick={() => {
+                  window.open('https://carf25zlmfe.typeform.com/to/tmuhHur0?typeform-source=www.tftsolution.io#source=xxxxx', '_blank', 'noopener,noreferrer');
+                }}
+                className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-3 rounded-lg font-semibold"
+              >
+                Oui, je veux vendre partout !
               </Button>
             </div>
           </div>

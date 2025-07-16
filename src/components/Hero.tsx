@@ -17,8 +17,14 @@ const Hero = () => {
             <p className="text-xl text-gray-600 mb-8 max-w-2xl">La solution tout-en-un pour les professionnels de la seconde main. Automatisez la publications de vos annonces sur les plateformes de revente et boostez vos ventes.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg group">
-                Commencer gratuitement
+            <Button 
+              onClick={() => {
+                window.open('https://carf25zlmfe.typeform.com/to/tmuhHur0?typeform-source=www.tftsolution.io#source=xxxxx', '_blank', 'noopener,noreferrer');
+              }}
+              size="lg" 
+              className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg group"
+            >
+                Je veux tester Repost
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               

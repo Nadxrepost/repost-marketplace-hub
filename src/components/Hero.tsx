@@ -57,11 +57,6 @@ const Hero = () => {
                 <span className="text-brand-dark font-bold">+50%</span>
               </div>
               
-              <div className="absolute -bottom-4 -left-4 bg-brand-purple rounded-full p-3 animate-float" style={{
-              animationDelay: '1s'
-            }}>
-                <span className="text-white font-bold">📈</span>
-              </div>
 
               {/* Floating Marketplace Logos */}
               {/* Vinted - Top Left */}

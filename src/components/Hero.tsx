@@ -17,26 +17,16 @@ const Hero = () => {
             <p className="text-xl text-gray-600 mb-8 max-w-2xl">La solution tout-en-un pour les professionnels de la seconde main. Automatisez la publications de vos annonces sur les plateformes de revente et boostez vos ventes.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <Button 
-              onClick={() => {
-                window.open('https://carf25zlmfe.typeform.com/to/tmuhHur0?typeform-source=www.tftsolution.io#source=xxxxx', '_blank', 'noopener,noreferrer');
-              }}
-              size="lg" 
-              className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg group"
-            >
+              <Button 
+                onClick={() => {
+                  window.open('https://carf25zlmfe.typeform.com/to/tmuhHur0?typeform-source=www.tftsolution.io#source=xxxxx', '_blank', 'noopener,noreferrer');
+                }}
+                size="lg" 
+                className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg group"
+              >
                 Je veux tester Repost
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              
-              <a 
-                href="https://calendly.com/repost/appel-decouverte-repost-1?month=2025-07" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md text-lg font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-brand-purple text-brand-purple hover:bg-brand-purple/10 h-14 px-8 py-6 group"
-              >
-                <Play className="mr-2 w-5 h-5" />
-                Réserver une démo
-              </a>
             </div>
 
             <div className="flex items-center justify-center lg:justify-start space-x-8 text-sm text-gray-500">

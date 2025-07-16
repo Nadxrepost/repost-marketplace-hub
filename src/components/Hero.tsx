@@ -22,23 +22,18 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <a 
-                href="https://calendly.com/repost/appel-decouverte-repost-1?month=2025-07" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md text-lg font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-brand-purple text-brand-purple hover:bg-brand-purple/10 h-14 px-8 py-6 group"
-                onClick={(e) => {
+              <button
+                onClick={() => {
                   console.log('Demo button clicked!');
-                  console.log('Link:', e.currentTarget.href);
-                  // Test if we can open the link
-                  setTimeout(() => {
-                    console.log('Opening Calendly link...');
-                  }, 100);
+                  const url = 'https://calendly.com/repost/appel-decouverte-repost-1?month=2025-07';
+                  console.log('Opening URL:', url);
+                  window.open(url, '_blank', 'noopener,noreferrer');
                 }}
+                className="inline-flex items-center justify-center rounded-md text-lg font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-brand-purple text-brand-purple hover:bg-brand-purple/10 h-14 px-8 py-6 group"
               >
                 <Play className="mr-2 w-5 h-5" />
                 Réserver une démo
-              </a>
+              </button>
             </div>
 
             <div className="flex items-center justify-center lg:justify-start space-x-8 text-sm text-gray-500">

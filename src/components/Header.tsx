@@ -22,7 +22,7 @@ const Header = () => {
               alt="Repost Logo" 
               className="w-10 h-10"
             />
-            <span className="text-2xl font-bold text-brand-dark">Repost</span>
+            <span className="text-2xl font-bold text-brand-dark">REPOST</span>
           </Link>
 
           {/* Desktop Navigation */}

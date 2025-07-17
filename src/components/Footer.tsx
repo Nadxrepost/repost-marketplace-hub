@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img src="/lovable-uploads/254b0023-f77e-4b19-88d7-097a1d29a292.png" alt="Repost Logo" className="w-10 h-10" />
-              <span className="text-2xl font-bold">Repost</span>
+              <span className="text-2xl font-bold">REPOST</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">La solution de multidiffusion pour les professionnels de la seconde main. Centralisez, gérez, diffusez et mesurez vos performances sur toutes les plateformes de seconde main.</p>
             <div className="flex space-x-4">

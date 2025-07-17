@@ -3,12 +3,12 @@ import { Star } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Laura Vinizi",
+    name: "Laurette Makenda",
     role: "Propriétaire boutique vintage",
     company: "Vintage Paradise",
     content: "Repost a révolutionné ma façon de vendre. En quelques clics, mes articles sont sur toutes les plateformes. Mes ventes ont augmenté de 40% !",
     rating: 5,
-    avatar: "LV"
+    avatar: "LM"
   },
   {
     name: "Thomas Martin",

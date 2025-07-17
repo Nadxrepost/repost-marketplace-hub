@@ -66,7 +66,7 @@ const InventorySection = () => {
 
           {/* Text Content */}
           <div>
-            <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Répertoriez facilement votre inventaire sur plusieurs canaux attein plus de clients</h2>
+            <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Répertoriez facilement votre inventaire sur plusieurs canaux atteing plus de clients</h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
               Touchez de nouveaux clients, où qu'ils achètent, en répertoriant vos stocks, en gros, sur les marketplaces populaires et sur votre boutique en ligne, grâce à des modèles simples qui vous font gagner du temps et optimisent vos annonces. En savoir plus sur la fonctionnalité de référencement multicanal de Repost.
             </p>

@@ -19,12 +19,12 @@ const testimonials = [
     avatar: "TM"
   },
   {
-    name: "Sophie Laurent",
+    name: "Laura Vinizi",
     role: "Créatrice mode",
     company: "SL Fashion",
     content: "Interface intuitive et résultats impressionnants. Le tableau de bord unifié me permet de tout gérer depuis un seul endroit.",
     rating: 5,
-    avatar: "SL"
+    avatar: "LV"
   }
 ];
 

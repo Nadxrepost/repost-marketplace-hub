@@ -63,9 +63,7 @@ const HowItWorks = () => {
         <div className="bg-white rounded-2xl shadow-lg p-12 max-w-4xl mx-auto transition-all duration-300 hover:border-2 hover:border-brand-purple">
           <div className="text-center">
             <h3 className="text-3xl font-bold text-gray-800 mb-4">Prêt à vendre partout avec Repost ?</h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">
-              Rejoignez des milliers de vendeurs qui utilisent déjà Repost pour maximiser leur présence en ligne.
-            </p>
+            <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">Rejoignez des milliers de professionnels qui utilisent déjà Repost pour maximiser leur présence en ligne.</p>
             <div className="flex justify-center items-center">
               <Button onClick={() => {
               window.open('https://carf25zlmfe.typeform.com/to/tmuhHur0?typeform-source=www.tftsolution.io#source=xxxxx', '_blank', 'noopener,noreferrer');

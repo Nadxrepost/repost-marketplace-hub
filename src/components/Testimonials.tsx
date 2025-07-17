@@ -11,12 +11,12 @@ const testimonials = [
     avatar: "LM"
   },
   {
-    name: "Thomas Martin",
+    name: "Thomas Lefure",
     role: "Revendeur professionnel",
     company: "Second Life Store",
     content: "L'automatisation des publications m'a fait gagner 15h par semaine. Je peux enfin me concentrer sur la recherche de nouveaux produits.",
     rating: 5,
-    avatar: "TM"
+    avatar: "TL"
   },
   {
     name: "Laura Vinizi",

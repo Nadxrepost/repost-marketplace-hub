@@ -8,22 +8,18 @@ const Hero = () => {
           <div className="flex-1 text-center lg:text-left animate-fade-in">
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              <div className="text-brand-dark">Centralisez</div>
-              <div className="text-brand-purple">Gérez</div>
-              <div className="text-brand-yellow">Diffusez</div>
-              <div className="text-brand-dark">Mesurez</div>
+              <div className="text-brand-dark">Gérer</div>
+              <div className="text-brand-purple">Centraliser</div>
+              <div className="text-brand-yellow">Diffuser</div>
+              <div className="text-brand-dark">Mesurer</div>
             </h1>
             
             <p className="text-xl text-gray-600 mb-8 max-w-2xl">La solution tout-en-un pour les professionnels de la seconde main. Automatisez la publications de vos annonces sur les plateformes de revente et boostez vos ventes.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button 
-                onClick={() => {
-                  window.open('https://carf25zlmfe.typeform.com/to/tmuhHur0?typeform-source=www.tftsolution.io#source=xxxxx', '_blank', 'noopener,noreferrer');
-                }}
-                size="lg" 
-                className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg group"
-              >
+              <Button onClick={() => {
+              window.open('https://carf25zlmfe.typeform.com/to/tmuhHur0?typeform-source=www.tftsolution.io#source=xxxxx', '_blank', 'noopener,noreferrer');
+            }} size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg group">
                 Je veux tester Repost
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>

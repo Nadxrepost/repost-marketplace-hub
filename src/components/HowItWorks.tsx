@@ -62,7 +62,7 @@ const HowItWorks = () => {
         {/* Call to Action Section - Encadrée */}
         <div className="bg-white rounded-2xl shadow-lg p-12 max-w-4xl mx-auto transition-all duration-300 hover:border-2 hover:border-brand-purple">
           <div className="text-center">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">Prêt a vendre partout avec Repost ?</h3>
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">Prêt à vendre partout avec Repost ?</h3>
             <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">
               Rejoignez des milliers de vendeurs qui utilisent déjà Repost pour maximiser leur présence en ligne.
             </p>

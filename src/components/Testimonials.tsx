@@ -89,7 +89,7 @@ const Testimonials = () => {
             </div>
             <div className="flex items-center">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-              15h économisées par semaine
+              +10h gagnées par semaine
             </div>
             <div className="flex items-center">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>

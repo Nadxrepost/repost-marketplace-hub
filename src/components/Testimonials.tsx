@@ -85,7 +85,7 @@ const Testimonials = () => {
           <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
             <div className="flex items-center">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-              +50% de ventes en moyenne
+              Augmentation des ventes de + 30 %
             </div>
             <div className="flex items-center">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>

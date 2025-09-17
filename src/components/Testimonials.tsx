@@ -80,7 +80,7 @@ const Testimonials = () => {
         {/* CTA */}
         <div className="text-center mt-12">
           <p className="text-lg text-gray-600 mb-6">
-            Rejoignez plus de <span className="font-bold text-brand-purple">100+ professionnels</span> qui utilisent Repost
+            Rejoignez plus de <span className="font-bold text-brand-purple">100 professionnels</span> qui utilisent Repost
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
             <div className="flex items-center">

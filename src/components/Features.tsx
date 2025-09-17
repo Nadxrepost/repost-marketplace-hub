@@ -53,7 +53,7 @@ const Features = () => {
             <div className="text-gray-600">Plateformes connectées</div>
           </div>
           <div className="p-6">
-            <div className="text-4xl font-bold gradient-text mb-2">500%</div>
+            <div className="text-4xl font-bold gradient-text mb-2">30%</div>
             <div className="text-gray-600">Gain de productivité</div>
           </div>
           <div className="p-6">

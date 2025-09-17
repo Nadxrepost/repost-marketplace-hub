@@ -91,10 +91,6 @@ const Testimonials = () => {
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
               +10h gagnées par semaine
             </div>
-            <div className="flex items-center">
-              <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-              98% de satisfaction client
-            </div>
           </div>
         </div>
       </div>

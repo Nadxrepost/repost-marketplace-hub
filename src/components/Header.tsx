@@ -52,7 +52,7 @@ const Header = () => {
             <Button 
               onClick={() => {
                 console.log('Header demo button clicked!');
-                const url = 'https://calendly.com/repost/appel-decouverte-repost-1?month=2025-07';
+                const url = 'https://calendly.com/repostapp/30min';
                 console.log('Opening URL:', url);
                 window.open(url, '_blank', 'noopener,noreferrer');
               }}
@@ -99,7 +99,7 @@ const Header = () => {
                 <Button 
                   onClick={() => {
                     console.log('Mobile demo button clicked!');
-                    const url = 'https://calendly.com/repost/appel-decouverte-repost-1?month=2025-07';
+                    const url = 'https://calendly.com/repostapp/30min';
                     console.log('Opening URL:', url);
                     window.open(url, '_blank', 'noopener,noreferrer');
                   }}

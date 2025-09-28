@@ -5,7 +5,7 @@ const BusinessSection = () => {
           {/* Text Content */}
           <div>
             <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Multipliez vos ventes, maîtrisez vos stocks et gagnez du temps avec la solution tout-en-un dédiée aux professionnels de la 2<sup>nde</sup> main.</h2>
-            <p className="text-lg text-gray-600 leading-relaxed">Nous savons qu'il est difficile de développer son activité, et encore plus de gérer vos stocks et vos commandes, face à la multiplication des canaux de vente. Repost vous aide à atteindre de nouveaux clients, où qu'ils achètent : créez et gérez vos annonces, contrôlez vos stocks et traitez vos commandes depuis une interface unique et intuitive que vous adorerez utiliser. Soyez opérationnel sur Repost dès aujourd'hui !</p>
+            <p className="text-lg text-gray-600 leading-relaxed">Publiez une fois, vendez partout ! Repost vous aide à atteindre de nouveaux clients. Simplifie la gestion de votre activité et booste vos ventes sur toutes les plateformes, en rendant la gestion de vos stocks, commandes et annonces ultra-facile et rapide.</p>
           </div>
 
           {/* Dashboard Image */}

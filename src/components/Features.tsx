@@ -14,7 +14,7 @@ const Features = () => {
   }, {
     icon: Globe,
     title: "Diffuser",
-    description: "Publiez simultanément sur Vinted, Leboncoin, Vestiaire Collective, Depop, eBay, Etsy et bien d'autres plateformes.",
+    description: "Publiez simultanément sur Vinted, Depop, eBay, Etsy et bien d'autres plateformes.",
     color: "bg-gray-600"
   }, {
     icon: BarChart3,

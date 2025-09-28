@@ -67,7 +67,7 @@ const InventorySection = () => {
           {/* Text Content */}
           <div>
             <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Listez facilement votre inventaire sur plusieurs canaux et atteignez plus de clients</h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">Touchez de nouveaux clients, où qu'ils achètent, en répertoriant vos stocks, en gros, sur les plateformes les plus populaires et sur votre boutique en ligne, notre assistant IA vous ferra gagner du temps et optimisent vos annonces. </p>
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">Touchez de nouveaux clients, où qu'ils achètent, en répertoriant vos stocks sur les plateformes les plus populaires et sur votre boutique en ligne. Notre assistant IA vous fera gagner du temps et optimisant vos annonces. </p>
             <Button variant="outline" className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 text-lg font-medium" onClick={() => {
             const platformsSection = document.querySelector('section[data-section="platforms"]');
             if (platformsSection) {

@@ -40,6 +40,12 @@ const Features = () => {
                 {feature.title}
               </h3>
               
+              {index === 0 && (
+                <div className="text-sm font-semibold text-brand-purple mb-3">
+                  +30% de temps gagné sur la gestion des stocks
+                </div>
+              )}
+              
               <p className="text-gray-600 leading-relaxed">
                 {feature.description}
               </p>

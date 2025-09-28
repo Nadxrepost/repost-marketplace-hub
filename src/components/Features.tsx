@@ -27,7 +27,7 @@ const Features = () => {
           <h2 className="text-4xl font-bold text-brand-dark mb-4">
             Une solution <span className="gradient-text">complète</span> pour votre business
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Repost simplifie la gestion de votre activité de 2<sup>nde</sup> main avec quatre piliers essentiels :</p>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Votre activité 2<sup>nde</sup> main, pilotée simplement avec Repost.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

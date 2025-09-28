@@ -9,7 +9,7 @@ const steps = [{
 }, {
   number: 2,
   title: "Étape 2",
-  description: "Choisissez où vendre, Repost s'occupe du reste !",
+  description: "Choisissez où vous voulez vendre, Repost s'occupe du reste.",
   icon: Settings
 }, {
   number: 3,

@@ -81,28 +81,14 @@ const About = () => {
               <h2 className="text-3xl font-bold mb-6 text-center">Notre Équipe</h2>
               <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                 <div className="text-center">
-                  <h3 className="text-xl font-semibold mb-2">Nadine</h3>
+                  <h3 className="text-xl font-semibold mb-2">Nadine Bikounkou</h3>
                   <p className="text-muted-foreground mb-2">CEO et cofondatrice</p>
-                  <a 
-                    href="https://linkedin.com/in/nadine-bikounkou" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Nous contacter sur LinkedIn
-                  </a>
+                  <a href="https://linkedin.com/in/nadine-bikounkou" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Me contacter sur LinkedIn</a>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-xl font-semibold mb-2">Nadège</h3>
+                  <h3 className="text-xl font-semibold mb-2">Nadège Bikounkou</h3>
                   <p className="text-muted-foreground mb-2">Head of sales et cofondatrice</p>
-                  <a 
-                    href="https://linkedin.com/in/nadège-bikounkou" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Nous contacter sur LinkedIn
-                  </a>
+                  <a href="https://linkedin.com/in/nadège-bikounkou" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Me  contacter sur LinkedIn</a>
                 </div>
               </div>
             </div>

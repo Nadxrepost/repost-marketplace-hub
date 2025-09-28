@@ -46,6 +46,12 @@ const Features = () => {
                 </div>
               )}
               
+              {index === 1 && (
+                <div className="text-sm font-bold text-brand-dark mb-3 italic">
+                  Stock et prix toujours à jour, sans effort.
+                </div>
+              )}
+              
               <p className="text-gray-600 leading-relaxed">
                 {feature.description}
               </p>

@@ -19,7 +19,7 @@ const steps = [{
 }, {
   number: 4,
   title: "Étape 4",
-  description: "Atteignez plus d'acheteurs et vendez plus rapidement",
+  description: "Atteignez plus de clients et vendez plus rapidement !",
   icon: TrendingUp
 }];
 const HowItWorks = () => {

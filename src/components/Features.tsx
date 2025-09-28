@@ -42,7 +42,7 @@ const Features = () => {
               
               {index === 0 && (
                 <div className="text-sm font-bold text-brand-dark mb-3 italic">
-                  +30% de temps gagné sur la gestion des stocks
+                  +30% de temps gagné sur la gestion des stocks.
                 </div>
               )}
               

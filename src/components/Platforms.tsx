@@ -52,7 +52,7 @@ const Platforms = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">Connectez-vous aux meilleures plateformes de 2<sup>nde</sup> main.</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Publiez vos annonces simultanément sur toutes les plateformes de revente les plus populaires.Votre stock, diffusé partout. Zéro effort, 100% visibilité.</p>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">En savoir plus sur la listes des plateformes</p>
         </div>
 
         <div className="grid grid-cols-8 gap-4">

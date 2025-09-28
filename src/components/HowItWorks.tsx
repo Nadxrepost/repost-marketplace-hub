@@ -1,11 +1,11 @@
 import { Button } from '@/components/ui/button';
-import { Package, Settings, Send, TrendingUp } from 'lucide-react';
+import { List, Settings, Send, TrendingUp } from 'lucide-react';
 
 const steps = [{
   number: 1,
   title: "Étape 1",
   description: "Listez vos produits",
-  icon: Package
+  icon: List
 }, {
   number: 2,
   title: "Étape 2",

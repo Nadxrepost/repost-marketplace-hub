@@ -18,7 +18,7 @@ const Hero = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-brand-dark">
-              Automatisez la vente de votre stock sur toutes les plateformes de 2<sup>nde</sup> main, en 1 clic !
+              Automatisez la vente de votre stock sur toutes les plateformes de 2<sup>nde</sup> main en 1 clic !
             </h1>
             
             <p className="text-xl text-gray-600 mb-8 max-w-2xl">La solution tout-en-un pour les professionnels de la seconde main. Boostez vos ventes, en automatisant la publications de vos annonces sur les plateformes de revente.</p>

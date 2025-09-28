@@ -1,20 +1,26 @@
 import { Button } from '@/components/ui/button';
+import { Package, Settings, Send, TrendingUp } from 'lucide-react';
+
 const steps = [{
   number: 1,
   title: "Listez vos produits",
-  description: "Ajoutez vos photos, description et prix en quelques clics"
+  description: "Ajoutez vos photos, description et prix en quelques clics",
+  icon: Package
 }, {
   number: 2,
   title: "Sélectionnez vos canaux de vente",
-  description: "Choisissez sur quelles plateformes publier automatiquement"
+  description: "Choisissez sur quelles plateformes publier automatiquement",
+  icon: Settings
 }, {
   number: 3,
   title: "Publication instantanée",
-  description: "Repost diffuse votre annonce sur tous les marchés sélectionnés"
+  description: "Repost diffuse votre annonce sur tous les marchés sélectionnés",
+  icon: Send
 }, {
   number: 4,
   title: "Maximisez vos ventes",
-  description: "Atteignez plus d'acheteurs et vendez plus rapidement"
+  description: "Atteignez plus d'acheteurs et vendez plus rapidement",
+  icon: TrendingUp
 }];
 const HowItWorks = () => {
   return <section id="how-it-works" className="py-20 bg-gray-100">
@@ -31,32 +37,35 @@ const HowItWorks = () => {
 
         {/* Steps Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {steps.map((step, index) => <div key={index} className="bg-white rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer group hover:bg-gray-50 hover:border-2 hover:border-gray-400">
-              {/* Step Number - Large and centered */}
-              <div className="mb-6">
-                <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto group-hover:bg-gray-700 group-hover:scale-110 transition-all duration-300">
-                  <span className="text-white font-bold text-sm">
-                    Étape {step.number}
-                  </span>
+          {steps.map((step, index) => {
+            const IconComponent = step.icon;
+            return (
+              <div key={index} className="bg-white rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer group hover:bg-gray-50 hover:border-2 hover:border-gray-400">
+                {/* Step Icon - Large and centered */}
+                <div className="mb-6">
+                  <div className="w-16 h-16 bg-gray-600 rounded-xl flex items-center justify-center mx-auto group-hover:bg-gray-700 group-hover:scale-110 transition-all duration-300">
+                    <IconComponent className="text-white w-8 h-8" />
+                  </div>
                 </div>
-              </div>
 
-              {/* Content */}
-              <div className="relative z-10">
-                <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-gray-700 transition-colors duration-300">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                  {step.description}
-                </p>
-              </div>
+                {/* Content */}
+                <div className="relative z-10">
+                  <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-gray-700 transition-colors duration-300">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                    {step.description}
+                  </p>
+                </div>
 
-              {/* Arrow connector (except for last item) */}
-              {index < steps.length - 1 && <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                  <div className="w-6 h-0.5 bg-gradient-to-r from-brand-purple to-brand-yellow"></div>
-                  <div className="w-0 h-0 border-l-4 border-l-brand-yellow border-t-2 border-t-transparent border-b-2 border-b-transparent absolute right-0 top-1/2 transform -translate-y-1/2"></div>
-                </div>}
-            </div>)}
+                {/* Arrow connector (except for last item) */}
+                {index < steps.length - 1 && <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
+                    <div className="w-6 h-0.5 bg-gradient-to-r from-brand-purple to-brand-yellow"></div>
+                    <div className="w-0 h-0 border-l-4 border-l-brand-yellow border-t-2 border-t-transparent border-b-2 border-b-transparent absolute right-0 top-1/2 transform -translate-y-1/2"></div>
+                  </div>}
+              </div>
+            );
+          })}
         </div>
 
         {/* Call to Action Section - Encadrée */}

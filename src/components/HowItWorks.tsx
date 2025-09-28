@@ -35,8 +35,8 @@ const HowItWorks = () => {
               {/* Step Number - Large and centered */}
               <div className="mb-6">
                 <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto group-hover:bg-gray-700 group-hover:scale-110 transition-all duration-300">
-                  <span className="text-white font-bold text-2xl">
-                    {step.number}
+                  <span className="text-white font-bold text-sm">
+                    Étape {step.number}
                   </span>
                 </div>
               </div>

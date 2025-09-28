@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-
 const About = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Header />
       
       <section className="py-20 px-4 pt-24">
@@ -77,16 +75,12 @@ const About = () => {
               </p>
               
               <div className="mt-8 mb-8">
-                <img 
-                  src="/lovable-uploads/e411c12f-b01a-4c9e-9451-d723007a4d45.png" 
-                  alt="Équipe Repost - Deux femmes souriantes représentant l'esprit collaboratif de notre entreprise" 
-                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
-                />
+                <img src="/lovable-uploads/e411c12f-b01a-4c9e-9451-d723007a4d45.png" alt="Équipe Repost - Deux femmes souriantes représentant l'esprit collaboratif de notre entreprise" className="w-full max-w-2xl mx-auto rounded-lg shadow-lg" />
               </div>
             </div>
 
             <div className="text-center bg-muted rounded-lg p-8">
-              <h2 className="text-2xl font-bold mb-4">Rejoignez-nous dans l'aventure</h2>
+              <h2 className="text-2xl font-bold mb-4">Rejoignez-nous !</h2>
               <p className="text-muted-foreground mb-6">
                 Découvrez comment Repost peut transformer votre activité de seconde main
               </p>
@@ -104,8 +98,6 @@ const About = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;

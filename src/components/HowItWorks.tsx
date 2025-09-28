@@ -72,7 +72,7 @@ const HowItWorks = () => {
             <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">Déjà adopté par de centaines de professionnels de la seconde main.</p>
             <div className="flex justify-center items-center">
             <Button onClick={() => {
-              window.open('https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form', '_blank', 'noopener,noreferrer');
+              window.open('https://calendly.com/repostapp/30min?month=2025-09', '_blank', 'noopener,noreferrer');
             }} className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-3 rounded-lg font-semibold">
                 Oui, je veux vendre avec Repost !
               </Button>

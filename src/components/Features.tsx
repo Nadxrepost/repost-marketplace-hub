@@ -58,6 +58,12 @@ const Features = () => {
                 </div>
               )}
               
+              {index === 3 && (
+                <div className="text-sm font-bold text-brand-dark mb-3 italic">
+                  Identifiez vos best-sellers en un clin d'œil.
+                </div>
+              )}
+              
               <p className="text-gray-600 leading-relaxed">
                 {feature.description}
               </p>

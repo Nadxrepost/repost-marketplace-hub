@@ -1,4 +1,5 @@
 import { Package, Zap, BarChart3, Globe } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 const Features = () => {
   const features = [{
     icon: Package,
@@ -84,6 +85,16 @@ const Features = () => {
             <div className="text-4xl font-bold gradient-text mb-2">24/7</div>
             <div className="text-gray-600">Synchronisation automatique</div>
           </div>
+        </div>
+        
+        {/* CTA Button */}
+        <div className="mt-16 text-center">
+          <Button 
+            size="lg" 
+            className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-4 text-lg font-semibold"
+          >
+            Démarrer maintenant avec Repost
+          </Button>
         </div>
       </div>
     </section>;

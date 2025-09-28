@@ -7,11 +7,18 @@ const Hero = () => {
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left animate-fade-in">
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              <div className="text-brand-dark">Gérer</div>
-              <div className="text-brand-purple">Centraliser</div>
-              <div className="text-brand-yellow">Diffuser</div>
-              <div className="text-brand-dark">Mesurer</div>
+            <div className="text-lg md:text-xl text-gray-600 mb-4">
+              <span className="text-brand-purple font-semibold">Gérer</span>
+              <span className="mx-2">•</span>
+              <span className="text-brand-purple font-semibold">Centraliser</span>
+              <span className="mx-2">•</span>
+              <span className="text-brand-yellow font-semibold">Diffuser</span>
+              <span className="mx-2">•</span>
+              <span className="text-brand-purple font-semibold">Mesurer</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-brand-dark">
+              Automatisez la vente de votre stock sur toutes les plateformes de seconde main, en un clic !
             </h1>
             
             <p className="text-xl text-gray-600 mb-8 max-w-2xl">La solution tout-en-un pour les professionnels de la seconde main. Boostez vos ventes, en automatisant la publications de vos annonces sur les plateformes de revente.</p>

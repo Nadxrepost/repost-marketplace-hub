@@ -8,9 +8,7 @@ const About = () => {
       <section className="py-20 px-4 pt-24">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              À propos de Repost
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">À propos de nous</h1>
             <p className="text-xl text-muted-foreground">
               La solution SaaS qui révolutionne la vente en seconde main pour les professionnels et particuliers
             </p>
@@ -79,20 +77,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="text-center bg-muted rounded-lg p-8">
-              <h2 className="text-2xl font-bold mb-4">Rejoignez-nous !</h2>
-              <p className="text-muted-foreground mb-6">
-                Découvrez comment Repost peut transformer votre activité de seconde main
-              </p>
-              <div className="flex gap-4 justify-center">
-                <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-colors">
-                  Essai gratuit 7 jours
-                </button>
-                <button className="border border-input bg-background hover:bg-accent hover:text-accent-foreground px-6 py-3 rounded-lg font-medium transition-colors">
-                  Nous contacter
-                </button>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>

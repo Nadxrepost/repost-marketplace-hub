@@ -21,7 +21,7 @@ const Hero = () => {
               Automatisez la vente de votre stock sur toutes les plateformes de 2<sup>nde</sup> main en 1 clic !
             </h1>
             
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl">Multipliez vos ventes, maîtrisez vos stocks et gagnez du temps avec la solution tout-en-un dédiée aux professionnels de la 2nde main.</p>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl">Multipliez vos ventes, maîtrisez vos stocks et gagnez du temps avec la solution tout-en-un dédiée aux professionnels de la 2<sup>nde</sup> main.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={() => {

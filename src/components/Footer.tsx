@@ -10,7 +10,7 @@ const Footer = () => {
               <img src="/lovable-uploads/254b0023-f77e-4b19-88d7-097a1d29a292.png" alt="Repost Logo" className="w-10 h-10" />
               <span className="text-2xl font-bold">REPOST</span>
             </div>
-            <p className="text-gray-300 mb-6 max-w-md">La solution de multidiffusion pour les professionnels de la seconde main. Centralisez, gérez, diffusez et mesurez vos performances sur toutes les plateformes de seconde main.</p>
+            <p className="text-gray-300 mb-6 max-w-md">La solution de multidiffusion pour les professionnels de la 2<sup>nde</sup> main. Centralisez, gérez, diffusez et mesurez vos performances sur toutes les plateformes de 2<sup>nde</sup> main.</p>
             <div className="flex space-x-4">
               <a href="https://www.youtube.com/@repost.fashion" target="_blank" rel="noopener noreferrer" className="w-16 h-16 flex items-center justify-center hover:opacity-80 transition-opacity">
                 <img src="/lovable-uploads/7eb31316-f7c7-44d1-b31f-3c5f2e4f0390.png" alt="YouTube" className="w-14 h-14" />

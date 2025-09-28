@@ -89,6 +89,10 @@ const Testimonials = () => {
             </div>
             <div className="flex items-center">
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+              +40% de visibilité sur vos produits
+            </div>
+            <div className="flex items-center">
+              <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
               +10h gagnées par semaine
             </div>
           </div>

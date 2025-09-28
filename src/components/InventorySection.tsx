@@ -76,7 +76,7 @@ const InventorySection = () => {
               });
             }
           }}>
-              En savoir plus sur les listes multicanaux
+              En savoir plus sur la liste des plateformes
             </Button>
           </div>
         </div>

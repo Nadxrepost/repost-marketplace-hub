@@ -45,10 +45,6 @@ const Footer = () => {
                 <Mail className="w-5 h-5 mr-3 text-brand-purple" />
                 <a href="mailto:Hello@repost.fashion" className="text-gray-300 hover:text-white transition-colors">Hello@repost.fashion</a>
               </li>
-              <li className="flex items-center">
-                <Phone className="w-5 h-5 mr-3 text-brand-purple" />
-                <span className="text-gray-300">+33 1 23 45 67 89</span>
-              </li>
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 text-brand-purple mt-1" />
                 <span className="text-gray-300">

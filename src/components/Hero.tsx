@@ -18,7 +18,7 @@ const Hero = () => {
             </div>
             
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-brand-dark">
-              Automatisez la vente de votre stock sur toutes les plateformes de 2<sup>nde</sup> main en 1 clic !
+              Votre stock, diffusé partout. 0 effort, 100% visibilité.
             </h1>
             
             <p className="text-xl text-gray-600 mb-8 max-w-2xl">Avec Repost gagnez en efficacité : gérez vos annonces, automatisez leur multi-diffusion, analysez vos ventes et centralisez votre stock sur une seule interface, pour vous concentrer sur l'essentiel : votre croissance.</p>

@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { List, Settings, Send, TrendingUp } from 'lucide-react';
-
 const steps = [{
   number: 1,
   title: "Étape 1",
@@ -38,9 +37,8 @@ const HowItWorks = () => {
         {/* Steps Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {steps.map((step, index) => {
-            const IconComponent = step.icon;
-            return (
-              <div key={index} className="bg-white rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer group hover:bg-gray-50 hover:border-2 hover:border-gray-400">
+          const IconComponent = step.icon;
+          return <div key={index} className="bg-white rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer group hover:bg-gray-50 hover:border-2 hover:border-gray-400">
                 {/* Step Icon - Large and centered */}
                 <div className="mb-6">
                   <div className="w-16 h-16 bg-gray-600 rounded-xl flex items-center justify-center mx-auto group-hover:bg-gray-700 group-hover:scale-110 transition-all duration-300">
@@ -63,16 +61,15 @@ const HowItWorks = () => {
                     <div className="w-6 h-0.5 bg-gradient-to-r from-brand-purple to-brand-yellow"></div>
                     <div className="w-0 h-0 border-l-4 border-l-brand-yellow border-t-2 border-t-transparent border-b-2 border-b-transparent absolute right-0 top-1/2 transform -translate-y-1/2"></div>
                   </div>}
-              </div>
-            );
-          })}
+              </div>;
+        })}
         </div>
 
         {/* Call to Action Section - Encadrée */}
         <div className="bg-white rounded-2xl shadow-lg p-12 max-w-4xl mx-auto transition-all duration-300 hover:border-2 hover:border-brand-purple">
           <div className="text-center">
             <h3 className="text-3xl font-bold text-gray-800 mb-4">Prêt à vendre partout avec Repost ?</h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">Rejoignez des milliers de professionnels qui utilisent déjà Repost pour maximiser leur présence en ligne.</p>
+            <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">Déjà adopté par de centaines de professionnels de la seconde main.</p>
             <div className="flex justify-center items-center">
               <Button onClick={() => {
               window.open('https://carf25zlmfe.typeform.com/to/tmuhHur0?typeform-source=www.tftsolution.io#source=xxxxx', '_blank', 'noopener,noreferrer');

@@ -71,8 +71,8 @@ const HowItWorks = () => {
             <h3 className="text-3xl font-bold text-gray-800 mb-4">Prêt à vendre partout avec Repost ?</h3>
             <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">Déjà adopté par de centaines de professionnels de la seconde main.</p>
             <div className="flex justify-center items-center">
-              <Button onClick={() => {
-              window.open('https://carf25zlmfe.typeform.com/to/tmuhHur0?typeform-source=www.tftsolution.io#source=xxxxx', '_blank', 'noopener,noreferrer');
+            <Button onClick={() => {
+              window.open('https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form', '_blank', 'noopener,noreferrer');
             }} className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-3 rounded-lg font-semibold">
                 Oui, je veux vendre avec Repost !
               </Button>

@@ -71,21 +71,6 @@ const Features = () => {
             </div>)}
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-20 grid md:grid-cols-3 gap-8 text-center">
-          <div className="p-6">
-            <div className="text-4xl font-bold gradient-text mb-2">10+</div>
-            <div className="text-gray-600">Plateformes connectées</div>
-          </div>
-          <div className="p-6">
-            <div className="text-4xl font-bold gradient-text mb-2">30%</div>
-            <div className="text-gray-600">Gain de productivité</div>
-          </div>
-          <div className="p-6">
-            <div className="text-4xl font-bold gradient-text mb-2">24/7</div>
-            <div className="text-gray-600">Synchronisation automatique</div>
-          </div>
-        </div>
         
         {/* CTA Button */}
         <div className="mt-16 text-center">

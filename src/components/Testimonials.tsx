@@ -15,7 +15,7 @@ const testimonials = [
     role: "Revendeur professionnel",
     company: "Second Life Store",
     content: "L'automatisation des publications m'a fait gagner 15h par semaine. Je peux enfin me concentrer sur la recherche de nouveaux produits.",
-    rating: 5,
+    rating: 4,
     avatar: "TL"
   },
   {

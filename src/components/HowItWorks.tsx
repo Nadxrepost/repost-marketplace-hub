@@ -14,7 +14,7 @@ const steps = [{
 }, {
   number: 3,
   title: "Étape 3",
-  description: "Repost diffuse votre annonce sur tous les marchés sélectionnés",
+  description: "Publiez vos annonces partout en 1 clic !",
   icon: Send
 }, {
   number: 4,

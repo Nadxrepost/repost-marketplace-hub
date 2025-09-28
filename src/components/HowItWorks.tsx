@@ -18,7 +18,7 @@ const steps = [{
   icon: Send
 }, {
   number: 4,
-  title: "Maximisez vos ventes",
+  title: "Étape 4",
   description: "Atteignez plus d'acheteurs et vendez plus rapidement",
   icon: TrendingUp
 }];

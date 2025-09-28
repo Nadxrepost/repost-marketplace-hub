@@ -8,7 +8,7 @@ const steps = [{
   icon: Package
 }, {
   number: 2,
-  title: "Sélectionnez vos canaux de vente",
+  title: "Étape 2",
   description: "Choisissez sur quelles plateformes publier automatiquement",
   icon: Settings
 }, {

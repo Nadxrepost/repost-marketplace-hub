@@ -3,7 +3,7 @@ import { Package, Settings, Send, TrendingUp } from 'lucide-react';
 
 const steps = [{
   number: 1,
-  title: "Listez vos produits",
+  title: "Étape 1",
   description: "Ajoutez vos photos, description et prix en quelques clics",
   icon: Package
 }, {

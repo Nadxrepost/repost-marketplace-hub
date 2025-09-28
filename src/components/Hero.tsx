@@ -8,13 +8,13 @@ const Hero = () => {
           <div className="flex-1 text-center lg:text-left animate-fade-in">
             
             <div className="text-lg md:text-xl text-gray-600 mb-4">
-              <span className="text-brand-purple font-semibold">Gérer</span>
+              <span className="text-brand-dark font-semibold">Gérer</span>
               <span className="mx-2">•</span>
               <span className="text-brand-purple font-semibold">Centraliser</span>
               <span className="mx-2">•</span>
               <span className="text-brand-yellow font-semibold">Diffuser</span>
               <span className="mx-2">•</span>
-              <span className="text-brand-purple font-semibold">Mesurer</span>
+              <span className="text-brand-dark font-semibold">Mesurer</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-brand-dark">

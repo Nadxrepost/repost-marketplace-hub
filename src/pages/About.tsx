@@ -83,7 +83,7 @@ const About = () => {
                 <div className="text-center">
                   <h3 className="text-xl font-semibold mb-2">Nadine Bikounkou</h3>
                   <p className="text-muted-foreground mb-2">CEO et cofondatrice</p>
-                  <a href="https://linkedin.com/in/nadine-bikounkou" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Me contacter sur LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/nadinebikounkourepostfashion/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Me contacter sur LinkedIn</a>
                 </div>
                 <div className="text-center">
                   <h3 className="text-xl font-semibold mb-2">Nadège Bikounkou</h3>

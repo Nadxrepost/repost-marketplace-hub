@@ -17,7 +17,7 @@ const Hero = () => {
               <span className="text-brand-dark font-semibold">Mesurer</span>
             </div>
             
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight text-brand-dark">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-brand-dark">
               Automatisez la vente de votre stock sur toutes les plateformes de 2<sup>nde</sup> main en 1 clic !
             </h1>
             

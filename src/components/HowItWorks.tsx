@@ -4,7 +4,7 @@ import { List, Settings, Send, TrendingUp } from 'lucide-react';
 const steps = [{
   number: 1,
   title: "Étape 1",
-  description: "Listez vos produits",
+  description: "Listez vos produits (photo, titre, description…)",
   icon: List
 }, {
   number: 2,

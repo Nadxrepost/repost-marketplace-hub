@@ -13,7 +13,7 @@ const steps = [{
   icon: Settings
 }, {
   number: 3,
-  title: "Publication instantanée",
+  title: "Étape 3",
   description: "Repost diffuse votre annonce sur tous les marchés sélectionnés",
   icon: Send
 }, {

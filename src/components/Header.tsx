@@ -52,7 +52,7 @@ const Header = () => {
             <Button 
               onClick={() => {
                 console.log('Header demo button clicked!');
-                const url = 'https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form';
+                const url = 'https://calendly.com/repostapp/30min';
                 console.log('Opening URL:', url);
                 window.open(url, '_blank', 'noopener,noreferrer');
               }}
@@ -99,7 +99,7 @@ const Header = () => {
                 <Button 
                   onClick={() => {
                     console.log('Mobile demo button clicked!');
-                    const url = 'https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form';
+                    const url = 'https://calendly.com/repostapp/30min';
                     console.log('Opening URL:', url);
                     window.open(url, '_blank', 'noopener,noreferrer');
                   }}

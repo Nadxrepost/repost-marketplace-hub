@@ -25,7 +25,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={() => {
-              window.open('https://calendly.com/repostapp/30min?month=2025-09', '_blank');
+              window.open('https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form', '_blank');
             }} size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-6 text-lg group">
                 Je veux tester Repost
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

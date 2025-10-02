@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import repostappInterface from '@/assets/repostapp-interface.png';
+import repostappInterface2 from '@/assets/repostapp-interface-2.png';
 const Pricing = () => {
   const features = ["Configuration rapide et facile, gérée par notre équipe", "Mapping de données personnalisé adapté à vos besoins", "Intégration personnalisée avec notre équipe support", "Gestionnaire de compte dédié pour un accompagnement continu", "Assistance à la configuration des comptes marketplace"];
   return <div className="min-h-screen">
@@ -33,12 +34,21 @@ Notre tarification est basée sur le volume de produit à mettre en stock.</p>
           {/* Features Section */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src={repostappInterface} 
-                  alt="Interface RepostApp - Gestion multi-canaux" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden shadow-lg">
+                  <img 
+                    src={repostappInterface} 
+                    alt="Interface RepostApp - Gestion multi-canaux" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-8 -right-8 w-3/4 rounded-2xl overflow-hidden shadow-2xl">
+                  <img 
+                    src={repostappInterface2} 
+                    alt="Interface RepostApp - Vue inventaire" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
             

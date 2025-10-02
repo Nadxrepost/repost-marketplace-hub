@@ -90,7 +90,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-6">
             <span className="text-lg text-muted-foreground">Repost est soutenu par</span>
-            <img src={stationFLogo} alt="Station F" className="h-12" />
+            <img src={stationFLogo} alt="Station F" className="h-8" />
           </div>
         </div>
       </section>

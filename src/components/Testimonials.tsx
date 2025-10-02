@@ -100,7 +100,7 @@ const Testimonials = () => {
         </div>
 
         {/* Repost est soutenu par */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-24">
           <p className="text-lg text-gray-600 mb-6">Repost est soutenu par :</p>
           <div className="flex items-center gap-8 justify-center">
             <img src={stationFLogo} alt="Station F" className="h-10" />

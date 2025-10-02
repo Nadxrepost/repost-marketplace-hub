@@ -88,8 +88,8 @@ const About = () => {
         </div>
       </section>
 
-      <div className="max-w-4xl mx-auto px-4">
-        <Separator className="my-12" />
+      <div className="max-w-4xl mx-auto px-4 my-16">
+        <Separator className="h-px bg-border" />
       </div>
 
       <section className="py-12 px-4 bg-muted/30 mt-32">

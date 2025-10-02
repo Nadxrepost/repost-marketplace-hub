@@ -2,8 +2,8 @@ import { Check, X } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import repostappInterface from '@/assets/repostapp-interface.png';
-import repostappInterface2 from '@/assets/repostapp-interface-2.png';
+import repostappInterface from '@/assets/pricing-main.png';
+import repostappInterface2 from '@/assets/pricing-overlay.png';
 const Pricing = () => {
   const features = ["Configuration rapide et facile, gérée par notre équipe", "Mapping de données personnalisé adapté à vos besoins", "Intégration personnalisée avec notre équipe support", "Gestionnaire de compte dédié pour un accompagnement continu", "Assistance à la configuration des comptes marketplace"];
   return <div className="min-h-screen">
@@ -40,13 +40,15 @@ Notre tarification est basée sur le volume de produit à mettre en stock.</p>
                     src={repostappInterface} 
                     alt="Interface RepostApp - Gestion multi-canaux" 
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
-                <div className="absolute -bottom-8 -right-8 w-3/4 rounded-2xl overflow-hidden shadow-2xl">
+                <div className="absolute -bottom-10 -right-10 w-2/3 md:w-1/2 lg:w-2/5 rounded-2xl overflow-hidden shadow-2xl border border-border bg-card">
                   <img 
                     src={repostappInterface2} 
-                    alt="Interface RepostApp - Vue inventaire" 
+                    alt="Interface RepostApp - Sélecteur d'images superposé" 
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
               </div>

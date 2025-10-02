@@ -25,40 +25,6 @@ const About = () => {
             </div>
 
             <div className="mb-12">
-              <h2 className="text-3xl font-bold mb-6">Pourquoi Repost ?</h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">🚀 Innovation</h3>
-                  <p className="text-muted-foreground">
-                    Première plateforme française dédiée exclusivement à la gestion multi-plateformes 
-                    de la seconde main avec des fonctionnalités pensées par et pour les vendeurs.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">⚡ Efficacité</h3>
-                  <p className="text-muted-foreground">
-                    Automatisation complète de vos publications, synchronisation en temps réel 
-                    de votre stock et analytics détaillées pour optimiser vos performances.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">🎯 Expertise</h3>
-                  <p className="text-muted-foreground">
-                    Une équipe passionnée par la seconde main qui comprend vos défis quotidiens 
-                    et développe des solutions adaptées à vos besoins réels.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">🤝 Support</h3>
-                  <p className="text-muted-foreground">
-                    Un accompagnement personnalisé et un support technique réactif pour vous 
-                    aider à tirer le meilleur parti de notre plateforme.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mb-12">
               <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Tout à commencé par une idée…

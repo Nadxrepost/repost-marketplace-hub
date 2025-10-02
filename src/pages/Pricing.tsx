@@ -3,7 +3,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import repostappInterface from '@/assets/pricing-main.png';
-
 const Pricing = () => {
   const features = ["Configuration rapide et facile, gérée par notre équipe", "Mapping de données personnalisé adapté à vos besoins", "Intégration personnalisée avec notre équipe support", "Gestionnaire de compte dédié pour un accompagnement continu", "Assistance à la configuration des comptes marketplace"];
   return <div className="min-h-screen">
@@ -22,7 +21,7 @@ const Pricing = () => {
                 <span className="text-5xl md:text-6xl font-bold">39€</span>
                 <span className="text-2xl text-muted-foreground">/mois</span>
               </div>
-              <p className="text-xl text-muted-foreground mb-8">35€/mois</p>
+              
               <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto">Nos tarifs sont adaptés à tous les profils d'entreprises. 
 Notre tarification est basée sur le volume de produit à mettre en stock.</p>
               <Button size="lg" onClick={() => window.open('https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form', '_blank', 'noopener,noreferrer')} className="px-12">
@@ -36,12 +35,7 @@ Notre tarification est basée sur le volume de produit à mettre en stock.</p>
             <div className="order-2 md:order-1">
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-lg">
-                  <img 
-                    src={repostappInterface} 
-                    alt="Interface RepostApp - Sélection des canaux de publication" 
-                    className="w-full h-auto object-contain"
-                    loading="lazy"
-                  />
+                  <img src={repostappInterface} alt="Interface RepostApp - Sélection des canaux de publication" className="w-full h-auto object-contain" loading="lazy" />
                 </div>
               </div>
             </div>

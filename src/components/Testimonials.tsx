@@ -106,7 +106,7 @@ const Testimonials = () => {
           <div className="flex items-center gap-8 justify-center">
             <img src={stationFLogo} alt="Station F" className="h-10" />
             <img src={fightersProgramLogo} alt="Fighters Program" className="h-10" />
-            <img src={frenchTechTremplinLogo} alt="La French Tech Tremplin" className="h-20" />
+            <img src={frenchTechTremplinLogo} alt="La French Tech Tremplin" className="h-24" />
           </div>
         </div>
       </div>

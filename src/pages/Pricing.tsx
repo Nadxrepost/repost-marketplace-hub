@@ -22,7 +22,7 @@ const Pricing = () => {
           </h1>
 
           {/* Pricing Card */}
-          <div className="bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-3xl p-8 md:p-12 mb-16 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+          <div className="bg-background border-2 border-primary/30 rounded-3xl p-8 md:p-12 mb-16 transition-all duration-300 hover:border-primary/60 hover:shadow-xl hover:shadow-primary/10">
             <div className="text-center max-w-2xl mx-auto">
               <p className="text-lg mb-4 text-muted-foreground">À partir de</p>
               <div className="mb-2">

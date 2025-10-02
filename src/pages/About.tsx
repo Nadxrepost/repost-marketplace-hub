@@ -16,15 +16,6 @@ const About = () => {
 
           <div className="prose prose-lg max-w-none">
             <div className="mb-12">
-              <h2 className="text-3xl font-bold mb-6">Notre Mission</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Chez Repost, nous croyons que la seconde main mérite des outils professionnels. 
-                Notre mission est de simplifier et d'automatiser la gestion multi-plateformes pour 
-                que vous puissiez vous concentrer sur l'essentiel : développer votre activité.
-              </p>
-            </div>
-
-            <div className="mb-12">
               <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Tout à commencé par une idée…
@@ -59,9 +50,21 @@ const About = () => {
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 REPOST est né d'une frustration, d'un besoin…
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Nous sommes les fondatrices de REPOST, le super assistant qui permet de publier des milliers d'annonces sur les plateformes de mode seconde main.
               </p>
+            </div>
+
+            <div className="mb-12">
+              <h2 className="text-3xl font-bold mb-6">Notre Mission</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Chez Repost, nous croyons que la seconde main mérite des outils professionnels. 
+                Notre mission est de simplifier et d'automatiser la gestion multi-plateformes pour 
+                que vous puissiez vous concentrer sur l'essentiel : développer votre activité.
+              </p>
+            </div>
+
+            <div className="mb-12">
               
             <div className="mt-8 mb-8">
                 <img src="/lovable-uploads/e411c12f-b01a-4c9e-9451-d723007a4d45.png" alt="Équipe Repost - Deux femmes souriantes représentant l'esprit collaboratif de notre entreprise" className="w-full max-w-2xl mx-auto rounded-lg shadow-lg" />

@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -22,22 +22,56 @@ const Pricing = () => {
           </h1>
 
           {/* Pricing Card */}
-          <div className="bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-3xl p-8 md:p-12 mb-16">
-            <div className="text-center max-w-2xl mx-auto">
-              <p className="text-lg mb-4 text-muted-foreground">À partir de</p>
-              <div className="mb-2">
-                <span className="text-5xl md:text-6xl font-bold">39€</span>
-                <span className="text-2xl text-muted-foreground">/mois</span>
+          <div className="bg-background border-2 border-primary/30 rounded-3xl p-8 md:p-12 mb-16 transition-all duration-300 hover:border-primary/60 hover:shadow-xl hover:shadow-primary/10">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-8">
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4">Starter</h2>
+                  <p className="text-lg text-muted-foreground">Jusqu'à 500 produits importés</p>
+                </div>
+                <div className="mt-4 md:mt-0 text-left md:text-right">
+                  <div className="text-5xl md:text-6xl font-bold text-primary/60">39,99€</div>
+                  <div className="text-2xl text-foreground font-medium">/mois</div>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground mb-6">35€/mois</p>
-              <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-                Notre tarification est basée sur le nombre de nouveaux articles que vous ajoutez chaque mois 
-                et le nombre de marketplaces que vous souhaitez connecter.
-              </p>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <div className="rounded-full bg-green-500/10 p-1 mt-1">
+                    <Check className="w-5 h-5 text-green-600" />
+                  </div>
+                  <p className="text-base md:text-lg">Accès illimité à toutes les plateformes</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-full bg-green-500/10 p-1 mt-1">
+                    <Check className="w-5 h-5 text-green-600" />
+                  </div>
+                  <p className="text-base md:text-lg">Gestion automatique des stocks</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="rounded-full bg-green-500/10 p-1 mt-1">
+                    <Check className="w-5 h-5 text-green-600" />
+                  </div>
+                  <p className="text-base md:text-lg">Suivi des ventes et performances</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <X className="w-6 h-6 text-muted-foreground/40 mt-1" />
+                  <p className="text-base md:text-lg text-muted-foreground/60 line-through">Import CSV</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <X className="w-6 h-6 text-muted-foreground/40 mt-1" />
+                  <p className="text-base md:text-lg text-muted-foreground/60 line-through">Intégration Shopify</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <X className="w-6 h-6 text-muted-foreground/40 mt-1" />
+                  <p className="text-base md:text-lg text-muted-foreground/60 line-through">Account manager dédié</p>
+                </div>
+              </div>
+
               <Button 
                 size="lg"
                 onClick={() => window.open('https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form', '_blank', 'noopener,noreferrer')}
-                className="px-8"
+                className="w-full md:w-auto px-12"
               >
                 COMMENCER
               </Button>

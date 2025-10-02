@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import stationFLogo from '@/assets/station-f-logo.png';
 const About = () => {
   return <div className="min-h-screen">
       <Header />
@@ -81,6 +82,15 @@ const About = () => {
               </div>
             </div>
             
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 px-4 bg-muted/30">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-6">
+            <span className="text-lg text-muted-foreground">Startup soutenue par</span>
+            <img src={stationFLogo} alt="Station F" className="h-12" />
           </div>
         </div>
       </section>

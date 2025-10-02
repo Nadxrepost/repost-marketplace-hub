@@ -9,9 +9,6 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">À propos de nous</h1>
-            <p className="text-xl text-muted-foreground">
-              La solution SaaS qui révolutionne la vente en seconde main pour les professionnels et particuliers
-            </p>
           </div>
 
           <div className="prose prose-lg max-w-none">

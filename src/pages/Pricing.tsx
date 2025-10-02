@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import repostappInterface from '@/assets/pricing-main.png';
 const Pricing = () => {
-  const features = ["Accès illimité à toutes les plateformes", "Gestion automatique des stocks", "Suivi des ventes et performances", "Essai gratuit de 7 jours", "Support par mail"];
+  const features = ["Configuration rapide et facile, gérée par notre équipe", "Mapping de données personnalisé adapté à vos besoins", "Intégration personnalisée avec notre équipe support", "Gestionnaire de compte dédié pour un accompagnement continu", "Assistance à la configuration des comptes marketplace"];
   return <div className="min-h-screen">
       <Header />
       <main className="container mx-auto px-4 py-24 md:py-32">
@@ -22,10 +22,9 @@ const Pricing = () => {
                 <span className="text-2xl text-muted-foreground">/mois</span>
               </div>
               
-              <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto">Nos tarifs sont adaptés à tous les profils d'entreprises. 
-Notre tarification est basée sur le volume de produit à mettre en stock.</p>
+              <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto">Nos tarifs sont adaptés à tous les profils d'entreprises.  Notre tarification est basée sur le volume de produit que vous mettrez en stock.</p>
               <Button size="lg" onClick={() => window.open('https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form', '_blank', 'noopener,noreferrer')} className="px-12">
-                COMMENCER AVEC REPOST
+                COMMENCER
               </Button>
             </div>
           </div>

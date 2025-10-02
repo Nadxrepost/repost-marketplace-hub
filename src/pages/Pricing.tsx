@@ -38,8 +38,8 @@ Notre tarification est basée sur le volume de produit à mettre en stock.</p>
                 <div className="rounded-2xl overflow-hidden shadow-lg">
                   <img 
                     src={repostappInterface} 
-                    alt="Interface RepostApp - Gestion multi-canaux" 
-                    className="w-full h-full object-cover"
+                    alt="Interface RepostApp - Sélection des canaux de publication" 
+                    className="w-full h-auto object-contain"
                     loading="lazy"
                   />
                 </div>

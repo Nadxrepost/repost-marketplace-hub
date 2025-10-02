@@ -99,18 +99,6 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-12 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <span className="text-lg text-muted-foreground">Repost est soutenu par :</span>
-          </div>
-          <div className="flex items-center gap-8 justify-center">
-            <img src={stationFLogo} alt="Station F" className="h-10" />
-            <img src={fightersProgramLogo} alt="Fighters Program" className="h-10" />
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>;
 };

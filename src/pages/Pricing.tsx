@@ -2,6 +2,7 @@ import { Check, X } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import repostappLogo from '@/assets/repostapp-logo.png';
 const Pricing = () => {
   const features = ["Configuration rapide et facile, gérée par notre équipe", "Mapping de données personnalisé adapté à vos besoins", "Intégration personnalisée avec notre équipe support", "Gestionnaire de compte dédié pour un accompagnement continu", "Assistance à la configuration des comptes marketplace"];
   return <div className="min-h-screen">
@@ -32,10 +33,12 @@ Notre tarification est basée sur le volume de produit à mettre en stock.</p>
           {/* Features Section */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-              <div className="aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center">
-                <div className="text-6xl md:text-8xl font-bold text-primary/20">
-                  RepostApp
-                </div>
+              <div className="aspect-square rounded-2xl flex items-center justify-center overflow-hidden">
+                <img 
+                  src={repostappLogo} 
+                  alt="RepostApp" 
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
             

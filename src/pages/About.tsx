@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import stationFLogo from '@/assets/station-f-logo.png';
-import fightersProgramLogo from '@/assets/fighters-program-logo.png';
 const About = () => {
   return <div className="min-h-screen">
       <Header />
@@ -89,13 +88,9 @@ const About = () => {
 
       <section className="py-12 px-4 bg-muted/30">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 justify-center mb-8">
+          <div className="flex items-center gap-2 justify-center">
             <span className="text-lg text-muted-foreground">Repost est soutenu par</span>
             <img src={stationFLogo} alt="Station F" className="h-8" />
-          </div>
-          <div className="flex items-center gap-8 justify-center">
-            <img src={stationFLogo} alt="Station F" className="h-10" />
-            <img src={fightersProgramLogo} alt="Fighters Program" className="h-10" />
           </div>
         </div>
       </section>

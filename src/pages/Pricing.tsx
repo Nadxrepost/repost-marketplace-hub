@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import repostappInterface from '@/assets/pricing-main.png';
 const Pricing = () => {
-  const features = ["Accès illimité à toutes les plateformes", "Gestion automatique des stocks", "Suivi des ventes et performances", "Essai gratuit de 7 jours", "Configuration rapide et facile, gérée par notre équipe", "Mapping de données personnalisé adapté à vos besoins", "Intégration personnalisée avec notre équipe support", "Gestionnaire de compte dédié pour un accompagnement continu", "Assistance à la configuration des comptes marketplace"];
+  const features = ["Accès illimité à toutes les plateformes", "Gestion automatique des stocks", "Suivi des ventes et performances", "Essai gratuit de 7 jours", "Support par mail", "Configuration rapide et facile, gérée par notre équipe", "Mapping de données personnalisé adapté à vos besoins", "Intégration personnalisée avec notre équipe support", "Gestionnaire de compte dédié pour un accompagnement continu", "Assistance à la configuration des comptes marketplace"];
   return <div className="min-h-screen">
       <Header />
       <main className="container mx-auto px-4 py-24 md:py-32">

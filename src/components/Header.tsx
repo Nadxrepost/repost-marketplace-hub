@@ -34,6 +34,12 @@ const Header = () => {
               Plateformes
             </a>
             <Link 
+              to="/pricing"
+              className="text-gray-600 hover:text-brand-purple transition-colors"
+            >
+              Tarifs
+            </Link>
+            <Link 
               to="/about"
               className="text-gray-600 hover:text-brand-purple transition-colors"
             >
@@ -81,6 +87,13 @@ const Header = () => {
               <a href="/#platforms" className="text-gray-600 hover:text-brand-purple transition-colors">
                 Plateformes
               </a>
+              <Link 
+                to="/pricing"
+                onClick={handleMenuClose}
+                className="text-gray-600 hover:text-brand-purple transition-colors text-left"
+              >
+                Tarifs
+              </Link>
               <Link 
                 to="/about"
                 onClick={handleMenuClose}

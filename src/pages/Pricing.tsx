@@ -17,7 +17,7 @@ const Pricing = () => {
       <Header />
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-20 md:mb-24">
             Plans d'abonnement mensuels
           </h1>
 

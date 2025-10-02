@@ -1,5 +1,6 @@
-
 import { Star } from 'lucide-react';
+import stationFLogo from '@/assets/station-f-logo.png';
+import fightersProgramLogo from '@/assets/fighters-program-logo.png';
 
 const testimonials = [
   {
@@ -95,6 +96,15 @@ const Testimonials = () => {
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
               +40% de visibilité sur vos produits
             </div>
+          </div>
+        </div>
+
+        {/* Repost est soutenu par */}
+        <div className="text-center mt-16">
+          <p className="text-lg text-gray-600 mb-6">Repost est soutenu par :</p>
+          <div className="flex items-center gap-8 justify-center">
+            <img src={stationFLogo} alt="Station F" className="h-10" />
+            <img src={fightersProgramLogo} alt="Fighters Program" className="h-10" />
           </div>
         </div>
       </div>

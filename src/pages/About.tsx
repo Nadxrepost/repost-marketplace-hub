@@ -61,15 +61,40 @@ const About = () => {
             <div className="mb-12">
               <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Repost est né de la frustration de vendeurs expérimentés face à la complexité 
-                de gérer plusieurs plateformes de seconde main. Après avoir testé toutes les 
-                solutions existantes sans trouver celle qui répondait vraiment aux besoins 
-                spécifiques de ce marché, nous avons décidé de créer la nôtre.
+                Tout à commencé par une idée…
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Trop de tâches chronophages empêchent les revendeurs de se concentrer sur l'essentiel : dénicher de belles pépites pour leur donner une seconde vie.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Lister ses annonces, les publier, les dupliquer et les retirer manuellement de chaque plateforme après chaque vente... tout cela prend énormément de temps.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Et comment nous le savons ?
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                En tant que professionnels de la seconde main, nous l'avons vécu !
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                En février 2020, nous avons lancé notre e-shop 100% vintage.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Nos pépites ont rapidement attiré l'attention de certaines marketplaces comme Imparfaites, Vestiaire Collective, Asos Marketplaces… et nous sommes devenues des vendeuses partenaires.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Gérer nos annonces à la fois sur notre e-shop et sur les marketplaces est très vite devenu un casse tête.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Des solutions existent sur le marché, mais rien n'ést adapté à l'écosystème de la seconde main.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Alors comment simplifier le quotidien de milliers de vendeurs ?
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                REPOST est né d'une frustration, d'un besoin…
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Aujourd'hui, Repost accompagne des milliers de vendeurs, des particuliers 
-                occasionnels aux professionnels gérant des milliers de références, dans 
-                leur développement sur les plateformes de seconde main.
+                Nous sommes les fondatrices de REPOST, le super assistant qui permet de publier des milliers d'annonces sur les plateformes de mode seconde main.
               </p>
               
             <div className="mt-8 mb-8">

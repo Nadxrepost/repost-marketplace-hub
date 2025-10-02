@@ -88,7 +88,7 @@ const About = () => {
 
       <section className="py-12 px-4 bg-muted/30">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2">
             <span className="text-lg text-muted-foreground">Repost est soutenu par</span>
             <img src={stationFLogo} alt="Station F" className="h-8" />
           </div>

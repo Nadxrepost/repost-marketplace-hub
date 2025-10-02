@@ -3,7 +3,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import stationFLogo from '@/assets/station-f-logo.png';
 import fightersProgramLogo from '@/assets/fighters-program-logo.png';
-import frenchTechTremplinLogo from '@/assets/french-tech-tremplin-logo.png';
 const About = () => {
   return <div className="min-h-screen">
       <Header />
@@ -96,7 +95,6 @@ const About = () => {
           <div className="flex items-center gap-8 justify-center">
             <img src={stationFLogo} alt="Station F" className="h-10" />
             <img src={fightersProgramLogo} alt="Fighters Program" className="h-10" />
-            <img src={frenchTechTremplinLogo} alt="La French Tech Tremplin" className="h-10" />
           </div>
         </div>
       </section>

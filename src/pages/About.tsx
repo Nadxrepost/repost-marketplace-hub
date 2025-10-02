@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Separator } from '@/components/ui/separator';
 import stationFLogo from '@/assets/station-f-logo.png';
 import fightersProgramLogo from '@/assets/fighters-program-logo.png';
 const About = () => {
@@ -86,6 +87,10 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <div className="max-w-4xl mx-auto px-4">
+        <Separator className="my-12" />
+      </div>
 
       <section className="py-12 px-4 bg-muted/30 mt-32">
         <div className="max-w-4xl mx-auto">

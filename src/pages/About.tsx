@@ -17,7 +17,11 @@ const About = () => {
           <div className="prose prose-lg max-w-none">
             <div className="mb-12">
               <h2 className="text-3xl font-bold mb-6">Notre Mission</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">Trop de tâches chronophages empêchent les revendeurs de se concentrer sur l'essentiel : sourcer de nouveaux produits et développer son activité.</p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Chez Repost, nous croyons que la seconde main mérite des outils professionnels. 
+                Notre mission est de simplifier et d'automatiser la gestion multi-plateformes pour 
+                que vous puissiez vous concentrer sur l'essentiel : développer votre activité.
+              </p>
             </div>
 
             <div className="mb-12">
@@ -55,7 +59,7 @@ const About = () => {
             </div>
 
             <div className="mb-12">
-              <h2 className="text-3xl font-bold mb-6">Tout commence par une idée...</h2>
+              <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Repost est né de la frustration de vendeurs expérimentés face à la complexité 
                 de gérer plusieurs plateformes de seconde main. Après avoir testé toutes les 

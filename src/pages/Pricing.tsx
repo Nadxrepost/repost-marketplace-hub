@@ -49,9 +49,7 @@ Notre tarification est basée sur le volume de produit à mettre en stock.</p>
                     <div className="rounded-full bg-primary/10 p-1 mt-1">
                       <Check className="w-5 h-5 text-primary" />
                     </div>
-                    <p className="text-base md:text-lg text-foreground/80">
-                      {feature}
-                    </p>
+                    
                   </div>)}
               </div>
             </div>

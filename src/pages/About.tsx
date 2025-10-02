@@ -87,7 +87,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-12 px-4 bg-muted/30">
+      <section className="py-12 px-4 bg-muted/30 mt-16">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <span className="text-lg text-muted-foreground">Repost est soutenu par :</span>

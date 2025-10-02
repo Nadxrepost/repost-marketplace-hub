@@ -20,7 +20,7 @@ const About = () => {
                 Tout à commencé par une idée…
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Trop de tâches chronophages empêchent les revendeurs de se concentrer sur l'essentiel : sourcer et développer son activité
+                Trop de tâches chronophages empêchent les revendeurs de se concentrer sur l'essentiel : sourcer et développer son activité.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                 Lister ses annonces, les publier, les dupliquer et les retirer manuellement de chaque plateforme après chaque vente... tout cela prend énormément de temps.

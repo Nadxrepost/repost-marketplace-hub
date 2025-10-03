@@ -102,7 +102,7 @@ const Testimonials = () => {
 
         {/* Repost est soutenu par */}
         <div className="text-center mt-24 -mx-6 px-6 py-12 bg-gray-50">
-          <p className="text-lg text-gray-600 mb-6">Repost est soutenu par :</p>
+          <p className="text-lg text-gray-600 font-bold mb-6">Repost est soutenu par :</p>
           <div className="flex items-center gap-8 justify-center">
             <img src={stationFLogo} alt="Station F" className="h-10" />
             <img src={fightersProgramLogo} alt="Fighters Program" className="h-10" />

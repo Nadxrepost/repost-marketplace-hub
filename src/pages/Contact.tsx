@@ -17,7 +17,6 @@ const Contact = () => {
     email: '',
     telephone: '',
     connaissance: '',
-    objectif: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -51,7 +50,7 @@ const Contact = () => {
           email: formData.email,
           telephone: formData.telephone || null,
           connaissance: formData.connaissance || null,
-          objectif: formData.objectif || null,
+          objectif: null,
           appel_equipe: null,
           message: formData.message,
         }]);
@@ -70,7 +69,6 @@ const Contact = () => {
         email: '',
         telephone: '',
         connaissance: '',
-        objectif: '',
         message: ''
       });
     } catch (error) {
@@ -179,25 +177,6 @@ const Contact = () => {
                       <SelectItem value="reseaux-sociaux">Réseaux sociaux</SelectItem>
                       <SelectItem value="bouche-oreille">Bouche à oreille</SelectItem>
                       <SelectItem value="publicite">Publicité</SelectItem>
-                      <SelectItem value="autre">Autre</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Que souhaitez-vous faire */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Que souhaitez-vous faire grâce à Repost ?
-                  </label>
-                  <Select onValueChange={(value) => handleSelectChange('objectif', value)}>
-                    <SelectTrigger className="w-full border-gray-200 rounded-xl px-4 py-3 bg-gray-50">
-                      <SelectValue placeholder="Vendre mon stock de seconde main" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="vendre-stock">Vendre mon stock de seconde main</SelectItem>
-                      <SelectItem value="automatiser-annonces">Automatiser mes annonces</SelectItem>
-                      <SelectItem value="gerer-inventaire">Gérer mon inventaire</SelectItem>
-                      <SelectItem value="analyser-performance">Analyser mes performances</SelectItem>
                       <SelectItem value="autre">Autre</SelectItem>
                     </SelectContent>
                   </Select>

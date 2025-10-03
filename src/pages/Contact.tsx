@@ -163,6 +163,21 @@ const Contact = () => {
                   </div>
                 </div>
 
+                {/* Message */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Dites-nous en plus sur vos besoins
+                  </label>
+                  <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Message"
+                    rows={4}
+                    className="w-full border-gray-200 rounded-xl px-4 py-3"
+                  />
+                </div>
+
                 {/* Comment avez-vous connu Repost */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -180,21 +195,6 @@ const Contact = () => {
                       <SelectItem value="autre">Autre</SelectItem>
                     </SelectContent>
                   </Select>
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Dites-nous en plus sur vos besoins
-                  </label>
-                  <Textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Message"
-                    rows={4}
-                    className="w-full border-gray-200 rounded-xl px-4 py-3"
-                  />
                 </div>
 
                 {/* Bouton d'envoi */}

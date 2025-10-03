@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 import { Linkedin, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -41,12 +42,28 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulation d'envoi de formulaire
-    setTimeout(() => {
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([{
+          prenom: formData.prenom,
+          nom: formData.nom,
+          entreprise: formData.entreprise || null,
+          email: formData.email,
+          telephone: formData.telephone || null,
+          connaissance: formData.connaissance || null,
+          objectif: formData.objectif || null,
+          appel_equipe: formData.appelEquipe || null,
+          message: formData.message,
+        }]);
+
+      if (error) throw error;
+
       toast({
         title: "Message envoyé !",
         description: "Nous vous répondrons dans les plus brefs délais.",
       });
+      
       setFormData({
         prenom: '',
         nom: '',
@@ -58,8 +75,16 @@ const Contact = () => {
         appelEquipe: '',
         message: ''
       });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'envoi du message.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (

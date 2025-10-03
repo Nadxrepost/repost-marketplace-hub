@@ -16,31 +16,43 @@ export type Database = {
     Tables: {
       contact_submissions: {
         Row: {
-          company: string | null
+          appel_equipe: string | null
+          connaissance: string | null
           created_at: string
           email: string
+          entreprise: string | null
           id: string
           message: string
-          name: string
-          subject: string
+          nom: string
+          objectif: string | null
+          prenom: string
+          telephone: string | null
         }
         Insert: {
-          company?: string | null
+          appel_equipe?: string | null
+          connaissance?: string | null
           created_at?: string
           email: string
+          entreprise?: string | null
           id?: string
           message: string
-          name: string
-          subject: string
+          nom: string
+          objectif?: string | null
+          prenom: string
+          telephone?: string | null
         }
         Update: {
-          company?: string | null
+          appel_equipe?: string | null
+          connaissance?: string | null
           created_at?: string
           email?: string
+          entreprise?: string | null
           id?: string
           message?: string
-          name?: string
-          subject?: string
+          nom?: string
+          objectif?: string | null
+          prenom?: string
+          telephone?: string | null
         }
         Relationships: []
       }

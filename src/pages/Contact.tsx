@@ -54,7 +54,7 @@ const Contact = () => {
           connaissance: formData.connaissance || null,
           objectif: formData.objectif || null,
           appel_equipe: formData.appelEquipe || null,
-          message: null,
+          message: formData.message,
         }]);
 
       if (error) throw error;
@@ -220,6 +220,21 @@ const Contact = () => {
                       <SelectItem value="peut-etre">Peut-être plus tard</SelectItem>
                     </SelectContent>
                   </Select>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Dites-nous en plus sur vos besoins
+                  </label>
+                  <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Message"
+                    rows={4}
+                    className="w-full border-gray-200 rounded-xl px-4 py-3"
+                  />
                 </div>
 
                 {/* Bouton d'envoi */}

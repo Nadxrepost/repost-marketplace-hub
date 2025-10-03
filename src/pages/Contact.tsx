@@ -18,7 +18,6 @@ const Contact = () => {
     telephone: '',
     connaissance: '',
     objectif: '',
-    appelEquipe: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -53,7 +52,7 @@ const Contact = () => {
           telephone: formData.telephone || null,
           connaissance: formData.connaissance || null,
           objectif: formData.objectif || null,
-          appel_equipe: formData.appelEquipe || null,
+          appel_equipe: null,
           message: formData.message,
         }]);
 
@@ -72,7 +71,6 @@ const Contact = () => {
         telephone: '',
         connaissance: '',
         objectif: '',
-        appelEquipe: '',
         message: ''
       });
     } catch (error) {
@@ -201,23 +199,6 @@ const Contact = () => {
                       <SelectItem value="gerer-inventaire">Gérer mon inventaire</SelectItem>
                       <SelectItem value="analyser-performance">Analyser mes performances</SelectItem>
                       <SelectItem value="autre">Autre</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Appel avec l'équipe */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Je souhaite réserver un appel avec l'équipe
-                  </label>
-                  <Select onValueChange={(value) => handleSelectChange('appelEquipe', value)}>
-                    <SelectTrigger className="w-full border-gray-200 rounded-xl px-4 py-3 bg-gray-50">
-                      <SelectValue placeholder="Oui" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="oui">Oui</SelectItem>
-                      <SelectItem value="non">Non</SelectItem>
-                      <SelectItem value="peut-etre">Peut-être plus tard</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

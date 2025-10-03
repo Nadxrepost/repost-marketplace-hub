@@ -38,6 +38,17 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validation des champs obligatoires
+    if (!formData.prenom || !formData.nom || !formData.email || !formData.message || !formData.connaissance) {
+      toast({
+        title: "Champs manquants",
+        description: "Veuillez remplir tous les champs obligatoires (*)",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
@@ -111,7 +122,8 @@ const Contact = () => {
                       type="text"
                       value={formData.prenom}
                       onChange={handleInputChange}
-                      placeholder="Prénom"
+                      placeholder="Prénom *"
+                      required
                       className="w-full border-gray-200 rounded-xl px-4 py-3"
                     />
                   </div>
@@ -121,7 +133,8 @@ const Contact = () => {
                       type="text"
                       value={formData.nom}
                       onChange={handleInputChange}
-                      placeholder="Nom"
+                      placeholder="Nom *"
+                      required
                       className="w-full border-gray-200 rounded-xl px-4 py-3"
                     />
                   </div>
@@ -147,7 +160,8 @@ const Contact = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="E-mail"
+                      placeholder="E-mail *"
+                      required
                       className="w-full border-gray-200 rounded-xl px-4 py-3"
                     />
                   </div>
@@ -166,13 +180,14 @@ const Contact = () => {
                 {/* Message */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Dites-nous en plus sur vos besoins
+                    Dites-nous en plus sur vos besoins *
                   </label>
                   <Textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Message"
+                    required
                     rows={4}
                     className="w-full border-gray-200 rounded-xl px-4 py-3"
                   />
@@ -181,11 +196,11 @@ const Contact = () => {
                 {/* Comment avez-vous connu Repost */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Comment avez-vous connu Repost ?
+                    Comment avez-vous connu Repost ? *
                   </label>
-                  <Select onValueChange={(value) => handleSelectChange('connaissance', value)}>
+                  <Select onValueChange={(value) => handleSelectChange('connaissance', value)} required>
                     <SelectTrigger className="w-full border-gray-200 rounded-xl px-4 py-3 bg-gray-50">
-                      <SelectValue placeholder="Moteurs de recherche (Google, Yahoo, Ecosia...)" />
+                      <SelectValue placeholder="Sélectionnez une option" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="moteurs">Moteurs de recherche (Google, Yahoo, Ecosia...)</SelectItem>

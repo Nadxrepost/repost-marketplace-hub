@@ -32,7 +32,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-br from-brand-gray/20 to-white">
+    <section id="testimonials" className="pt-20 pb-0 bg-gradient-to-br from-brand-gray/20 to-white">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">

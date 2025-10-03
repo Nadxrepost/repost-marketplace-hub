@@ -40,7 +40,7 @@ const Contact = () => {
     e.preventDefault();
     
     // Validation des champs obligatoires
-    if (!formData.prenom || !formData.nom || !formData.email || !formData.message || !formData.connaissance) {
+    if (!formData.prenom || !formData.nom || !formData.email || !formData.telephone || !formData.message || !formData.connaissance) {
       toast({
         title: "Champs manquants",
         description: "Veuillez remplir tous les champs obligatoires (*)",
@@ -171,7 +171,8 @@ const Contact = () => {
                       type="tel"
                       value={formData.telephone}
                       onChange={handleInputChange}
-                      placeholder="Téléphone"
+                      placeholder="Téléphone *"
+                      required
                       className="w-full border-gray-200 rounded-xl px-4 py-3"
                     />
                   </div>

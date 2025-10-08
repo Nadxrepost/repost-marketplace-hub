@@ -232,6 +232,7 @@ const AdminBlog = () => {
     setTimeout(() => {
       if (contentRef.current) {
         contentRef.current.innerHTML = post.content;
+        makeImagesSelectable();
       }
     }, 0);
   };
@@ -353,6 +354,9 @@ const AdminBlog = () => {
             
             // Sauvegarder la nouvelle position du curseur
             saveCursorPosition();
+            
+            // Rendre les images sélectionnables
+            makeImagesSelectable();
           }
         } else {
           // Fallback: ajouter à la fin si pas de position de curseur
@@ -360,6 +364,7 @@ const AdminBlog = () => {
             ...prev,
             content: prev.content + imageTag
           }));
+          setTimeout(makeImagesSelectable, 100);
         }
       }
       toast({
@@ -503,6 +508,50 @@ const AdminBlog = () => {
   };
   const handleContentChange = () => {
     updateContent();
+    makeImagesSelectable();
+  };
+
+  const makeImagesSelectable = () => {
+    const editor = contentRef.current;
+    if (!editor) return;
+
+    const images = editor.querySelectorAll('img');
+    images.forEach(img => {
+      img.style.cursor = 'pointer';
+      img.style.transition = 'all 0.2s';
+      
+      img.onclick = (e) => {
+        e.preventDefault();
+        // Désélectionner toutes les autres images
+        images.forEach(i => {
+          i.style.outline = '';
+          i.style.opacity = '';
+        });
+        // Sélectionner cette image
+        img.style.outline = '3px solid #3b82f6';
+        img.style.opacity = '0.8';
+        
+        // Sauvegarder la référence de l'image sélectionnée
+        (img as any).dataset.selected = 'true';
+      };
+    });
+  };
+
+  const handleEditorKeyDown = (e: React.KeyboardEvent) => {
+    const editor = contentRef.current;
+    if (!editor) return;
+
+    if (e.key === 'Delete' || e.key === 'Backspace') {
+      const selectedImg = editor.querySelector('img[data-selected="true"]');
+      if (selectedImg) {
+        e.preventDefault();
+        selectedImg.remove();
+        updateContent();
+        toast({
+          title: 'Image supprimée'
+        });
+      }
+    }
   };
   const handleInsertLink = () => {
     if (linkUrl && savedSelection) {
@@ -761,7 +810,7 @@ const AdminBlog = () => {
                   </Button>
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">
-                  Cliquez d&apos;abord dans le texte où vous voulez insérer l&apos;image, puis cliquez sur le bouton
+                  <strong>Insérer:</strong> Cliquez dans le texte puis sur le bouton • <strong>Supprimer:</strong> Cliquez sur l&apos;image puis appuyez sur Suppr
                 </p>
               </div>
 
@@ -847,7 +896,7 @@ const AdminBlog = () => {
                   </div>
 
                   {/* Zone de texte avec éditeur visuel */}
-                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={saveCursorPosition} onKeyUp={saveCursorPosition} className="min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
+                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={saveCursorPosition} onKeyUp={saveCursorPosition} onKeyDown={handleEditorKeyDown} className="min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
                 border: 'none',
                 resize: 'vertical',
                 overflow: 'auto'

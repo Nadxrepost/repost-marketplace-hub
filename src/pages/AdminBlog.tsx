@@ -806,7 +806,7 @@ const AdminBlog = () => {
                     fileInputRef.current?.click();
                   }} className="w-full">
                     <Upload className="w-4 h-4 mr-2" />
-                    {uploading ? 'Upload...' : 'Insérer une image'}
+                    {uploading ? 'Upload...' : 'Insérer une image dans le texte'}
                   </Button>
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">

@@ -383,11 +383,23 @@ const AdminBlog = () => {
                   className="border rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer"
                   onClick={() => handleEdit(post)}
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
+                  <div className="flex items-start gap-4">
+                    {post.cover_image && (
+                      <div className="w-32 h-24 flex-shrink-0 rounded-lg overflow-hidden border">
+                        <img 
+                          src={post.cover_image} 
+                          alt={post.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
                       <h3 className="font-semibold text-lg">{post.title}</h3>
                       <p className="text-sm text-muted-foreground mt-1">
                         {post.status === 'published' ? '✅ Publié' : '📝 Brouillon'}
+                        {post.category && (
+                          <span className="ml-2">• {post.category}</span>
+                        )}
                         {post.published_at && (
                           <span className="ml-2">
                             • {new Date(post.published_at).toLocaleDateString('fr-FR', {
@@ -399,7 +411,7 @@ const AdminBlog = () => {
                         )}
                       </p>
                       {post.excerpt && (
-                        <p className="text-sm text-gray-600 mt-2">{post.excerpt}</p>
+                        <p className="text-sm text-gray-600 mt-2 line-clamp-2">{post.excerpt}</p>
                       )}
                     </div>
                     <div className="flex gap-2 ml-4">

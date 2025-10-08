@@ -17,6 +17,8 @@ interface BlogPost {
   content: string;
   status: string;
   published_at: string | null;
+  author_id: string | null;
+  created_at: string;
 }
 
 const AdminBlog = () => {
@@ -31,6 +33,7 @@ const AdminBlog = () => {
     excerpt: '',
     content: '',
     status: 'draft',
+    published_at: '',
   });
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -106,7 +109,7 @@ const AdminBlog = () => {
 
     const postData = {
       ...formData,
-      published_at: formData.status === 'published' ? new Date().toISOString() : null,
+      published_at: formData.published_at || (formData.status === 'published' ? new Date().toISOString() : null),
       author_id: user?.id,
     };
 
@@ -143,7 +146,7 @@ const AdminBlog = () => {
       toast({ title: 'Article créé' });
     }
 
-    setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft' });
+    setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
     setEditing(null);
     fetchPosts();
   };
@@ -155,6 +158,7 @@ const AdminBlog = () => {
       excerpt: post.excerpt || '',
       content: post.content,
       status: post.status,
+      published_at: post.published_at ? new Date(post.published_at).toISOString().slice(0, 16) : '',
     });
     setEditing(post.id);
   };
@@ -247,6 +251,19 @@ const AdminBlog = () => {
               </div>
 
               <div>
+                <Label htmlFor="published_at">Date de publication</Label>
+                <Input
+                  id="published_at"
+                  type="datetime-local"
+                  value={formData.published_at}
+                  onChange={(e) => setFormData({ ...formData, published_at: e.target.value })}
+                />
+                <p className="text-xs text-muted-foreground mt-1">
+                  Laisser vide pour définir automatiquement à maintenant lors de la publication
+                </p>
+              </div>
+
+              <div>
                 <Label htmlFor="status">Statut</Label>
                 <select
                   id="status"
@@ -269,7 +286,7 @@ const AdminBlog = () => {
                     variant="outline"
                     onClick={() => {
                       setEditing(null);
-                      setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft' });
+                      setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
                     }}
                   >
                     Annuler
@@ -292,6 +309,15 @@ const AdminBlog = () => {
                     <h3 className="font-semibold">{post.title}</h3>
                     <p className="text-sm text-muted-foreground">
                       {post.status === 'published' ? '✅ Publié' : '📝 Brouillon'}
+                      {post.published_at && (
+                        <span className="ml-2">
+                          • {new Date(post.published_at).toLocaleDateString('fr-FR', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                          })}
+                        </span>
+                      )}
                     </p>
                   </div>
                   <div className="flex gap-2">

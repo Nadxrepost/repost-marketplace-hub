@@ -208,30 +208,11 @@ const AdminBlog = () => {
     }
     fetchPosts();
 
-    // Ne fermer l'éditeur que si on publie explicitement
-    // Rester dans l'éditeur pour les sauvegardes de brouillon
-    if (publishNow) {
-      toast({
-        title: editing ? 'Article publié' : 'Article publié'
-      });
-      setFormData({
-        title: '',
-        slug: '',
-        excerpt: '',
-        content: '',
-        cover_image: '',
-        status: 'draft',
-        category: 'article',
-        published_at: ''
-      });
-      setEditing(null);
-      setShowEditor(false);
-    } else {
-      toast({
-        title: 'Brouillon sauvegardé',
-        description: 'Vos modifications ont été enregistrées'
-      });
-    }
+    // Rester dans l'éditeur après toute sauvegarde (brouillon ou publication)
+    toast({
+      title: publishNow ? (editing ? 'Modifications publiées' : 'Article publié') : 'Brouillon sauvegardé',
+      description: publishNow ? 'Vos modifications ont été publiées' : 'Vos modifications ont été enregistrées'
+    });
   };
   const handleEdit = (post: BlogPost) => {
     setFormData({

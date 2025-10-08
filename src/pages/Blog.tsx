@@ -71,7 +71,7 @@ const Blog = () => {
               {posts.map((post) => (
                 <Link
                   key={post.id}
-                  to={`/blog/${post.slug}`}
+                  to={`/blog/${encodeURIComponent(post.slug)}`}
                   className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
                 >
                   {post.cover_image && (

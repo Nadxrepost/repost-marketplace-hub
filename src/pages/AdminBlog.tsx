@@ -29,6 +29,7 @@ const AdminBlog = () => {
   const [editing, setEditing] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const [showEditor, setShowEditor] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
@@ -106,12 +107,13 @@ const AdminBlog = () => {
     navigate('/');
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent, publishNow = false) => {
     e.preventDefault();
 
     const postData = {
       ...formData,
-      published_at: formData.published_at || (formData.status === 'published' ? new Date().toISOString() : null),
+      status: publishNow ? 'published' : 'draft',
+      published_at: publishNow ? (formData.published_at || new Date().toISOString()) : null,
       author_id: user?.id,
     };
 
@@ -130,7 +132,7 @@ const AdminBlog = () => {
         return;
       }
 
-      toast({ title: 'Article mis à jour' });
+      toast({ title: publishNow ? 'Article publié' : 'Article mis à jour' });
     } else {
       const { error } = await supabase
         .from('blog_posts')
@@ -145,7 +147,7 @@ const AdminBlog = () => {
         return;
       }
 
-      toast({ title: 'Article créé' });
+      toast({ title: publishNow ? 'Article publié' : 'Article créé en brouillon' });
     }
 
     setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
@@ -373,13 +375,50 @@ const AdminBlog = () => {
               </h2>
               <Button variant="outline" onClick={() => {
                 setShowEditor(false);
+                setShowPreview(false);
                 setEditing(null);
                 setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
               }}>
                 Retour à la liste
               </Button>
             </div>
-            <form onSubmit={handleSubmit} className="space-y-4">
+
+            {showPreview ? (
+              <div className="space-y-6">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-blue-900 mb-2">Mode Aperçu</h3>
+                  <p className="text-sm text-blue-700">Voici comment votre article apparaîtra aux lecteurs</p>
+                </div>
+
+                <div className="bg-white border rounded-lg p-8">
+                  <h1 className="text-4xl font-bold mb-4">{formData.title || 'Titre de l\'article'}</h1>
+                  {formData.published_at && (
+                    <p className="text-sm text-muted-foreground mb-6">
+                      Publié le {new Date(formData.published_at).toLocaleDateString('fr-FR', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
+                      })}
+                    </p>
+                  )}
+                  {formData.excerpt && (
+                    <p className="text-lg text-gray-600 mb-6 italic">{formData.excerpt}</p>
+                  )}
+                  <div 
+                    className="prose max-w-none"
+                    dangerouslySetInnerHTML={{ __html: formData.content || '<p>Votre contenu apparaîtra ici...</p>' }}
+                  />
+                </div>
+
+                <div className="flex gap-2">
+                  <Button onClick={() => setShowPreview(false)}>
+                    <Edit className="w-4 h-4 mr-2" />
+                    Retour à l&apos;édition
+                  </Button>
+                </div>
+              </div>
+            ) : (
+            <form onSubmit={(e) => handleSubmit(e, false)} className="space-y-4">
               <div>
                 <Label htmlFor="title">Titre</Label>
                 <Input
@@ -549,23 +588,32 @@ const AdminBlog = () => {
               </div>
 
               <div className="flex gap-2 pt-4">
-                <Button type="submit" className="flex-1">
-                  <Plus className="w-4 h-4 mr-2" />
-                  {editing ? 'Mettre à jour l\'article' : 'Publier l\'article'}
-                </Button>
-                <Button
-                  type="button"
+                <Button 
+                  type="button" 
                   variant="outline"
-                  onClick={() => {
-                    setShowEditor(false);
-                    setEditing(null);
-                    setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
-                  }}
+                  onClick={() => setShowPreview(true)}
+                  className="flex-1"
                 >
-                  Annuler
+                  <Eye className="w-4 h-4 mr-2" />
+                  Aperçu
+                </Button>
+                <Button 
+                  type="submit" 
+                  variant="secondary"
+                  className="flex-1"
+                >
+                  Enregistrer brouillon
+                </Button>
+                <Button 
+                  type="button"
+                  onClick={(e) => handleSubmit(e as any, true)}
+                  className="flex-1"
+                >
+                  {editing && formData.status === 'published' ? 'Mettre à jour' : 'Publier'}
                 </Button>
               </div>
             </form>
+            )}
           </div>
         )}
       </main>

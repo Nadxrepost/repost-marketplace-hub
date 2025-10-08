@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
-import { Calendar, ArrowLeft } from 'lucide-react';
+import { Calendar, ArrowLeft, Clock } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 
@@ -18,6 +18,12 @@ interface BlogPost {
   meta_title: string | null;
   meta_description: string | null;
 }
+
+const calculateReadingTime = (content: string): number => {
+  const wordsPerMinute = 200;
+  const words = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
+  return Math.ceil(words / wordsPerMinute);
+};
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -126,6 +132,10 @@ const BlogPost = () => {
               <span className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
                 {format(new Date(post.published_at), 'dd MMMM yyyy', { locale: fr })}
+              </span>
+              <span className="flex items-center gap-2">
+                <Clock className="w-4 h-4" />
+                {calculateReadingTime(post.content)} min de lecture
               </span>
             </div>
             {post.tags && post.tags.length > 0 && (

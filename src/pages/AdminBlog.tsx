@@ -877,7 +877,7 @@ const AdminBlog = () => {
                   <Eye className="w-4 h-4 mr-2" />
                   Aperçu
                 </Button>
-                <Button type="submit" variant="outline" className="flex-1">
+                <Button type="submit" variant="outline" className="flex-1 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
                   Enregistrer brouillon
                 </Button>
                 <Button type="button" variant="outline" className="flex-1" onClick={e => handleSubmit(e as any, true)}>

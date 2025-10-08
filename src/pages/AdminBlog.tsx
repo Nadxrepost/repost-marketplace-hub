@@ -608,7 +608,7 @@ const AdminBlog = () => {
             setShowEditor(true);
           }}>
                 <Plus className="w-4 h-4 mr-2" />
-                Nouvel article
+                Écrire un nouvel article
               </Button>
             </div>
 

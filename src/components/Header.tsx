@@ -62,7 +62,7 @@ const Header = () => {
                 console.log('Opening URL:', url);
                 window.open(url, '_blank', 'noopener,noreferrer');
               }}
-              className="bg-brand-purple hover:bg-brand-purple/90 text-white px-6"
+              className="bg-brand-purple hover:bg-brand-purple/90 text-black px-6"
             >
               Réserver une démo
             </Button>
@@ -116,7 +116,7 @@ const Header = () => {
                     console.log('Opening URL:', url);
                     window.open(url, '_blank', 'noopener,noreferrer');
                   }}
-                  className="bg-brand-purple hover:bg-brand-purple/90 text-white"
+                  className="bg-brand-purple hover:bg-brand-purple/90 text-black"
                 >
                   Réserver une démo
                 </Button>

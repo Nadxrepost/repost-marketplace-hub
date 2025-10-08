@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { LogOut, Plus, Edit, Trash2, Eye } from 'lucide-react';
+import { LogOut, Plus, Edit, Trash2, Eye, Upload, Copy, X } from 'lucide-react';
 import { User, Session } from '@supabase/supabase-js';
 
 interface BlogPost {
@@ -27,6 +27,8 @@ const AdminBlog = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [editing, setEditing] = useState<string | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadedImages, setUploadedImages] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
@@ -184,6 +186,69 @@ const AdminBlog = () => {
     fetchPosts();
   };
 
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+
+    setUploading(true);
+    const newImages: string[] = [];
+
+    try {
+      for (const file of Array.from(files)) {
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
+        const filePath = `${fileName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('blog-images')
+          .upload(filePath, file);
+
+        if (uploadError) throw uploadError;
+
+        const { data } = supabase.storage
+          .from('blog-images')
+          .getPublicUrl(filePath);
+
+        newImages.push(data.publicUrl);
+      }
+
+      setUploadedImages([...uploadedImages, ...newImages]);
+      toast({
+        title: 'Images uploadées',
+        description: `${newImages.length} image(s) ajoutée(s) avec succès`,
+      });
+    } catch (error: any) {
+      toast({
+        title: 'Erreur',
+        description: error.message,
+        variant: 'destructive',
+      });
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const copyImageUrl = (url: string) => {
+    navigator.clipboard.writeText(url);
+    toast({
+      title: 'URL copiée',
+      description: 'L\'URL de l\'image a été copiée dans le presse-papiers',
+    });
+  };
+
+  const insertImageInContent = (url: string) => {
+    const imageTag = `<img src="${url}" alt="Image de l'article" />`;
+    setFormData({ ...formData, content: formData.content + '\n' + imageTag });
+    toast({
+      title: 'Image insérée',
+      description: 'L\'image a été ajoutée au contenu',
+    });
+  };
+
+  const removeUploadedImage = (url: string) => {
+    setUploadedImages(uploadedImages.filter(img => img !== url));
+  };
+
   if (!isAdmin) {
     return null;
   }
@@ -237,6 +302,70 @@ const AdminBlog = () => {
                   onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
                   rows={3}
                 />
+              </div>
+
+              <div>
+                <Label htmlFor="images">Images</Label>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <Input
+                      id="images"
+                      type="file"
+                      accept="image/*"
+                      multiple
+                      onChange={handleImageUpload}
+                      disabled={uploading}
+                      className="flex-1"
+                    />
+                    <Button
+                      type="button"
+                      disabled={uploading}
+                      variant="secondary"
+                    >
+                      <Upload className="w-4 h-4 mr-2" />
+                      {uploading ? 'Upload...' : 'Uploader'}
+                    </Button>
+                  </div>
+
+                  {uploadedImages.length > 0 && (
+                    <div className="border rounded-lg p-3 space-y-2 max-h-48 overflow-y-auto">
+                      <p className="text-sm font-medium">Images uploadées :</p>
+                      {uploadedImages.map((url, idx) => (
+                        <div key={idx} className="flex items-center gap-2 p-2 bg-gray-50 rounded">
+                          <img src={url} alt={`Upload ${idx}`} className="w-12 h-12 object-cover rounded" />
+                          <span className="text-xs flex-1 truncate">{url}</span>
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => copyImageUrl(url)}
+                            title="Copier l'URL"
+                          >
+                            <Copy className="w-3 h-3" />
+                          </Button>
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => insertImageInContent(url)}
+                            title="Insérer dans le contenu"
+                          >
+                            <Plus className="w-3 h-3" />
+                          </Button>
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => removeUploadedImage(url)}
+                            title="Retirer"
+                          >
+                            <X className="w-3 h-3" />
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div>

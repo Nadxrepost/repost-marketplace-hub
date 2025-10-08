@@ -4,7 +4,8 @@ import { supabase } from '@/integrations/supabase/client';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, FileText } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 interface BlogPost {
@@ -54,8 +55,12 @@ const Blog = () => {
               </p>
             </div> : <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map(post => <Link key={post.id} to={`/blog/${encodeURIComponent(post.slug)}`} className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                  {post.cover_image && <div className="aspect-video overflow-hidden">
+                  {post.cover_image && <div className="aspect-video overflow-hidden relative">
                       <img src={post.cover_image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <Badge className="absolute top-4 left-4 bg-white text-foreground hover:bg-white flex items-center gap-1">
+                        <FileText className="w-3 h-3" />
+                        Article
+                      </Badge>
                     </div>}
                   <div className="p-6">
                     <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">

@@ -20,7 +20,7 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto">
           {/* Titre et sous-titre */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">Contactez-nous !</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">Une question ?</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Que vous souhaitiez en savoir plus sur nos solutions, discuter d'un partenariat ou poser une question, notre équipe est à votre disposition.
             </p>

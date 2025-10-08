@@ -856,7 +856,7 @@ const AdminBlog = () => {
               </div>
 
               <div className="flex gap-2 pt-4">
-                <Button type="button" variant="outline" onClick={() => {
+                <Button type="button" variant="outline" className="flex-1" onClick={() => {
                   setShowEditor(false);
                   setShowPreview(false);
                   setEditing(null);
@@ -873,14 +873,14 @@ const AdminBlog = () => {
                 }}>
                   Retour à la liste
                 </Button>
-                <Button type="button" variant="outline" onClick={() => setShowPreview(true)}>
+                <Button type="button" variant="outline" className="flex-1" onClick={() => setShowPreview(true)}>
                   <Eye className="w-4 h-4 mr-2" />
                   Aperçu
                 </Button>
                 <Button type="submit" variant="outline" className="flex-1">
                   Enregistrer brouillon
                 </Button>
-                <Button type="button" variant="outline" onClick={e => handleSubmit(e as any, true)} className="flex-1">
+                <Button type="button" variant="outline" className="flex-1" onClick={e => handleSubmit(e as any, true)}>
                   {editing && formData.status === 'published' ? 'Mettre à jour' : 'Publier'}
                 </Button>
               </div>

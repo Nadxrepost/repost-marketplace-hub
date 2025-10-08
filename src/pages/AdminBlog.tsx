@@ -867,6 +867,26 @@ const AdminBlog = () => {
                   {editing && formData.status === 'published' ? 'Mettre à jour' : 'Publier'}
                 </Button>
               </div>
+
+              <div className="pt-4 border-t mt-6">
+                <Button type="button" variant="ghost" onClick={() => {
+                  setShowEditor(false);
+                  setShowPreview(false);
+                  setEditing(null);
+                  setFormData({
+                    title: '',
+                    slug: '',
+                    excerpt: '',
+                    content: '',
+                    cover_image: '',
+                    status: 'draft',
+                    category: 'article',
+                    published_at: ''
+                  });
+                }} className="w-full">
+                  Retour à la liste
+                </Button>
+              </div>
             </form>}
           </div>}
       </main>

@@ -237,6 +237,12 @@ const AdminBlog = () => {
     });
     setEditing(post.id);
     setShowEditor(true);
+    // Définir le contenu de l'éditeur après le render
+    setTimeout(() => {
+      if (contentRef.current) {
+        contentRef.current.innerHTML = post.content;
+      }
+    }, 0);
   };
   const handleDelete = async (id: string) => {
     if (!confirm('Êtes-vous sûr de vouloir supprimer cet article ?')) return;
@@ -458,10 +464,15 @@ const AdminBlog = () => {
   const updateContent = () => {
     const editor = contentRef.current;
     if (editor) {
-      setFormData({
-        ...formData,
-        content: editor.innerHTML
-      });
+      const newContent = editor.innerHTML;
+      // Ne mettre à jour que si le contenu a réellement changé
+      // Évite les re-renders inutiles qui font sauter le curseur
+      if (newContent !== formData.content) {
+        setFormData(prev => ({
+          ...prev,
+          content: newContent
+        }));
+      }
     }
   };
   const handleContentChange = () => {
@@ -807,9 +818,7 @@ const AdminBlog = () => {
                   </div>
 
                   {/* Zone de texte avec éditeur visuel */}
-                  <div ref={contentRef as any} contentEditable onInput={handleContentChange} dangerouslySetInnerHTML={{
-                __html: formData.content
-              }} className="min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
+                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} className="min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
                 border: 'none',
                 resize: 'vertical',
                 overflow: 'auto'

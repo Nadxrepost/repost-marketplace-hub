@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { LogOut, Plus, Edit, Trash2, Eye, Upload, AlignLeft, AlignCenter, AlignRight, AlignJustify } from 'lucide-react';
+import { LogOut, Plus, Edit, Trash2, Eye, Upload, AlignLeft, AlignCenter, AlignRight, AlignJustify, Check } from 'lucide-react';
 import { User, Session } from '@supabase/supabase-js';
 
 interface BlogPost {
@@ -28,6 +28,7 @@ const AdminBlog = () => {
   const [session, setSession] = useState<Session | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [selectedPosts, setSelectedPosts] = useState<string[]>([]);
   const [editing, setEditing] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const [uploadingCover, setUploadingCover] = useState(false);
@@ -201,6 +202,75 @@ const AdminBlog = () => {
 
     toast({ title: 'Article supprimé' });
     fetchPosts();
+    setSelectedPosts([]);
+  };
+
+  const handleBulkDelete = async () => {
+    if (selectedPosts.length === 0) return;
+    if (!confirm(`Êtes-vous sûr de vouloir supprimer ${selectedPosts.length} article(s) ?`)) return;
+
+    const { error } = await supabase
+      .from('blog_posts')
+      .delete()
+      .in('id', selectedPosts);
+
+    if (error) {
+      toast({
+        title: 'Erreur',
+        description: error.message,
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    toast({ title: `${selectedPosts.length} article(s) supprimé(s)` });
+    setSelectedPosts([]);
+    fetchPosts();
+  };
+
+  const handleBulkPublish = async (status: 'published' | 'draft') => {
+    if (selectedPosts.length === 0) return;
+
+    const { error } = await supabase
+      .from('blog_posts')
+      .update({ 
+        status,
+        published_at: status === 'published' ? new Date().toISOString() : null
+      })
+      .in('id', selectedPosts);
+
+    if (error) {
+      toast({
+        title: 'Erreur',
+        description: error.message,
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    toast({ 
+      title: status === 'published' 
+        ? `${selectedPosts.length} article(s) publié(s)` 
+        : `${selectedPosts.length} article(s) en brouillon`
+    });
+    setSelectedPosts([]);
+    fetchPosts();
+  };
+
+  const toggleSelectAll = () => {
+    if (selectedPosts.length === posts.length) {
+      setSelectedPosts([]);
+    } else {
+      setSelectedPosts(posts.map(post => post.id));
+    }
+  };
+
+  const toggleSelectPost = (postId: string) => {
+    setSelectedPosts(prev => 
+      prev.includes(postId) 
+        ? prev.filter(id => id !== postId)
+        : [...prev, postId]
+    );
   };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -377,15 +447,73 @@ const AdminBlog = () => {
               </Button>
             </div>
 
+            {selectedPosts.length > 0 && (
+              <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg flex items-center justify-between">
+                <span className="text-sm font-medium">
+                  {selectedPosts.length} article(s) sélectionné(s)
+                </span>
+                <div className="flex gap-2">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => handleBulkPublish('published')}
+                  >
+                    Publier
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => handleBulkPublish('draft')}
+                  >
+                    Mettre en brouillon
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="destructive"
+                    onClick={handleBulkDelete}
+                  >
+                    <Trash2 className="w-4 h-4 mr-2" />
+                    Supprimer
+                  </Button>
+                </div>
+              </div>
+            )}
+
+            {posts.length > 0 && (
+              <div className="mb-3 flex items-center gap-2 pb-2 border-b">
+                <input
+                  type="checkbox"
+                  checked={selectedPosts.length === posts.length}
+                  onChange={toggleSelectAll}
+                  className="w-4 h-4 rounded border-gray-300"
+                />
+                <span className="text-sm text-muted-foreground">
+                  Tout sélectionner
+                </span>
+              </div>
+            )}
+
             <div className="space-y-3">{posts.map((post) => (
                 <div
                   key={post.id}
-                  className="border rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer"
-                  onClick={() => handleEdit(post)}
+                  className="border rounded-lg p-4 hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex items-start gap-4">
+                    <input
+                      type="checkbox"
+                      checked={selectedPosts.includes(post.id)}
+                      onChange={(e) => {
+                        e.stopPropagation();
+                        toggleSelectPost(post.id);
+                      }}
+                      className="w-4 h-4 mt-1 rounded border-gray-300"
+                      onClick={(e) => e.stopPropagation()}
+                    />
                     {post.cover_image && (
-                      <div className="w-32 h-24 flex-shrink-0 rounded-lg overflow-hidden border">
+                      <div 
+                        className="w-32 h-24 flex-shrink-0 rounded-lg overflow-hidden border cursor-pointer"
+                        onClick={() => handleEdit(post)}
+                      >
                         <img 
                           src={post.cover_image} 
                           alt={post.title}
@@ -393,7 +521,10 @@ const AdminBlog = () => {
                         />
                       </div>
                     )}
-                    <div className="flex-1 min-w-0">
+                    <div 
+                      className="flex-1 min-w-0 cursor-pointer"
+                      onClick={() => handleEdit(post)}
+                    >
                       <h3 className="font-semibold text-lg">{post.title}</h3>
                       <p className="text-sm text-muted-foreground mt-1">
                         {post.status === 'published' ? '✅ Publié' : '📝 Brouillon'}

@@ -275,7 +275,9 @@ const AdminBlog = () => {
         newText = `<em>${selectedText}</em>`;
         break;
       case 'link':
-        newText = `<a href="URL_ICI">${selectedText}</a>`;
+        const url = prompt('Collez votre lien ici:');
+        if (!url) return;
+        newText = `<a href="${url}">${selectedText}</a>`;
         break;
       case 'ul':
         newText = `<ul>\n  <li>${selectedText}</li>\n</ul>`;

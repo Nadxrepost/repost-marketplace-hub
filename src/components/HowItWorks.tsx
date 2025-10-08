@@ -73,7 +73,7 @@ const HowItWorks = () => {
             <div className="flex justify-center items-center">
             <Button onClick={() => {
               window.open('https://tally.so/r/mV2xGM', '_blank', 'noopener,noreferrer');
-            }} className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-3 rounded-lg font-semibold">
+            }} className="bg-brand-purple hover:bg-brand-purple/90 text-black px-8 py-3 rounded-lg font-semibold">
                 Oui, je veux vendre avec Repost !
               </Button>
             </div>

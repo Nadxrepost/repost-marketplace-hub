@@ -78,6 +78,7 @@ const AdminBlog = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const coverInputRef = useRef<HTMLInputElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const [cursorPosition, setCursorPosition] = useState<Range | null>(null);
   const navigate = useNavigate();
   const {
     toast
@@ -305,6 +306,13 @@ const AdminBlog = () => {
   const toggleSelectPost = (postId: string) => {
     setSelectedPosts(prev => prev.includes(postId) ? prev.filter(id => id !== postId) : [...prev, postId]);
   };
+  const saveCursorPosition = () => {
+    const selection = window.getSelection();
+    if (selection && selection.rangeCount > 0) {
+      setCursorPosition(selection.getRangeAt(0).cloneRange());
+    }
+  };
+
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files || files.length === 0) return;
@@ -322,16 +330,41 @@ const AdminBlog = () => {
           data
         } = supabase.storage.from('blog-images').getPublicUrl(filePath);
 
-        // Insérer l'image directement dans le contenu
-        const imageTag = `<img src="${data.publicUrl}" alt="Image de l'article" style="max-width: 100%; height: auto; margin: 1rem 0;" />\n`;
-        setFormData(prev => ({
-          ...prev,
-          content: prev.content + imageTag
-        }));
+        // Insérer l'image à la position du curseur
+        const imageTag = `<img src="${data.publicUrl}" alt="Image de l'article" style="max-width: 100%; height: auto; margin: 1rem 0;" />`;
+        
+        const editor = contentRef.current;
+        if (editor && cursorPosition) {
+          editor.focus();
+          const selection = window.getSelection();
+          if (selection) {
+            selection.removeAllRanges();
+            selection.addRange(cursorPosition);
+            
+            const imgElement = document.createElement('div');
+            imgElement.innerHTML = imageTag;
+            const range = selection.getRangeAt(0);
+            range.deleteContents();
+            range.insertNode(imgElement.firstChild!);
+            range.collapse(false);
+            
+            // Mettre à jour le contenu
+            updateContent();
+            
+            // Sauvegarder la nouvelle position du curseur
+            saveCursorPosition();
+          }
+        } else {
+          // Fallback: ajouter à la fin si pas de position de curseur
+          setFormData(prev => ({
+            ...prev,
+            content: prev.content + imageTag
+          }));
+        }
       }
       toast({
         title: 'Images ajoutées',
-        description: 'Les images ont été insérées dans votre article'
+        description: 'Les images ont été insérées à la position du curseur'
       });
     } catch (error: any) {
       toast({
@@ -341,6 +374,9 @@ const AdminBlog = () => {
       });
     } finally {
       setUploading(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
     }
   };
   const handleCoverUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -716,13 +752,16 @@ const AdminBlog = () => {
                 <Label>Ajouter des images</Label>
                 <div className="flex items-center gap-2">
                   <Input ref={fileInputRef} type="file" accept="image/*" multiple onChange={handleImageUpload} disabled={uploading} className="hidden" />
-                  <Button type="button" disabled={uploading} variant="secondary" onClick={() => fileInputRef.current?.click()} className="w-full">
+                  <Button type="button" disabled={uploading} variant="secondary" onClick={() => {
+                    saveCursorPosition();
+                    fileInputRef.current?.click();
+                  }} className="w-full">
                     <Upload className="w-4 h-4 mr-2" />
-                    {uploading ? 'Upload...' : 'Ajouter'}
+                    {uploading ? 'Upload...' : 'Insérer une image'}
                   </Button>
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">
-                  Les images seront insérées automatiquement dans votre contenu
+                  Cliquez d&apos;abord dans le texte où vous voulez insérer l&apos;image, puis cliquez sur le bouton
                 </p>
               </div>
 
@@ -808,7 +847,7 @@ const AdminBlog = () => {
                   </div>
 
                   {/* Zone de texte avec éditeur visuel */}
-                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} className="min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
+                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={saveCursorPosition} onKeyUp={saveCursorPosition} className="min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
                 border: 'none',
                 resize: 'vertical',
                 overflow: 'auto'

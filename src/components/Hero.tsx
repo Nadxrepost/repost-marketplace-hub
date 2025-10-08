@@ -30,6 +30,11 @@ const Hero = () => {
                 Je veux tester Repost
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
+              <Button onClick={() => {
+              window.open('https://tally.so/r/mV2xGM', '_blank');
+            }} size="lg" variant="outline" className="px-8 py-6 text-lg">
+                Réserver une démo
+              </Button>
             </div>
 
             <div className="flex items-center justify-center lg:justify-start space-x-8 text-sm text-gray-500">

@@ -60,38 +60,30 @@ const AdminUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      // Récupérer tous les utilisateurs via l'API Supabase Auth
-      const { data: authUsers, error: authError } = await supabase.auth.admin.listUsers();
-      
-      if (authError) throw authError;
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) {
+        throw new Error('No active session')
+      }
 
-      // Récupérer les rôles
-      const { data: roles, error: rolesError } = await supabase
-        .from('user_roles')
-        .select('user_id, role')
-        .eq('role', 'admin');
+      // Appeler la edge function pour lister les utilisateurs
+      const { data, error } = await supabase.functions.invoke('list-users', {
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+        },
+      })
 
-      if (rolesError) throw rolesError;
+      if (error) throw error
 
-      const adminIds = new Set(roles?.map(r => r.user_id) || []);
-
-      const usersWithRoles: User[] = authUsers.users.map(user => ({
-        id: user.id,
-        email: user.email || 'N/A',
-        created_at: user.created_at,
-        is_admin: adminIds.has(user.id),
-      }));
-
-      setUsers(usersWithRoles);
+      setUsers(data.users || [])
     } catch (error) {
-      console.error('Error fetching users:', error);
+      console.error('Error fetching users:', error)
       toast({
         title: 'Erreur',
         description: 'Impossible de charger la liste des utilisateurs.',
         variant: 'destructive',
-      });
+      })
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   };
 

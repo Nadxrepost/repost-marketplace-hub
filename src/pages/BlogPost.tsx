@@ -129,10 +129,7 @@ const BlogPost = () => {
           <header className="mb-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
             <div className="flex items-center gap-4 text-muted-foreground">
-              <span className="flex items-center gap-2">
-                <FileText className="w-4 h-4" />
-                Article
-              </span>
+              <span>Article</span>
               <span className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
                 {format(new Date(post.published_at), 'dd MMMM yyyy', { locale: fr })}

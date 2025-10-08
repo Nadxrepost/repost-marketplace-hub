@@ -1,6 +1,18 @@
+import { useEffect } from 'react';
 import Header from '@/components/Header';
 
 const Contact = () => {
+  useEffect(() => {
+    // Charger le script Tally
+    const script = document.createElement('script');
+    script.src = 'https://tally.so/widgets/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   return <div className="min-h-screen bg-background">
       <Header />
 
@@ -14,8 +26,23 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="flex justify-center">
-            <div className="max-w-md mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Formulaire Tally */}
+            <div className="bg-card rounded-3xl shadow-2xl overflow-hidden border border-border">
+              <iframe 
+                data-tally-src="https://tally.so/r/w4eGEA?transparentBackground=1" 
+                width="100%" 
+                height="800" 
+                frameBorder="0" 
+                marginHeight={0} 
+                marginWidth={0} 
+                title="Une question ?"
+                className="w-full"
+              />
+            </div>
+
+            {/* Image */}
+            <div className="lg:order-1 max-w-md mx-auto">
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img src="/lovable-uploads/eda65dab-96a0-458b-805a-743b25dfa30a.png" alt="Chat stylé avec des lunettes de soleil" className="w-full h-auto object-cover" />
               </div>

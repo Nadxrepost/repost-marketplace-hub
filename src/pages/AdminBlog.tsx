@@ -16,6 +16,7 @@ interface BlogPost {
   excerpt: string;
   content: string;
   status: string;
+  category: string;
   published_at: string | null;
   author_id: string | null;
   created_at: string;
@@ -36,6 +37,7 @@ const AdminBlog = () => {
     excerpt: '',
     content: '',
     status: 'draft',
+    category: 'article',
     published_at: '',
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -155,7 +157,7 @@ const AdminBlog = () => {
     
     // Si on publie, retourner à la liste. Si on enregistre un brouillon, rester dans l'éditeur
     if (publishNow) {
-      setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
+      setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', category: 'article', published_at: '' });
       setEditing(null);
       setShowEditor(false);
     }
@@ -168,6 +170,7 @@ const AdminBlog = () => {
       excerpt: post.excerpt || '',
       content: post.content,
       status: post.status,
+      category: post.category || 'article',
       published_at: post.published_at ? new Date(post.published_at).toISOString().slice(0, 16) : '',
     });
     setEditing(post.id);
@@ -322,7 +325,7 @@ const AdminBlog = () => {
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">Mes Articles</h2>
               <Button onClick={() => {
-                setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
+                setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', category: 'article', published_at: '' });
                 setEditing(null);
                 setShowEditor(true);
               }}>
@@ -415,7 +418,7 @@ const AdminBlog = () => {
                 setShowEditor(false);
                 setShowPreview(false);
                 setEditing(null);
-                setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
+                setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', category: 'article', published_at: '' });
               }}>
                 Retour à la liste
               </Button>
@@ -661,6 +664,22 @@ const AdminBlog = () => {
                 >
                   <option value="draft">Brouillon</option>
                   <option value="published">Publié</option>
+                </select>
+              </div>
+
+              <div>
+                <Label htmlFor="category">Catégorie</Label>
+                <select
+                  id="category"
+                  value={formData.category}
+                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                  className="w-full border rounded-md px-3 py-2"
+                >
+                  <option value="article">Article</option>
+                  <option value="video">Vidéo</option>
+                  <option value="tutorial">Tutoriel</option>
+                  <option value="news">Actualité</option>
+                  <option value="guide">Guide</option>
                 </select>
               </div>
 

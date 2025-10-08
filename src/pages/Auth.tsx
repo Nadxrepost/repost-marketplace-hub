@@ -56,9 +56,10 @@ useEffect(() => {
     setLoading(true);
 
     try {
+      const normalizedEmail = email.trim().toLowerCase();
       if (isLogin) {
         const { error } = await supabase.auth.signInWithPassword({
-          email,
+          email: normalizedEmail,
           password,
         });
 
@@ -70,13 +71,10 @@ useEffect(() => {
         });
       } else {
         const redirectUrl = `${window.location.origin}/admin/blog`;
-        
         const { error } = await supabase.auth.signUp({
-          email,
+          email: normalizedEmail,
           password,
-          options: {
-            emailRedirectTo: redirectUrl,
-          },
+          options: { emailRedirectTo: redirectUrl },
         });
 
         if (error) throw error;
@@ -118,7 +116,8 @@ useEffect(() => {
     setLoading(true);
     try {
       const redirectTo = `${window.location.origin}/auth`;
-      const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo });
+      const normalizedEmail = email.trim().toLowerCase();
+      const { error } = await supabase.auth.resetPasswordForEmail(normalizedEmail, { redirectTo });
       if (error) throw error;
       toast({
         title: 'Email envoyé',
@@ -150,6 +149,28 @@ useEffect(() => {
       setConfirmPassword('');
       toast({ title: 'Mot de passe mis à jour', description: 'Vous êtes connecté.' });
       navigate('/admin/blog');
+    } catch (error: any) {
+      toast({ title: 'Erreur', description: error.message, variant: 'destructive' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleMagicLink = async () => {
+    if (!email) {
+      toast({ title: 'Entrez votre email', description: "Saisissez votre email pour recevoir un lien magique." });
+      return;
+    }
+    setLoading(true);
+    try {
+      const redirectTo = `${window.location.origin}/admin/blog`;
+      const normalizedEmail = email.trim().toLowerCase();
+      const { error } = await supabase.auth.signInWithOtp({
+        email: normalizedEmail,
+        options: { emailRedirectTo: redirectTo },
+      });
+      if (error) throw error;
+      toast({ title: 'Lien envoyé', description: 'Vérifiez votre email et cliquez sur le lien pour vous connecter.' });
     } catch (error: any) {
       toast({ title: 'Erreur', description: error.message, variant: 'destructive' });
     } finally {
@@ -236,6 +257,10 @@ useEffect(() => {
 
                 <Button type="submit" className="w-full" disabled={loading}>
                   {loading ? 'Chargement...' : isLogin ? 'Se connecter' : "S'inscrire"}
+                </Button>
+
+                <Button type="button" variant="outline" className="w-full mt-2" onClick={handleMagicLink} disabled={loading}>
+                  Recevoir un lien magique
                 </Button>
               </form>
 

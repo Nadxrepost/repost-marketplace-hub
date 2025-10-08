@@ -791,7 +791,7 @@ const AdminBlog = () => {
                     <Input ref={coverInputRef} type="file" accept="image/*" onChange={handleCoverUpload} disabled={uploadingCover} className="hidden" />
                     <Button type="button" disabled={uploadingCover} variant="outline" onClick={() => coverInputRef.current?.click()} className="w-full">
                       <Upload className="w-4 h-4 mr-2" />
-                      {uploadingCover ? 'Upload...' : formData.cover_image ? 'Changer l\'image' : 'Ajouter une image'}
+                      {uploadingCover ? 'Upload...' : formData.cover_image ? 'Changer l\'image de couverture' : 'Ajouter une image de couverture'}
                     </Button>
                   </div>
                 </div>

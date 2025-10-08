@@ -877,10 +877,10 @@ const AdminBlog = () => {
                   <Eye className="w-4 h-4 mr-2" />
                   Aperçu
                 </Button>
-                <Button type="submit" variant="secondary" className="flex-1">
+                <Button type="submit" variant="outline" className="flex-1">
                   Enregistrer brouillon
                 </Button>
-                <Button type="button" onClick={e => handleSubmit(e as any, true)} className="flex-1">
+                <Button type="button" variant="outline" onClick={e => handleSubmit(e as any, true)} className="flex-1">
                   {editing && formData.status === 'published' ? 'Mettre à jour' : 'Publier'}
                 </Button>
               </div>

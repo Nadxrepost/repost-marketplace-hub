@@ -35,7 +35,7 @@ useEffect(() => {
 
     // Rediriger seulement hors mode recovery
     if (session?.user && !isRec && !isRecovery) {
-      navigate('/admin/blog');
+      navigate('/admin-blog');
     }
   });
 
@@ -44,7 +44,7 @@ useEffect(() => {
     setSession(session);
     setUser(session?.user ?? null);
     if (session?.user && !isRec && !isRecovery) {
-      navigate('/admin/blog');
+      navigate('/admin-blog');
     }
   });
 
@@ -70,7 +70,7 @@ useEffect(() => {
           description: 'Bienvenue !',
         });
       } else {
-        const redirectUrl = `${window.location.origin}/admin/blog`;
+        const redirectUrl = `${window.location.origin}/admin-blog`;
         const { error } = await supabase.auth.signUp({
           email: normalizedEmail,
           password,
@@ -148,7 +148,7 @@ useEffect(() => {
       setNewPassword('');
       setConfirmPassword('');
       toast({ title: 'Mot de passe mis à jour', description: 'Vous êtes connecté.' });
-      navigate('/admin/blog');
+      navigate('/admin-blog');
     } catch (error: any) {
       toast({ title: 'Erreur', description: error.message, variant: 'destructive' });
     } finally {
@@ -163,7 +163,7 @@ useEffect(() => {
     }
     setLoading(true);
     try {
-      const redirectTo = `${window.location.origin}/admin/blog`;
+      const redirectTo = `${window.location.origin}/admin-blog`;
       const normalizedEmail = email.trim().toLowerCase();
       const { error } = await supabase.auth.signInWithOtp({
         email: normalizedEmail,

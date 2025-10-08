@@ -127,9 +127,23 @@ const AdminBlog = () => {
   const handleSubmit = async (e: React.FormEvent, publishNow = false) => {
     e.preventDefault();
 
+    let finalSlug = generateSlug(formData.slug || formData.title);
+    
+    // Vérifier si le slug existe déjà (sauf si on édite le même article)
+    const { data: existingSlugs } = await supabase
+      .from('blog_posts')
+      .select('slug')
+      .eq('slug', finalSlug)
+      .neq('id', editing || '');
+    
+    // Si le slug existe, ajouter un timestamp pour le rendre unique
+    if (existingSlugs && existingSlugs.length > 0) {
+      finalSlug = `${finalSlug}-${Date.now()}`;
+    }
+
     const postData = {
       ...formData,
-      slug: generateSlug(formData.slug || formData.title),
+      slug: finalSlug,
       status: publishNow ? 'published' : 'draft',
       published_at: publishNow ? (formData.published_at || new Date().toISOString()) : null,
       author_id: user?.id,

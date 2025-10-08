@@ -28,7 +28,7 @@ const AdminBlog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [editing, setEditing] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
-  const [uploadedImages, setUploadedImages] = useState<string[]>([]);
+  const [showEditor, setShowEditor] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
@@ -150,6 +150,7 @@ const AdminBlog = () => {
 
     setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
     setEditing(null);
+    setShowEditor(false);
     fetchPosts();
   };
 
@@ -163,6 +164,7 @@ const AdminBlog = () => {
       published_at: post.published_at ? new Date(post.published_at).toISOString().slice(0, 16) : '',
     });
     setEditing(post.id);
+    setShowEditor(true);
   };
 
   const handleDelete = async (id: string) => {
@@ -191,7 +193,6 @@ const AdminBlog = () => {
     if (!files || files.length === 0) return;
 
     setUploading(true);
-    const newImages: string[] = [];
 
     try {
       for (const file of Array.from(files)) {
@@ -209,13 +210,14 @@ const AdminBlog = () => {
           .from('blog-images')
           .getPublicUrl(filePath);
 
-        newImages.push(data.publicUrl);
+        // Insérer l'image directement dans le contenu
+        const imageTag = `<img src="${data.publicUrl}" alt="Image de l'article" style="max-width: 100%; height: auto; margin: 1rem 0;" />\n`;
+        setFormData(prev => ({ ...prev, content: prev.content + imageTag }));
       }
 
-      setUploadedImages([...uploadedImages, ...newImages]);
       toast({
-        title: 'Images uploadées',
-        description: `${newImages.length} image(s) ajoutée(s) avec succès`,
+        title: 'Images ajoutées',
+        description: 'Les images ont été insérées dans votre article',
       });
     } catch (error: any) {
       toast({
@@ -228,25 +230,44 @@ const AdminBlog = () => {
     }
   };
 
-  const copyImageUrl = (url: string) => {
-    navigator.clipboard.writeText(url);
-    toast({
-      title: 'URL copiée',
-      description: 'L\'URL de l\'image a été copiée dans le presse-papiers',
-    });
-  };
+  const insertFormatting = (format: string) => {
+    const textarea = document.getElementById('content') as HTMLTextAreaElement;
+    if (!textarea) return;
 
-  const insertImageInContent = (url: string) => {
-    const imageTag = `<img src="${url}" alt="Image de l'article" />`;
-    setFormData({ ...formData, content: formData.content + '\n' + imageTag });
-    toast({
-      title: 'Image insérée',
-      description: 'L\'image a été ajoutée au contenu',
-    });
-  };
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = formData.content.substring(start, end);
+    let newText = '';
 
-  const removeUploadedImage = (url: string) => {
-    setUploadedImages(uploadedImages.filter(img => img !== url));
+    switch (format) {
+      case 'h1':
+        newText = `<h1>${selectedText || 'Titre principal'}</h1>`;
+        break;
+      case 'h2':
+        newText = `<h2>${selectedText || 'Sous-titre'}</h2>`;
+        break;
+      case 'h3':
+        newText = `<h3>${selectedText || 'Titre de section'}</h3>`;
+        break;
+      case 'p':
+        newText = `<p>${selectedText || 'Paragraphe de texte...'}</p>`;
+        break;
+      case 'bold':
+        newText = `<strong>${selectedText || 'texte en gras'}</strong>`;
+        break;
+      case 'italic':
+        newText = `<em>${selectedText || 'texte en italique'}</em>`;
+        break;
+      case 'link':
+        newText = `<a href="URL_ICI">${selectedText || 'texte du lien'}</a>`;
+        break;
+      case 'ul':
+        newText = `<ul>\n  <li>${selectedText || 'Élément de liste'}</li>\n  <li>Élément 2</li>\n</ul>`;
+        break;
+    }
+
+    const newContent = formData.content.substring(0, start) + newText + formData.content.substring(end);
+    setFormData({ ...formData, content: newContent });
   };
 
   if (!isAdmin) {
@@ -266,12 +287,98 @@ const AdminBlog = () => {
       </header>
 
       <main className="container mx-auto px-6 py-8">
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Form Section */}
+        {!showEditor ? (
           <div className="bg-white rounded-xl shadow p-6">
-            <h2 className="text-xl font-bold mb-4">
-              {editing ? 'Modifier l\'article' : 'Nouvel article'}
-            </h2>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold">Mes Articles</h2>
+              <Button onClick={() => {
+                setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
+                setEditing(null);
+                setShowEditor(true);
+              }}>
+                <Plus className="w-4 h-4 mr-2" />
+                Nouvel article
+              </Button>
+            </div>
+
+            <div className="space-y-3">{posts.map((post) => (
+                <div
+                  key={post.id}
+                  className="border rounded-lg p-4 hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-lg">{post.title}</h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {post.status === 'published' ? '✅ Publié' : '📝 Brouillon'}
+                        {post.published_at && (
+                          <span className="ml-2">
+                            • {new Date(post.published_at).toLocaleDateString('fr-FR', {
+                              day: 'numeric',
+                              month: 'long',
+                              year: 'numeric'
+                            })}
+                          </span>
+                        )}
+                      </p>
+                      {post.excerpt && (
+                        <p className="text-sm text-gray-600 mt-2">{post.excerpt}</p>
+                      )}
+                    </div>
+                    <div className="flex gap-2 ml-4">
+                      {post.status === 'published' && (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={() => window.open(`/blog/${post.slug}`, '_blank')}
+                        >
+                          <Eye className="w-4 h-4" />
+                        </Button>
+                      )}
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        onClick={() => handleEdit(post)}
+                      >
+                        <Edit className="w-4 h-4" />
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        onClick={() => handleDelete(post.id)}
+                      >
+                        <Trash2 className="w-4 h-4 text-destructive" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {posts.length === 0 && (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground mb-4">Aucun article pour le moment</p>
+                  <Button onClick={() => setShowEditor(true)}>
+                    <Plus className="w-4 h-4 mr-2" />
+                    Créer votre premier article
+                  </Button>
+                </div>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div className="bg-white rounded-xl shadow p-6">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold">
+                {editing ? 'Modifier l\'article' : 'Nouvel article'}
+              </h2>
+              <Button variant="outline" onClick={() => {
+                setShowEditor(false);
+                setEditing(null);
+                setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
+              }}>
+                Retour à la liste
+              </Button>
+            </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <Label htmlFor="title">Titre</Label>
@@ -305,71 +412,107 @@ const AdminBlog = () => {
               </div>
 
               <div>
-                <Label htmlFor="images">Images</Label>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <Input
-                      id="images"
-                      type="file"
-                      accept="image/*"
-                      multiple
-                      onChange={handleImageUpload}
-                      disabled={uploading}
-                      className="flex-1"
-                    />
-                    <Button
-                      type="button"
-                      disabled={uploading}
-                      variant="secondary"
-                    >
-                      <Upload className="w-4 h-4 mr-2" />
-                      {uploading ? 'Upload...' : 'Uploader'}
-                    </Button>
-                  </div>
-
-                  {uploadedImages.length > 0 && (
-                    <div className="border rounded-lg p-3 space-y-2 max-h-48 overflow-y-auto">
-                      <p className="text-sm font-medium">Images uploadées :</p>
-                      {uploadedImages.map((url, idx) => (
-                        <div key={idx} className="flex items-center gap-2 p-2 bg-gray-50 rounded">
-                          <img src={url} alt={`Upload ${idx}`} className="w-12 h-12 object-cover rounded" />
-                          <span className="text-xs flex-1 truncate">{url}</span>
-                          <Button
-                            type="button"
-                            size="sm"
-                            variant="ghost"
-                            onClick={() => copyImageUrl(url)}
-                            title="Copier l'URL"
-                          >
-                            <Copy className="w-3 h-3" />
-                          </Button>
-                          <Button
-                            type="button"
-                            size="sm"
-                            variant="ghost"
-                            onClick={() => insertImageInContent(url)}
-                            title="Insérer dans le contenu"
-                          >
-                            <Plus className="w-3 h-3" />
-                          </Button>
-                          <Button
-                            type="button"
-                            size="sm"
-                            variant="ghost"
-                            onClick={() => removeUploadedImage(url)}
-                            title="Retirer"
-                          >
-                            <X className="w-3 h-3" />
-                          </Button>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                <Label>Ajouter des images</Label>
+                <div className="flex items-center gap-2">
+                  <Input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={handleImageUpload}
+                    disabled={uploading}
+                    className="flex-1"
+                  />
+                  <Button
+                    type="button"
+                    disabled={uploading}
+                    variant="secondary"
+                    size="sm"
+                  >
+                    <Upload className="w-4 h-4 mr-2" />
+                    {uploading ? 'Upload...' : 'Ajouter'}
+                  </Button>
                 </div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Les images seront insérées automatiquement dans votre contenu
+                </p>
               </div>
 
               <div>
-                <Label htmlFor="content">Contenu (HTML)</Label>
+                <Label htmlFor="content">Contenu de l&apos;article</Label>
+                <div className="border rounded-md p-2 bg-gray-50 mb-2 flex flex-wrap gap-1">
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('h1')}
+                    title="Titre principal"
+                  >
+                    H1
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('h2')}
+                    title="Sous-titre"
+                  >
+                    H2
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('h3')}
+                    title="Titre de section"
+                  >
+                    H3
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('p')}
+                    title="Paragraphe"
+                  >
+                    P
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('bold')}
+                    title="Gras"
+                  >
+                    <strong>B</strong>
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('italic')}
+                    title="Italique"
+                  >
+                    <em>I</em>
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('link')}
+                    title="Lien"
+                  >
+                    Link
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('ul')}
+                    title="Liste"
+                  >
+                    Liste
+                  </Button>
+                </div>
                 <Textarea
                   id="content"
                   value={formData.content}
@@ -405,86 +548,26 @@ const AdminBlog = () => {
                 </select>
               </div>
 
-              <div className="flex gap-2">
+              <div className="flex gap-2 pt-4">
                 <Button type="submit" className="flex-1">
-                  {editing ? 'Mettre à jour' : 'Créer'}
+                  <Plus className="w-4 h-4 mr-2" />
+                  {editing ? 'Mettre à jour l\'article' : 'Publier l\'article'}
                 </Button>
-                {editing && (
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() => {
-                      setEditing(null);
-                      setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
-                    }}
-                  >
-                    Annuler
-                  </Button>
-                )}
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => {
+                    setShowEditor(false);
+                    setEditing(null);
+                    setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
+                  }}
+                >
+                  Annuler
+                </Button>
               </div>
             </form>
           </div>
-
-          {/* Posts List Section */}
-          <div className="bg-white rounded-xl shadow p-6">
-            <h2 className="text-xl font-bold mb-4">Articles</h2>
-            <div className="space-y-3">
-              {posts.map((post) => (
-                <div
-                  key={post.id}
-                  className="border rounded-lg p-4 flex items-center justify-between"
-                >
-                  <div className="flex-1">
-                    <h3 className="font-semibold">{post.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {post.status === 'published' ? '✅ Publié' : '📝 Brouillon'}
-                      {post.published_at && (
-                        <span className="ml-2">
-                          • {new Date(post.published_at).toLocaleDateString('fr-FR', {
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric'
-                          })}
-                        </span>
-                      )}
-                    </p>
-                  </div>
-                  <div className="flex gap-2">
-                    {post.status === 'published' && (
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        onClick={() => window.open(`/blog/${post.slug}`, '_blank')}
-                      >
-                        <Eye className="w-4 h-4" />
-                      </Button>
-                    )}
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      onClick={() => handleEdit(post)}
-                    >
-                      <Edit className="w-4 h-4" />
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      onClick={() => handleDelete(post.id)}
-                    >
-                      <Trash2 className="w-4 h-4 text-destructive" />
-                    </Button>
-                  </div>
-                </div>
-              ))}
-
-              {posts.length === 0 && (
-                <p className="text-center text-muted-foreground py-8">
-                  Aucun article pour le moment
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
+        )}
       </main>
     </div>
   );

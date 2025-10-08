@@ -95,7 +95,7 @@ const AdminBlog = () => {
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
   const coverInputRef = useRef<HTMLInputElement>(null);
-  const contentRef = useRef<HTMLTextAreaElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -427,99 +427,83 @@ const AdminBlog = () => {
   };
 
   const insertFormatting = (format: string) => {
-    const textarea = contentRef.current;
-    if (!textarea) return;
+    const editor = contentRef.current;
+    if (!editor) return;
 
-    const start = textarea.selectionStart;
-    const end = textarea.selectionEnd;
-    const selectedText = formData.content.substring(start, end);
+    editor.focus();
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) return;
+
+    const range = selection.getRangeAt(0);
     
-    if (!selectedText && !['ul', 'ol', 'quote'].includes(format)) {
-      toast({
-        title: 'Sélectionnez du texte',
-        description: 'Veuillez d\'abord sélectionner le texte à formater',
-      });
+    // Pour les styles de bloc (titres, paragraphes)
+    if (['h1', 'h2', 'h3', 'h4', 'p'].includes(format)) {
+      document.execCommand('formatBlock', false, format);
+      setSelectedTextStyle(format);
       return;
     }
-    
-    let newText = '';
 
+    // Pour le formatage inline
     switch (format) {
-      case 'h1':
-        newText = `<h1>${selectedText}</h1>`;
-        setSelectedTextStyle('h1');
-        break;
-      case 'h2':
-        newText = `<h2>${selectedText}</h2>`;
-        setSelectedTextStyle('h2');
-        break;
-      case 'h3':
-        newText = `<h3>${selectedText}</h3>`;
-        setSelectedTextStyle('h3');
-        break;
-      case 'h4':
-        newText = `<h4>${selectedText}</h4>`;
-        setSelectedTextStyle('h4');
-        break;
-      case 'p':
-        newText = `<p>${selectedText}</p>`;
-        setSelectedTextStyle('p');
-        break;
       case 'bold':
-        newText = `<strong>${selectedText}</strong>`;
+        document.execCommand('bold', false);
         break;
       case 'italic':
-        newText = `<em>${selectedText}</em>`;
+        document.execCommand('italic', false);
         break;
       case 'underline':
-        newText = `<u>${selectedText}</u>`;
+        document.execCommand('underline', false);
         break;
       case 'strikethrough':
-        newText = `<s>${selectedText}</s>`;
+        document.execCommand('strikeThrough', false);
         break;
       case 'link':
         const url = prompt('Entrez l\'URL du lien:');
-        if (!url) return;
-        newText = `<a href="${url}" target="_blank" rel="noopener noreferrer">${selectedText}</a>`;
+        if (url) {
+          document.execCommand('createLink', false, url);
+        }
         break;
       case 'ul':
-        newText = `<ul>\n  <li>${selectedText || 'Élément de liste'}</li>\n</ul>`;
+        document.execCommand('insertUnorderedList', false);
         break;
       case 'ol':
-        newText = `<ol>\n  <li>${selectedText || 'Élément numéroté'}</li>\n</ol>`;
+        document.execCommand('insertOrderedList', false);
         break;
       case 'quote':
-        newText = `<blockquote>${selectedText || 'Citation'}</blockquote>`;
-        break;
-      case 'code':
-        newText = `<code>${selectedText}</code>`;
+        document.execCommand('formatBlock', false, 'blockquote');
         break;
       case 'align-left':
-        newText = `<div style="text-align: left;">${selectedText}</div>`;
+        document.execCommand('justifyLeft', false);
         break;
       case 'align-center':
-        newText = `<div style="text-align: center;">${selectedText}</div>`;
+        document.execCommand('justifyCenter', false);
         break;
       case 'align-right':
-        newText = `<div style="text-align: right;">${selectedText}</div>`;
+        document.execCommand('justifyRight', false);
         break;
       case 'align-justify':
-        newText = `<div style="text-align: justify;">${selectedText}</div>`;
+        document.execCommand('justifyFull', false);
         break;
     }
 
-    const newContent = formData.content.substring(0, start) + newText + formData.content.substring(end);
-    setFormData({ ...formData, content: newContent });
-    
-    setTimeout(() => {
-      textarea.focus();
-      textarea.setSelectionRange(start + newText.length, start + newText.length);
-    }, 0);
+    // Mettre à jour le contenu
+    updateContent();
   };
 
   const applyTextStyle = (style: string) => {
     setSelectedTextStyle(style);
     insertFormatting(style);
+  };
+
+  const updateContent = () => {
+    const editor = contentRef.current;
+    if (editor) {
+      setFormData({ ...formData, content: editor.innerHTML });
+    }
+  };
+
+  const handleContentChange = () => {
+    updateContent();
   };
 
   if (!isAdmin) {
@@ -1037,15 +1021,18 @@ const AdminBlog = () => {
                     </Button>
                   </div>
 
-                  {/* Zone de texte */}
-                  <Textarea
-                    ref={contentRef}
-                    id="content"
-                    value={formData.content}
-                    onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                    rows={15}
-                    required
-                    className="border-0 rounded-none resize-none focus-visible:ring-0"
+                  {/* Zone de texte avec éditeur visuel */}
+                  <div
+                    ref={contentRef as any}
+                    contentEditable
+                    onInput={handleContentChange}
+                    dangerouslySetInnerHTML={{ __html: formData.content }}
+                    className="min-h-[400px] p-4 focus:outline-none prose max-w-none"
+                    style={{
+                      border: 'none',
+                      resize: 'vertical',
+                      overflow: 'auto'
+                    }}
                   />
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">

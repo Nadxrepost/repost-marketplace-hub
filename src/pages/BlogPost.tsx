@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
-import { Calendar, ArrowLeft, Clock } from 'lucide-react';
+import { Calendar, ArrowLeft, Clock, FileText } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 
@@ -130,12 +130,16 @@ const BlogPost = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
             <div className="flex items-center gap-4 text-muted-foreground">
               <span className="flex items-center gap-2">
+                <FileText className="w-4 h-4" />
+                Article
+              </span>
+              <span className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
                 {format(new Date(post.published_at), 'dd MMMM yyyy', { locale: fr })}
               </span>
               <span className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
-                {calculateReadingTime(post.content)} min de lecture
+                {calculateReadingTime(post.content)} min
               </span>
             </div>
             {post.tags && post.tags.length > 0 && (

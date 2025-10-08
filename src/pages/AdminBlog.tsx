@@ -6,8 +6,20 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { LogOut, Plus, Edit, Trash2, Eye, Upload, AlignLeft, AlignCenter, AlignRight, AlignJustify, Check } from 'lucide-react';
+import { 
+  LogOut, Plus, Edit, Trash2, Eye, Upload, 
+  AlignLeft, AlignCenter, AlignRight, AlignJustify, 
+  Check, Bold, Italic, Link2, List, ListOrdered,
+  Quote, Code, Strikethrough, Underline
+} from 'lucide-react';
 import { User, Session } from '@supabase/supabase-js';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface BlogPost {
   id: string;
@@ -70,6 +82,7 @@ const AdminBlog = () => {
   const [uploadingCover, setUploadingCover] = useState(false);
   const [showEditor, setShowEditor] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
+  const [selectedTextStyle, setSelectedTextStyle] = useState('p');
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
@@ -82,6 +95,7 @@ const AdminBlog = () => {
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
   const coverInputRef = useRef<HTMLInputElement>(null);
+  const contentRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -413,14 +427,14 @@ const AdminBlog = () => {
   };
 
   const insertFormatting = (format: string) => {
-    const textarea = document.getElementById('content') as HTMLTextAreaElement;
+    const textarea = contentRef.current;
     if (!textarea) return;
 
     const start = textarea.selectionStart;
     const end = textarea.selectionEnd;
     const selectedText = formData.content.substring(start, end);
     
-    if (!selectedText) {
+    if (!selectedText && !['ul', 'ol', 'quote'].includes(format)) {
       toast({
         title: 'Sélectionnez du texte',
         description: 'Veuillez d\'abord sélectionner le texte à formater',
@@ -433,15 +447,23 @@ const AdminBlog = () => {
     switch (format) {
       case 'h1':
         newText = `<h1>${selectedText}</h1>`;
+        setSelectedTextStyle('h1');
         break;
       case 'h2':
         newText = `<h2>${selectedText}</h2>`;
+        setSelectedTextStyle('h2');
         break;
       case 'h3':
         newText = `<h3>${selectedText}</h3>`;
+        setSelectedTextStyle('h3');
+        break;
+      case 'h4':
+        newText = `<h4>${selectedText}</h4>`;
+        setSelectedTextStyle('h4');
         break;
       case 'p':
         newText = `<p>${selectedText}</p>`;
+        setSelectedTextStyle('p');
         break;
       case 'bold':
         newText = `<strong>${selectedText}</strong>`;
@@ -449,13 +471,28 @@ const AdminBlog = () => {
       case 'italic':
         newText = `<em>${selectedText}</em>`;
         break;
+      case 'underline':
+        newText = `<u>${selectedText}</u>`;
+        break;
+      case 'strikethrough':
+        newText = `<s>${selectedText}</s>`;
+        break;
       case 'link':
-        const url = prompt('Collez votre lien ici:');
+        const url = prompt('Entrez l\'URL du lien:');
         if (!url) return;
-        newText = `<a href="${url}">${selectedText}</a>`;
+        newText = `<a href="${url}" target="_blank" rel="noopener noreferrer">${selectedText}</a>`;
         break;
       case 'ul':
-        newText = `<ul>\n  <li>${selectedText}</li>\n</ul>`;
+        newText = `<ul>\n  <li>${selectedText || 'Élément de liste'}</li>\n</ul>`;
+        break;
+      case 'ol':
+        newText = `<ol>\n  <li>${selectedText || 'Élément numéroté'}</li>\n</ol>`;
+        break;
+      case 'quote':
+        newText = `<blockquote>${selectedText || 'Citation'}</blockquote>`;
+        break;
+      case 'code':
+        newText = `<code>${selectedText}</code>`;
         break;
       case 'align-left':
         newText = `<div style="text-align: left;">${selectedText}</div>`;
@@ -473,6 +510,16 @@ const AdminBlog = () => {
 
     const newContent = formData.content.substring(0, start) + newText + formData.content.substring(end);
     setFormData({ ...formData, content: newContent });
+    
+    setTimeout(() => {
+      textarea.focus();
+      textarea.setSelectionRange(start + newText.length, start + newText.length);
+    }, 0);
+  };
+
+  const applyTextStyle = (style: string) => {
+    setSelectedTextStyle(style);
+    insertFormatting(style);
   };
 
   if (!isAdmin) {
@@ -820,124 +867,190 @@ const AdminBlog = () => {
 
               <div>
                 <Label htmlFor="content">Contenu de l&apos;article</Label>
-                <div className="border rounded-md p-2 bg-gray-50 mb-2 flex flex-wrap gap-1">
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('h1')}
-                    title="Titre principal"
-                  >
-                    H1
-                  </Button>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('h2')}
-                    title="Sous-titre"
-                  >
-                    H2
-                  </Button>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('h3')}
-                    title="Titre de section"
-                  >
-                    H3
-                  </Button>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('p')}
-                    title="Paragraphe"
-                  >
-                    P
-                  </Button>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('bold')}
-                    title="Gras"
-                  >
-                    <strong>B</strong>
-                  </Button>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('italic')}
-                    title="Italique"
-                  >
-                    <em>I</em>
-                  </Button>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('link')}
-                    title="Lien"
-                  >
-                    Link
-                  </Button>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('ul')}
-                    title="Liste"
-                  >
-                    Liste
-                  </Button>
-                  <div className="w-px bg-gray-300 mx-1" />
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('align-left')}
-                    title="Aligner à gauche"
-                  >
-                    <AlignLeft className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('align-center')}
-                    title="Centrer"
-                  >
-                    <AlignCenter className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('align-right')}
-                    title="Aligner à droite"
-                  >
-                    <AlignRight className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => insertFormatting('align-justify')}
-                    title="Justifier"
-                  >
-                    <AlignJustify className="w-4 h-4" />
-                  </Button>
+                <div className="border rounded-lg overflow-hidden bg-white">
+                  {/* Barre d'outils inspirée de l'image */}
+                  <div className="border-b bg-gray-50 p-2 flex items-center gap-1 flex-wrap">
+                    {/* Dropdown de style de texte */}
+                    <Select value={selectedTextStyle} onValueChange={applyTextStyle}>
+                      <SelectTrigger className="w-[140px] bg-white">
+                        <SelectValue placeholder="Style" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white z-50">
+                        <SelectItem value="p">Paragraphe</SelectItem>
+                        <SelectItem value="h1">Titre 1</SelectItem>
+                        <SelectItem value="h2">Titre 2</SelectItem>
+                        <SelectItem value="h3">Titre 3</SelectItem>
+                        <SelectItem value="h4">Titre 4</SelectItem>
+                      </SelectContent>
+                    </Select>
+
+                    <div className="w-px h-6 bg-gray-300 mx-1" />
+
+                    {/* Formatage de texte */}
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('bold')}
+                      title="Gras"
+                      className="h-8 w-8 p-0"
+                    >
+                      <Bold className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('italic')}
+                      title="Italique"
+                      className="h-8 w-8 p-0"
+                    >
+                      <Italic className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('underline')}
+                      title="Souligner"
+                      className="h-8 w-8 p-0"
+                    >
+                      <Underline className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('strikethrough')}
+                      title="Barré"
+                      className="h-8 w-8 p-0"
+                    >
+                      <Strikethrough className="w-4 h-4" />
+                    </Button>
+
+                    <div className="w-px h-6 bg-gray-300 mx-1" />
+
+                    {/* Lien */}
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('link')}
+                      title="Insérer un lien"
+                      className="h-8 w-8 p-0"
+                    >
+                      <Link2 className="w-4 h-4" />
+                    </Button>
+
+                    <div className="w-px h-6 bg-gray-300 mx-1" />
+
+                    {/* Alignement */}
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('align-left')}
+                      title="Aligner à gauche"
+                      className="h-8 w-8 p-0"
+                    >
+                      <AlignLeft className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('align-center')}
+                      title="Centrer"
+                      className="h-8 w-8 p-0"
+                    >
+                      <AlignCenter className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('align-right')}
+                      title="Aligner à droite"
+                      className="h-8 w-8 p-0"
+                    >
+                      <AlignRight className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('align-justify')}
+                      title="Justifier"
+                      className="h-8 w-8 p-0"
+                    >
+                      <AlignJustify className="w-4 h-4" />
+                    </Button>
+
+                    <div className="w-px h-6 bg-gray-300 mx-1" />
+
+                    {/* Citation */}
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('quote')}
+                      title="Citation"
+                      className="h-8 w-8 p-0"
+                    >
+                      <Quote className="w-4 h-4" />
+                    </Button>
+
+                    {/* Listes */}
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('ul')}
+                      title="Liste à puces"
+                      className="h-8 w-8 p-0"
+                    >
+                      <List className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('ol')}
+                      title="Liste numérotée"
+                      className="h-8 w-8 p-0"
+                    >
+                      <ListOrdered className="w-4 h-4" />
+                    </Button>
+
+                    <div className="w-px h-6 bg-gray-300 mx-1" />
+
+                    {/* Code */}
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => insertFormatting('code')}
+                      title="Code"
+                      className="h-8 w-8 p-0"
+                    >
+                      <Code className="w-4 h-4" />
+                    </Button>
+                  </div>
+
+                  {/* Zone de texte */}
+                  <Textarea
+                    ref={contentRef}
+                    id="content"
+                    value={formData.content}
+                    onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                    rows={15}
+                    required
+                    className="border-0 rounded-none resize-none focus-visible:ring-0"
+                  />
                 </div>
-                <Textarea
-                  id="content"
-                  value={formData.content}
-                  onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                  rows={10}
-                  required
-                />
+                <p className="text-xs text-muted-foreground mt-2">
+                  Sélectionnez du texte et utilisez les boutons de formatage pour styliser votre contenu
+                </p>
               </div>
 
               <div>

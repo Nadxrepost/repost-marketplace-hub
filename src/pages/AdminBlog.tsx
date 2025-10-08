@@ -93,6 +93,7 @@ const AdminBlog = () => {
   const [selectedTextStyle, setSelectedTextStyle] = useState('p');
   const [showLinkDialog, setShowLinkDialog] = useState(false);
   const [linkUrl, setLinkUrl] = useState('');
+  const [savedSelection, setSavedSelection] = useState<Range | null>(null);
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
@@ -468,7 +469,20 @@ const AdminBlog = () => {
         document.execCommand('strikeThrough', false);
         break;
       case 'link':
-        setShowLinkDialog(true);
+        // Sauvegarder la sélection actuelle
+        const selection = window.getSelection();
+        if (selection && selection.rangeCount > 0) {
+          const range = selection.getRangeAt(0);
+          if (!range.collapsed) {
+            setSavedSelection(range.cloneRange());
+            setShowLinkDialog(true);
+          } else {
+            toast({
+              title: 'Sélectionnez du texte',
+              description: 'Veuillez sélectionner le texte pour créer un lien',
+            });
+          }
+        }
         break;
       case 'ul':
         document.execCommand('insertUnorderedList', false);
@@ -514,12 +528,27 @@ const AdminBlog = () => {
   };
 
   const handleInsertLink = () => {
-    if (linkUrl) {
-      document.execCommand('createLink', false, linkUrl);
-      updateContent();
+    if (linkUrl && savedSelection) {
+      const editor = contentRef.current;
+      if (editor) {
+        editor.focus();
+        
+        // Restaurer la sélection sauvegardée
+        const selection = window.getSelection();
+        if (selection) {
+          selection.removeAllRanges();
+          selection.addRange(savedSelection);
+          
+          // Insérer le lien
+          document.execCommand('createLink', false, linkUrl);
+          
+          updateContent();
+        }
+      }
     }
     setShowLinkDialog(false);
     setLinkUrl('');
+    setSavedSelection(null);
   };
 
   if (!isAdmin) {

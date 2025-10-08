@@ -77,7 +77,7 @@ const Features = () => {
           <Button 
             size="lg" 
             className="bg-brand-purple hover:bg-brand-purple/90 text-white px-8 py-4 text-lg font-semibold"
-            onClick={() => window.open('https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form', '_blank')}
+            onClick={() => window.open('https://tally.so/r/mV2xGM', '_blank')}
           >
             Démarrer maintenant avec Repost
           </Button>

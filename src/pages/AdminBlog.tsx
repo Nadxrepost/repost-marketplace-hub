@@ -239,32 +239,41 @@ const AdminBlog = () => {
     const start = textarea.selectionStart;
     const end = textarea.selectionEnd;
     const selectedText = formData.content.substring(start, end);
+    
+    if (!selectedText) {
+      toast({
+        title: 'Sélectionnez du texte',
+        description: 'Veuillez d\'abord sélectionner le texte à formater',
+      });
+      return;
+    }
+    
     let newText = '';
 
     switch (format) {
       case 'h1':
-        newText = `<h1>${selectedText || 'Titre principal'}</h1>`;
+        newText = `<h1>${selectedText}</h1>`;
         break;
       case 'h2':
-        newText = `<h2>${selectedText || 'Sous-titre'}</h2>`;
+        newText = `<h2>${selectedText}</h2>`;
         break;
       case 'h3':
-        newText = `<h3>${selectedText || 'Titre de section'}</h3>`;
+        newText = `<h3>${selectedText}</h3>`;
         break;
       case 'p':
-        newText = `<p>${selectedText || 'Paragraphe de texte...'}</p>`;
+        newText = `<p>${selectedText}</p>`;
         break;
       case 'bold':
-        newText = `<strong>${selectedText || 'texte en gras'}</strong>`;
+        newText = `<strong>${selectedText}</strong>`;
         break;
       case 'italic':
-        newText = `<em>${selectedText || 'texte en italique'}</em>`;
+        newText = `<em>${selectedText}</em>`;
         break;
       case 'link':
-        newText = `<a href="URL_ICI">${selectedText || 'texte du lien'}</a>`;
+        newText = `<a href="URL_ICI">${selectedText}</a>`;
         break;
       case 'ul':
-        newText = `<ul>\n  <li>${selectedText || 'Élément de liste'}</li>\n  <li>Élément 2</li>\n</ul>`;
+        newText = `<ul>\n  <li>${selectedText}</li>\n</ul>`;
         break;
     }
 

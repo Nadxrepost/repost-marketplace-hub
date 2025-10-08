@@ -24,7 +24,7 @@ const Pricing = () => {
               
               <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto">Nos tarifs sont adaptés à tous les profils d'entreprises. 
 Notre tarification est basée sur le volume de produit à mettre en stock.</p>
-              <Button size="lg" onClick={() => window.open('https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form', '_blank', 'noopener,noreferrer')} className="px-12 text-black">
+              <Button size="lg" onClick={() => window.open('https://tally.so/r/mV2xGM', '_blank', 'noopener,noreferrer')} className="px-12 text-black">
                 COMMENCER AVEC REPOST
               </Button>
             </div>

@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { LogOut, Plus, Edit, Trash2, Eye, Upload, Copy, X } from 'lucide-react';
+import { LogOut, Plus, Edit, Trash2, Eye, Upload, AlignLeft, AlignCenter, AlignRight, AlignJustify } from 'lucide-react';
 import { User, Session } from '@supabase/supabase-js';
 
 interface BlogPost {
@@ -281,6 +281,18 @@ const AdminBlog = () => {
         break;
       case 'ul':
         newText = `<ul>\n  <li>${selectedText}</li>\n</ul>`;
+        break;
+      case 'align-left':
+        newText = `<div style="text-align: left;">${selectedText}</div>`;
+        break;
+      case 'align-center':
+        newText = `<div style="text-align: center;">${selectedText}</div>`;
+        break;
+      case 'align-right':
+        newText = `<div style="text-align: right;">${selectedText}</div>`;
+        break;
+      case 'align-justify':
+        newText = `<div style="text-align: justify;">${selectedText}</div>`;
         break;
     }
 
@@ -578,6 +590,43 @@ const AdminBlog = () => {
                     title="Liste"
                   >
                     Liste
+                  </Button>
+                  <div className="w-px bg-gray-300 mx-1" />
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('align-left')}
+                    title="Aligner à gauche"
+                  >
+                    <AlignLeft className="w-4 h-4" />
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('align-center')}
+                    title="Centrer"
+                  >
+                    <AlignCenter className="w-4 h-4" />
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('align-right')}
+                    title="Aligner à droite"
+                  >
+                    <AlignRight className="w-4 h-4" />
+                  </Button>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => insertFormatting('align-justify')}
+                    title="Justifier"
+                  >
+                    <AlignJustify className="w-4 h-4" />
                   </Button>
                 </div>
                 <Textarea

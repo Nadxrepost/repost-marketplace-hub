@@ -789,7 +789,7 @@ const AdminBlog = () => {
                     </div>}
                   <div className="flex items-center gap-2">
                     <Input ref={coverInputRef} type="file" accept="image/*" onChange={handleCoverUpload} disabled={uploadingCover} className="hidden" />
-                    <Button type="button" disabled={uploadingCover} variant="outline" onClick={() => coverInputRef.current?.click()} className="w-full border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
+                    <Button type="button" disabled={uploadingCover} variant="outline" onClick={() => coverInputRef.current?.click()} className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                       <Upload className="w-4 h-4 mr-2" />
                       {uploadingCover ? 'Upload...' : formData.cover_image ? 'Changer l\'image' : 'Ajouter une image'}
                     </Button>
@@ -804,7 +804,7 @@ const AdminBlog = () => {
                   <Button type="button" disabled={uploading} variant="outline" onClick={() => {
                     saveCursorPosition();
                     fileInputRef.current?.click();
-                  }} className="w-full border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
+                  }} className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                     <Upload className="w-4 h-4 mr-2" />
                     {uploading ? 'Upload...' : 'Insérer une image'}
                   </Button>

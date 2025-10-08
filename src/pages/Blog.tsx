@@ -35,15 +35,12 @@ const Blog = () => {
     fetchPosts();
   }, []);
   return <div className="min-h-screen">
-      <SEO 
-        title="Blog Seconde Main - Conseils et Actualités | Repost"
-        description="Découvrez nos articles sur la mode seconde main, l'économie circulaire et nos conseils pour optimiser vos ventes en ligne."
-      />
+      <SEO title="Blog Seconde Main - Conseils et Actualités | Repost" description="Découvrez nos articles sur la mode seconde main, l'économie circulaire et nos conseils pour optimiser vos ventes en ligne." />
       <Header />
       <main className="container mx-auto px-6 py-24 md:py-32">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Le blog </h1>
-          <p className="text-xl text-center text-muted-foreground mb-12 max-w-2xl mx-auto">Actus, conseils, coulisses...Découvrez tout ce qu'il faut savoir dans l'univers de la mode seconde main et de l'économie circulaire.</p>
+          <p className="text-xl text-center text-muted-foreground mb-12 max-w-2xl mx-auto">Actus, conseils, coulisses...Découvrez tout ce qu'il faut savoir de l'univers de la mode seconde main et de l'économie circulaire.</p>
 
           {loading ? <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3].map(i => <div key={i} className="animate-pulse">

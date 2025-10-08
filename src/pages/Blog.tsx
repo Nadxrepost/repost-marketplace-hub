@@ -64,10 +64,6 @@ const Blog = () => {
               {posts.map(post => <Link key={post.id} to={`/blog/${encodeURIComponent(post.slug)}`} className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                   {post.cover_image && <div className="aspect-video overflow-hidden relative">
                       <img src={post.cover_image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                      <Badge className="absolute top-4 left-4 bg-white text-foreground hover:bg-white flex items-center gap-1">
-                        <FileText className="w-3 h-3" />
-                        Article
-                      </Badge>
                     </div>}
                   <div className="p-6">
                     <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">

@@ -70,6 +70,28 @@ const HowItWorks = () => {
           <div className="text-center">
             <h3 className="text-3xl font-bold text-gray-800 mb-4">Prêt à vendre partout avec Repost ?</h3>
             <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">Déjà adopté par de centaines de professionnels de la seconde main.</p>
+            
+            {/* Statistics Section */}
+            <div className="mb-8">
+              <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+                Rejoignez une communauté de plus de <span className="text-brand-purple">100 professionnels</span>
+              </h4>
+              <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 text-gray-700">
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                  <span className="text-base md:text-lg">+30% d&apos;augmentation des ventes</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                  <span className="text-base md:text-lg">+10h gagnées par semaine</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                  <span className="text-base md:text-lg">+40% de visibilité sur vos produits</span>
+                </div>
+              </div>
+            </div>
+            
             <div className="flex justify-center items-center">
             <Button onClick={() => {
               window.open('https://tally.so/r/mV2xGM', '_blank', 'noopener,noreferrer');

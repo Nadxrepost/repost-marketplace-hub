@@ -130,16 +130,6 @@ const BlogPost = () => {
             )}
           </header>
 
-          {post.cover_image && (
-            <div className="mb-8 rounded-xl overflow-hidden">
-              <img
-                src={post.cover_image}
-                alt={post.title}
-                className="w-full h-auto"
-              />
-            </div>
-          )}
-
           <div
             className="prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: post.content }}

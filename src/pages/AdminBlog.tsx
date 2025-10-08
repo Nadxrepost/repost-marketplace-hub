@@ -607,7 +607,6 @@ const AdminBlog = () => {
             setEditing(null);
             setShowEditor(true);
           }}>
-                <Plus className="w-4 h-4 mr-2" />
                 Écrire un nouvel article
               </Button>
             </div>

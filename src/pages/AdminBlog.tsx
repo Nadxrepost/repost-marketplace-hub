@@ -32,6 +32,33 @@ const generateSlug = (title: string): string => {
     .replace(/^-+|-+$/g, '');
 };
 
+// Assure un slug unique en ajoutant un suffixe -n si nécessaire
+const ensureUniqueSlug = async (base: string, currentId?: string | null): Promise<string> => {
+  const baseSlug = base && base.trim().length > 0 ? base : 'article';
+  let query = supabase
+    .from('blog_posts')
+    .select('id, slug')
+    .ilike('slug', `${baseSlug}%`);
+
+  if (currentId) {
+    query = query.neq('id', currentId);
+  }
+
+  const { data, error } = await query;
+  if (error) {
+    // En cas d'erreur (RLS, etc.), fallback ultra-unique
+    return `${baseSlug}-${Date.now()}`;
+  }
+
+  const taken = new Set((data || []).map((r: any) => r.slug));
+  if (!taken.has(baseSlug)) return baseSlug;
+
+  // Cherche le prochain suffixe disponible
+  let n = 1;
+  while (taken.has(`${baseSlug}-${n}`)) n++;
+  return `${baseSlug}-${n}`;
+};
+
 const AdminBlog = () => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
@@ -127,19 +154,8 @@ const AdminBlog = () => {
   const handleSubmit = async (e: React.FormEvent, publishNow = false) => {
     e.preventDefault();
 
-    let finalSlug = generateSlug(formData.slug || formData.title);
-    
-    // Vérifier si le slug existe déjà (sauf si on édite le même article)
-    const { data: existingSlugs } = await supabase
-      .from('blog_posts')
-      .select('slug')
-      .eq('slug', finalSlug)
-      .neq('id', editing || '');
-    
-    // Si le slug existe, ajouter un timestamp pour le rendre unique
-    if (existingSlugs && existingSlugs.length > 0) {
-      finalSlug = `${finalSlug}-${Date.now()}`;
-    }
+    const baseSlug = generateSlug(formData.slug || formData.title);
+    const finalSlug = await ensureUniqueSlug(baseSlug, editing);
 
     const postData = {
       ...formData,
@@ -150,10 +166,20 @@ const AdminBlog = () => {
     };
 
     if (editing) {
-      const { error } = await supabase
+      let { error } = await supabase
         .from('blog_posts')
         .update(postData)
         .eq('id', editing);
+
+      // Gestion robuste des collisions de slug
+      if (error && (error as any).code === '23505') {
+        const newSlug = await ensureUniqueSlug(`${postData.slug}-${Date.now()}`, editing);
+        const retry = await supabase
+          .from('blog_posts')
+          .update({ ...postData, slug: newSlug })
+          .eq('id', editing);
+        error = retry.error;
+      }
 
       if (error) {
         toast({
@@ -166,9 +192,17 @@ const AdminBlog = () => {
 
       toast({ title: publishNow ? 'Article publié' : 'Article mis à jour' });
     } else {
-      const { error } = await supabase
+      let { error } = await supabase
         .from('blog_posts')
         .insert([postData]);
+
+      if (error && (error as any).code === '23505') {
+        const newSlug = await ensureUniqueSlug(`${postData.slug}-${Date.now()}`);
+        const retry = await supabase
+          .from('blog_posts')
+          .insert([{ ...postData, slug: newSlug }]);
+        error = retry.error;
+      }
 
       if (error) {
         toast({

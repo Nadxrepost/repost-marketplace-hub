@@ -22,11 +22,17 @@ const Pricing = () => {
                 <span className="text-2xl text-muted-foreground">/mois</span>
               </div>
               
-              <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto">Nos tarifs sont adaptés à tous les profils d'entreprises. 
+              <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto">Nos tarifs sont adaptés à tous les profils d'entreprises. 
 Notre tarification est basée sur le volume de produit à mettre en stock.</p>
-              <Button size="lg" onClick={() => window.open('https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form', '_blank', 'noopener,noreferrer')} className="px-12 text-black">
-                COMMENCER AVEC REPOST
-              </Button>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" onClick={() => window.open('https://airtable.com/appMT60uGxIwVBPMZ/pagZPAJ5iNbpaQfLp/form', '_blank', 'noopener,noreferrer')} className="px-12 text-black">
+                  COMMENCER AVEC REPOST
+                </Button>
+                <Button size="lg" variant="outline" onClick={() => window.open('https://tally.so/r/mV2xGM', '_blank', 'noopener,noreferrer')} className="px-12">
+                  Réserver une démo
+                </Button>
+              </div>
             </div>
           </div>
 

@@ -100,74 +100,18 @@ const Contact = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Formulaire de contact */}
-            <div className="bg-card rounded-3xl shadow-2xl p-8 lg:p-12 border border-border">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Prénom et Nom */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Input name="prenom" type="text" value={formData.prenom} onChange={handleInputChange} placeholder="Prénom *" required className="w-full border-gray-200 rounded-xl px-4 py-3" />
-                  </div>
-                  <div>
-                    <Input name="nom" type="text" value={formData.nom} onChange={handleInputChange} placeholder="Nom *" required className="w-full border-gray-200 rounded-xl px-4 py-3" />
-                  </div>
-                </div>
-
-                {/* Nom de l'entreprise */}
-                <div>
-                  <Input name="entreprise" type="text" value={formData.entreprise} onChange={handleInputChange} placeholder="Nom de l'entreprise" className="w-full border-gray-200 rounded-xl px-4 py-3" />
-                </div>
-
-                {/* Email et Téléphone */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Input name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="E-mail *" required className="w-full border-gray-200 rounded-xl px-4 py-3" />
-                  </div>
-                  <div>
-                    <Input name="telephone" type="tel" value={formData.telephone} onChange={handleInputChange} placeholder="Téléphone *" required className="w-full border-gray-200 rounded-xl px-4 py-3" />
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Dites-nous en plus sur vos besoins *
-                  </label>
-                  <Textarea name="message" value={formData.message} onChange={handleInputChange} placeholder="Message" required rows={4} className="w-full border-gray-200 rounded-xl px-4 py-3" />
-                </div>
-
-                {/* Comment avez-vous connu Repost */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Comment avez-vous connu Repost ? *
-                  </label>
-                  <Select onValueChange={value => handleSelectChange('connaissance', value)} required>
-                    <SelectTrigger className="w-full border-gray-200 rounded-xl px-4 py-3 bg-gray-50">
-                      <SelectValue placeholder="Sélectionnez une option" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="moteurs">Moteurs de recherche (Google, Yahoo, Ecosia...)</SelectItem>
-                      <SelectItem value="reseaux-sociaux">Réseaux sociaux</SelectItem>
-                      <SelectItem value="bouche-oreille">Bouche à oreille</SelectItem>
-                      <SelectItem value="publicite">Publicité</SelectItem>
-                      <SelectItem value="autre">Autre</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Bouton d'envoi */}
-                <Button type="submit" disabled={isSubmitting} className="w-full bg-brand-purple hover:bg-brand-purple/90 text-white py-4 rounded-xl text-lg font-medium">
-                  {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
-                </Button>
-
-                {/* Mention légale */}
-                <p className="text-xs text-gray-500 italic leading-relaxed">
-                  En soumettant ce formulaire, j'accepte que mes informations soient 
-                  utilisées par Repost à des fins strictement internes : envoi de 
-                  contenus utiles, actualités et communications commerciales 
-                  occasionnelles. Promis, zéro spam.
-                </p>
-              </form>
+            {/* Formulaire Tally */}
+            <div className="bg-card rounded-3xl shadow-2xl overflow-hidden border border-border">
+              <iframe 
+                src="https://tally.so/r/mV2xGM" 
+                width="100%" 
+                height="800" 
+                frameBorder="0" 
+                marginHeight={0} 
+                marginWidth={0} 
+                title="Formulaire de contact Repost"
+                className="w-full"
+              />
             </div>
 
             {/* Image */}

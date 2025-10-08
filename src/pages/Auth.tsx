@@ -79,11 +79,21 @@ const Auth = () => {
         });
       }
     } catch (error: any) {
-      toast({
-        title: 'Erreur',
-        description: error.message,
-        variant: 'destructive',
-      });
+      const message = (error?.message || '').toString();
+      if (message.toLowerCase().includes('already registered')) {
+        // L'utilisateur existe déjà: basculer en mode connexion pour une meilleure UX
+        setIsLogin(true);
+        toast({
+          title: 'Compte déjà existant',
+          description: 'Cet email est déjà inscrit. Connectez-vous avec vos identifiants.',
+        });
+      } else {
+        toast({
+          title: 'Erreur',
+          description: message,
+          variant: 'destructive',
+        });
+      }
     } finally {
       setLoading(false);
     }

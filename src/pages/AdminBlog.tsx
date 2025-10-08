@@ -139,6 +139,7 @@ const AdminBlog = () => {
     const { data } = await supabase
       .from('blog_posts')
       .select('*')
+      .order('published_at', { ascending: false, nullsFirst: false })
       .order('created_at', { ascending: false });
 
     if (data) {

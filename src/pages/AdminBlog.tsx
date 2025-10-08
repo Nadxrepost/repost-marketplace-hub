@@ -15,6 +15,7 @@ interface BlogPost {
   slug: string;
   excerpt: string;
   content: string;
+  cover_image: string | null;
   status: string;
   category: string;
   published_at: string | null;
@@ -29,6 +30,7 @@ const AdminBlog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [editing, setEditing] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [uploadingCover, setUploadingCover] = useState(false);
   const [showEditor, setShowEditor] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [formData, setFormData] = useState({
@@ -36,11 +38,13 @@ const AdminBlog = () => {
     slug: '',
     excerpt: '',
     content: '',
+    cover_image: '',
     status: 'draft',
     category: 'article',
     published_at: '',
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const coverInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -157,7 +161,7 @@ const AdminBlog = () => {
     
     // Si on publie, retourner à la liste. Si on enregistre un brouillon, rester dans l'éditeur
     if (publishNow) {
-      setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', category: 'article', published_at: '' });
+      setFormData({ title: '', slug: '', excerpt: '', content: '', cover_image: '', status: 'draft', category: 'article', published_at: '' });
       setEditing(null);
       setShowEditor(false);
     }
@@ -169,6 +173,7 @@ const AdminBlog = () => {
       slug: post.slug,
       excerpt: post.excerpt || '',
       content: post.content,
+      cover_image: post.cover_image || '',
       status: post.status,
       category: post.category || 'article',
       published_at: post.published_at ? new Date(post.published_at).toISOString().slice(0, 16) : '',
@@ -237,6 +242,44 @@ const AdminBlog = () => {
       });
     } finally {
       setUploading(false);
+    }
+  };
+
+  const handleCoverUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploadingCover(true);
+
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `cover-${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from('blog-images')
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      const { data } = supabase.storage
+        .from('blog-images')
+        .getPublicUrl(filePath);
+
+      setFormData(prev => ({ ...prev, cover_image: data.publicUrl }));
+
+      toast({
+        title: 'Photo de couverture ajoutée',
+        description: 'L\'image a été téléchargée avec succès',
+      });
+    } catch (error: any) {
+      toast({
+        title: 'Erreur',
+        description: error.message,
+        variant: 'destructive',
+      });
+    } finally {
+      setUploadingCover(false);
     }
   };
 
@@ -325,7 +368,7 @@ const AdminBlog = () => {
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">Mes Articles</h2>
               <Button onClick={() => {
-                setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', category: 'article', published_at: '' });
+                setFormData({ title: '', slug: '', excerpt: '', content: '', cover_image: '', status: 'draft', category: 'article', published_at: '' });
                 setEditing(null);
                 setShowEditor(true);
               }}>
@@ -418,7 +461,7 @@ const AdminBlog = () => {
                 setShowEditor(false);
                 setShowPreview(false);
                 setEditing(null);
-                setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', category: 'article', published_at: '' });
+                setFormData({ title: '', slug: '', excerpt: '', content: '', cover_image: '', status: 'draft', category: 'article', published_at: '' });
               }}>
                 Retour à la liste
               </Button>
@@ -489,6 +532,50 @@ const AdminBlog = () => {
                   onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
                   rows={3}
                 />
+              </div>
+
+              <div>
+                <Label>Photo de couverture</Label>
+                <div className="space-y-3">
+                  {formData.cover_image && (
+                    <div className="relative w-full h-48 rounded-lg overflow-hidden border">
+                      <img 
+                        src={formData.cover_image} 
+                        alt="Couverture" 
+                        className="w-full h-full object-cover"
+                      />
+                      <Button
+                        type="button"
+                        variant="destructive"
+                        size="sm"
+                        className="absolute top-2 right-2"
+                        onClick={() => setFormData({ ...formData, cover_image: '' })}
+                      >
+                        Supprimer
+                      </Button>
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2">
+                    <Input
+                      ref={coverInputRef}
+                      type="file"
+                      accept="image/*"
+                      onChange={handleCoverUpload}
+                      disabled={uploadingCover}
+                      className="hidden"
+                    />
+                    <Button
+                      type="button"
+                      disabled={uploadingCover}
+                      variant="secondary"
+                      onClick={() => coverInputRef.current?.click()}
+                      className="w-full"
+                    >
+                      <Upload className="w-4 h-4 mr-2" />
+                      {uploadingCover ? 'Upload...' : formData.cover_image ? 'Changer l\'image' : 'Ajouter une image'}
+                    </Button>
+                  </div>
+                </div>
               </div>
 
               <div>

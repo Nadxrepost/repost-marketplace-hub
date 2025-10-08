@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -34,6 +35,10 @@ const Blog = () => {
     fetchPosts();
   }, []);
   return <div className="min-h-screen">
+      <SEO 
+        title="Blog Seconde Main - Conseils et Actualités | Repost"
+        description="Découvrez nos articles sur la mode seconde main, l'économie circulaire et nos conseils pour optimiser vos ventes en ligne."
+      />
       <Header />
       <main className="container mx-auto px-6 py-24 md:py-32">
         <div className="max-w-6xl mx-auto">

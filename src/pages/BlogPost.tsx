@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import { Calendar, ArrowLeft } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -36,14 +37,6 @@ const BlogPost = () => {
 
       if (!error && data) {
         setPost(data);
-        // Update document title for SEO
-        document.title = data.meta_title || data.title;
-        if (data.meta_description) {
-          const metaDesc = document.querySelector('meta[name="description"]');
-          if (metaDesc) {
-            metaDesc.setAttribute('content', data.meta_description);
-          }
-        }
       }
       setLoading(false);
     };
@@ -95,8 +88,27 @@ const BlogPost = () => {
     );
   }
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "datePublished": post.published_at,
+    "description": post.meta_description || post.title,
+    "image": post.cover_image || '/lovable-uploads/254b0023-f77e-4b19-88d7-097a1d29a292.png',
+    "author": {
+      "@type": "Organization",
+      "name": "Repost"
+    }
+  };
+
   return (
     <div className="min-h-screen">
+      <SEO 
+        title={post.meta_title || `${post.title} | Repost Blog`}
+        description={post.meta_description || post.title}
+        ogImage={post.cover_image || undefined}
+        structuredData={structuredData}
+      />
       <Header />
       <main className="container mx-auto px-6 py-24">
         <article className="max-w-4xl mx-auto">

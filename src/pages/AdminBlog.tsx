@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
@@ -38,6 +38,7 @@ const AdminBlog = () => {
     status: 'draft',
     published_at: '',
   });
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -477,18 +478,20 @@ const AdminBlog = () => {
                 <Label>Ajouter des images</Label>
                 <div className="flex items-center gap-2">
                   <Input
+                    ref={fileInputRef}
                     type="file"
                     accept="image/*"
                     multiple
                     onChange={handleImageUpload}
                     disabled={uploading}
-                    className="flex-1"
+                    className="hidden"
                   />
                   <Button
                     type="button"
                     disabled={uploading}
                     variant="secondary"
-                    size="sm"
+                    onClick={() => fileInputRef.current?.click()}
+                    className="w-full"
                   >
                     <Upload className="w-4 h-4 mr-2" />
                     {uploading ? 'Upload...' : 'Ajouter'}

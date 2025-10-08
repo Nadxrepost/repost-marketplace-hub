@@ -8,8 +8,6 @@ import BusinessSection from '@/components/BusinessSection';
 import InventorySection from '@/components/InventorySection';
 import SyncSection from '@/components/SyncSection';
 import Testimonials from '@/components/Testimonials';
-import Partners from '@/components/Partners';
-import SupportedBy from '@/components/SupportedBy';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -24,8 +22,6 @@ const Index = () => {
       <SyncSection />
       <HowItWorks />
       <Testimonials />
-      <Partners />
-      <SupportedBy />
       <Footer />
     </div>
   );

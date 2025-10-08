@@ -129,6 +129,7 @@ const AdminBlog = () => {
 
     const postData = {
       ...formData,
+      slug: generateSlug(formData.slug || formData.title),
       status: publishNow ? 'published' : 'draft',
       published_at: publishNow ? (formData.published_at || new Date().toISOString()) : null,
       author_id: user?.id,

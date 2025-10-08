@@ -856,7 +856,7 @@ const AdminBlog = () => {
               </div>
 
               <div className="flex gap-2 pt-4">
-                <Button type="button" variant="ghost" onClick={() => {
+                <Button type="button" variant="outline" onClick={() => {
                   setShowEditor(false);
                   setShowPreview(false);
                   setEditing(null);

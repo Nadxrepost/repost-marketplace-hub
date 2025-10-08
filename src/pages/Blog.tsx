@@ -13,10 +13,17 @@ interface BlogPost {
   title: string;
   slug: string;
   excerpt: string;
+  content: string;
   cover_image: string | null;
   published_at: string;
   tags: string[] | null;
 }
+
+const calculateReadingTime = (content: string): number => {
+  const wordsPerMinute = 200;
+  const words = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
+  return Math.ceil(words / wordsPerMinute);
+};
 const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -25,7 +32,7 @@ const Blog = () => {
       const {
         data,
         error
-      } = await supabase.from('blog_posts').select('id, title, slug, excerpt, cover_image, published_at, tags').eq('status', 'published').order('published_at', {
+      } = await supabase.from('blog_posts').select('id, title, slug, excerpt, content, cover_image, published_at, tags').eq('status', 'published').order('published_at', {
         ascending: false
       });
       if (!error && data) {
@@ -69,6 +76,10 @@ const Blog = () => {
                         {format(new Date(post.published_at), 'dd MMMM yyyy', {
                     locale: fr
                   })}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-4 h-4" />
+                        {calculateReadingTime(post.content)} min
                       </span>
                     </div>
                     <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">

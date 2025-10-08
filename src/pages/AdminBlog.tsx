@@ -23,6 +23,15 @@ interface BlogPost {
   created_at: string;
 }
 
+const generateSlug = (title: string): string => {
+  return title
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+};
+
 const AdminBlog = () => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
@@ -651,7 +660,14 @@ const AdminBlog = () => {
                 <Input
                   id="title"
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  onChange={(e) => {
+                    const newTitle = e.target.value;
+                    setFormData({ 
+                      ...formData, 
+                      title: newTitle,
+                      slug: generateSlug(newTitle)
+                    });
+                  }}
                   required
                 />
               </div>
@@ -665,6 +681,9 @@ const AdminBlog = () => {
                   placeholder="mon-article"
                   required
                 />
+                <p className="text-xs text-muted-foreground mt-1">
+                  Généré automatiquement depuis le titre, mais vous pouvez le modifier
+                </p>
               </div>
 
               <div>

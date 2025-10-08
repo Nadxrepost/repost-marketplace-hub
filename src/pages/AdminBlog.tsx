@@ -20,6 +20,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 interface BlogPost {
   id: string;
@@ -83,6 +91,8 @@ const AdminBlog = () => {
   const [showEditor, setShowEditor] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [selectedTextStyle, setSelectedTextStyle] = useState('p');
+  const [showLinkDialog, setShowLinkDialog] = useState(false);
+  const [linkUrl, setLinkUrl] = useState('');
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
@@ -458,10 +468,7 @@ const AdminBlog = () => {
         document.execCommand('strikeThrough', false);
         break;
       case 'link':
-        const url = prompt('Entrez l\'URL du lien:');
-        if (url) {
-          document.execCommand('createLink', false, url);
-        }
+        setShowLinkDialog(true);
         break;
       case 'ul':
         document.execCommand('insertUnorderedList', false);
@@ -504,6 +511,15 @@ const AdminBlog = () => {
 
   const handleContentChange = () => {
     updateContent();
+  };
+
+  const handleInsertLink = () => {
+    if (linkUrl) {
+      document.execCommand('createLink', false, linkUrl);
+      updateContent();
+    }
+    setShowLinkDialog(false);
+    setLinkUrl('');
   };
 
   if (!isAdmin) {
@@ -1112,6 +1128,48 @@ const AdminBlog = () => {
           </div>
         )}
       </main>
+
+      {/* Dialog pour insérer un lien */}
+      <Dialog open={showLinkDialog} onOpenChange={setShowLinkDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Insérer un lien</DialogTitle>
+            <DialogDescription>
+              Entrez l'URL du lien:
+            </DialogDescription>
+          </DialogHeader>
+          <div className="py-4">
+            <Input
+              type="url"
+              placeholder="https://exemple.com"
+              value={linkUrl}
+              onChange={(e) => setLinkUrl(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  handleInsertLink();
+                }
+              }}
+              autoFocus
+            />
+          </div>
+          <DialogFooter className="gap-2 sm:gap-0">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => {
+                setShowLinkDialog(false);
+                setLinkUrl('');
+              }}
+            >
+              Annuler
+            </Button>
+            <Button type="button" onClick={handleInsertLink}>
+              OK
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

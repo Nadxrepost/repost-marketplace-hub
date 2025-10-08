@@ -150,10 +150,14 @@ const AdminBlog = () => {
       toast({ title: publishNow ? 'Article publié' : 'Article créé en brouillon' });
     }
 
-    setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
-    setEditing(null);
-    setShowEditor(false);
     fetchPosts();
+    
+    // Si on publie, retourner à la liste. Si on enregistre un brouillon, rester dans l'éditeur
+    if (publishNow) {
+      setFormData({ title: '', slug: '', excerpt: '', content: '', status: 'draft', published_at: '' });
+      setEditing(null);
+      setShowEditor(false);
+    }
   };
 
   const handleEdit = (post: BlogPost) => {

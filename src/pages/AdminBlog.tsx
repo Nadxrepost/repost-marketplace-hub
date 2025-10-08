@@ -319,7 +319,8 @@ const AdminBlog = () => {
             <div className="space-y-3">{posts.map((post) => (
                 <div
                   key={post.id}
-                  className="border rounded-lg p-4 hover:bg-gray-50 transition-colors"
+                  className="border rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer"
+                  onClick={() => handleEdit(post)}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
@@ -345,7 +346,10 @@ const AdminBlog = () => {
                         <Button
                           size="sm"
                           variant="ghost"
-                          onClick={() => window.open(`/blog/${post.slug}`, '_blank')}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(`/blog/${post.slug}`, '_blank');
+                          }}
                         >
                           <Eye className="w-4 h-4" />
                         </Button>
@@ -353,14 +357,20 @@ const AdminBlog = () => {
                       <Button
                         size="sm"
                         variant="ghost"
-                        onClick={() => handleEdit(post)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleEdit(post);
+                        }}
                       >
                         <Edit className="w-4 h-4" />
                       </Button>
                       <Button
                         size="sm"
                         variant="ghost"
-                        onClick={() => handleDelete(post.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDelete(post.id);
+                        }}
                       >
                         <Trash2 className="w-4 h-4 text-destructive" />
                       </Button>

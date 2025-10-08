@@ -208,8 +208,12 @@ const AdminBlog = () => {
     }
     fetchPosts();
 
-    // Si on publie, retourner à la liste. Si on enregistre un brouillon, rester dans l'éditeur
+    // Ne fermer l'éditeur que si on publie explicitement
+    // Rester dans l'éditeur pour les sauvegardes de brouillon
     if (publishNow) {
+      toast({
+        title: editing ? 'Article publié' : 'Article publié'
+      });
       setFormData({
         title: '',
         slug: '',
@@ -222,6 +226,11 @@ const AdminBlog = () => {
       });
       setEditing(null);
       setShowEditor(false);
+    } else {
+      toast({
+        title: 'Brouillon sauvegardé',
+        description: 'Vos modifications ont été enregistrées'
+      });
     }
   };
   const handleEdit = (post: BlogPost) => {

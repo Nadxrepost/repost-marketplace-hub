@@ -254,9 +254,19 @@ const AdminBlog = () => {
     setShowEditor(true);
     // Définir le contenu de l'éditeur après le render
     setTimeout(() => {
-      if (contentRef.current) {
-        contentRef.current.innerHTML = post.content;
+      const editor = contentRef.current;
+      if (editor) {
+        editor.innerHTML = post.content;
         makeImagesSelectable();
+        // Initialiser la barre d'outils sur le premier chargement
+        const sel = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(editor);
+        range.collapse(true);
+        sel?.removeAllRanges();
+        sel?.addRange(range);
+        updateToolbarState();
+        saveCursorPosition();
       }
     }, 0);
   };
@@ -338,48 +348,66 @@ const AdminBlog = () => {
     }
   };
 
-  // Détecte le formatage actuel à la position du curseur
+  // Détecte le formatage actuel à la position du curseur (robuste)
   const updateToolbarState = () => {
     const editor = contentRef.current;
-    if (!editor) {
-      console.log("Editor ref not found");
+    if (!editor) return;
+
+    const sel = window.getSelection();
+    if (!sel || sel.rangeCount === 0) return;
+
+    const range = sel.getRangeAt(0);
+    let node: Node | null = range.startContainer;
+
+    // Si la sélection n'est pas dans l'éditeur, ignorer (sauf si l'éditeur est le conteneur)
+    if (node && !editor.contains(node) && node !== editor) return;
+
+    // Si la sélection est directement sur l'éditeur, viser le nœud enfant ciblé par l'offset
+    if (node === editor) {
+      const idx = Math.min(range.startOffset, editor.childNodes.length - 1);
+      node = editor.childNodes[idx] || editor.firstChild;
+    }
+
+    // Passer au parent si nœud texte
+    let el: Element | null = (node && node.nodeType === Node.TEXT_NODE)
+      ? (node.parentElement as Element | null)
+      : (node as Element | null);
+
+    if (!el) {
+      setSelectedTextStyle('p');
       return;
     }
 
-    const selection = window.getSelection();
-    if (!selection || selection.rangeCount === 0) {
-      console.log("No selection or range");
-      return;
-    }
-
-    const range = selection.getRangeAt(0);
-    let container: Node | null = range.commonAncestorContainer;
-    
-    console.log("Container:", container);
-    
-    // Si c'est un nœud texte, prendre son parent
-    if (container.nodeType === Node.TEXT_NODE) {
-      container = container.parentNode;
-    }
-
-    // Remonter pour trouver le bloc de formatage (h1, h2, p, etc.)
-    let currentElement = container as Element | null;
-    while (currentElement && currentElement !== editor) {
-      const tagName = currentElement.tagName?.toLowerCase();
-      console.log("Checking element:", tagName);
-      if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'].includes(tagName)) {
-        console.log("Setting style to:", tagName);
-        setSelectedTextStyle(tagName);
+    // Cherche le bloc le plus proche (dans l'éditeur)
+    const isBlock = (tn?: string) => !!tn && ['h1','h2','h3','h4','h5','h6','p'].includes(tn);
+    let cur: Element | null = el;
+    while (cur && cur !== editor) {
+      const tn = cur.tagName?.toLowerCase();
+      if (isBlock(tn)) {
+        setSelectedTextStyle(tn!);
         return;
       }
-      currentElement = currentElement.parentElement;
+      cur = cur.parentElement;
     }
 
-    console.log("No matching tag found, setting to p");
-    // Par défaut, si aucun bloc trouvé, mettre 'p'
+    // Si pas trouvé mais enfant direct de l'éditeur, inspecter voisins
+    if (el.parentElement === editor) {
+      const idx = Array.prototype.indexOf.call(editor.childNodes, el);
+      const neighbors = [editor.childNodes[idx] as Element, editor.childNodes[idx - 1] as Element, editor.childNodes[idx + 1] as Element].filter(Boolean);
+      for (const n of neighbors) {
+        if (n && n.nodeType === Node.ELEMENT_NODE) {
+          const tn = (n as Element).tagName?.toLowerCase();
+          if (isBlock(tn)) {
+            setSelectedTextStyle(tn!);
+            return;
+          }
+        }
+      }
+    }
+
+    // Par défaut
     setSelectedTextStyle('p');
   };
-
   // Combine sauvegarde du curseur et mise à jour de la barre d'outils
   const handleCursorChange = () => {
     saveCursorPosition();

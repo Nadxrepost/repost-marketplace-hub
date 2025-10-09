@@ -66,18 +66,12 @@ const Blog = () => {
                       <img src={post.cover_image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>}
                   <div className="p-6">
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                       <span>Article</span>
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        {format(new Date(post.published_at), 'dd MMMM yyyy', {
-                    locale: fr
-                  })}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        {calculateReadingTime(post.content)} min
-                      </span>
+                      <span>-</span>
+                      <span>{format(new Date(post.published_at), 'dd MMMM yyyy', { locale: fr })}</span>
+                      <span>-</span>
+                      <span>{calculateReadingTime(post.content)} min de lecture</span>
                     </div>
                     <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                       {post.title}

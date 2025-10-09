@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { LogOut, Plus, Edit, Trash2, Eye, Upload, AlignLeft, AlignCenter, AlignRight, AlignJustify, Check, Bold, Italic, Link2, List, ListOrdered, Quote, Code, Strikethrough, Underline } from 'lucide-react';
+import { LogOut, Plus, Edit, Trash2, Eye, Upload, AlignLeft, AlignCenter, AlignRight, AlignJustify, Check, Bold, Italic, Link2, List, ListOrdered, Quote, Code, Strikethrough, Underline, Copy } from 'lucide-react';
 import { User, Session } from '@supabase/supabase-js';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -327,6 +327,47 @@ const AdminBlog = () => {
     fetchPosts();
     setSelectedPosts([]);
   };
+  
+  const handleDuplicate = async (post: BlogPost) => {
+    try {
+      // Générer un nouveau slug avec "(copie)"
+      const newSlug = `${post.slug}-copie-${Date.now()}`;
+      const newTitle = `${post.title} (copie)`;
+      
+      const { error } = await supabase.from('blog_posts').insert({
+        title: newTitle,
+        slug: newSlug,
+        excerpt: post.excerpt,
+        content: post.content,
+        cover_image: post.cover_image,
+        status: 'draft', // Toujours créer en brouillon
+        category: post.category,
+        // published_at reste null (brouillon)
+      });
+
+      if (error) {
+        toast({
+          title: 'Erreur',
+          description: error.message,
+          variant: 'destructive'
+        });
+        return;
+      }
+
+      toast({
+        title: 'Article dupliqué',
+        description: 'L\'article a été copié en brouillon'
+      });
+      fetchPosts();
+    } catch (error: any) {
+      toast({
+        title: 'Erreur',
+        description: error.message,
+        variant: 'destructive'
+      });
+    }
+  };
+  
   const handleBulkDelete = async () => {
     if (selectedPosts.length === 0) return;
     if (!confirm(`Êtes-vous sûr de vouloir supprimer ${selectedPosts.length} article(s) ?`)) return;
@@ -907,6 +948,12 @@ const AdminBlog = () => {
                   handleEdit(post);
                 }}>
                         <Edit className="w-4 h-4" />
+                      </Button>
+                      <Button size="sm" variant="ghost" onClick={e => {
+                  e.stopPropagation();
+                  handleDuplicate(post);
+                }} title="Dupliquer">
+                        <Copy className="w-4 h-4" />
                       </Button>
                       <Button size="sm" variant="ghost" onClick={e => {
                   e.stopPropagation();

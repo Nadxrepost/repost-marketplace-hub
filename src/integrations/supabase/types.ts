@@ -68,6 +68,50 @@ export type Database = {
         }
         Relationships: []
       }
+      comments: {
+        Row: {
+          author_email: string | null
+          author_name: string
+          blog_post_id: string
+          content: string
+          created_at: string
+          id: string
+          status: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          author_email?: string | null
+          author_name: string
+          blog_post_id: string
+          content: string
+          created_at?: string
+          id?: string
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          author_email?: string | null
+          author_name?: string
+          blog_post_id?: string
+          content?: string
+          created_at?: string
+          id?: string
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "comments_blog_post_id_fkey"
+            columns: ["blog_post_id"]
+            isOneToOne: false
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       contact_submissions: {
         Row: {
           appel_equipe: string | null

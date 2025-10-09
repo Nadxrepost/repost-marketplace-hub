@@ -421,11 +421,25 @@ const AdminBlog = () => {
     const editor = contentRef.current;
     if (!editor) return;
     editor.focus();
+
+    // Restaurer la sélection si elle a été perdue (ex: ouverture du menu déroulant)
+    const sel = window.getSelection();
+    const anchor = sel?.anchorNode as Node | null;
+    if (!sel || sel.rangeCount === 0 || (anchor && editor && !editor.contains(anchor))) {
+      if (cursorPosition) {
+        sel?.removeAllRanges();
+        sel?.addRange(cursorPosition);
+      }
+    }
     
     // Pour les styles de bloc (titres, paragraphes)
     if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'].includes(format)) {
       try {
-        document.execCommand('formatBlock', false, format.toUpperCase());
+        const tag = format.toUpperCase();
+        const ok = document.execCommand('formatBlock', false, tag);
+        if (!ok) {
+          document.execCommand('formatBlock', false, `<${tag}>`);
+        }
         setSelectedTextStyle(format);
         updateContent();
       } catch (e) {

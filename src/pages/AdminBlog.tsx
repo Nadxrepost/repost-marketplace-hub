@@ -123,7 +123,6 @@ const AdminBlog = () => {
       const editor = contentRef.current;
       const sel = document.getSelection();
       if (!editor || !sel || sel.rangeCount === 0) {
-        setShowFloatingToolbar(false);
         return;
       }
 
@@ -139,21 +138,17 @@ const AdminBlog = () => {
         return;
       }
 
-      // Afficher la barre flottante si du texte est sélectionné
-      const selectedText = sel.toString();
-      if (selectedText.trim().length > 0) {
-        const range = sel.getRangeAt(0);
-        const rect = range.getBoundingClientRect();
-        const editorRect = editor.getBoundingClientRect();
-        
-        setToolbarPosition({
-          top: rect.top - editorRect.top - 50, // 50px au-dessus
-          left: rect.left - editorRect.left + (rect.width / 2)
-        });
-        setShowFloatingToolbar(true);
-      } else {
-        setShowFloatingToolbar(false);
-      }
+      // Calculer la position de la barre flottante
+      const range = sel.getRangeAt(0);
+      const rect = range.getBoundingClientRect();
+      const editorRect = editor.getBoundingClientRect();
+      
+      // Positionner la barre au-dessus du curseur/sélection
+      setToolbarPosition({
+        top: rect.top - editorRect.top - 50,
+        left: rect.left - editorRect.left + (rect.width / 2)
+      });
+      setShowFloatingToolbar(true);
 
       updateToolbarState();
       saveCursorPosition();

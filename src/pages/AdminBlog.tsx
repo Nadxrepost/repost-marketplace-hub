@@ -702,7 +702,7 @@ const AdminBlog = () => {
             setEditing(null);
             setShowEditor(true);
           }}>
-                Écrire un nouvel article
+                Écrire un article
               </Button>
             </div>
 

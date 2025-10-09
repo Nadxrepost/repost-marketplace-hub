@@ -421,17 +421,21 @@ const AdminBlog = () => {
     const editor = contentRef.current;
     if (!editor) return;
     editor.focus();
-    const selection = window.getSelection();
-    if (!selection || selection.rangeCount === 0) return;
-    const range = selection.getRangeAt(0);
-
+    
     // Pour les styles de bloc (titres, paragraphes)
     if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'].includes(format)) {
-      document.execCommand('formatBlock', false, `<${format}>`);
-      setSelectedTextStyle(format);
-      updateContent();
+      try {
+        document.execCommand('formatBlock', false, format.toUpperCase());
+        setSelectedTextStyle(format);
+        updateContent();
+      } catch (e) {
+        console.error('Erreur formatBlock:', e);
+      }
       return;
     }
+
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) return;
 
     // Pour le formatage inline
     switch (format) {

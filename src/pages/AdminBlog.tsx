@@ -1184,12 +1184,24 @@ const AdminBlog = () => {
 
                         <div className="w-px h-6 bg-border" />
 
+                        {/* Citation */}
+                        <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('quote')} title="Citation" className="h-7 w-7 p-0">
+                          <Quote className="w-3.5 h-3.5" />
+                        </Button>
+
                         {/* Listes */}
                         <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('ul')} title="Liste" className="h-7 w-7 p-0">
                           <List className="w-3.5 h-3.5" />
                         </Button>
                         <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('ol')} title="Numérotée" className="h-7 w-7 p-0">
                           <ListOrdered className="w-3.5 h-3.5" />
+                        </Button>
+
+                        <div className="w-px h-6 bg-border" />
+
+                        {/* Code */}
+                        <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('code')} title="Code" className="h-7 w-7 p-0">
+                          <Code className="w-3.5 h-3.5" />
                         </Button>
                       </div>
                     )}

@@ -114,6 +114,30 @@ const AdminBlog = () => {
     });
     return () => subscription.unsubscribe();
   }, [navigate]);
+
+  // Synchronise la barre d'outils sur tout changement de sélection (plus fiable)
+  useEffect(() => {
+    const onSelectionChange = () => {
+      const editor = contentRef.current;
+      const sel = document.getSelection();
+      if (!editor || !sel || sel.rangeCount === 0) return;
+
+      // Vérifie que la sélection est bien dans l'éditeur
+      let node: Node | null = sel.anchorNode;
+      let inside = false;
+      while (node) {
+        if (node === editor) { inside = true; break; }
+        node = node.parentNode;
+      }
+      if (!inside) return;
+
+      updateToolbarState();
+      saveCursorPosition();
+    };
+
+    document.addEventListener('selectionchange', onSelectionChange);
+    return () => document.removeEventListener('selectionchange', onSelectionChange);
+  }, []);
   const checkAdminStatus = async (userId: string) => {
     const {
       data

@@ -417,6 +417,80 @@ const AdminBlog = () => {
       setUploadingCover(false);
     }
   };
+  // Remplace le bloc courant par le tag demandé (h1..p)
+  const applyBlockTag = (tag: 'p'|'h1'|'h2'|'h3'|'h4'|'h5'|'h6') => {
+    const editor = contentRef.current;
+    if (!editor) return;
+
+    const sel = window.getSelection();
+    if (!sel || sel.rangeCount === 0) return;
+
+    const range = sel.getRangeAt(0);
+    let container: Node = range.commonAncestorContainer;
+
+    // Si on pointe sur un nœud texte, remonter à l'élément parent
+    if (container.nodeType === Node.TEXT_NODE) {
+      container = (container as Text).parentNode as Node;
+    }
+
+    // Trouver le bloc à transformer
+    let block: HTMLElement | null = container as HTMLElement;
+    while (block && block !== editor && block.nodeType === Node.ELEMENT_NODE) {
+      const t = (block.tagName || '').toLowerCase();
+      if (['p','h1','h2','h3','h4','h5','h6','div','blockquote'].includes(t)) break;
+      block = block.parentElement;
+    }
+
+    if (!block || block === editor) {
+      // Pas de bloc trouvé: envelopper la sélection
+      const newEl = document.createElement(tag);
+      try {
+        const frag = range.cloneContents();
+        // Si la sélection est vide (simple curseur), on crée un bloc vide
+        if (range.collapsed || frag.childNodes.length === 0) {
+          newEl.appendChild(document.createTextNode(''));
+        } else {
+          const extracted = range.extractContents();
+          newEl.appendChild(extracted);
+        }
+        range.insertNode(newEl);
+      } catch {
+        // Fallback: execCommand (certains navigateurs)
+        document.execCommand('formatBlock', false, tag.toUpperCase());
+        setSelectedTextStyle(tag);
+        updateContent();
+        return;
+      }
+
+      // Repositionner le curseur à la fin du bloc
+      sel.removeAllRanges();
+      const newRange = document.createRange();
+      newRange.selectNodeContents(newEl);
+      newRange.collapse(false);
+      sel.addRange(newRange);
+    } else {
+      // Remplacer l'élément bloc existant
+      if (block.tagName.toLowerCase() !== tag) {
+        const newEl = document.createElement(tag);
+        // Déplacer tous les enfants
+        while (block.firstChild) {
+          newEl.appendChild(block.firstChild);
+        }
+        block.parentNode?.replaceChild(newEl, block);
+
+        // Repositionner le curseur
+        sel.removeAllRanges();
+        const newRange = document.createRange();
+        newRange.selectNodeContents(newEl);
+        newRange.collapse(false);
+        sel.addRange(newRange);
+      }
+    }
+
+    setSelectedTextStyle(tag);
+    updateContent();
+  };
+
   const insertFormatting = (format: string) => {
     const editor = contentRef.current;
     if (!editor) return;
@@ -435,15 +509,9 @@ const AdminBlog = () => {
     // Pour les styles de bloc (titres, paragraphes)
     if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'].includes(format)) {
       try {
-        const tag = format.toUpperCase();
-        const ok = document.execCommand('formatBlock', false, tag);
-        if (!ok) {
-          document.execCommand('formatBlock', false, `<${tag}>`);
-        }
-        setSelectedTextStyle(format);
-        updateContent();
+        applyBlockTag(format as any);
       } catch (e) {
-        console.error('Erreur formatBlock:', e);
+        console.error('Erreur applyBlockTag:', e);
       }
       return;
     }
@@ -914,7 +982,7 @@ const AdminBlog = () => {
                   </div>
 
                   {/* Zone de texte avec éditeur visuel */}
-                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={saveCursorPosition} onKeyUp={saveCursorPosition} onKeyDown={handleEditorKeyDown} className="min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
+                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={saveCursorPosition} onKeyUp={saveCursorPosition} onKeyDown={handleEditorKeyDown} className="editor-content min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
                 border: 'none',
                 resize: 'vertical',
                 overflow: 'auto'

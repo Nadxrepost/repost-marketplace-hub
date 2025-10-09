@@ -115,3 +115,14 @@ All colors MUST be HSL.
     background-color: #007882;
   }
 }
+
+@layer components {
+  .editor-content h1 { @apply text-3xl font-bold; }
+  .editor-content h2 { @apply text-2xl font-bold; }
+  .editor-content h3 { @apply text-xl font-semibold; }
+  .editor-content h4 { @apply text-lg font-semibold; }
+  .editor-content p { @apply leading-relaxed; }
+  .editor-content blockquote { @apply border-l-4 pl-4 italic text-muted-foreground; }
+  .editor-content ul { @apply list-disc pl-6; }
+  .editor-content ol { @apply list-decimal pl-6; }
+}

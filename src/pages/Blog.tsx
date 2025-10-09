@@ -71,7 +71,10 @@ const Blog = () => {
                       <span>-</span>
                       <span>{format(new Date(post.published_at), 'dd MMMM yyyy', { locale: fr })}</span>
                       <span>-</span>
-                      <span>{calculateReadingTime(post.content)} min de lecture</span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-4 h-4" />
+                        {calculateReadingTime(post.content)} min de lecture
+                      </span>
                     </div>
                     <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                       {post.title}

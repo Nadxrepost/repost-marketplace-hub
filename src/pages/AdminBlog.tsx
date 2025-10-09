@@ -1203,6 +1203,24 @@ const AdminBlog = () => {
                         <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('code')} title="Code" className="h-7 w-7 p-0">
                           <Code className="w-3.5 h-3.5" />
                         </Button>
+
+                        <div className="w-px h-6 bg-border" />
+
+                        {/* Insérer image */}
+                        <Button 
+                          type="button" 
+                          size="sm" 
+                          variant="ghost" 
+                          onClick={() => {
+                            saveCursorPosition();
+                            fileInputRef.current?.click();
+                          }} 
+                          disabled={uploading}
+                          title="Insérer une image" 
+                          className="h-7 w-7 p-0"
+                        >
+                          <Upload className="w-3.5 h-3.5" />
+                        </Button>
                       </div>
                     )}
                   </div>

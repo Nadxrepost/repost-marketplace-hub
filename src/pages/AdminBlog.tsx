@@ -317,13 +317,21 @@ const AdminBlog = () => {
   // Détecte le formatage actuel à la position du curseur
   const updateToolbarState = () => {
     const editor = contentRef.current;
-    if (!editor) return;
+    if (!editor) {
+      console.log("Editor ref not found");
+      return;
+    }
 
     const selection = window.getSelection();
-    if (!selection || selection.rangeCount === 0) return;
+    if (!selection || selection.rangeCount === 0) {
+      console.log("No selection or range");
+      return;
+    }
 
     const range = selection.getRangeAt(0);
     let container: Node | null = range.commonAncestorContainer;
+    
+    console.log("Container:", container);
     
     // Si c'est un nœud texte, prendre son parent
     if (container.nodeType === Node.TEXT_NODE) {
@@ -334,13 +342,16 @@ const AdminBlog = () => {
     let currentElement = container as Element | null;
     while (currentElement && currentElement !== editor) {
       const tagName = currentElement.tagName?.toLowerCase();
+      console.log("Checking element:", tagName);
       if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'].includes(tagName)) {
+        console.log("Setting style to:", tagName);
         setSelectedTextStyle(tagName);
         return;
       }
       currentElement = currentElement.parentElement;
     }
 
+    console.log("No matching tag found, setting to p");
     // Par défaut, si aucun bloc trouvé, mettre 'p'
     setSelectedTextStyle('p');
   };

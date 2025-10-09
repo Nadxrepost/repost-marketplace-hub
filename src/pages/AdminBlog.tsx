@@ -80,6 +80,8 @@ const AdminBlog = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const coverInputRef = useRef<HTMLInputElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const editorWrapperRef = useRef<HTMLDivElement>(null);
+  const toolbarRef = useRef<HTMLDivElement>(null);
   const [cursorPosition, setCursorPosition] = useState<Range | null>(null);
   const navigate = useNavigate();
   const {
@@ -121,8 +123,10 @@ const AdminBlog = () => {
   useEffect(() => {
     const onSelectionChange = () => {
       const editor = contentRef.current;
+      const wrapper = editorWrapperRef.current;
       const sel = document.getSelection();
-      if (!editor || !sel || sel.rangeCount === 0) {
+      if (!editor || !wrapper || !sel || sel.rangeCount === 0) {
+        setShowFloatingToolbar(false);
         return;
       }
 
@@ -138,16 +142,31 @@ const AdminBlog = () => {
         return;
       }
 
-      // Calculer la position de la barre flottante
       const range = sel.getRangeAt(0);
-      const rect = range.getBoundingClientRect();
-      const editorRect = editor.getBoundingClientRect();
-      
-      // Positionner la barre au-dessus du curseur/sélection
-      setToolbarPosition({
-        top: rect.top - editorRect.top - 50,
-        left: rect.left - editorRect.left + (rect.width / 2)
-      });
+
+      // Récupère un rect fiable (même sans sélection)
+      let rect = range.getBoundingClientRect();
+      const clientRects = range.getClientRects();
+      if ((!rect || (rect.width === 0 && rect.height === 0)) && clientRects.length > 0) {
+        rect = clientRects[0];
+      }
+
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const toolbarH = toolbarRef.current?.offsetHeight || 40;
+      const toolbarW = toolbarRef.current?.offsetWidth || 260;
+
+      // Calcule la position centrée sur la sélection/caret
+      const centerLeft = rect.left - wrapperRect.left + Math.max(rect.width / 2, 1);
+      let top = rect.top - wrapperRect.top - toolbarH - 8; // 8px d'offset
+      let left = centerLeft;
+
+      // Clamp dans les bornes du wrapper
+      const minLeft = 8 + toolbarW / 2;
+      const maxLeft = wrapperRect.width - 8 - toolbarW / 2;
+      left = Math.min(Math.max(left, minLeft), maxLeft);
+      if (top < 8) top = rect.bottom - wrapperRect.top + 8; // si pas la place au-dessus, place-dessous
+
+      setToolbarPosition({ top, left });
       setShowFloatingToolbar(true);
 
       updateToolbarState();
@@ -1113,8 +1132,7 @@ const AdminBlog = () => {
                     </Button>
                   </div>
 
-                  {/* Zone de texte avec éditeur visuel */}
-                  <div className="relative">
+                    <div ref={editorWrapperRef} className="relative">
                     <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={handleCursorChange} onKeyUp={handleCursorChange} onClick={handleCursorChange} onFocus={handleCursorChange} onKeyDown={handleEditorKeyDown} className="editor-content min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
                   border: 'none',
                   resize: 'vertical',
@@ -1124,7 +1142,8 @@ const AdminBlog = () => {
                     {/* Barre d'outils flottante */}
                     {showFloatingToolbar && (
                       <div 
-                        className="absolute z-[9999] bg-popover border shadow-lg rounded-lg p-1 flex items-center gap-1"
+                        ref={toolbarRef}
+                        className="absolute z-[9999] bg-popover border shadow-lg rounded-lg p-1 flex items-center gap-1 animate-enter"
                         style={{
                           top: `${toolbarPosition.top}px`,
                           left: `${toolbarPosition.left}px`,

@@ -4,19 +4,26 @@ import { supabase } from '@/integrations/supabase/client';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
-import { Calendar, ArrowLeft, Clock, FileText } from 'lucide-react';
+import { Calendar, ArrowLeft, Clock, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 
 interface BlogPost {
   id: string;
   title: string;
+  slug: string;
   content: string;
   cover_image: string | null;
   published_at: string;
   tags: string[] | null;
   meta_title: string | null;
   meta_description: string | null;
+}
+
+interface NavigationPost {
+  id: string;
+  title: string;
+  slug: string;
 }
 
 const calculateReadingTime = (content: string): number => {
@@ -28,6 +35,8 @@ const calculateReadingTime = (content: string): number => {
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
+  const [previousPost, setPreviousPost] = useState<NavigationPost | null>(null);
+  const [nextPost, setNextPost] = useState<NavigationPost | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -43,6 +52,30 @@ const BlogPost = () => {
 
       if (!error && data) {
         setPost(data);
+        
+        // Fetch previous post
+        const { data: prevData } = await supabase
+          .from('blog_posts')
+          .select('id, title, slug')
+          .eq('status', 'published')
+          .lt('published_at', data.published_at)
+          .order('published_at', { ascending: false })
+          .limit(1)
+          .maybeSingle();
+        
+        if (prevData) setPreviousPost(prevData);
+        
+        // Fetch next post
+        const { data: nextData } = await supabase
+          .from('blog_posts')
+          .select('id, title, slug')
+          .eq('status', 'published')
+          .gt('published_at', data.published_at)
+          .order('published_at', { ascending: true })
+          .limit(1)
+          .maybeSingle();
+        
+        if (nextData) setNextPost(nextData);
       }
       setLoading(false);
     };
@@ -156,6 +189,45 @@ const BlogPost = () => {
             className="prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
+
+          {/* Navigation entre articles */}
+          <div className="mt-16 pt-8 border-t border-gray-200">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {previousPost ? (
+                <Link
+                  to={`/blog/${encodeURIComponent(previousPost.slug)}`}
+                  className="group flex items-center gap-4 p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <ChevronLeft className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                  <div className="text-left">
+                    <p className="text-sm text-muted-foreground mb-1">Article précédent</p>
+                    <h3 className="font-semibold group-hover:text-primary transition-colors line-clamp-2">
+                      {previousPost.title}
+                    </h3>
+                  </div>
+                </Link>
+              ) : (
+                <div></div>
+              )}
+              
+              {nextPost ? (
+                <Link
+                  to={`/blog/${encodeURIComponent(nextPost.slug)}`}
+                  className="group flex items-center gap-4 p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors md:ml-auto"
+                >
+                  <div className="text-right">
+                    <p className="text-sm text-muted-foreground mb-1">Article suivant</p>
+                    <h3 className="font-semibold group-hover:text-primary transition-colors line-clamp-2">
+                      {nextPost.title}
+                    </h3>
+                  </div>
+                  <ChevronRight className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </Link>
+              ) : (
+                <div></div>
+              )}
+            </div>
+          </div>
         </article>
       </main>
       <Footer />

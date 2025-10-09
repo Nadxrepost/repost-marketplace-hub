@@ -972,7 +972,16 @@ const AdminBlog = () => {
                 </div>
 
                 <div className="flex gap-2">
-                  <Button onClick={() => setShowPreview(false)}>
+                  <Button onClick={() => {
+                    setShowPreview(false);
+                    // Remettre le contenu dans l'éditeur
+                    setTimeout(() => {
+                      if (contentRef.current) {
+                        contentRef.current.innerHTML = formData.content;
+                        makeImagesSelectable();
+                      }
+                    }, 0);
+                  }}>
                     <Edit className="w-4 h-4 mr-2" />
                     Retour à l&apos;édition
                   </Button>

@@ -417,7 +417,7 @@ const AdminBlog = () => {
       setUploadingCover(false);
     }
   };
-  // Remplace le bloc courant par le tag demandé (h1..p)
+  // Remplace le bloc courant par le tag demandé (h1..p) de façon sûre, uniquement à l'intérieur de l'éditeur
   const applyBlockTag = (tag: 'p'|'h1'|'h2'|'h3'|'h4'|'h5'|'h6') => {
     const editor = contentRef.current;
     if (!editor) return;
@@ -426,64 +426,72 @@ const AdminBlog = () => {
     if (!sel || sel.rangeCount === 0) return;
 
     const range = sel.getRangeAt(0);
-    let container: Node = range.commonAncestorContainer;
 
-    // Si on pointe sur un nœud texte, remonter à l'élément parent
+    // Ne modifier que si la sélection est bien dans l'éditeur
+    if (!editor.contains(range.startContainer) || !editor.contains(range.endContainer)) {
+      editor.focus();
+      return;
+    }
+
+    const isBlock = (el: Element | null) => !!el && ['p','h1','h2','h3','h4','h5','h6','blockquote'].includes(el.tagName.toLowerCase());
+
+    let container: Node = range.commonAncestorContainer;
     if (container.nodeType === Node.TEXT_NODE) {
       container = (container as Text).parentNode as Node;
     }
 
-    // Trouver le bloc à transformer
-    let block: HTMLElement | null = container as HTMLElement;
-    while (block && block !== editor && block.nodeType === Node.ELEMENT_NODE) {
-      const t = (block.tagName || '').toLowerCase();
-      if (['p','h1','h2','h3','h4','h5','h6','div','blockquote'].includes(t)) break;
+    // Remonter jusqu'à trouver un bloc autorisé ou l'éditeur
+    let block: Element | null = container as Element;
+    while (block && block !== editor && !isBlock(block)) {
       block = block.parentElement;
     }
 
-    if (!block || block === editor) {
-      // Pas de bloc trouvé: envelopper la sélection
-      const newEl = document.createElement(tag);
-      try {
-        const frag = range.cloneContents();
-        // Si la sélection est vide (simple curseur), on crée un bloc vide
-        if (range.collapsed || frag.childNodes.length === 0) {
+    try {
+      if (!block || block === editor) {
+        // Aucun bloc trouvé: envelopper la sélection dans le tag demandé
+        const newEl = document.createElement(tag);
+        const extracted = range.extractContents();
+        if (extracted.childNodes.length === 0) {
           newEl.appendChild(document.createTextNode(''));
         } else {
-          const extracted = range.extractContents();
           newEl.appendChild(extracted);
         }
         range.insertNode(newEl);
-      } catch {
-        // Fallback: execCommand (certains navigateurs)
-        document.execCommand('formatBlock', false, tag.toUpperCase());
-        setSelectedTextStyle(tag);
-        updateContent();
-        return;
-      }
 
-      // Repositionner le curseur à la fin du bloc
-      sel.removeAllRanges();
-      const newRange = document.createRange();
-      newRange.selectNodeContents(newEl);
-      newRange.collapse(false);
-      sel.addRange(newRange);
-    } else {
-      // Remplacer l'élément bloc existant
-      if (block.tagName.toLowerCase() !== tag) {
-        const newEl = document.createElement(tag);
-        // Déplacer tous les enfants
-        while (block.firstChild) {
-          newEl.appendChild(block.firstChild);
-        }
-        block.parentNode?.replaceChild(newEl, block);
-
-        // Repositionner le curseur
+        // Repositionner le curseur à la fin du nouveau bloc
         sel.removeAllRanges();
         const newRange = document.createRange();
         newRange.selectNodeContents(newEl);
         newRange.collapse(false);
         sel.addRange(newRange);
+      } else {
+        // Sécurité: ne jamais modifier en dehors de l'éditeur
+        if (!editor.contains(block)) return;
+
+        // Remplacer le type de bloc uniquement si nécessaire
+        if (block.tagName.toLowerCase() !== tag) {
+          const html = (block as HTMLElement).innerHTML;
+          // Utiliser outerHTML pour éviter replaceChild (moins de risques avec React)
+          (block as HTMLElement).outerHTML = `<${tag}>${html}</${tag}>`;
+
+          // Récupérer la nouvelle référence (dernier élément de ce type inséré)
+          const candidates = editor.querySelectorAll(tag);
+          const newEl = candidates[candidates.length - 1] as HTMLElement | undefined;
+          if (newEl) {
+            sel.removeAllRanges();
+            const newRange = document.createRange();
+            newRange.selectNodeContents(newEl);
+            newRange.collapse(false);
+            sel.addRange(newRange);
+          }
+        }
+      }
+    } catch (e) {
+      // Fallback éventuel (navigateurs anciens)
+      try {
+        document.execCommand('formatBlock', false, tag.toUpperCase());
+      } catch (err) {
+        console.error('Erreur applyBlockTag/execCommand:', err);
       }
     }
 

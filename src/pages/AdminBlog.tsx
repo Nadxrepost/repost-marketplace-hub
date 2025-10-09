@@ -1095,7 +1095,7 @@ const AdminBlog = () => {
                   </div>
 
                   {/* Zone de texte avec éditeur visuel */}
-                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={handleCursorChange} onKeyUp={handleCursorChange} onClick={handleCursorChange} onKeyDown={handleEditorKeyDown} className="editor-content min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
+                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={handleCursorChange} onKeyUp={handleCursorChange} onClick={handleCursorChange} onFocus={handleCursorChange} onKeyDown={handleEditorKeyDown} className="editor-content min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
                 border: 'none',
                 resize: 'vertical',
                 overflow: 'auto'

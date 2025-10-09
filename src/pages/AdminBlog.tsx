@@ -62,6 +62,8 @@ const AdminBlog = () => {
   const [showEditor, setShowEditor] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [selectedTextStyle, setSelectedTextStyle] = useState('p');
+  const [showFloatingToolbar, setShowFloatingToolbar] = useState(false);
+  const [toolbarPosition, setToolbarPosition] = useState({ top: 0, left: 0 });
   const [showLinkDialog, setShowLinkDialog] = useState(false);
   const [linkUrl, setLinkUrl] = useState('');
   const [savedSelection, setSavedSelection] = useState<Range | null>(null);
@@ -115,12 +117,15 @@ const AdminBlog = () => {
     return () => subscription.unsubscribe();
   }, [navigate]);
 
-  // Synchronise la barre d'outils sur tout changement de sélection (plus fiable)
+  // Synchronise la barre d'outils sur tout changement de sélection
   useEffect(() => {
     const onSelectionChange = () => {
       const editor = contentRef.current;
       const sel = document.getSelection();
-      if (!editor || !sel || sel.rangeCount === 0) return;
+      if (!editor || !sel || sel.rangeCount === 0) {
+        setShowFloatingToolbar(false);
+        return;
+      }
 
       // Vérifie que la sélection est bien dans l'éditeur
       let node: Node | null = sel.anchorNode;
@@ -129,7 +134,26 @@ const AdminBlog = () => {
         if (node === editor) { inside = true; break; }
         node = node.parentNode;
       }
-      if (!inside) return;
+      if (!inside) {
+        setShowFloatingToolbar(false);
+        return;
+      }
+
+      // Afficher la barre flottante si du texte est sélectionné
+      const selectedText = sel.toString();
+      if (selectedText.trim().length > 0) {
+        const range = sel.getRangeAt(0);
+        const rect = range.getBoundingClientRect();
+        const editorRect = editor.getBoundingClientRect();
+        
+        setToolbarPosition({
+          top: rect.top - editorRect.top - 50, // 50px au-dessus
+          left: rect.left - editorRect.left + (rect.width / 2)
+        });
+        setShowFloatingToolbar(true);
+      } else {
+        setShowFloatingToolbar(false);
+      }
 
       updateToolbarState();
       saveCursorPosition();
@@ -1095,11 +1119,81 @@ const AdminBlog = () => {
                   </div>
 
                   {/* Zone de texte avec éditeur visuel */}
-                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={handleCursorChange} onKeyUp={handleCursorChange} onClick={handleCursorChange} onFocus={handleCursorChange} onKeyDown={handleEditorKeyDown} className="editor-content min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
-                border: 'none',
-                resize: 'vertical',
-                overflow: 'auto'
-              }} />
+                  <div className="relative">
+                    <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={handleCursorChange} onKeyUp={handleCursorChange} onClick={handleCursorChange} onFocus={handleCursorChange} onKeyDown={handleEditorKeyDown} className="editor-content min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
+                  border: 'none',
+                  resize: 'vertical',
+                  overflow: 'auto'
+                }} />
+
+                    {/* Barre d'outils flottante */}
+                    {showFloatingToolbar && (
+                      <div 
+                        className="absolute z-[9999] bg-popover border shadow-lg rounded-lg p-1 flex items-center gap-1"
+                        style={{
+                          top: `${toolbarPosition.top}px`,
+                          left: `${toolbarPosition.left}px`,
+                          transform: 'translateX(-50%)'
+                        }}
+                      >
+                        {/* Dropdown de style */}
+                        <Select value={selectedTextStyle} onValueChange={applyTextStyle}>
+                          <SelectTrigger className="w-[120px] h-8 bg-background text-xs">
+                            <SelectValue placeholder="Style" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-popover z-[99999]">
+                            <SelectItem value="p">Paragraphe</SelectItem>
+                            <SelectItem value="h1">Titre 1</SelectItem>
+                            <SelectItem value="h2">Titre 2</SelectItem>
+                            <SelectItem value="h3">Titre 3</SelectItem>
+                          </SelectContent>
+                        </Select>
+
+                        <div className="w-px h-6 bg-border" />
+
+                        {/* Formatage de texte */}
+                        <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('bold')} title="Gras" className="h-7 w-7 p-0">
+                          <Bold className="w-3.5 h-3.5" />
+                        </Button>
+                        <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('italic')} title="Italique" className="h-7 w-7 p-0">
+                          <Italic className="w-3.5 h-3.5" />
+                        </Button>
+                        <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('underline')} title="Souligner" className="h-7 w-7 p-0">
+                          <Underline className="w-3.5 h-3.5" />
+                        </Button>
+
+                        <div className="w-px h-6 bg-border" />
+
+                        {/* Lien */}
+                        <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('link')} title="Lien" className="h-7 w-7 p-0">
+                          <Link2 className="w-3.5 h-3.5" />
+                        </Button>
+
+                        <div className="w-px h-6 bg-border" />
+
+                        {/* Alignement */}
+                        <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('align-left')} title="Gauche" className="h-7 w-7 p-0">
+                          <AlignLeft className="w-3.5 h-3.5" />
+                        </Button>
+                        <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('align-center')} title="Centre" className="h-7 w-7 p-0">
+                          <AlignCenter className="w-3.5 h-3.5" />
+                        </Button>
+                        <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('align-right')} title="Droite" className="h-7 w-7 p-0">
+                          <AlignRight className="w-3.5 h-3.5" />
+                        </Button>
+
+                        <div className="w-px h-6 bg-border" />
+
+                        {/* Listes */}
+                        <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('ul')} title="Liste" className="h-7 w-7 p-0">
+                          <List className="w-3.5 h-3.5" />
+                        </Button>
+                        <Button type="button" size="sm" variant="ghost" onClick={() => insertFormatting('ol')} title="Numérotée" className="h-7 w-7 p-0">
+                          <ListOrdered className="w-3.5 h-3.5" />
+                        </Button>
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
                   Sélectionnez du texte et utilisez les boutons de formatage pour styliser votre contenu

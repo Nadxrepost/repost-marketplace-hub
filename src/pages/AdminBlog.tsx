@@ -426,9 +426,10 @@ const AdminBlog = () => {
     const range = selection.getRangeAt(0);
 
     // Pour les styles de bloc (titres, paragraphes)
-    if (['h1', 'h2', 'h3', 'h4', 'p'].includes(format)) {
-      document.execCommand('formatBlock', false, format);
+    if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'].includes(format)) {
+      document.execCommand('formatBlock', false, `<${format}>`);
       setSelectedTextStyle(format);
+      updateContent();
       return;
     }
 

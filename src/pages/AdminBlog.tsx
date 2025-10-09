@@ -314,6 +314,43 @@ const AdminBlog = () => {
     }
   };
 
+  // Détecte le formatage actuel à la position du curseur
+  const updateToolbarState = () => {
+    const editor = contentRef.current;
+    if (!editor) return;
+
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) return;
+
+    const range = selection.getRangeAt(0);
+    let container: Node | null = range.commonAncestorContainer;
+    
+    // Si c'est un nœud texte, prendre son parent
+    if (container.nodeType === Node.TEXT_NODE) {
+      container = container.parentNode;
+    }
+
+    // Remonter pour trouver le bloc de formatage (h1, h2, p, etc.)
+    let currentElement = container as Element | null;
+    while (currentElement && currentElement !== editor) {
+      const tagName = currentElement.tagName?.toLowerCase();
+      if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'].includes(tagName)) {
+        setSelectedTextStyle(tagName);
+        return;
+      }
+      currentElement = currentElement.parentElement;
+    }
+
+    // Par défaut, si aucun bloc trouvé, mettre 'p'
+    setSelectedTextStyle('p');
+  };
+
+  // Combine sauvegarde du curseur et mise à jour de la barre d'outils
+  const handleCursorChange = () => {
+    saveCursorPosition();
+    updateToolbarState();
+  };
+
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files || files.length === 0) return;
@@ -990,7 +1027,7 @@ const AdminBlog = () => {
                   </div>
 
                   {/* Zone de texte avec éditeur visuel */}
-                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={saveCursorPosition} onKeyUp={saveCursorPosition} onKeyDown={handleEditorKeyDown} className="editor-content min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
+                  <div ref={contentRef as any} contentEditable suppressContentEditableWarning onInput={handleContentChange} onMouseUp={handleCursorChange} onKeyUp={handleCursorChange} onClick={handleCursorChange} onKeyDown={handleEditorKeyDown} className="editor-content min-h-[400px] p-4 focus:outline-none prose max-w-none" style={{
                 border: 'none',
                 resize: 'vertical',
                 overflow: 'auto'

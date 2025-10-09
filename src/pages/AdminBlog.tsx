@@ -704,6 +704,8 @@ const AdminBlog = () => {
   const handleContentChange = () => {
     updateContent();
     makeImagesSelectable();
+    updateToolbarState();
+    saveCursorPosition();
   };
 
   const makeImagesSelectable = () => {
@@ -1014,18 +1016,21 @@ const AdminBlog = () => {
                   {/* Barre d'outils inspirée de l'image */}
                   <div className="border-b bg-gray-50 p-2 flex items-center gap-1 flex-wrap">
                     {/* Dropdown de style de texte */}
-                    <Select value={selectedTextStyle} onValueChange={applyTextStyle}>
-                      <SelectTrigger className="w-[140px] bg-white">
-                        <SelectValue placeholder="Style" />
-                      </SelectTrigger>
-                      <SelectContent className="bg-white z-50">
-                        <SelectItem value="p">Paragraphe</SelectItem>
-                        <SelectItem value="h1">Titre 1</SelectItem>
-                        <SelectItem value="h2">Titre 2</SelectItem>
-                        <SelectItem value="h3">Titre 3</SelectItem>
-                        <SelectItem value="h4">Titre 4</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <div className="flex items-center gap-2">
+                      <Select value={selectedTextStyle} onValueChange={applyTextStyle}>
+                        <SelectTrigger className="w-[160px] bg-background">
+                          <SelectValue placeholder="Style" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-popover z-[9999]">
+                          <SelectItem value="p">Paragraphe</SelectItem>
+                          <SelectItem value="h1">Titre 1</SelectItem>
+                          <SelectItem value="h2">Titre 2</SelectItem>
+                          <SelectItem value="h3">Titre 3</SelectItem>
+                          <SelectItem value="h4">Titre 4</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <span className="text-xs text-muted-foreground">Style détecté: {selectedTextStyle.toUpperCase()}</span>
+                    </div>
 
                     <div className="w-px h-6 bg-gray-300 mx-1" />
 

@@ -4,15 +4,9 @@ import { supabase } from '@/integrations/supabase/client';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
-import { Calendar, ArrowLeft, Clock, FileText, ChevronLeft, ChevronRight, MessageCircle, Send } from 'lucide-react';
+import { Calendar, ArrowLeft, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface BlogPost {
   id: string;
@@ -32,14 +26,6 @@ interface NavigationPost {
   slug: string;
 }
 
-interface Comment {
-  id: string;
-  author_name: string;
-  content: string;
-  created_at: string;
-  user_id: string | null;
-}
-
 const calculateReadingTime = (content: string): number => {
   const wordsPerMinute = 200;
   const words = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
@@ -52,12 +38,6 @@ const BlogPost = () => {
   const [previousPost, setPreviousPost] = useState<NavigationPost | null>(null);
   const [nextPost, setNextPost] = useState<NavigationPost | null>(null);
   const [loading, setLoading] = useState(true);
-  const [comments, setComments] = useState<Comment[]>([]);
-  const [commentContent, setCommentContent] = useState('');
-  const [authorName, setAuthorName] = useState('');
-  const [submitting, setSubmitting] = useState(false);
-  const [user, setUser] = useState<any>(null);
-  const { toast } = useToast();
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -96,93 +76,13 @@ const BlogPost = () => {
           .maybeSingle();
         
         if (nextData) setNextPost(nextData);
-
-        // Fetch comments
-        fetchComments(data.id);
       }
       setLoading(false);
     };
 
-    const fetchComments = async (postId: string) => {
-      const { data, error } = await supabase
-        .from('comments')
-        .select('*')
-        .eq('blog_post_id', postId)
-        .eq('status', 'approved')
-        .order('created_at', { ascending: false });
-
-      if (!error && data) {
-        setComments(data);
-      }
-    };
-
-    const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      setUser(user);
-    };
-
     fetchPost();
-    checkUser();
   }, [slug]);
 
-  const handleSubmitComment = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!user) {
-      toast({
-        title: 'Authentification requise',
-        description: 'Vous devez être connecté pour commenter',
-        variant: 'destructive'
-      });
-      return;
-    }
-
-    if (!commentContent.trim() || !authorName.trim()) {
-      toast({
-        title: 'Erreur',
-        description: 'Veuillez remplir tous les champs',
-        variant: 'destructive'
-      });
-      return;
-    }
-
-    setSubmitting(true);
-
-    const { error } = await supabase.from('comments').insert({
-      blog_post_id: post?.id,
-      user_id: user.id,
-      author_name: authorName,
-      content: commentContent,
-      status: 'approved'
-    });
-
-    if (error) {
-      toast({
-        title: 'Erreur',
-        description: error.message,
-        variant: 'destructive'
-      });
-    } else {
-      toast({
-        title: 'Commentaire ajouté',
-        description: 'Votre commentaire a été publié avec succès'
-      });
-      setCommentContent('');
-      // Rafraîchir les commentaires
-      if (post) {
-        const { data } = await supabase
-          .from('comments')
-          .select('*')
-          .eq('blog_post_id', post.id)
-          .eq('status', 'approved')
-          .order('created_at', { ascending: false });
-        
-        if (data) setComments(data);
-      }
-    }
-
-    setSubmitting(false);
-  };
 
   if (loading) {
     return (
@@ -290,97 +190,6 @@ const BlogPost = () => {
             className="prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
-
-          {/* Section Commentaires */}
-          <div className="mt-16 pt-8 border-t border-gray-200">
-            <div className="flex items-center gap-2 mb-8">
-              <MessageCircle className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-bold">
-                Commentaires ({comments.length})
-              </h2>
-            </div>
-
-            {/* Formulaire de commentaire */}
-            {user ? (
-              <Card className="mb-8">
-                <CardHeader>
-                  <CardTitle>Laisser un commentaire</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmitComment} className="space-y-4">
-                    <div>
-                      <Label htmlFor="author-name">Nom</Label>
-                      <Input
-                        id="author-name"
-                        value={authorName}
-                        onChange={(e) => setAuthorName(e.target.value)}
-                        placeholder="Votre nom"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="comment-content">Commentaire</Label>
-                      <Textarea
-                        id="comment-content"
-                        value={commentContent}
-                        onChange={(e) => setCommentContent(e.target.value)}
-                        placeholder="Écrivez votre commentaire..."
-                        rows={4}
-                        required
-                      />
-                    </div>
-                    <Button type="submit" disabled={submitting}>
-                      <Send className="w-4 h-4 mr-2" />
-                      {submitting ? 'Envoi...' : 'Publier'}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            ) : (
-              <Card className="mb-8">
-                <CardContent className="pt-6">
-                  <p className="text-muted-foreground text-center">
-                    <Link to="/auth" className="text-primary hover:underline">
-                      Connectez-vous
-                    </Link>
-                    {' '}pour laisser un commentaire
-                  </p>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Liste des commentaires */}
-            <div className="space-y-6">
-              {comments.length === 0 ? (
-                <p className="text-center text-muted-foreground py-8">
-                  Aucun commentaire pour le moment. Soyez le premier à commenter !
-                </p>
-              ) : (
-                comments.map((comment) => (
-                  <Card key={comment.id}>
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <span className="text-primary font-semibold">
-                            {comment.author_name.charAt(0).toUpperCase()}
-                          </span>
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className="font-semibold">{comment.author_name}</span>
-                            <span className="text-sm text-muted-foreground">
-                              {format(new Date(comment.created_at), 'dd MMMM yyyy à HH:mm', { locale: fr })}
-                            </span>
-                          </div>
-                          <p className="text-muted-foreground whitespace-pre-wrap">{comment.content}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))
-              )}
-            </div>
-          </div>
 
           {/* Navigation entre articles */}
           <div className="mt-16 pt-8 border-t border-gray-200">

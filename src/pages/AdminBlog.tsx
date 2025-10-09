@@ -771,7 +771,7 @@ const AdminBlog = () => {
                       <Button size="sm" variant="ghost" onClick={e => {
                   e.stopPropagation();
                   handleDelete(post.id);
-                }} className="opacity-50 hover:opacity-100 transition-opacity">
+                }} className="opacity-20 hover:opacity-100 transition-opacity">
                         <Trash2 className="w-4 h-4" />
                       </Button>
                     </div>

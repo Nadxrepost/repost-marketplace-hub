@@ -1,6 +1,6 @@
 import { Star } from 'lucide-react';
 import stationFLogo from '@/assets/station-f-logo.png';
-import fightersProgramLogo from '@/assets/fighters-program-logo.png';
+import impactFranceLogo from '@/assets/impact-france-logo.png';
 import frenchTechTremplinLogo from '@/assets/french-tech-tremplin-logo.png';
 
 const testimonials = [
@@ -105,7 +105,7 @@ const Testimonials = () => {
           <p className="text-lg text-gray-600 font-bold mb-6">Repost est soutenu par :</p>
           <div className="flex items-center gap-8 justify-center">
             <img src={stationFLogo} alt="Station F" className="h-10" />
-            <img src={fightersProgramLogo} alt="Fighters Program" className="h-10" />
+            <img src={impactFranceLogo} alt="Impact France" className="h-10" />
             <img src={frenchTechTremplinLogo} alt="La French Tech Tremplin" className="h-24" />
           </div>
         </div>

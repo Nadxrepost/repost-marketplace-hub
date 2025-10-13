@@ -105,7 +105,7 @@ const Testimonials = () => {
           <p className="text-lg text-gray-600 font-bold mb-6">Repost est soutenu par :</p>
           <div className="flex items-center gap-8 justify-center">
             <img src={stationFLogo} alt="Station F" className="h-10" />
-            <img src={impactFranceLogo} alt="Impact France" className="h-10" />
+            <img src={impactFranceLogo} alt="Impact France" className="h-16" />
             <img src={frenchTechTremplinLogo} alt="La French Tech Tremplin" className="h-24" />
           </div>
         </div>

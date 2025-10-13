@@ -2,7 +2,7 @@ import { Check, X } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import repostappInterface from '@/assets/pricing-main.png';
+import repostappInterface from '@/assets/pricing-interface.png';
 const Pricing = () => {
   const features = ["Accès illimité à toutes les plateformes", "Gestion automatique des stocks", "Suivi des ventes et performances", "Essai gratuit de 7 jours", "Support par mail"];
   return <div className="min-h-screen">

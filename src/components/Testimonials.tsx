@@ -2,6 +2,7 @@ import { Star } from 'lucide-react';
 import stationFLogo from '@/assets/station-f-logo.png';
 import impactFranceLogo from '@/assets/impact-france-logo.png';
 import frenchTechTremplinLogo from '@/assets/french-tech-tremplin-logo.png';
+import singaLogo from '@/assets/singa-logo.png';
 
 const testimonials = [
   {
@@ -107,6 +108,7 @@ const Testimonials = () => {
             <img src={stationFLogo} alt="Station F" className="h-10" />
             <img src={impactFranceLogo} alt="Impact France" className="h-16" />
             <img src={frenchTechTremplinLogo} alt="La French Tech Tremplin" className="h-24" />
+            <img src={singaLogo} alt="Singa" className="h-10" />
           </div>
         </div>
       </div>

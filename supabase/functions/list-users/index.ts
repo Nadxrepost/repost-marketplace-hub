@@ -70,10 +70,24 @@ Deno.serve(async (req) => {
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     )
   } catch (error) {
+    console.error('list-users error:', error);
+    
+    const errorMsg = (error as { message?: string })?.message?.toLowerCase() || '';
+    let statusCode = 500;
+    let message = 'Une erreur est survenue.';
+    
+    if (errorMsg.includes('not authenticated') || errorMsg.includes('no authorization')) {
+      statusCode = 401;
+      message = 'Authentification requise.';
+    } else if (errorMsg.includes('not authorized') || errorMsg.includes('admin role required')) {
+      statusCode = 403;
+      message = 'Accès non autorisé.';
+    }
+    
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: message }),
       { 
-        status: 400,
+        status: statusCode,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       }
     )

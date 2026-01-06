@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { User, Session } from '@supabase/supabase-js';
+import { getUserFriendlyError } from '@/lib/errorHandler';
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -84,10 +85,9 @@ useEffect(() => {
           description: 'Vérifiez votre email pour confirmer votre compte.',
         });
       }
-    } catch (error: any) {
-      const message = (error?.message || '').toString();
-      if (message.toLowerCase().includes('already registered')) {
-        // L'utilisateur existe déjà: basculer en mode connexion pour une meilleure UX
+    } catch (error: unknown) {
+      const message = (error as { message?: string })?.message?.toLowerCase() || '';
+      if (message.includes('already registered')) {
         setIsLogin(true);
         toast({
           title: 'Compte déjà existant',
@@ -96,7 +96,7 @@ useEffect(() => {
       } else {
         toast({
           title: 'Erreur',
-          description: message,
+          description: getUserFriendlyError(error),
           variant: 'destructive',
         });
       }
@@ -123,8 +123,8 @@ useEffect(() => {
         title: 'Email envoyé',
         description: 'Consultez votre boîte mail pour réinitialiser votre mot de passe.',
       });
-    } catch (error: any) {
-      toast({ title: 'Erreur', description: error.message, variant: 'destructive' });
+    } catch (error: unknown) {
+      toast({ title: 'Erreur', description: getUserFriendlyError(error), variant: 'destructive' });
     } finally {
       setLoading(false);
     }
@@ -149,8 +149,8 @@ useEffect(() => {
       setConfirmPassword('');
       toast({ title: 'Mot de passe mis à jour', description: 'Vous êtes connecté.' });
       navigate('/admin-blog');
-    } catch (error: any) {
-      toast({ title: 'Erreur', description: error.message, variant: 'destructive' });
+    } catch (error: unknown) {
+      toast({ title: 'Erreur', description: getUserFriendlyError(error), variant: 'destructive' });
     } finally {
       setLoading(false);
     }
@@ -171,8 +171,8 @@ useEffect(() => {
       });
       if (error) throw error;
       toast({ title: 'Lien envoyé', description: 'Vérifiez votre email et cliquez sur le lien pour vous connecter.' });
-    } catch (error: any) {
-      toast({ title: 'Erreur', description: error.message, variant: 'destructive' });
+    } catch (error: unknown) {
+      toast({ title: 'Erreur', description: getUserFriendlyError(error), variant: 'destructive' });
     } finally {
       setLoading(false);
     }

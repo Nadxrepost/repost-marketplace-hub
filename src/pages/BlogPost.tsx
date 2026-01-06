@@ -7,6 +7,7 @@ import SEO from '@/components/SEO';
 import { Calendar, ArrowLeft, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
+import DOMPurify from 'dompurify';
 
 interface BlogPost {
   id: string;
@@ -188,7 +189,13 @@ const BlogPost = () => {
 
           <div
             className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ 
+              __html: DOMPurify.sanitize(post.content, {
+                ALLOWED_TAGS: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'strong', 'em', 'u', 's', 'a', 'ul', 'ol', 'li', 'blockquote', 'pre', 'code', 'img', 'br', 'span', 'div'],
+                ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class', 'style', 'target', 'rel'],
+                ALLOW_DATA_ATTR: false
+              })
+            }}
           />
 
           {/* Navigation entre articles */}

@@ -11,6 +11,8 @@ import { User, Session } from '@supabase/supabase-js';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
+import { getUserFriendlyError } from '@/lib/errorHandler';
+import DOMPurify from 'dompurify';
 interface BlogPost {
   id: string;
   title: string;
@@ -240,7 +242,7 @@ const AdminBlog = () => {
       if (error) {
         toast({
           title: 'Erreur',
-          description: error.message,
+          description: getUserFriendlyError(error),
           variant: 'destructive'
         });
         return;
@@ -263,10 +265,11 @@ const AdminBlog = () => {
       if (error) {
         toast({
           title: 'Erreur',
-          description: error.message,
+          description: getUserFriendlyError(error),
           variant: 'destructive'
         });
         return;
+      }
       }
       toast({
         title: publishNow ? 'Article publié' : 'Article créé en brouillon'
@@ -324,7 +327,7 @@ const AdminBlog = () => {
     if (error) {
       toast({
         title: 'Erreur',
-        description: error.message,
+        description: getUserFriendlyError(error),
         variant: 'destructive'
       });
     } else {
@@ -358,7 +361,7 @@ const AdminBlog = () => {
       if (error) {
         toast({
           title: 'Erreur',
-          description: error.message,
+          description: getUserFriendlyError(error),
           variant: 'destructive'
         });
         return;
@@ -372,7 +375,7 @@ const AdminBlog = () => {
     } catch (error: any) {
       toast({
         title: 'Erreur',
-        description: error.message,
+        description: getUserFriendlyError(error),
         variant: 'destructive'
       });
     }
@@ -387,7 +390,7 @@ const AdminBlog = () => {
     if (error) {
       toast({
         title: 'Erreur',
-        description: error.message,
+        description: getUserFriendlyError(error),
         variant: 'destructive'
       });
       return;
@@ -409,7 +412,7 @@ const AdminBlog = () => {
     if (error) {
       toast({
         title: 'Erreur',
-        description: error.message,
+        description: getUserFriendlyError(error),
         variant: 'destructive'
       });
       return;
@@ -864,7 +867,9 @@ const AdminBlog = () => {
   if (!isAdmin) {
     return null;
   }
-  return <div className="min-h-screen bg-gray-50">
+
+  return (
+    <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b sticky top-0 z-10">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold"> Blog Admin</h1>
@@ -1024,7 +1029,11 @@ const AdminBlog = () => {
                     </p>}
                   {formData.excerpt && <p className="text-lg text-gray-600 mb-6 italic">{formData.excerpt}</p>}
                   <div className="prose max-w-none" dangerouslySetInnerHTML={{
-              __html: formData.content || '<p>Votre contenu apparaîtra ici...</p>'
+              __html: DOMPurify.sanitize(formData.content || '<p>Votre contenu apparaîtra ici...</p>', {
+                ALLOWED_TAGS: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'strong', 'em', 'u', 's', 'a', 'ul', 'ol', 'li', 'blockquote', 'pre', 'code', 'img', 'br', 'span', 'div'],
+                ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class', 'style', 'target', 'rel'],
+                ALLOW_DATA_ATTR: false
+              })
             }} />
                 </div>
 
@@ -1427,6 +1436,8 @@ const AdminBlog = () => {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-    </div>;
+    </div>
+  );
 };
+
 export default AdminBlog;

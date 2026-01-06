@@ -10,6 +10,7 @@ import { LogOut, Plus, Edit, Trash2, Eye, Upload, AlignLeft, AlignCenter, AlignR
 import { User, Session } from '@supabase/supabase-js';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 interface BlogPost {
   id: string;
   title: string;
@@ -67,6 +68,8 @@ const AdminBlog = () => {
   const [showLinkDialog, setShowLinkDialog] = useState(false);
   const [linkUrl, setLinkUrl] = useState('');
   const [savedSelection, setSavedSelection] = useState<Range | null>(null);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [postToDelete, setPostToDelete] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
@@ -308,24 +311,31 @@ const AdminBlog = () => {
       }
     }, 0);
   };
-  const handleDelete = async (id: string) => {
-    if (!confirm('Êtes-vous sûr de vouloir supprimer cet article ?')) return;
+  const handleDeleteClick = (id: string) => {
+    setPostToDelete(id);
+    setDeleteDialogOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    if (!postToDelete) return;
     const {
       error
-    } = await supabase.from('blog_posts').delete().eq('id', id);
+    } = await supabase.from('blog_posts').delete().eq('id', postToDelete);
     if (error) {
       toast({
         title: 'Erreur',
         description: error.message,
         variant: 'destructive'
       });
-      return;
+    } else {
+      toast({
+        title: 'Article supprimé'
+      });
+      fetchPosts();
+      setSelectedPosts([]);
     }
-    toast({
-      title: 'Article supprimé'
-    });
-    fetchPosts();
-    setSelectedPosts([]);
+    setDeleteDialogOpen(false);
+    setPostToDelete(null);
   };
   
   const handleDuplicate = async (post: BlogPost) => {
@@ -957,7 +967,7 @@ const AdminBlog = () => {
                       </Button>
                       <Button size="sm" variant="ghost" onClick={e => {
                   e.stopPropagation();
-                  handleDelete(post.id);
+                  handleDeleteClick(post.id);
                 }} className="opacity-20 hover:opacity-100 transition-opacity">
                         <Trash2 className="w-4 h-4" />
                       </Button>
@@ -1399,6 +1409,24 @@ const AdminBlog = () => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* Delete Confirmation Dialog */}
+      <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Confirmer la suppression</AlertDialogTitle>
+            <AlertDialogDescription>
+              Êtes-vous sûr de vouloir supprimer cet article ? Cette action est irréversible.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={() => setPostToDelete(null)}>Annuler</AlertDialogCancel>
+            <AlertDialogAction onClick={confirmDelete} className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
+              Supprimer
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>;
 };
 export default AdminBlog;

@@ -270,14 +270,11 @@ const AdminBlog = () => {
         });
         return;
       }
-      }
       toast({
         title: publishNow ? 'Article publié' : 'Article créé en brouillon'
       });
     }
     fetchPosts();
-
-    // Rester dans l'éditeur après toute sauvegarde (brouillon ou publication)
     toast({
       title: publishNow ? (editing ? 'Modifications publiées' : 'Article publié') : 'Brouillon sauvegardé',
       description: publishNow ? 'Vos modifications ont été publiées' : 'Vos modifications ont été enregistrées'

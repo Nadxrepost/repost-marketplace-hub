@@ -25,33 +25,45 @@ const Auth = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 useEffect(() => {
-  // Détecter un lien de récupération de mot de passe
-  const isRec = window.location.hash.includes('type=recovery');
-  setIsRecovery(isRec);
-
+  // Détecter un lien de récupération de mot de passe dans le hash
+  const hashParams = new URLSearchParams(window.location.hash.substring(1));
+  const isRecoveryLink = hashParams.get('type') === 'recovery';
+  
+  // Écouter les changements d'état d'authentification
   const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    console.log('Auth event:', event, 'Session:', !!session);
     setSession(session);
     setUser(session?.user ?? null);
 
     if (event === 'PASSWORD_RECOVERY') {
+      console.log('PASSWORD_RECOVERY event detected');
       setIsRecovery(true);
+      // Nettoyer le hash de l'URL pour éviter les problèmes
+      window.history.replaceState(null, '', window.location.pathname);
       return; // ne pas rediriger, on affiche le formulaire de nouveau mot de passe
     }
 
-    // Rediriger seulement hors mode recovery
-    if (session?.user && !isRec && !isRecovery) {
+    // Rediriger seulement hors mode recovery et si connecté normalement
+    if (event === 'SIGNED_IN' && session?.user && !isRecoveryLink) {
       navigate('/admin-blog');
     }
   });
 
-  // Vérifier une session existante
-  supabase.auth.getSession().then(({ data: { session } }) => {
-    setSession(session);
-    setUser(session?.user ?? null);
-    if (session?.user && !isRec && !isRecovery) {
-      navigate('/admin-blog');
-    }
-  });
+  // Si c'est un lien de récupération, traiter le hash pour établir la session
+  if (isRecoveryLink) {
+    console.log('Recovery link detected, processing...');
+    setIsRecovery(true);
+    // Supabase va automatiquement parser le hash et déclencher PASSWORD_RECOVERY
+  } else {
+    // Vérifier une session existante seulement si ce n'est pas un lien de récupération
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      if (session?.user) {
+        navigate('/admin-blog');
+      }
+    });
+  }
 
   return () => subscription.unsubscribe();
 }, [navigate]);

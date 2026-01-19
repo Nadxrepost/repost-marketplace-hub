@@ -26,8 +26,18 @@ const Auth = () => {
   const { toast } = useToast();
 useEffect(() => {
   // Détecter un lien de récupération de mot de passe dans le hash
-  const hashParams = new URLSearchParams(window.location.hash.substring(1));
+  const hash = window.location.hash;
+  const hashParams = new URLSearchParams(hash.substring(1));
   const isRecoveryLink = hashParams.get('type') === 'recovery';
+  const hasAccessToken = hashParams.get('access_token');
+  
+  console.log('Auth init - hash:', hash, 'isRecoveryLink:', isRecoveryLink, 'hasAccessToken:', !!hasAccessToken);
+  
+  // Si c'est un lien de récupération avec token, activer le mode recovery immédiatement
+  if (isRecoveryLink && hasAccessToken) {
+    console.log('Recovery link with token detected, setting recovery mode');
+    setIsRecovery(true);
+  }
   
   // Écouter les changements d'état d'authentification
   const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
@@ -44,29 +54,29 @@ useEffect(() => {
     }
 
     // Rediriger seulement hors mode recovery et si connecté normalement
-    if (event === 'SIGNED_IN' && session?.user && !isRecoveryLink) {
+    if (event === 'SIGNED_IN' && session?.user && !isRecoveryLink && !isRecovery) {
       navigate('/admin-blog');
     }
   });
 
-  // Si c'est un lien de récupération, traiter le hash pour établir la session
-  if (isRecoveryLink) {
-    console.log('Recovery link detected, processing...');
-    setIsRecovery(true);
-    // Supabase va automatiquement parser le hash et déclencher PASSWORD_RECOVERY
-  } else {
-    // Vérifier une session existante seulement si ce n'est pas un lien de récupération
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        navigate('/admin-blog');
-      }
-    });
-  }
+  // Toujours appeler getSession pour que Supabase parse le hash (tokens)
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    console.log('getSession result:', !!session);
+    setSession(session);
+    setUser(session?.user ?? null);
+    
+    // Si on a une session et que c'est un lien de récupération, rester en mode recovery
+    if (session?.user && isRecoveryLink) {
+      console.log('Session established from recovery link');
+      setIsRecovery(true);
+      window.history.replaceState(null, '', window.location.pathname);
+    } else if (session?.user && !isRecoveryLink) {
+      navigate('/admin-blog');
+    }
+  });
 
   return () => subscription.unsubscribe();
-}, [navigate]);
+}, [navigate, isRecovery]);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -2,13 +2,28 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleMenuClose = () => {
     setIsMenuOpen(false);
+  };
+
+  const scrollToFaq = (e: React.MouseEvent) => {
+    e.preventDefault();
+    handleMenuClose();
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    } else {
+      document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
@@ -39,7 +54,7 @@ const Header = () => {
             >
               Tarifs
             </Link>
-            <a href="/#faq" className="text-gray-600 hover:text-brand-purple transition-colors">
+            <a href="/#faq" onClick={scrollToFaq} className="text-gray-600 hover:text-brand-purple transition-colors cursor-pointer">
               FAQ
             </a>
             <Link 
@@ -103,7 +118,7 @@ const Header = () => {
               >
                 Tarifs
               </Link>
-              <a href="/#faq" onClick={handleMenuClose} className="text-gray-600 hover:text-brand-purple transition-colors">
+              <a href="/#faq" onClick={scrollToFaq} className="text-gray-600 hover:text-brand-purple transition-colors cursor-pointer">
                 FAQ
               </a>
               <Link 

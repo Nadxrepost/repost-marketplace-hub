@@ -9,7 +9,8 @@ const steps = [{
 }, {
   number: 2,
   title: "Étape 2",
-  description: "Choisissez où vous voulez vendre, Repost s'occupe du reste.",
+  subtitle: "Centralisez et diffusez vos annonces",
+  description: "Gérez vos annonces depuis une seule interface et diffusez-les sur plusieurs canaux sans duplication.",
   icon: Settings
 }, {
   number: 3,

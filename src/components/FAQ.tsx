@@ -33,7 +33,7 @@ const FAQ = () => {
     },
     {
       question: "Quelles sont les prochaines améliorations de Repost ?",
-      answer: "Repost évolue en continu pour répondre aux besoins des professionnels de la seconde main. Les prochaines améliorations en cours portent notamment sur :\n\n• L'intégration de Shopify et WooCommerce, afin de connecter votre e-shop à Repost et centraliser davantage vos ventes.\n\n• L'intégration de la plateforme Depop, actuellement en cours de développement.\n\nD'autres améliorations sont également à l'étude, en fonction des retours et des priorités exprimées par les retailers."
+      answer: "Repost évolue en continu pour répondre aux besoins des professionnels de la seconde main. Les prochaines améliorations en cours portent notamment sur :\n\nL'intégration de Shopify et WooCommerce, afin de connecter votre e-shop à Repost et centraliser davantage vos ventes.\n\nL'intégration de la plateforme Depop, actuellement en cours de développement.\n\nD'autres améliorations sont également à l'étude, en fonction des retours et des priorités exprimées par les retailers."
     },
     {
       question: "Existe-t-il une version d'essai gratuite de Repost ?",

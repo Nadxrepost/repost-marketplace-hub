@@ -4,9 +4,9 @@ const SyncSection = () => {
   const checklistItems = [
     "Synchronisation automatique des stocks",
     "Dès qu'un article est vendu, la mise à jour du stock se fait automatiquement.",
-    "Vous vendez uniquement ce qui est réellement disponible.",
+    "Vendez uniquement ce qui est réellement disponible.",
     "Fini les doubles ventes et les annulations.",
-    "Vous gardez la maîtrise de votre inventaire, même en multi-plateformes."
+    "Gardez la maîtrise de votre inventaire, même en multi-plateformes."
   ];
 
   return <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">

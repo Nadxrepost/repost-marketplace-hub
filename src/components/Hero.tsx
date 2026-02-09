@@ -21,7 +21,7 @@ const Hero = () => {
               Publiez une fois, vendez sur plusieurs plateformes
             </h1>
             
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl">Multipliez vos ventes, maîtrisez vos stocks et gagnez du temps avec la solution tout-en-un dédiée aux professionnels de la 2<sup>nde</sup> main.</p>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl">Centralisez et automatisez la vente de vos produits de seconde main sur plusieurs plateformes.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={() => {

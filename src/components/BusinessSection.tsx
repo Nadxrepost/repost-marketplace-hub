@@ -4,7 +4,7 @@ const BusinessSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div>
-            <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Multipliez vos ventes, maîtrisez vos stocks et gagnez du temps avec la solution tout-en-un.</h2>
+            <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Multipliez vos ventes et reprenez le contrôle de votre activité de seconde main.</h2>
             <p className="text-lg text-gray-600 leading-relaxed">Publiez une fois, vendez partout ! Repost vous aide à atteindre de nouveaux clients. Simplifie la gestion de votre activité 2nde main et booste vos ventes sur toutes les plateformes, en rendant la gestion de vos stocks, commandes et annonces ultra-facile et rapide.</p>
           </div>
 

@@ -33,7 +33,7 @@ const FAQ = () => {
     },
     {
       question: "Quelles sont les prochaines améliorations de Repost ?",
-      answer: "Repost évolue en continu pour répondre aux besoins des professionnels de la seconde main. Les prochaines améliorations en cours portent notamment sur :\n\nL'intégration de Shopify et WooCommerce, afin de connecter votre e-shop à Repost et centraliser davantage vos ventes.\n\nL'intégration de la plateforme Depop, actuellement en cours de développement.\n\nD'autres améliorations sont également à l'étude, en fonction des retours et des priorités exprimées par les retailers."
+      answer: "Repost évolue en continu pour répondre aux besoins des professionnels de la seconde main. Les prochaines améliorations en cours portent notamment sur :\n\nL'intégration de <strong>Shopify et WooCommerce</strong>, afin de connecter votre e-shop à Repost et centraliser davantage vos ventes.\n\nL'intégration de la plateforme <strong>Depop</strong>, actuellement en cours de développement.\n\nD'autres améliorations sont également à l'étude, en fonction des retours et des priorités exprimées par les retailers."
     },
     {
       question: "Existe-t-il une version d'essai gratuite de Repost ?",
@@ -59,8 +59,8 @@ const FAQ = () => {
                 <AccordionTrigger className="text-left text-lg font-medium text-brand-dark hover:no-underline py-6">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pb-6">
-                  {item.answer}
+                <AccordionContent className="text-gray-600 pb-6 whitespace-pre-line">
+                  <span dangerouslySetInnerHTML={{ __html: item.answer.replace(/\n/g, '<br/>') }} />
                 </AccordionContent>
               </AccordionItem>
             ))}

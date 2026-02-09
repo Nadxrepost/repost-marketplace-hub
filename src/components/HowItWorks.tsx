@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { List, Settings, Send, TrendingUp } from 'lucide-react';
+import { List, Settings, Send } from 'lucide-react';
 const steps = [{
   number: 1,
   title: "Étape 1",
@@ -18,11 +18,6 @@ const steps = [{
   subtitle: "Pilotez et optimisez vos ventes",
   description: "Suivez vos performances, évitez les erreurs de stock et concentrez-vous sur les canaux les plus rentables.",
   icon: Send
-}, {
-  number: 4,
-  title: "Étape 4",
-  description: "Atteignez plus de clients et vendez plus rapidement !",
-  icon: TrendingUp
 }];
 const HowItWorks = () => {
   return <section id="how-it-works" className="py-20 bg-gray-100">

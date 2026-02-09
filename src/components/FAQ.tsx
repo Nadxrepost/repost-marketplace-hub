@@ -24,8 +24,8 @@ const FAQ = () => {
       answer: "Dans sa version bêta, Repost permet de diffuser vos produits sur eBay et Etsy, ainsi que faire de l'import en masse avec un fichier CSV. Ces modes de diffusion couvrent déjà une grande partie des besoins des vendeurs professionnels.\n\nDe nouvelles plateformes sont ajoutées progressivement, en fonction des usages, des priorités produit et des intégrations API disponibles.\n\nSi vous avez besoin d'une plateforme spécifique, nous vous invitons à nous le signaler : les retours des retailers orientent directement notre feuille de route."
     },
     {
-      question: "Comment cela m'empêche-t-il de survendre ?",
-      answer: "Dès qu'un article est vendu sur une plateforme, Repost met automatiquement à jour votre stock sur toutes les autres plateformes connectées. Ainsi, vous ne risquez jamais de vendre un article déjà vendu ailleurs."
+      question: "Comment Repost empêche-t-il la survente ?",
+      answer: "Lorsqu'un article est vendu sur une plateforme connectée, Repost met automatiquement à jour ou supprime l'annonce sur toutes les autres plateformes. Cette synchronisation se fait sans action de votre part.\n\nRésultat : plus de doubles ventes, plus d'annulations de commandes liées à des erreurs de stock. Vous ne vendez que ce qui est réellement disponible."
     },
     {
       question: "Est-il sûr de connecter mes magasins ?",

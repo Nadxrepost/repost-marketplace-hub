@@ -39,6 +39,9 @@ const Header = () => {
             >
               Tarifs
             </Link>
+            <a href="/#faq" className="text-gray-600 hover:text-brand-purple transition-colors">
+              FAQ
+            </a>
             <Link 
               to="/blog"
               className="text-gray-600 hover:text-brand-purple transition-colors"
@@ -100,6 +103,9 @@ const Header = () => {
               >
                 Tarifs
               </Link>
+              <a href="/#faq" onClick={handleMenuClose} className="text-gray-600 hover:text-brand-purple transition-colors">
+                FAQ
+              </a>
               <Link 
                 to="/blog"
                 onClick={handleMenuClose}

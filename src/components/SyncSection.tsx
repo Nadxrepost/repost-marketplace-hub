@@ -7,7 +7,7 @@ const SyncSection = () => {
           {/* Text Content */}
           <div>
             <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Réduisez les erreurs de stock et les réclamations clients.</h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">Vos stocks sont synchronisés automatiquement sur les plateformes connectées, afin d'éviter les doubles ventes et les annulations. Repost sécurise votre inventaire et vous permet de vendre en toute confiance.</p>
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">Repost sécurise votre inventaire et vous permet de vendre en toute confiance.</p>
             <Button variant="outline" className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 text-lg font-medium" onClick={() => {
             const howItWorksSection = document.getElementById('how-it-works');
             if (howItWorksSection) {

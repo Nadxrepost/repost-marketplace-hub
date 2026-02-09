@@ -6,7 +6,7 @@ const SyncSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div>
-            <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Dites adieu aux erreurs de stock et aux réclamations clients !</h2>
+            <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Réduisez les erreurs de stock et les réclamations clients.</h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">Vos stocks sont synchronisés automatiquement en temps réel. Repost veille sur votre inventaire pour que chaque commande soit une bonne surprise, jamais une déception.   </p>
             <Button variant="outline" className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 text-lg font-medium" onClick={() => {
             const howItWorksSection = document.getElementById('how-it-works');

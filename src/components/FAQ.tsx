@@ -32,8 +32,8 @@ const FAQ = () => {
       answer: "Oui, la sécurité est notre priorité. Nous utilisons des connexions chiffrées et des protocoles OAuth sécurisés pour connecter vos boutiques. Vos données sont protégées et nous ne stockons jamais vos mots de passe."
     },
     {
-      question: "Est-ce que ça fonctionne dans mon pays ?",
-      answer: "Repost fonctionne dans tous les pays où les plateformes partenaires sont disponibles. Notre solution est particulièrement adaptée aux marchés français et européens."
+      question: "Quelles sont les prochaines améliorations de Repost ?",
+      answer: "Repost évolue en continu pour répondre aux besoins des professionnels de la seconde main. Les prochaines améliorations en cours portent notamment sur :\n\n• L'intégration de Shopify et WooCommerce, afin de connecter votre e-shop à Repost et centraliser davantage vos ventes.\n\n• L'intégration de la plateforme Depop, actuellement en cours de développement.\n\nD'autres améliorations sont également à l'étude, en fonction des retours et des priorités exprimées par les retailers."
     },
     {
       question: "Existe-t-il une version d'essai gratuite de Repost ?",

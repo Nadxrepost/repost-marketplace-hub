@@ -21,15 +21,15 @@ const Index = () => {
       "price": "0",
       "priceCurrency": "EUR"
     },
-    "description": "Solution SaaS pour gérer vos ventes sur les plateformes de seconde main. Centralisez vos stocks, automatisez vos publications et mesurez vos performances.",
+    "description": "Centralisez et pilotez la vente de vos produits de seconde main sur plusieurs plateformes. Repost aide les e-commerçants, retailers et marques, à gagner du temps, réduire les erreurs et structurer leur activité.",
     "operatingSystem": "Web"
   };
 
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Repost - Solution SaaS pour Vendre en Seconde Main"
-        description="Gérez toutes vos ventes seconde main depuis une seule plateforme. Synchronisation automatique avec Vinted, Leboncoin, et plus encore. Essai gratuit."
+        title="Repost | Vendez la seconde main sur plusieurs plateformes, sans complexité"
+        description="Centralisez et pilotez la vente de vos produits de seconde main sur plusieurs plateformes. Repost aide les e-commerçants, retailers et marques, à gagner du temps, réduire les erreurs et structurer leur activité."
         structuredData={structuredData}
       />
       <Header />

@@ -10,8 +10,8 @@ interface SEOProps {
 }
 
 const SEO = ({ 
-  title = 'Repost - Solution SaaS pour la Seconde Main',
-  description = 'Centralisez vos stocks, automatisez vos publications et mesurez vos performances sur toutes les plateformes de seconde main.',
+  title = 'Repost | Vendez la seconde main sur plusieurs plateformes, sans complexité',
+  description = 'Centralisez et pilotez la vente de vos produits de seconde main sur plusieurs plateformes. Repost aide les e-commerçants, retailers et marques, à gagner du temps, réduire les erreurs et structurer leur activité.',
   canonical,
   ogImage = '/lovable-uploads/254b0023-f77e-4b19-88d7-097a1d29a292.png',
   structuredData

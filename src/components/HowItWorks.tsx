@@ -82,6 +82,27 @@ const HowItWorks = () => {
             </div>
           </div>
         </div>
+
+        {/* Community Stats Section */}
+        <div className="text-center mt-16 max-w-4xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">
+            Rejoignez une communauté de plus de <span className="text-brand-purple">100 professionnels</span>
+          </h3>
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+              <span className="text-gray-700 font-medium">+30% d'augmentation des ventes</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+              <span className="text-gray-700 font-medium">+10h gagnées par semaine</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+              <span className="text-gray-700 font-medium">+40% de visibilité sur vos produits</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>;
 };

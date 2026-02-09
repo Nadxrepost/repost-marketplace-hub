@@ -104,7 +104,7 @@ const Testimonials = () => {
         </div>
 
         {/* CTA Block */}
-        <div className="bg-white rounded-2xl shadow-lg p-12 max-w-4xl mx-auto mt-12 transition-all duration-300 hover:border-2 hover:border-brand-purple">
+        <div className="gradient-purple-yellow rounded-2xl shadow-lg p-12 max-w-4xl mx-auto mt-12 transition-all duration-300">
           <div className="text-center">
             <h3 className="text-3xl font-bold text-gray-800 mb-4">Prêt à vendre partout avec Repost ?</h3>
             <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">Déjà adopté par des centaines de professionnels de la seconde main.</p>

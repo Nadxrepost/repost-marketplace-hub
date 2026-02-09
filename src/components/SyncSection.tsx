@@ -1,13 +1,33 @@
-import { RefreshCw, Camera } from 'lucide-react';
+import { RefreshCw, Camera, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 const SyncSection = () => {
+  const checklistItems = [
+    "Synchronisation automatique des stocks",
+    "Dès qu'un article est vendu, la mise à jour du stock se fait automatiquement.",
+    "Vous vendez uniquement ce qui est réellement disponible.",
+    "Fini les doubles ventes et les annulations.",
+    "Vous gardez la maîtrise de votre inventaire, même en multi-plateformes."
+  ];
+
   return <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div>
             <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Réduisez les erreurs de stock et les réclamations clients.</h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">Repost sécurise votre inventaire et vous permet de vendre en toute confiance.</p>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6">Repost sécurise votre inventaire et vous permet de vendre en toute confiance.</p>
+            
+            <ul className="space-y-3 mb-8">
+              {checklistItems.map((item, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500 flex items-center justify-center mt-0.5">
+                    <Check className="w-3 h-3 text-white" />
+                  </div>
+                  <span className="text-gray-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+
             <Button variant="outline" className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 text-lg font-medium" onClick={() => {
             const howItWorksSection = document.getElementById('how-it-works');
             if (howItWorksSection) {

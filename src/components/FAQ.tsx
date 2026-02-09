@@ -16,6 +16,10 @@ const FAQ = () => {
       answer: "Repost est une solution qui vous permet de centraliser et automatiser la vente de vos produits de seconde main sur plusieurs plateformes. Gérez votre inventaire depuis un seul endroit et synchronisez automatiquement vos stocks.\n\nRepost vous permet de vendre de la 2nde main sur plusieurs plateformes en toute simplicité."
     },
     {
+      question: "Pour qui est fait Repost ?",
+      answer: "Repost aide les e-commerçants, retailers et marques à gagner du temps, réduire les erreurs et structurer leur activité."
+    },
+    {
       question: "Avec quelles plateformes est-il compatible ?",
       answer: "Repost est compatible avec les principales plateformes de revente : Vinted, eBay, Etsy, Depop, Shopify, Leboncoin et bien d'autres. Nous ajoutons régulièrement de nouvelles intégrations."
     },

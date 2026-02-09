@@ -8,6 +8,7 @@ import InventorySection from '@/components/InventorySection';
 import SyncSection from '@/components/SyncSection';
 import FAQ from '@/components/FAQ';
 import Testimonials from '@/components/Testimonials';
+import CTABlock from '@/components/CTABlock';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 
@@ -43,6 +44,7 @@ const Index = () => {
       <HowItWorks />
       <FAQ />
       <Testimonials />
+      <CTABlock />
       <Footer />
     </div>
   );

@@ -21,7 +21,7 @@ const Hero = () => {
               Publiez une fois, vendez sur plusieurs plateformes
             </h1>
             
-            <p className="text-xl text-gray-600 mb-4 max-w-2xl">Centralisez et automatisez la vente de vos produits de seconde main sur plusieurs plateformes.</p>
+            <p className="text-xl text-gray-600 mb-4 max-w-2xl">Centralisez et automatisez la vente de vos produits de 2<sup>nde</sup> main sur plusieurs plateformes.</p>
             <p className="text-lg text-gray-500 mb-8 max-w-2xl">Repost centralise la diffusion et la synchronisation de vos annonces sur plusieurs plateformes de revente. Votre inventaire reste à jour automatiquement, sans copier-coller ni erreurs de stock.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">

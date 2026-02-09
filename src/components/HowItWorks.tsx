@@ -3,7 +3,8 @@ import { List, Settings, Send, TrendingUp } from 'lucide-react';
 const steps = [{
   number: 1,
   title: "Étape 1",
-  description: "Listez vos produits (photos, titres, descriptions…)",
+  subtitle: "Connectez vos plateformes",
+  description: "Reliez Repost aux plateformes de revente que vous utilisez déjà.",
   icon: List
 }, {
   number: 2,
@@ -48,9 +49,14 @@ const HowItWorks = () => {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-gray-700 transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-gray-700 transition-colors duration-300">
                     {step.title}
                   </h3>
+                  {step.subtitle && (
+                    <h4 className="text-base font-semibold text-gray-700 mb-2">
+                      {step.subtitle}
+                    </h4>
+                  )}
                   <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                     {step.description}
                   </p>

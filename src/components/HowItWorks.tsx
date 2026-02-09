@@ -28,12 +28,12 @@ const HowItWorks = () => {
             Comment ça marche ?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            En 4 étapes simples, transformez votre façon de vendre en ligne
+            En 3 étapes simples, transformez votre façon de vendre en ligne
           </p>
         </div>
 
         {/* Steps Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
           {steps.map((step, index) => {
           const IconComponent = step.icon;
           return <div key={index} className="bg-white rounded-xl p-6 text-center relative transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer group hover:bg-gray-50 hover:border-2 hover:border-gray-400">

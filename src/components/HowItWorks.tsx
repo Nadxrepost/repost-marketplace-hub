@@ -28,7 +28,7 @@ const HowItWorks = () => {
             Comment ça marche ?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            En 3 étapes simples, transformez votre façon de vendre en ligne
+            3 étapes simples, pour transformer votre façon de vendre.
           </p>
         </div>
 

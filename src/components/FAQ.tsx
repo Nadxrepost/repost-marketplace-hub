@@ -28,10 +28,6 @@ const FAQ = () => {
       answer: "Lorsqu'un article est vendu sur une plateforme connectée, Repost met automatiquement à jour ou supprime l'annonce sur toutes les autres plateformes. Cette synchronisation se fait sans action de votre part.\n\nRésultat : plus de doubles ventes, plus d'annulations de commandes liées à des erreurs de stock. Vous ne vendez que ce qui est réellement disponible."
     },
     {
-      question: "Est-il sûr de connecter mes magasins ?",
-      answer: "Oui, la sécurité est notre priorité. Nous utilisons des connexions chiffrées et des protocoles OAuth sécurisés pour connecter vos boutiques. Vos données sont protégées et nous ne stockons jamais vos mots de passe."
-    },
-    {
       question: "Quelles sont les prochaines améliorations de Repost ?",
       answer: "Repost évolue en continu pour répondre aux besoins des professionnels de la seconde main. Les prochaines améliorations en cours portent notamment sur :\n\nL'intégration de <strong>Shopify et WooCommerce</strong>, afin de connecter votre e-shop à Repost et centraliser davantage vos ventes.\n\nL'intégration de la plateforme <strong>Depop</strong>, actuellement en cours de développement.\n\nD'autres améliorations sont également à l'étude, en fonction des retours et des priorités exprimées par les retailers."
     },

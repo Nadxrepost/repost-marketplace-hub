@@ -21,7 +21,7 @@ const FAQ = () => {
     },
     {
       question: "Avec quelles plateformes est-il compatible ?",
-      answer: "Dans sa version bêta, Repost permet de diffuser vos produits sur eBay et Etsy, ainsi que via l'import de fichiers CSV. Ces modes de diffusion couvrent déjà une grande partie des besoins des vendeurs professionnels.\n\nDe nouvelles plateformes sont ajoutées progressivement, en fonction des usages, des priorités produit et des intégrations API disponibles.\n\nSi vous avez besoin d'une plateforme spécifique, nous vous invitons à nous le signaler : les retours des retailers orientent directement notre feuille de route."
+      answer: "Dans sa version bêta, Repost permet de diffuser vos produits sur eBay et Etsy, ainsi que faire de l'import avec fichiers CSV. Ces modes de diffusion couvrent déjà une grande partie des besoins des vendeurs professionnels.\n\nDe nouvelles plateformes sont ajoutées progressivement, en fonction des usages, des priorités produit et des intégrations API disponibles.\n\nSi vous avez besoin d'une plateforme spécifique, nous vous invitons à nous le signaler : les retours des retailers orientent directement notre feuille de route."
     },
     {
       question: "Comment cela m'empêche-t-il de survendre ?",

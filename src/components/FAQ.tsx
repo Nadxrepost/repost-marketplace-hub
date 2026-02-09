@@ -17,7 +17,7 @@ const FAQ = () => {
     },
     {
       question: "Pour qui est fait Repost ?",
-      answer: "Repost aide les e-commerçants, retailers et marques à gagner du temps, réduire les erreurs et structurer leur activité sur les plateformes de revente seconde main."
+      answer: "Repost aide les <strong>e-commerçants</strong>, <strong>retailers</strong> et <strong>marques</strong> à gagner du temps, réduire les erreurs et structurer leur activité sur les plateformes de revente seconde main."
     },
     {
       question: "Avec quelles plateformes est-il compatible ?",

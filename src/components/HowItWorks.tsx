@@ -1,5 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { List, Settings, Send } from 'lucide-react';
+import stationFLogo from '@/assets/station-f-logo.png';
+import diversidaysLogo from '@/assets/diversidays-logo.png';
+import impactFranceLogo from '@/assets/impact-france-logo.png';
+import frenchTechTremplinLogo from '@/assets/french-tech-tremplin-logo.png';
+import singaLogo from '@/assets/singa-logo.png';
 const steps = [{
   number: 1,
   title: "Étape 1",
@@ -66,6 +71,20 @@ const HowItWorks = () => {
                   </div>}
               </div>;
         })}
+        </div>
+
+        {/* Repost est soutenu par */}
+        <div className="bg-white rounded-2xl shadow-lg p-12 max-w-4xl mx-auto transition-all duration-300 hover:border-2 hover:border-brand-purple mb-8">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-gray-800 mb-8">Repost est soutenu par :</h3>
+            <div className="flex items-center gap-6 justify-center flex-wrap">
+              <img src={stationFLogo} alt="Station F" className="h-10" />
+              <img src={diversidaysLogo} alt="Diversidays" className="h-16" />
+              <img src={impactFranceLogo} alt="Impact France" className="h-20" />
+              <img src={frenchTechTremplinLogo} alt="La French Tech Tremplin" className="h-24" />
+              <img src={singaLogo} alt="Singa" className="h-10" />
+            </div>
+          </div>
         </div>
 
         {/* Call to Action Section - Encadrée */}

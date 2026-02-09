@@ -15,7 +15,8 @@ const steps = [{
 }, {
   number: 3,
   title: "Étape 3",
-  description: "Publiez vos annonces partout en 1 clic !",
+  subtitle: "Pilotez et optimisez vos ventes",
+  description: "Suivez vos performances, évitez les erreurs de stock et concentrez-vous sur les canaux les plus rentables.",
   icon: Send
 }, {
   number: 4,

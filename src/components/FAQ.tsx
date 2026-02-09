@@ -13,7 +13,7 @@ const FAQ = () => {
   const faqItems = [
     {
       question: "Qu'est-ce que Repost ?",
-      answer: "Repost vous permet de vendre de la 2nde main sur plusieurs plateformes de revente en toute simplicité."
+      answer: "Repost est une solution qui vous permet de centraliser et automatiser la vente de vos produits de seconde main sur plusieurs plateformes. Gérez votre inventaire depuis un seul endroit et synchronisez automatiquement vos stocks.\n\nRepost vous permet de vendre de la 2nde main sur plusieurs plateformes en toute simplicité."
     },
     {
       question: "Avec quelles plateformes est-il compatible ?",

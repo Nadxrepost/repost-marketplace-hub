@@ -57,7 +57,7 @@ const Platforms = () => {
 
         <div className="grid grid-cols-8 gap-4">
           {platforms.map((platform, index) => {
-          const isComingSoon = index >= 4; // Les 4 dernières plateformes (index 4, 5, 6, 7)
+          const isComingSoon = index >= 3; // Shopify et les 4 dernières plateformes (index 3, 4, 5, 6, 7)
           return <div key={index} className={`group p-6 bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer relative`}>
                 {isComingSoon && <div className="absolute inset-0 flex items-center justify-center bg-white/80 rounded-2xl z-10 backdrop-blur-sm">
                     <span className="text-white font-bold text-sm bg-brand-dark px-3 py-1 rounded-full shadow-md border">Coming Soon</span>

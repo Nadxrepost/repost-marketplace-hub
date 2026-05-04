@@ -22,7 +22,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl text-gray-600 mb-4 max-w-2xl">Un seul endroit pour piloter votre activité 2<sup>nde</sup> main.</p>
-            <p className="text-lg text-gray-500 mb-8 max-w-2xl">Repost synchronise automatiquement vos stocks sur les plateformes connectées pour sécuriser chaque vente. Dès qu'un article est vendu, votre inventaire est mis à jour partout, sans action manuelle.</p>
+            <p className="text-lg text-gray-500 mb-8 max-w-2xl">Distribuez automatiquement vos stocks 2<sup>nde</sup> main, invendus et retours sur les marketplaces sans charges opérationnelles supplémentaires.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={() => {

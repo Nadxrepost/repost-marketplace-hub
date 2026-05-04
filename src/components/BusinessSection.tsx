@@ -4,7 +4,7 @@ const BusinessSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div>
-            <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Multipliez vos ventes et reprenez le contrôle de votre activité de seconde main.</h2>
+            <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Pilotez votre canal recommerce comme un canal e-commerce.</h2>
             <p className="text-lg text-gray-600 leading-relaxed">Publiez vos annonces une seule fois et diffusez-les sur plusieurs plateformes. Repost centralise la gestion de votre activité pour réduire les erreurs, gagner du temps et piloter vos ventes plus efficacement.</p>
           </div>
 

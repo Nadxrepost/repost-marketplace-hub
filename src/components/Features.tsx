@@ -8,7 +8,7 @@ const Features = () => {
     color: "bg-gray-600"
   }, {
     icon: Zap,
-    title: "Gérer",
+    title: "Distribuer",
     description: "Automatisez vos tâches répétitives. Mise à jour des prix, gestion des stocks et suivi des commandes en temps réel.",
     color: "bg-gray-500"
   }, {

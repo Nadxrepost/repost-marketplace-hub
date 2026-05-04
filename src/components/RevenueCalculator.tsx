@@ -114,7 +114,7 @@ const RevenueCalculator = () => {
             onClick={() => navigate('/contact')}
             className="w-full bg-white border-gray-300 text-brand-dark hover:bg-gray-50 py-4 text-sm font-medium"
           >
-            Obtenir mon estimation personnalisée
+            Contactez-nous
             <ArrowUpRight className="w-4 h-4 ml-2" />
           </Button>
         </div>

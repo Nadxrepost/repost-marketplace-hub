@@ -61,9 +61,7 @@ const Header = () => {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Button 
-              onClick={() => {
-                window.location.href = 'mailto:hello@repost.fashion';
-              }}
+              onClick={() => navigate('/contact')}
               className="bg-brand-purple hover:bg-brand-purple/90 text-black px-6"
             >
               Contactez-nous

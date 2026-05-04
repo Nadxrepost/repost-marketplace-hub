@@ -55,7 +55,7 @@ const RevenueCalculator = () => {
                 min={50}
                 max={5000}
                 step={50}
-                className="[&_[data-orientation=horizontal]]:bg-brand-purple/20 [&_.bg-primary]:bg-brand-purple"
+                className="[&_[data-orientation=horizontal]]:bg-brand-purple/20 [&_.bg-primary]:bg-brand-purple [&_[role=slider]]:bg-white"
               />
               <span className="text-sm font-semibold text-brand-dark w-20 text-right">
                 {items.toLocaleString('fr-FR')}
@@ -70,7 +70,7 @@ const RevenueCalculator = () => {
                 min={10}
                 max={1000}
                 step={5}
-                className="[&_[data-orientation=horizontal]]:bg-brand-purple/20 [&_.bg-primary]:bg-brand-purple"
+                className="[&_[data-orientation=horizontal]]:bg-brand-purple/20 [&_.bg-primary]:bg-brand-purple [&_[role=slider]]:bg-white"
               />
               <span className="text-sm font-semibold text-brand-dark w-20 text-right">
                 {avgPrice} €
@@ -85,7 +85,7 @@ const RevenueCalculator = () => {
                 min={5}
                 max={80}
                 step={1}
-                className="[&_[data-orientation=horizontal]]:bg-brand-purple/20 [&_.bg-primary]:bg-brand-purple"
+                className="[&_[data-orientation=horizontal]]:bg-brand-purple/20 [&_.bg-primary]:bg-brand-purple [&_[role=slider]]:bg-white"
               />
               <span className="text-sm font-semibold text-brand-dark w-20 text-right">
                 {sellThrough}%

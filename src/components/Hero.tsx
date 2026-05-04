@@ -23,6 +23,8 @@ const Hero = () => {
             
             <p className="text-lg text-gray-500 mb-8 max-w-2xl">Distribuez automatiquement vos stocks 2<sup>nde</sup> main, invendus et retours sur les marketplaces sans charges opérationnelles supplémentaires.</p>
 
+            <p className="text-lg text-gray-500 mb-8 max-w-2xl">Connecté à Shopify et à vos ERP, Repost synchronise, distribue et optimise vos ventes en temps réel.</p>
+
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={() => {
               window.open('https://tally.so/r/mV2xGM', '_blank');

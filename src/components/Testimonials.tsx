@@ -112,7 +112,7 @@ const Testimonials = () => {
               <Button onClick={() => {
                 window.open('https://tally.so/r/mV2xGM', '_blank', 'noopener,noreferrer');
               }} size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-black px-12 py-6 rounded-full text-xl font-semibold">
-                Oui, je veux vendre avec Repost !
+                Réserver une démo
               </Button>
             </div>
           </div>

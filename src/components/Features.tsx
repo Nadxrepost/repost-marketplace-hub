@@ -13,7 +13,7 @@ const Features = () => {
     color: "bg-gray-500"
   }, {
     icon: Globe,
-    title: "Diffuser",
+    title: "Synchroniser",
     description: "Publiez simultanément sur Vinted, Etsy, eBay et bien d'autres plateformes.",
     color: "bg-gray-600"
   }, {

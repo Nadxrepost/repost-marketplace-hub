@@ -103,7 +103,7 @@ const RevenueCalculator = () => {
                 Basé sur +40% de sell-through moyen constaté chez nos clients
               </p>
             </div>
-            <p className="text-3xl md:text-4xl font-bold text-brand-purple whitespace-nowrap ml-4">
+            <p className="text-3xl md:text-4xl font-bold text-orange-600 whitespace-nowrap ml-4">
               +{formatEuro(additionalRevenue)}
             </p>
           </div>

@@ -51,7 +51,7 @@ const Platforms = () => {
   return <section id="platforms" data-section="platforms" className="py-20 bg-gradient-to-br from-brand-gray/20 to-brand-purple/5">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Connectez-vous aux meilleures plateformes de 2<sup>nde</sup> main.</h2>
+          <h2 className="text-4xl font-bold text-foreground mb-4">Connecté à Shopify et à vos ERP :</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">Publiez vos annonces simultanément sur toutes les plateformes de revente les plus populaires. <span className="font-bold">Votre stock, diffusé partout. Zéro effort, 100% visibilité.</span></p>
         </div>
 

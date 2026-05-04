@@ -51,7 +51,7 @@ const Platforms = () => {
   return <section id="platforms" data-section="platforms" className="py-20 bg-gradient-to-br from-brand-gray/20 to-brand-purple/5">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Connecté à Shopify et à vos ERP :</h2>
+          <h2 className="text-4xl font-bold text-foreground mb-4">Les acheteurs sont déjà sur les marketplaces.<br />Votre stock ne l'est pas.</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">Repost synchronise, distribue et optimise vos ventes en temps réel.</p>
         </div>
 

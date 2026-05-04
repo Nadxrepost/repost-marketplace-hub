@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Check } from 'lucide-react';
 const InventorySection = () => {
   return <section className="py-20 bg-white">
       <div className="container mx-auto px-6">
@@ -67,7 +68,22 @@ const InventorySection = () => {
           {/* Text Content */}
           <div>
             <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Comprenez où votre stock performe réellement.</h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">Publiez vos annonces une seule fois et diffusez-les sur plusieurs plateformes de revente. Repost centralise la gestion de votre activité pour élargir votre audience sans complexifier vos opérations.</p>
+            <h3 className="text-xl font-bold text-brand-dark mb-3">Performance par plateforme</h3>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6">Analysez vos ventes par marketplace pour identifier les canaux les plus rentables.</p>
+            <ul className="space-y-3 text-lg text-gray-600 mb-8">
+              <li className="flex items-start gap-3">
+                <Check className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" strokeWidth={3} />
+                <span>Volume de ventes par plateforme</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" strokeWidth={3} />
+                <span>Taux de conversion par canal</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" strokeWidth={3} />
+                <span>Performance par catégorie produit</span>
+              </li>
+            </ul>
             <Button variant="outline" className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 text-lg font-medium" onClick={() => {
             const platformsSection = document.querySelector('section[data-section="platforms"]');
             if (platformsSection) {

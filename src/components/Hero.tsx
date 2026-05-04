@@ -27,7 +27,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={() => {
-              window.open('https://tally.so/r/mV2xGM', '_blank');
+              window.open('https://calendly.com/repostapp/30min?month=2026-05', '_blank');
             }} size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-black px-8 py-6 text-lg group">
                 Contactez-nous
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

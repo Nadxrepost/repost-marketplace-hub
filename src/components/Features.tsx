@@ -28,7 +28,7 @@ const Features = () => {
           <h2 className="text-4xl font-bold text-brand-dark mb-4">
             La plateforme pour <span className="gradient-text">monétiser</span> vos stocks circulaires sur différents canaux de distributions.
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Repost opère cette distribution pour vous</p>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Repost opère cette distribution pour vous.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -52,7 +52,7 @@ const Platforms = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">Connecté à Shopify et à vos ERP :</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Publiez vos annonces simultanément sur toutes les plateformes de revente les plus populaires. <span className="font-bold">Votre stock, diffusé partout. Zéro effort, 100% visibilité.</span></p>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Repost synchronise, distribue et optimise vos ventes en temps réel.</p>
         </div>
 
         <div className="grid grid-cols-8 gap-4">

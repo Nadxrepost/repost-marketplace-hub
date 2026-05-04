@@ -36,7 +36,7 @@ const RevenueCalculator = () => {
           Quel revenu votre stock peut-il réellement générer ?
         </h2>
         <p className="text-sm md:text-base text-gray-600 mb-6">
-          Estimez le revenu annuel que votre programme 2<sup>nde</sup> main devrait générer.
+          Estimez le potentiel de votre canal de revente en quelques secondes.
         </p>
 
         {/* Card */}

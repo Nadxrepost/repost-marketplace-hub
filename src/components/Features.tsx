@@ -28,7 +28,8 @@ const Features = () => {
           <h2 className="text-4xl font-bold text-brand-dark mb-4">
             La plateforme pour <span className="gradient-text">monétiser</span> vos stocks circulaires sur différents canaux de distributions.
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Repost opère cette distribution pour vous.</p>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-bold">Repost opère votre canal de revente de bout en bout.</p>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-4">De la connexion de votre stock à sa distribution sur les marketplaces, Repost transforme vos opérations complexes en un système automatisé et scalable.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

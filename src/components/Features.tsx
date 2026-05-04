@@ -49,6 +49,7 @@ const Features = () => {
                 </div>
               )}
               
+              {index === 2 && (
                 <div className="text-sm font-bold text-brand-dark mb-3 italic">
                   Garantir une exécution fiable en temps réel.
                 </div>

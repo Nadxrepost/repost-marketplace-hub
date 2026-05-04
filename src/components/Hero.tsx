@@ -27,7 +27,7 @@ const Hero = () => {
               <Button onClick={() => {
               window.open('https://tally.so/r/mV2xGM', '_blank');
             }} size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-black px-8 py-6 text-lg group">
-                Je veux tester Repost
+                Contactez-nous
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>

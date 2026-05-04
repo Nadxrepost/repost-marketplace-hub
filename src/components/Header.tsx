@@ -50,12 +50,6 @@ const Header = () => {
             >
               À propos
             </Link>
-            <Link 
-              to="/contact"
-              className="text-gray-600 hover:text-brand-purple transition-colors"
-            >
-              Contact
-            </Link>
           </nav>
 
           {/* CTA Buttons */}
@@ -103,13 +97,6 @@ const Header = () => {
                 className="text-gray-600 hover:text-brand-purple transition-colors text-left"
               >
                 À propos
-              </Link>
-              <Link 
-                to="/contact"
-                onClick={handleMenuClose}
-                className="text-gray-600 hover:text-brand-purple transition-colors text-left"
-              >
-                Contact
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
                 <Button 

@@ -26,7 +26,7 @@ const Features = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-brand-dark mb-4">
-            Une solution <span className="gradient-text">complète</span> pour votre business
+            La plateforme pour <span className="gradient-text">monétiser</span> vos stocks circulaires sur différents canaux de distributions.
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">Votre activité 2<sup>nde</sup> main, pilotée simplement avec Repost.</p>
         </div>

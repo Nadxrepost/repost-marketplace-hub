@@ -14,7 +14,7 @@ const Features = () => {
   }, {
     icon: Globe,
     title: "Synchroniser",
-    description: "Publiez simultanément sur Vinted, Etsy, eBay et bien d'autres plateformes.",
+    description: "Chaque vente est synchronisée instantanément sur tous vos canaux pour éviter les erreurs et sécuriser vos opérations.",
     color: "bg-gray-600"
   }, {
     icon: BarChart3,

@@ -13,19 +13,6 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  const scrollToFaq = (e: React.MouseEvent) => {
-    e.preventDefault();
-    handleMenuClose();
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
-    } else {
-      document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
       <div className="container mx-auto px-6 py-4">
@@ -48,9 +35,9 @@ const Header = () => {
             <a href="/#platforms" className="text-gray-600 hover:text-brand-purple transition-colors">
               Plateformes
             </a>
-            <a href="/#faq" onClick={scrollToFaq} className="text-gray-600 hover:text-brand-purple transition-colors cursor-pointer">
+            <Link to="/faq" className="text-gray-600 hover:text-brand-purple transition-colors">
               FAQ
-            </a>
+            </Link>
             <Link 
               to="/blog"
               className="text-gray-600 hover:text-brand-purple transition-colors"
@@ -105,9 +92,9 @@ const Header = () => {
               <a href="/#platforms" className="text-gray-600 hover:text-brand-purple transition-colors">
                 Plateformes
               </a>
-              <a href="/#faq" onClick={scrollToFaq} className="text-gray-600 hover:text-brand-purple transition-colors cursor-pointer">
+              <Link to="/faq" onClick={handleMenuClose} className="text-gray-600 hover:text-brand-purple transition-colors text-left">
                 FAQ
-              </a>
+              </Link>
               <Link 
                 to="/blog"
                 onClick={handleMenuClose}

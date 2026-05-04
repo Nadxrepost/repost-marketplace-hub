@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import LegalNotice from "./pages/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CGU from "./pages/CGU";
+import FaqPage from "./pages/Faq";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/legal-notice" element={<LegalNotice />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cgu" element={<CGU />} />
+          <Route path="/faq" element={<FaqPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

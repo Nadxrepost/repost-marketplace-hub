@@ -1,4 +1,4 @@
-import { Package, Zap, BarChart3, Globe } from 'lucide-react';
+import { Package, Zap, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 const Features = () => {
   const features = [{
@@ -16,11 +16,6 @@ const Features = () => {
     title: "Synchroniser",
     description: "Chaque vente est synchronisée instantanément sur tous vos canaux pour éviter les erreurs et sécuriser vos opérations.",
     color: "bg-gray-600"
-  }, {
-    icon: BarChart3,
-    title: "Mesurer",
-    description: "Analysez vos performances avec des rapports détaillés. Optimisez vos ventes grâce à des insights précis.",
-    color: "bg-gray-500"
   }];
   return <section id="features" className="py-20 bg-white">
       <div className="container mx-auto px-6">
@@ -32,7 +27,7 @@ const Features = () => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-4">De la connexion de votre stock à sa distribution sur les marketplaces, Repost transforme vos opérations complexes en un système automatisé et scalable.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => <div key={index} className="group p-8 rounded-2xl bg-white border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-2 hover:border-brand-purple">
               <div className={`w-16 h-16 ${feature.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                 <feature.icon className="w-8 h-8 text-white" />
@@ -54,15 +49,8 @@ const Features = () => {
                 </div>
               )}
               
-              {index === 2 && (
                 <div className="text-sm font-bold text-brand-dark mb-3 italic">
                   Garantir une exécution fiable en temps réel.
-                </div>
-              )}
-              
-              {index === 3 && (
-                <div className="text-sm font-bold text-brand-dark mb-3 italic">
-                  Identifiez vos best-sellers en un clin d'œil.
                 </div>
               )}
               

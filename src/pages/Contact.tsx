@@ -26,7 +26,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="max-w-3xl mx-auto">
             {/* Formulaire Tally */}
             <div className="bg-card rounded-3xl shadow-2xl overflow-hidden border border-border">
               <iframe 
@@ -39,13 +39,6 @@ const Contact = () => {
                 title="Une question ?"
                 className="w-full"
               />
-            </div>
-
-            {/* Image */}
-            <div className="lg:order-1 max-w-md mx-auto">
-              <div className="rounded-3xl overflow-hidden shadow-2xl">
-                <img src="/lovable-uploads/eda65dab-96a0-458b-805a-743b25dfa30a.png" alt="Chat stylé avec des lunettes de soleil" className="w-full h-auto object-cover" />
-              </div>
             </div>
           </div>
         </div>

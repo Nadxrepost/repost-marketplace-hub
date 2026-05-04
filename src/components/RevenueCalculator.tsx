@@ -33,7 +33,7 @@ const RevenueCalculator = () => {
 
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl font-bold text-brand-dark mb-2 leading-tight">
-          Combien laissez-vous sur la table ?
+          Quel revenu votre stock peut-il réellement générer ?
         </h2>
         <p className="text-sm md:text-base text-gray-600 mb-6">
           Estimez le revenu annuel que votre programme 2<sup>nde</sup> main devrait générer.

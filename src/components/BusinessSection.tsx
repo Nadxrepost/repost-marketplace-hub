@@ -6,6 +6,20 @@ const BusinessSection = () => {
           <div>
             <h2 className="text-4xl font-bold text-brand-dark mb-6 leading-tight">Pilotez votre canal recommerce comme un canal e-commerce.</h2>
             <p className="text-lg text-gray-600 leading-relaxed">Repost vous donne une visibilité complète sur vos performances et vous permet d'optimiser votre distribution comme un véritable canal de vente.</p>
+            <ul className="mt-6 space-y-3 text-lg text-gray-600">
+              <li className="flex items-start gap-3">
+                <span className="mt-2 w-2 h-2 rounded-full bg-brand-purple flex-shrink-0"></span>
+                <span>Performance par plateforme</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-2 w-2 h-2 rounded-full bg-brand-purple flex-shrink-0"></span>
+                <span>Suivi des ventes</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-2 w-2 h-2 rounded-full bg-brand-purple flex-shrink-0"></span>
+                <span>Gestion centralisée des stocks</span>
+              </li>
+            </ul>
           </div>
 
           {/* Dashboard Image */}

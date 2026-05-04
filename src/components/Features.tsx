@@ -4,7 +4,7 @@ const Features = () => {
   const features = [{
     icon: Package,
     title: "Centraliser",
-    description: "Gérez tous vos stocks depuis une interface unique. Importez, organisez et synchronisez vos articles en quelques clics.",
+    description: "Connectez vos catalogues existants (Shopify, ERP, CSV) et transformez-les en un catalogue structuré, prêt à être distribué.",
     color: "bg-gray-600"
   }, {
     icon: Zap,

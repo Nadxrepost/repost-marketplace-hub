@@ -18,7 +18,7 @@ const Hero = () => {
             </div>
             
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-brand-dark">
-              Publiez une fois, vendez sur plusieurs plateformes
+              Transformez vos stocks en canal de vente rentable.
             </h1>
             
             <p className="text-xl text-gray-600 mb-4 max-w-2xl">Un seul endroit pour piloter votre activité 2<sup>nde</sup> main.</p>

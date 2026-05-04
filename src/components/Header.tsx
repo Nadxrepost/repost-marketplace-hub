@@ -69,7 +69,7 @@ const Header = () => {
               }}
               className="bg-brand-purple hover:bg-brand-purple/90 text-black px-6"
             >
-              Réserver une démo
+              Contactez-nous
             </Button>
           </div>
 

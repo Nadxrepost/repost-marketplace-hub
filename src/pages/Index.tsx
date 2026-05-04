@@ -5,6 +5,7 @@ import Platforms from '@/components/Platforms';
 import BusinessSection from '@/components/BusinessSection';
 import InventorySection from '@/components/InventorySection';
 import SyncSection from '@/components/SyncSection';
+import RevenueCalculator from '@/components/RevenueCalculator';
 import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
@@ -38,6 +39,7 @@ const Index = () => {
       <BusinessSection />
       <InventorySection />
       <SyncSection />
+      <RevenueCalculator />
       <Testimonials />
       <Footer />
     </div>

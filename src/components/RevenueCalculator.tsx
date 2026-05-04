@@ -23,7 +23,7 @@ const RevenueCalculator = () => {
 
   return (
     <section className="py-12 bg-white">
-      <div className="container mx-auto px-6 max-w-3xl">
+      <div className="container mx-auto px-6 max-w-5xl">
         {/* Eyebrow */}
         <div className="inline-block px-3 py-1 rounded-full bg-gray-100 mb-4">
           <span className="text-xs font-semibold tracking-widest text-brand-dark">
@@ -32,7 +32,7 @@ const RevenueCalculator = () => {
         </div>
 
         {/* Heading */}
-        <h2 className="text-2xl md:text-3xl font-bold text-brand-dark mb-2 leading-tight">
+        <h2 className="text-2xl md:text-3xl font-bold text-brand-dark mb-2 leading-tight md:whitespace-nowrap">
           Quel revenu votre stock peut-il réellement générer ?
         </h2>
         <p className="text-sm md:text-base text-gray-600 mb-6">

@@ -1,3 +1,5 @@
+import { Check } from 'lucide-react';
+
 const BusinessSection = () => {
   return <section className="py-20 bg-gradient-to-br from-purple-100/50 to-blue-100/50">
       <div className="container mx-auto px-6">
@@ -8,15 +10,15 @@ const BusinessSection = () => {
             <p className="text-lg text-gray-600 leading-relaxed">Repost vous donne une visibilité complète sur vos performances et vous permet d'optimiser votre distribution comme un véritable canal de vente.</p>
             <ul className="mt-6 space-y-3 text-lg text-gray-600">
               <li className="flex items-start gap-3">
-                <span className="mt-2 w-2 h-2 rounded-full bg-brand-purple flex-shrink-0"></span>
+                <Check className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" strokeWidth={3} />
                 <span>Performance par plateforme</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-2 w-2 h-2 rounded-full bg-brand-purple flex-shrink-0"></span>
+                <Check className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" strokeWidth={3} />
                 <span>Suivi des ventes</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-2 w-2 h-2 rounded-full bg-brand-purple flex-shrink-0"></span>
+                <Check className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" strokeWidth={3} />
                 <span>Gestion centralisée des stocks</span>
               </li>
             </ul>

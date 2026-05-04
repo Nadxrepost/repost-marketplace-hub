@@ -22,33 +22,33 @@ const RevenueCalculator = () => {
     new Intl.NumberFormat('fr-FR').format(value) + ' €';
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-6 max-w-4xl">
+    <section className="py-12 bg-white">
+      <div className="container mx-auto px-6 max-w-3xl">
         {/* Eyebrow */}
-        <div className="inline-block px-4 py-1.5 rounded-full bg-gray-100 mb-6">
+        <div className="inline-block px-3 py-1 rounded-full bg-gray-100 mb-4">
           <span className="text-xs font-semibold tracking-widest text-brand-dark">
             CALCULATEUR
           </span>
         </div>
 
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-brand-dark mb-3 leading-tight">
+        <h2 className="text-2xl md:text-3xl font-bold text-brand-dark mb-2 leading-tight">
           Combien laissez-vous sur la table ?
         </h2>
-        <p className="text-lg text-gray-600 mb-10">
+        <p className="text-sm md:text-base text-gray-600 mb-6">
           Estimez le revenu annuel que votre programme 2<sup>nde</sup> main devrait générer.
         </p>
 
         {/* Card */}
-        <div className="bg-gray-50 rounded-3xl p-8 md:p-10 border border-gray-200">
-          <h3 className="text-xl font-semibold text-brand-dark mb-8">
+        <div className="bg-gray-50 rounded-2xl p-6 md:p-7 border border-gray-200">
+          <h3 className="text-base font-semibold text-brand-dark mb-5">
             Votre programme aujourd'hui
           </h3>
 
           {/* Sliders */}
-          <div className="space-y-6 mb-8">
+          <div className="space-y-4 mb-6">
             <div className="grid grid-cols-[1fr_2fr_auto] items-center gap-6">
-              <label className="text-gray-700">Articles mis en vente / mois</label>
+              <label className="text-sm text-gray-700">Articles mis en vente / mois</label>
               <Slider
                 value={[items]}
                 onValueChange={(v) => setItems(v[0])}
@@ -57,13 +57,13 @@ const RevenueCalculator = () => {
                 step={50}
                 className="[&_[data-orientation=horizontal]]:bg-brand-purple/20 [&_.bg-primary]:bg-brand-purple"
               />
-              <span className="font-semibold text-brand-dark w-20 text-right">
+              <span className="text-sm font-semibold text-brand-dark w-20 text-right">
                 {items.toLocaleString('fr-FR')}
               </span>
             </div>
 
             <div className="grid grid-cols-[1fr_2fr_auto] items-center gap-6">
-              <label className="text-gray-700">Prix moyen par article (€)</label>
+              <label className="text-sm text-gray-700">Prix moyen par article (€)</label>
               <Slider
                 value={[avgPrice]}
                 onValueChange={(v) => setAvgPrice(v[0])}
@@ -72,13 +72,13 @@ const RevenueCalculator = () => {
                 step={5}
                 className="[&_[data-orientation=horizontal]]:bg-brand-purple/20 [&_.bg-primary]:bg-brand-purple"
               />
-              <span className="font-semibold text-brand-dark w-20 text-right">
+              <span className="text-sm font-semibold text-brand-dark w-20 text-right">
                 {avgPrice} €
               </span>
             </div>
 
             <div className="grid grid-cols-[1fr_2fr_auto] items-center gap-6">
-              <label className="text-gray-700">Sell-through actuel</label>
+              <label className="text-sm text-gray-700">Sell-through actuel</label>
               <Slider
                 value={[sellThrough]}
                 onValueChange={(v) => setSellThrough(v[0])}
@@ -87,23 +87,23 @@ const RevenueCalculator = () => {
                 step={1}
                 className="[&_[data-orientation=horizontal]]:bg-brand-purple/20 [&_.bg-primary]:bg-brand-purple"
               />
-              <span className="font-semibold text-brand-dark w-20 text-right">
+              <span className="text-sm font-semibold text-brand-dark w-20 text-right">
                 {sellThrough}%
               </span>
             </div>
           </div>
 
           {/* Result */}
-          <div className="bg-white rounded-2xl p-6 flex items-center justify-between mb-4 border border-gray-200">
+          <div className="bg-white rounded-xl p-4 flex items-center justify-between mb-3 border border-gray-200">
             <div>
-              <p className="font-semibold text-brand-dark">
+              <p className="text-sm font-semibold text-brand-dark">
                 Revenu annuel additionnel estimé avec Repost
               </p>
-              <p className="text-sm text-gray-500 mt-1">
+              <p className="text-xs text-gray-500 mt-0.5">
                 Basé sur +40% de sell-through moyen constaté chez nos clients
               </p>
             </div>
-            <p className="text-3xl md:text-4xl font-bold text-orange-600 whitespace-nowrap ml-4">
+            <p className="text-2xl md:text-3xl font-bold text-orange-600 whitespace-nowrap ml-4">
               +{formatEuro(additionalRevenue)}
             </p>
           </div>
@@ -112,7 +112,7 @@ const RevenueCalculator = () => {
           <Button
             variant="outline"
             onClick={() => navigate('/contact')}
-            className="w-full bg-white border-gray-300 text-brand-dark hover:bg-gray-50 py-6 text-base font-medium"
+            className="w-full bg-white border-gray-300 text-brand-dark hover:bg-gray-50 py-4 text-sm font-medium"
           >
             Obtenir mon estimation personnalisée
             <ArrowUpRight className="w-4 h-4 ml-2" />

@@ -21,7 +21,6 @@ const Hero = () => {
               Transformez vos stocks en canal de vente rentable.
             </h1>
             
-            <p className="text-xl text-gray-600 mb-4 max-w-2xl">Un seul endroit pour piloter votre activité 2<sup>nde</sup> main.</p>
             <p className="text-lg text-gray-500 mb-8 max-w-2xl">Distribuez automatiquement vos stocks 2<sup>nde</sup> main, invendus et retours sur les marketplaces sans charges opérationnelles supplémentaires.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">

@@ -62,10 +62,7 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Button 
               onClick={() => {
-                console.log('Header demo button clicked!');
-                const url = 'https://calendly.com/repostapp/30min';
-                console.log('Opening URL:', url);
-                window.open(url, '_blank', 'noopener,noreferrer');
+                window.location.href = 'mailto:hello@repost.fashion';
               }}
               className="bg-brand-purple hover:bg-brand-purple/90 text-black px-6"
             >

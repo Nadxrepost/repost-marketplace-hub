@@ -18,7 +18,7 @@ const Hero = () => {
             </div>
             
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-brand-dark">
-              Les acheteurs sont déjà sur les marketplaces. Votre stock ne l'est pas.
+              Transformez vos stocks en canal de vente rentable.
             </h1>
             
             <p className="text-lg text-gray-500 mb-8 max-w-2xl">Distribuez automatiquement vos stocks 2<sup>nde</sup> main, invendus et retours sur les marketplaces sans charges opérationnelles supplémentaires.</p>

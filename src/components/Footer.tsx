@@ -8,9 +8,9 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img src="/lovable-uploads/254b0023-f77e-4b19-88d7-097a1d29a292.png" alt="Repost Logo" className="w-10 h-10" />
-              <span className="text-2xl font-bold">REPOST</span>
+              <span className="text-2xl font-bold">Repost Fashion</span>
             </div>
-            <p className="text-gray-300 mb-6 max-w-md">Repost Fashion est l'infrastructure qui permet aux marques, retaillers et revendeurs 2<sup>nde</sup> main de transformer leur stock en canal de vente sur les marketplaces.</p>
+            <p className="text-gray-300 mb-6 max-w-md">Repost Fashion est l'infrastructure qui permet aux marques, retaillers et revendeurs seconde main de transformer leur stock en canal de vente sur les marketplaces.</p>
             <div className="flex space-x-4">
               <a href="https://www.instagram.com/_repost.fashion/" target="_blank" rel="noopener noreferrer" className="w-16 h-16 flex items-center justify-center hover:opacity-80 transition-opacity">
                 <img src="/lovable-uploads/47bd37b5-d3a6-458a-b0b1-c2a4a6370eee.png" alt="Instagram" className="w-14 h-14" />
@@ -52,7 +52,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Repost.fashion Tous droits réservés.</div>
+          <div className="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Repost.fashion Tous droits réservés.</div>
           <div className="flex space-x-6 text-sm">
             <Link to="/legal-notice" className="text-gray-400 hover:text-white transition-colors">
               Mentions légales

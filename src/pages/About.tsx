@@ -54,14 +54,6 @@ const About = () => {
                 Repost Fashion s'inscrit dans cette logique.
               </p>
               
-              <div className="mt-8 mb-8">
-                <h2 className="text-3xl font-bold mb-6">Notre Mission</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Chez Repost, nous croyons que la seconde main mérite des outils professionnels. 
-                  Notre mission est de simplifier et d'automatiser la gestion multi-plateformes pour 
-                  que vous puissiez vous concentrer sur l'essentiel : développer votre activité.
-                </p>
-              </div>
             <div className="mt-8 mb-8">
                 <img src="/lovable-uploads/e411c12f-b01a-4c9e-9451-d723007a4d45.png" alt="Équipe Repost - Deux femmes souriantes représentant l'esprit collaboratif de notre entreprise" className="w-full max-w-2xl mx-auto rounded-lg shadow-lg" />
               </div>

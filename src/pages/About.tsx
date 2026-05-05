@@ -19,40 +19,39 @@ const About = () => {
             <div className="mb-12">
               <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Tout à commencé par une idée…
+                Faire de la 2<sup>nde</sup> main le premier choix.<br />
+                C'est le point de départ.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Trop de tâches chronophages empêchent les revendeurs de se concentrer sur l'essentiel : sourcer et développer son activité.
+                Repost Fashion est né de cette volonté : réduire la production de déchets textiles en devenant le partenaire stratégique 2<sup>nde</sup> main des marques et des professionnels du secteur.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Lister ses annonces, les publier, les dupliquer et les retirer manuellement de chaque plateforme après chaque vente... tout cela prend énormément de temps.
+                Avant cela, Nadine et Nadège Bikounkou opèrent directement sur le terrain, à la fois pour leur propre e-shop vintage et pour le compte de marques et de particuliers.<br />
+                Elles gèrent la mise en vente de chaque pièce, manuellement, sur plusieurs plateformes.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Et comment nous le savons ?
+                Très vite, une limite apparaît.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                En tant que professionnels de la seconde main, nous l'avons vécu !
+                Faute d'outils adaptés et automatisés, chaque action devient chronophage.<br />
+                Publier, dupliquer, gérer… tout repose sur des tâches répétitives qui ralentissent l'activité.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                En février 2020, nous avons lancé notre e-shop 100% vintage.
+                Face à ce constat, elles prennent une décision simple : construire leur propre système.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Nos pépites ont rapidement attiré l'attention de certaines marketplaces comme Imparfaites, Vestiaire Collective, Asos Marketplaces… et nous sommes devenues des vendeuses partenaires.
+                Une plateforme pensée pour répondre à une réalité concrète.<br />
+                Une solution qui deviendra Repost Fashion.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Gérer nos annonces à la fois sur notre e-shop et sur les marketplaces est très vite devenu un casse tête.
+                Fortes de leur expérience dans la mode durable, une conviction s'impose.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Des solutions existent sur le marché, mais rien n'ést adapté à l'écosystème de la seconde main.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Alors comment simplifier le quotidien de milliers de vendeurs ?
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                REPOST est né d'une frustration, d'un besoin…
+                La mode ne pourra pas réduire son impact sans outils plus intelligents.<br />
+                La technologie est une condition nécessaire à l'émergence d'un nouveau modèle.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Nous sommes les fondatrices de REPOST, le super assistant qui permet de publier des milliers d'annonces sur les plateformes de mode seconde main.
+                Repost Fashion s'inscrit dans cette logique.
               </p>
               
               <div className="mt-8 mb-8">

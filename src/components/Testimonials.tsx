@@ -43,7 +43,7 @@ const Testimonials = () => {
             Ils nous font confiance
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Découvrez comment Repost transforme l'activité de nos utilisateurs
+            Découvrez comment Repost Fashion transforme l'activité de nos utilisateurs
           </p>
         </div>
 
@@ -120,7 +120,7 @@ const Testimonials = () => {
 
         {/* Repost est soutenu par */}
         <div className="text-center mt-24 -mx-6 px-6 py-12 bg-gray-50">
-          <p className="text-lg text-gray-600 font-bold mb-6">Repost est soutenu par :</p>
+          <p className="text-lg text-gray-600 font-bold mb-6">Repost Fashion est soutenu par :</p>
           <div className="flex items-center gap-4 justify-center">
             <img src={stationFLogo} alt="Station F" className="h-10" />
             <img src={diversidaysLogo} alt="Diversidays" className="h-16" />

@@ -19,14 +19,14 @@ const About = () => {
             <div className="mb-12">
               <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Faire de la 2<sup>nde</sup> main le premier choix.<br />
+                Faire de la seconde main le premier choix.<br />
                 C'est le point de départ.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Repost Fashion est né de cette volonté : réduire la production de déchets textiles en devenant le partenaire stratégique 2<sup>nde</sup> main des marques et des professionnels du secteur.
+                Repost Fashion est né de cette volonté : réduire la production de déchets textiles en devenant le partenaire stratégique seconde main des marques et des professionnels du secteur.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Avant cela, Nadine et Nadège Bikounkou opèrent directement sur le terrain, à la fois pour leur propre e-shop vintage et pour le compte de marques et de particuliers.<br />
+                Avant cela, Nadine et Nadège Bikounkou opèrent directement sur le terrain, à la fois pour leur propre e-commerce vintage et pour le compte de marques et de particuliers.<br />
                 Elles gèrent la mise en vente de chaque pièce, manuellement, sur plusieurs plateformes.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">

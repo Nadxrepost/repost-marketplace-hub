@@ -12,12 +12,6 @@ const Footer = () => {
             </div>
             <p className="text-gray-300 mb-6 max-w-md">Repost Fashion est l'infrastructure qui permet aux marques, retaillers et revendeurs 2<sup>nde</sup> main de transformer leur stock en canal de vente sur les marketplaces.</p>
             <div className="flex space-x-4">
-              <a href="https://www.youtube.com/@repost.fashion" target="_blank" rel="noopener noreferrer" className="w-16 h-16 flex items-center justify-center hover:opacity-80 transition-opacity">
-                <img src="/lovable-uploads/7eb31316-f7c7-44d1-b31f-3c5f2e4f0390.png" alt="YouTube" className="w-14 h-14" />
-              </a>
-              <a href="https://www.tiktok.com/@lesnadstwinsintech" target="_blank" rel="noopener noreferrer" className="w-16 h-16 flex items-center justify-center hover:opacity-80 transition-opacity">
-                <img src="/lovable-uploads/21f8988a-e9ad-44ee-ace3-522d50c2ad50.png" alt="TikTok" className="w-14 h-14" />
-              </a>
               <a href="https://www.instagram.com/_repost.fashion/" target="_blank" rel="noopener noreferrer" className="w-16 h-16 flex items-center justify-center hover:opacity-80 transition-opacity">
                 <img src="/lovable-uploads/47bd37b5-d3a6-458a-b0b1-c2a4a6370eee.png" alt="Instagram" className="w-14 h-14" />
               </a>

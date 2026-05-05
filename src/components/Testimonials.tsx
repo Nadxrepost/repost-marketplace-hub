@@ -43,7 +43,7 @@ const Testimonials = () => {
             Ils nous font confiance
           </h2>
           <p className="text-xl text-gray-600 mx-auto whitespace-nowrap">
-            Découvrez comment Repost Fashion transforme l'activité de nos utilisateurs
+            Découvrez comment Repost Fashion transforme l'activité de nos clients.
           </p>
         </div>
 

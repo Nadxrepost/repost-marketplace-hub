@@ -52,8 +52,8 @@ const Platforms = () => {
       <div className="container mx-auto px-6">
         <div className="mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4 text-center">Les acheteurs sont déjà sur les marketplaces. Votre stock ne l'est pas.</h2>
-          <p className="text-xl text-gray-600 text-left">Les programmes de revente échouent souvent pour une raison simple : ils restent isolés sur le site des marques.</p>
-          <p className="text-xl text-gray-600 text-left mt-4">Repost connecte votre stock à la demande existante et automatise sa distribution.</p>
+          <p className="text-xl text-gray-600 text-center">Les programmes de revente échouent souvent pour une raison simple : ils restent isolés sur le site des marques.</p>
+          <p className="text-xl text-gray-600 text-center mt-4">Repost connecte votre stock à la demande existante et automatise sa distribution.</p>
         </div>
 
         <div className="grid grid-cols-8 gap-4">

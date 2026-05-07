@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Anyone can view approved comments" ON public.comments;

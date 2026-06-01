@@ -45,6 +45,12 @@ const Header = () => {
               Blog
             </Link>
             <Link 
+              to="/ressources"
+              className="text-gray-600 hover:text-brand-purple transition-colors"
+            >
+              Ressources
+            </Link>
+            <Link 
               to="/about"
               className="text-gray-600 hover:text-brand-purple transition-colors"
             >
@@ -90,6 +96,13 @@ const Header = () => {
                 className="text-gray-600 hover:text-brand-purple transition-colors text-left"
               >
                 Blog
+              </Link>
+              <Link 
+                to="/ressources"
+                onClick={handleMenuClose}
+                className="text-gray-600 hover:text-brand-purple transition-colors text-left"
+              >
+                Ressources
               </Link>
               <Link 
                 to="/about"

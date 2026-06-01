@@ -2,6 +2,13 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ChevronDown } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
@@ -44,12 +51,23 @@ const Header = () => {
             >
               Blog
             </Link>
-            <Link 
-              to="/ressources"
-              className="text-gray-600 hover:text-brand-purple transition-colors"
-            >
-              Ressources
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-gray-600 hover:text-brand-purple transition-colors outline-none">
+                Ressources
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-white">
+                <DropdownMenuItem asChild>
+                  <Link to="/blog">Blog</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/livre-blanc">Livre blanc</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/cahiers-de-tendances">Cahiers de tendances</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link 
               to="/about"
               className="text-gray-600 hover:text-brand-purple transition-colors"
@@ -97,13 +115,30 @@ const Header = () => {
               >
                 Blog
               </Link>
-              <Link 
-                to="/ressources"
-                onClick={handleMenuClose}
-                className="text-gray-600 hover:text-brand-purple transition-colors text-left"
-              >
-                Ressources
-              </Link>
+              <div className="flex flex-col space-y-3">
+                <span className="text-gray-900 font-medium">Ressources</span>
+                <Link
+                  to="/blog"
+                  onClick={handleMenuClose}
+                  className="text-gray-600 hover:text-brand-purple transition-colors text-left pl-4"
+                >
+                  Blog
+                </Link>
+                <Link
+                  to="/livre-blanc"
+                  onClick={handleMenuClose}
+                  className="text-gray-600 hover:text-brand-purple transition-colors text-left pl-4"
+                >
+                  Livre blanc
+                </Link>
+                <Link
+                  to="/cahiers-de-tendances"
+                  onClick={handleMenuClose}
+                  className="text-gray-600 hover:text-brand-purple transition-colors text-left pl-4"
+                >
+                  Cahiers de tendances
+                </Link>
+              </div>
               <Link 
                 to="/about"
                 onClick={handleMenuClose}

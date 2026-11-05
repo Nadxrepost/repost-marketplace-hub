@@ -27,7 +27,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={() => {
-              window.open('https://calendly.com/repostapp/30min?month=2026-05', '_blank');
+              window.location.href = '/contact';
             }} size="lg" className="bg-brand-purple hover:bg-brand-purple/90 text-black px-8 py-6 text-lg group">
                 Réserver une démo
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

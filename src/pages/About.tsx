@@ -51,7 +51,7 @@ const About = () => {
                 La technologie est une condition nécessaire à l'émergence d'un nouveau modèle.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Repost Fashion s'inscrit dans cette logique.
+                Repost s'inscrit dans cette logique.
               </p>
               
             <div className="mt-8 mb-8">

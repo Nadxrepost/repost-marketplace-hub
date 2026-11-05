@@ -23,7 +23,7 @@ const About = () => {
                 C'est le point de départ.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Repost Fashion est né de cette volonté : réduire la production de déchets textiles en devenant le partenaire stratégique seconde main des marques et des professionnels du secteur.
+                Repost est né de cette volonté : réduire la production de déchets textiles en devenant le partenaire stratégique seconde main des marques et des professionnels du secteur.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                 Avant cela, Nadine et Nadège Bikounkou opèrent directement sur le terrain, à la fois pour leur propre e-commerce vintage et pour le compte de marques et de particuliers.<br />

@@ -23,8 +23,6 @@ const Hero = () => {
             
             <p className="text-lg text-gray-500 mb-8 max-w-2xl">Distribuez automatiquement vos stocks seconde&nbsp;main, sur les plateformes de seconde main .</p>
 
-            <p className="text-lg text-gray-500 mb-8 max-w-2xl">Connecté à Shopify e, Repost synchronise, distribue et optimise vos ventes en temps réel.</p>
-
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={() => {
               window.location.href = '/contact';

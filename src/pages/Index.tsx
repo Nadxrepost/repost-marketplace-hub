@@ -21,7 +21,7 @@ const Index = () => {
       "price": "0",
       "priceCurrency": "EUR"
     },
-    "description": "Centralisez et pilotez la vente de vos produits de seconde main sur plusieurs plateformes. Repost aide les e-commerçants, retailers et marques, à gagner du temps, réduire les erreurs et structurer leur activité.",
+    "description": "Repost est une solution qui permet aux revendeurs seconde main de gérer leurs stocks sur les plateformes de revente.",
     "operatingSystem": "Web"
   };
 
@@ -29,7 +29,7 @@ const Index = () => {
     <div className="min-h-screen">
       <SEO 
         title="Repost | Vendez la seconde main sur plusieurs plateformes, sans complexité"
-        description="Centralisez et pilotez la vente de vos produits de seconde main sur plusieurs plateformes. Repost aide les e-commerçants, retailers et marques, à gagner du temps, réduire les erreurs et structurer leur activité."
+        description="Repost est une solution qui permet aux revendeurs seconde main de gérer leurs stocks sur les plateformes de revente."
         structuredData={structuredData}
       />
       <Header />

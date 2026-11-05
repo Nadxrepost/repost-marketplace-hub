@@ -21,7 +21,7 @@ const Features = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-brand-dark mb-4 whitespace-nowrap">
-            La plateforme pour <span className="gradient-text">monétiser</span> vos stocks circulaires sur différents canaux de distributions.
+            La plateforme pour <span className="gradient-text">gérer</span> vos stocks circulaires sur différents canaux de distributions.
           </h2>
         </div>
 

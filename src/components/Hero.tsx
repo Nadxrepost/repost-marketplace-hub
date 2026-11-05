@@ -21,7 +21,7 @@ const Hero = () => {
               Transformez vos stocks en canal de vente rentable.
             </h1>
             
-            <p className="text-lg text-gray-500 mb-8 max-w-2xl">Distribuez automatiquement vos stocks seconde&nbsp;main, sur les plateformes de seconde main .</p>
+            <p className="text-lg text-gray-500 mb-8 max-w-2xl">Distribuez automatiquement vos stocks seconde&nbsp;main sur les plateformes de seconde main.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button onClick={() => {

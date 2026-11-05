@@ -67,9 +67,9 @@ const Features = () => {
           <Button 
             size="lg" 
             className="bg-brand-purple hover:bg-brand-purple/90 text-black px-8 py-4 text-lg font-semibold"
-            onClick={() => window.open('https://tally.so/r/mV2xGM', '_blank')}
+            onClick={() => { window.location.href = '/contact'; }}
           >
-            Démarrer maintenant avec Repost
+            Contactez-nous
           </Button>
         </div>
       </div>

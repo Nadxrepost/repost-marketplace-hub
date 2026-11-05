@@ -41,7 +41,7 @@ const About = () => {
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                 Une plateforme pensée pour répondre à une réalité concrète.<br />
-                Une solution qui deviendra Repost Fashion.
+                Une solution qui deviendra Repost.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                 Fortes de leur expérience dans la mode durable, une conviction s'impose.

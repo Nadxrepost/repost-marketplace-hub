@@ -7,7 +7,6 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <img src="/lovable-uploads/254b0023-f77e-4b19-88d7-097a1d29a292.png" alt="Repost Logo" className="w-10 h-10" />
               <span className="text-2xl font-bold">Repost </span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">Repost est une solution qui permet aux  revendeurs seconde main de gérer leurs stock  sur les plateformes de revente.</p>

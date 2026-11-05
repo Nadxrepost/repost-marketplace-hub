@@ -10,7 +10,7 @@ const Footer = () => {
               <img src="/lovable-uploads/254b0023-f77e-4b19-88d7-097a1d29a292.png" alt="Repost Logo" className="w-10 h-10" />
               <span className="text-2xl font-bold">Repost </span>
             </div>
-            <p className="text-gray-300 mb-6 max-w-md">Repost Fashion est une solution qui permet aux  revendeurs seconde main de gérer leurs stock  sur les plateformes de revente.</p>
+            <p className="text-gray-300 mb-6 max-w-md">Repost est une solution qui permet aux  revendeurs seconde main de gérer leurs stock  sur les plateformes de revente.</p>
             <div className="flex space-x-4">
               <a href="https://www.instagram.com/_repost.fashion/" target="_blank" rel="noopener noreferrer" className="w-16 h-16 flex items-center justify-center hover:opacity-80 transition-opacity">
                 <img src="/lovable-uploads/47bd37b5-d3a6-458a-b0b1-c2a4a6370eee.png" alt="Instagram" className="w-14 h-14" />

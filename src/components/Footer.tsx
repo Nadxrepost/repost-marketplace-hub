@@ -1,5 +1,4 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
-import { Link } from 'react-router-dom';
 const Footer = () => {
   return <footer id="contact" className="bg-brand-dark text-white py-20">
       <div className="container mx-auto px-6">

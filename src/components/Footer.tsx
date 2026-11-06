@@ -51,17 +51,6 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Repost.Tous droits réservés.</div>
-          <div className="flex space-x-6 text-sm">
-            <Link to="/legal-notice" className="text-gray-400 hover:text-white transition-colors">
-              Mentions légales
-            </Link>
-            <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
-              Politique de confidentialité
-            </Link>
-            <Link to="/cgu" className="text-gray-400 hover:text-white transition-colors">
-              CGU
-            </Link>
-          </div>
         </div>
       </div>
     </footer>;

@@ -63,12 +63,6 @@ const Header = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Link 
-              to="/about"
-              className="text-gray-600 hover:text-brand-purple transition-colors"
-            >
-              À propos
-            </Link>
           </nav>
 
           {/* CTA Buttons */}
@@ -134,13 +128,6 @@ const Header = () => {
                   Cahiers de tendances
                 </Link>
               </div>
-              <Link 
-                to="/about"
-                onClick={handleMenuClose}
-                className="text-gray-600 hover:text-brand-purple transition-colors text-left"
-              >
-                À propos
-              </Link>
               <div className="flex flex-col space-y-2 pt-4">
                 <Button 
                   onClick={() => {

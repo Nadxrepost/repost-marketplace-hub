@@ -72,7 +72,7 @@ const FAQ = () => {
             Vous avez encore des questions ?
           </h3>
           <Button 
-            onClick={() => navigate('/contact')}
+            onClick={() => { window.location.href = 'mailto:Hello@repost.fashion'; }}
             className="bg-brand-dark hover:bg-brand-dark/90 text-white px-8 py-3 text-lg"
           >
             Contactez-nous

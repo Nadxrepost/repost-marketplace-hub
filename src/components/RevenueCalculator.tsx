@@ -111,7 +111,7 @@ const RevenueCalculator = () => {
           {/* CTA */}
           <Button
             variant="outline"
-            onClick={() => navigate('/contact')}
+            onClick={() => { window.location.href = 'mailto:Hello@repost.fashion'; }}
             className="w-full bg-white border-gray-300 text-brand-dark hover:bg-gray-50 py-4 text-sm font-medium"
           >
             Contactez-nous

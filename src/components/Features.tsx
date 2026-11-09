@@ -65,7 +65,7 @@ const Features = () => {
           <Button 
             size="lg" 
             className="bg-brand-purple hover:bg-brand-purple/90 text-black px-8 py-4 text-lg font-semibold"
-            onClick={() => { window.location.href = '/contact'; }}
+            onClick={() => { window.location.href = 'mailto:Hello@repost.fashion'; }}
           >
             Contactez-nous
           </Button>
